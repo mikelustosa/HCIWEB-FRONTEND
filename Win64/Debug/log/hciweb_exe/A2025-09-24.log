@@ -1,0 +1,16 @@
+HCIWEB.exe: 0000450C: 13:13:19 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000450C: 13:13:19 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000450C: 13:13:19 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 0000450C: 13:13:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000450C: 13:13:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000450C: 15:14:26 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 0000450C: 15:14:26 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 0000450C: 15:14:26 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 0000450C: 15:14:26 []:<-------------------------------------------------------------->
+HCIWEB.exe: 0000450C: 15:14:26 [Terminated]:Exit Code: 0

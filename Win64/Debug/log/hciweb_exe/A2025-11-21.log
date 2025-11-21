@@ -1,0 +1,15 @@
+HCIWEB.exe: 000014AC: 14:05:34 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000014AC: 14:05:34 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000014AC: 14:05:34 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000014AC: 14:05:34 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000041D4: 14:14:35 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000041D4: 14:14:35 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000041D4: 14:14:35 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 000041D4: 14:14:35 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000041D4: 14:14:35 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000082B8: 14:15:17 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000061B4: 14:15:18 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 0000676C: 14:15:18 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 0000676C: 14:16:24 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000061B4: 14:16:24 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 0000248C: 14:16:24 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.

@@ -1,0 +1,1900 @@
+.span-right {
+        float: right;
+}  
+
+html, body {
+	scroll-behavior: smooth; 
+}
+
+
+/*Retira o scroll horizontal do uniHtmlFrame*/
+.x-panel-body-default {
+    border-width: 0px !important;
+    overflow-x: hidden !important;
+}
+
+/*Espaço entre os card*/
+.x-border-box-alt, .x-border-box-alt *{
+    margin-bottom: 0.25rem;
+}
+
+/*Altera o tamanho da fonte dos label badge*/
+.f-ba, .f-badge, .f-label {
+    font-size: 14px;
+}
+
+/*Altera a margem do top em botões btn-outline-secondary*/
+.btn-outline-secondary, .btn-outline-primary, .btn-outline-danger, .btn-outline-warning, .btn-outline-success {
+    margin-top: 1rem !important;
+}
+
+/*Personaliza fa icon do tipo asterisk*/
+.fa-asterisk:before {
+    font-size: 8px !important;
+	vertical-align: text-top !important;
+	margin-left: 0.2rem;
+}
+
+.fa-sf-danger {
+    float: right;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    margin-top: -1rem;
+}
+
+.painel{
+    border-radius: 5px;
+    /*box-shadow: 0 0 0 0px #ff0030, 2px 1px 6px 4px rgba(5, 5, 0, 0.1);*/
+}
+
+.painel-com-borda-combo {
+    border: 1px solid;
+    border-radius: 3px;
+	border-color: #d4d4d4;
+}
+
+.painel-com-borda {
+    border: 1px solid #bababa !important; /*cinza escuro*/
+    border-radius: 5px;
+}
+
+.painel-com-borda-quadrada {
+    border: 1px solid #bababa !important; /*cinza escuro*/
+    border-radius: 0px;
+}
+
+.painel-sem-borda {
+    border: 0px solid;
+    border-radius: 3px;
+}
+
+.painel-com-borda-m {
+    border: 1px solid #bababa !important; /*cinza escuro*/
+    border-radius: 4px;
+}
+
+.painel-com-borda-sombra{
+    border-radius: 3px;
+    /*box-shadow: 0 0 0 0px #ff0030, 2px 1px 6px 4px rgba(5, 5, 0, 0.1);*/
+	box-shadow: 2px 1px 8px rgba(8, 8, 8, 0.2);
+}
+
+.painel-sem-borda-sombra{
+    border: none;
+    /*box-shadow: 0 0 0 0px #ff0030, 2px 1px 6px 4px rgba(5, 5, 0, 0.1);*/
+	box-shadow: 2px 1px 8px rgba(8, 8, 8, 0.2);
+}
+
+.botao {
+	border: 1px solid #d4d4d4 !important; /* Green */
+	border-radius: 5px;
+	font-color: #000000 !important;
+}
+
+.botao:hover {
+ text-decoration: none;
+}
+
+.botaoSemBorda {
+	border: none !important; /* Green */
+	border-radius: 0px;
+	font-color: black !important;
+	text-decoration: none !important;
+}
+
+.botaoSemBorda:hover {
+ text-decoration: none !important;
+}
+
+.botaoSemDec:hover {
+	text-decoration: none;
+}
+
+
+.f-btn-danger {
+    color: #fff !important;
+    background-color: #330704 !important;
+    border-color: #f44336 !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #282B33;
+	cursor: pointer !important; /* Cursor pointer quando sobre a barra de rolagem */	
+}
+ 
+/* Handle Cor da barra de rolagem*/
+::-webkit-scrollbar-thumb {
+  background: #282B33;
+  cursor: pointer !important; /* Cursor pointer quando sobre a barra de rolagem */
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6580f0;
+}
+
+/*Firefox 64
+:root{
+   scrollbar-color: transparent transparent;
+   scrollbar-width: none;
+}*/
+
+.x-scroller {
+    cursor: default;
+}
+
+
+/*desabilitando o loading inicial*/
+#loading-mask, #loading-indicator, #loading {
+  display: none;
+}
+
+
+.body_grdnt
+{
+ background: #ffffff; /* Old browsers */
+ background: -moz-linear-gradient(top,  #ffffff 0%, #eff1f7 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eff1f7)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* IE10+ */
+ background: linear-gradient(to bottom,  #ffffff 0%,#eff1f7 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eff1f7',GradientType=0 ); /* IE6-9 */
+}  
+
+
+.body_grdnt_dark {
+  background: #121212; /* cor fallback */
+  background: -moz-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1e1e), color-stop(100%,#0d0d0d)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Opera */
+  background: -ms-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1e1e1e 0%, #0d0d0d 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1e1e', endColorstr='#0d0d0d', GradientType=0); /* IE6-9 */
+  color: #ffffff; /* texto claro para contraste */
+}
+
+
+/*Fundo da aba do tabcontrol*/
+.x-tab-bar-default {
+  background: #1e1e1e; /* fallback */
+  background: -moz-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1e1e), color-stop(100%,#0d0d0d)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* Opera */
+  background: -ms-linear-gradient(top, #1e1e1e 0%, #0d0d0d 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1e1e1e 0%, #0d0d0d 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1e1e', endColorstr='#0d0d0d', GradientType=0); /* IE6-9 */
+  border-bottom: 1px solid #2b2b2b !important; /* borda discreta */
+}
+
+
+
+.body_grdnt_blue
+{
+ background: #046ddb; /* Old browsers */
+ background: -moz-linear-gradient(top,  #046ddb 0%, #004b99 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#046ddb), color-stop(100%,#004b99)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top,  #046ddb 0%,#004b99 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top,  #046ddb 0%,#004b99 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top,  #046ddb 0%,#004b99 100%); /* IE10+ */
+ background: linear-gradient(to bottom,  #046ddb 0%,#004b99 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#046ddb', endColorstr='#004b99',GradientType=0 ); /* IE6-9 */
+} 
+
+.body_grdnt_rounded
+{
+ background: #ffffff; /* Old browsers */
+ background: -moz-linear-gradient(top,  #ffffff 0%, #eff1f7 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eff1f7)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* IE10+ */
+ background: linear-gradient(to bottom,  #ffffff 0%,#eff1f7 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eff1f7',GradientType=0 ); /* IE6-9 */
+ border-radius: 4px;
+}
+
+.body_grdnt_rounded_cinza
+{
+  background: #f5f5f5; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f5f5f5 0%, #e0e0e0 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f5f5f5 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f5f5f5 0%,#e0e0e0 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f5f5f5 0%,#e0e0e0 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f5f5f5 0%,#e0e0e0 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+  border-radius: 4px;
+}
+
+
+.body_grdnt_rounded_blue
+{
+ background: #ffffff; /* Old browsers */
+ background: -moz-linear-gradient(top,  #ffffff 0%, #1e46bd 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#1e46bd)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top,  #ffffff 0%,#1e46bd 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top,  #ffffff 0%,#1e46bd 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top,  #ffffff 0%,#1e46bd 100%); /* IE10+ */
+ background: linear-gradient(to bottom,  #ffffff 0%,#1e46bd 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1e46bd',GradientType=0 ); /* IE6-9 */
+ border-radius: 4px;
+}
+
+/*Texto gradiente azul*/
+.texto_grdnt
+{
+   background-color: #576dfa !important;
+   background-image: linear-gradient(45deg, #576dfa, #273669);
+   background-size: 100%;
+   -webkit-background-clip: text;
+   -moz-background-clip: text;
+   -webkit-text-fill-color: transparent; 
+   -moz-text-fill-color: transparent;
+} 
+
+/*Form animation*/
+.x-css-shadow {
+  display: none;
+}
+
+.x-mask {
+  opacity: .9;
+  background-color: #FFF !important;
+}
+
+.animation-form {
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  z-index: 19002 !important;
+}
+ @-webkit-keyframes animation-form {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes animation-form {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animation-form {
+    -webkit-animation-name: animation-form;
+    animation-name: animation-form;
+ }
+ 
+ .animation-form-sem-zindex {
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+ @-webkit-keyframes animation-form-sem-zindex {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes animation-form-sem-zindex {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animation-form-sem-zindex {
+    -webkit-animation-name: animation-form-sem-zindex;
+    animation-name: animation-form-sem-zindex;
+  }
+
+/*Background opaco ao usar form modal*/
+.customWindow.x-mask {
+   opacity: 0.7;
+   background: rgb(10, 10, 10) repeat scroll 0% 0% !important;
+}
+
+.x-mask {
+    background: none repeat scroll 0 0 #00070a;
+    opacity: 0.7;
+} 
+
+
+.botaoPadrao{
+    border-radius: 4px;
+} 
+
+.botaoPadrao:hover {
+ text-decoration: none !important;
+}
+
+.botaoPadrao2{
+    border-radius: 5px;
+} 
+
+.botaoPadrao2:hover {
+ text-decoration: none;
+}
+
+.botaoPadraoManipulacao {
+    border-radius: 100px;
+}
+
+.botaoPadraoManipulacao:hover {
+ text-decoration: none;
+}
+
+.formPadrao{
+    border-radius: 10px;
+} 
+
+.buscaPadrao{
+    border-radius: 20px !important;
+} 
+
+
+/*Edits arredondados*/
+.x-form-text {
+   border-radius: 0px !important;
+   transition: 180ms box-shadow ease-in-out; 
+}
+
+.badgeText {
+	font-size: 15px; !important;
+}
+
+.x-form-text-wrap-focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 3px rgba(0,0,0,.075), 0 0 2px rgba(102,175,233,.6);  //8px For shadow size 
+    box-shadow: inset 0 50px 50px rgba(0,0,0,.075), 0 0 2px rgba(102,175,233,.6);          //8px For shadow size 
+}
+
+.x-htmleditor-iframe-focus {
+	border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 50px 50px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);  //8px For shadow size 
+    box-shadow: inset 0 50px 50px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);          //8px For shadow size	
+}
+
+/*Labels*/
+.x-panel-body-default {
+   font-family: Segoe UI;
+   color: #000000;
+ }
+ 
+ /*edits*/
+.x-form-text-default {
+   font-family: Segoe UI;
+   color: #000000;
+}
+
+/*Objeto com transparencia*/
+.objTransparente {
+	opacity: 0.8;
+}
+
+/*CSS dos cards*/ 
+.notice {
+  top: 10px;
+  padding: 5px;
+  background-color: #fafafa;
+  border-left: 5px solid #7f7f84;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
+  font-size: 14px;
+}
+
+.notice-success>strong {
+  color: #80D651;
+}
+
+.notice-info {
+  border-color: #45ABCD;
+}
+
+.notice-info>strong {
+  color: #45ABCD;
+}
+
+.notice-warning {
+  border-color: #FEAF20;
+}
+
+.notice-warning>strong {
+  color: #FEAF20;
+}
+
+.notice-danger {
+  border-color: #d73814;
+}
+
+.notice-danger>strong {
+  color: #d73814;
+}
+
+.notice-verde {
+  border-color: #02b838;
+}
+
+.notice-verde>strong {
+  color: #02b838;
+}
+
+.notice-verde-claro {
+  border-color: #57ad71;
+}
+
+.notice-verde>strong {
+  color: #57ad71;
+}
+
+.notice-success {
+  border-color: #02a807;
+}
+
+.notice-success>strong {
+  color: #02a807;
+}
+
+.notice-amarelo {
+  border-color: #eded05;
+}
+
+.notice-amarelo>strong {
+  color: #eded05;
+}
+
+.notice-dark {
+  border-color: #000000;
+}
+
+.notice-ciano {
+  border-color: #02587d;
+}
+
+.notice-primary {
+  border-color: #079ef0;
+}
+
+.notice-ciano>strong {
+  color: #02587d;
+}
+
+.notice-cinza {
+  border-color: #050505;
+}
+
+.notice-cinza>strong {
+  color: #050505;
+}
+
+.notice-orange {
+  border-color: #ff7700;
+}
+
+.notice-orange>strong {
+  color: #ff7700;
+}
+
+
+.notice-branco>strong {
+  color: #ffffff;
+}
+
+
+.pointer {cursor: pointer;}
+
+.card2 {
+  display: block;
+  top: 0px;
+  position: relative;
+  max-width: auto;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0px 0px;
+  margin: 5px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 0px solid white;
+}
+.card2:hover {
+  transition: all 0.2s ease-out;
+  /*box-shadow: 0px 1px 1px rgba(8, 8, 8, 0.2);*/
+  top: -4px;
+  border: 0px solid;
+  background-color: white;
+}
+.card2:before {
+  /*content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #00838d;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(2);
+  transform-origin: 50% 50%;
+  transition: transform 0.15s ease-out; */
+}
+.card2:hover:before {
+  transform: scale(2.15);
+}
+
+.card2:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.1);
+    transform: translateY(4px);
+}
+
+/*Cards relatorios*/
+/*
+.card3 {
+  display: block;
+  top: 0px;
+  position: relative;
+  max-width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0px 0px;
+  margin: 5px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 0.2px solid grey;
+}
+.card3:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 0.2px solid white;
+  background-color: white;
+}
+.card3:before {
+
+}
+.card3:hover:before {
+  transform: scale(2.15);
+}*/
+
+
+
+.card3 {
+  max-width: 100%; 
+  background-color: white;
+  border-radius: 4px;
+  padding: 0px;
+  margin: 5px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 0.2px solid grey;
+  position: relative;
+  flex: 0 0 calc(33.33% - 10px);
+}
+
+.card3:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 0.2px solid white;
+  background-color: white;
+}
+
+
+.card3:hover:before {
+  transform: scale(2.15);
+}
+
+
+
+
+
+/*Cards componentes*/
+.card4 {
+  display: block;
+  top: 0px;
+  position: relative;
+  max-width: 262px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0px 0px;
+  margin: 0px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  border: 0.1px solid #e6eded;
+}
+.card4:hover {
+  transition: all 0.2s ease-out;
+  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  top: -4px;
+  border: 0px solid white;
+  background-color: white;
+}
+.card4:before {
+  /*content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #00838d;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(2);
+  transform-origin: 50% 50%;
+  transition: transform 0.15s ease-out; */
+}
+.card4:hover:before {
+  transform: scale(2.15);
+}
+
+
+/*CSS MENU LATERAL - INICIO*/
+.menu .x-tree-icon {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;    
+}
+.menu .x-tree-elbow-img {
+    width: 18px;
+    height: 30px;
+    line-height: 32px;
+}
+.menu .x-tree-node-text {
+     line-height: 24px;
+     cursor: pointer;  
+     font: 600 12px/15px Segoe UI;
+}
+
+.menu .x-tree-view { 
+  background-color: #F0F0F0;
+}
+.menu .x-tree-view .x-grid-item {
+  background-color: #F0F0F0;   
+}
+
+.menu .x-tree-view .x-grid-item-alt {
+  background-color: BlueViolet;
+}
+
+.menu .x-tree-view .x-grid-item-over {
+  background-color: Aqua !important;
+}
+
+.menu .x-tree-view .x-grid-item-selected {
+  background-color: Aquamarine !important;
+}
+
+.menu .x-tree-view .x-grid-item-focused .x-grid-cell-inner:before {
+  border: none;
+  color: black;
+}
+
+/*Menu suspenso*/
+.x-treelist-floater {
+  width: 370px !important; /* Defina a largura desejada */	
+  background-color: rgba(50, 64, 78, 0.9); /* Cor #32404e com 20% de transparência */
+}
+
+.x-treelist-nav .x-treelist-row-over > * > .x-treelist-item-text {
+	color: #0f0f0f !important;
+}
+/*CSS MENU LATERAL - FIM*/
+
+.avatar img {
+  vertical-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.avatar:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.2);
+    transform: translateY(4px);
+}
+
+.avatar25 img {
+  vertical-align: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.avatar40 img {
+  vertical-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar40:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.2);
+    transform: translateY(4px);
+}
+
+.avatarClick img {
+  vertical-align: center;
+  border-radius: 50%;
+}
+
+.avatarClick:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.2);
+    transform: translateY(4px);
+}
+
+.imgAnimeClick img {
+	vertical-align: center;
+}
+
+.imgAnimeClick:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.2);
+    transform: translateY(4px);
+}
+
+.negrito {
+	font-weight: bold;
+}
+
+.avatarNo img {
+	vertical-align: center;
+}
+
+.avatarNo:active {
+    box-shadow: 10px 5px 10px rgba(38, 38, 38, 0.2);
+    transform: translateY(4px);
+}
+
+.comboBoxDefault {
+   width: 120px;
+   height: 30px;
+   border: 0px solid #ffffff;
+   font-size: 16px;
+   color: #ffffff;
+   background-color: #ffffff;
+}
+
+.comboBoxDefault#xyz {
+    border: none; !important;
+}
+
+.x-myfield-focus {
+   border-color: #7eadd9;
+   background-color: #FFFFE1;
+   color: #FF0000;
+   background-image: none;
+   border-radius: 50%;
+}
+
+
+/*Campo de busca*/
+.containerBusca {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+	
+.btn-text-top {
+  background-color: #f5f6fa;
+  border: 1px solid rgba(255, 255, 255, .1);
+  padding: 15px 50px 15px 30px;
+  border-radius: 20px;
+  width: 80%!important;
+  height: 22px;
+  font-weight: 300;
+  color: #8795a2;
+}
+	
+.btn-buscar-top {
+  width: 20px!important;
+  height: 22px;
+  background: url(http://www.devmedia.com.br/imagens/2013/buscar_grey.png) no-repeat;
+  cursor: pointer!important;
+  border: none;
+  transform: translateY(-50%);
+  padding: 0;
+  position: relative;
+  top: -15px;
+  left: 67%;
+}
+
+
+.myToggler {
+   text-shadow: 0.5px 0.5px 0.5px #000000; 
+}
+
+.myCardDefault {
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.myCardDefaultMenor {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.cardProntuarioModelo {
+  border-width: 3px;
+  border-style: dashed;
+  border-color: #e9edf5;
+}
+
+/*Form sem bordas*/
+.x-panel-default {
+   border-style: none !important;
+}
+
+.x-tab-bar-default {
+    background-color: #EFF1F7;
+}
+
+
+
+/*Loading button*/
+/*
+Modo de usar
+
+No inicio da rotina:
+UniSession.AddJS(btnProcedimentos.JSName + '.setDisabled(true)');
+UniSession.AddJS('$(''#'+btnProcedimentos.JSId+''').addClass(''button--loading'')');
+
+
+No final da rotina:
+UniSession.AddJS(btnProcedimentos.JSName + '.setDisabled(false)');
+UniSession.AddJS('$(''#'+btnProcedimentos.JSId+''').removeClass(''button--loading'')');
+*/
+
+.button--loading .x-btn-inner {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #5c5c5c;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+
+/*Loading cor branca*/
+.button--loading--white .x-btn-inner {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading--white::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+
+/*Botao tremulo*/
+@-webkit-keyframes btn-tremura {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+@keyframes btn-tremura {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+.btn-tremura {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /*Incluir esse treco para acionamento automatico*/
+  -webkit-animation-name: btn-tremura;
+  animation-name: btn-tremura;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+  /*Incluir esse treco para acionamento automatico*/
+}
+.btn-tremura:hover, .btn-tremura:focus, .btn-tremura:active {
+  -webkit-animation-name: btn-tremura;
+  animation-name: btn-tremura;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+/*Alinha o texto da célula do uniDBGrid*/
+.x-grid-cell {
+	vertical-align: middle;
+}
+ 
+.x-grid-cell-inner {
+	line-height: 100%;
+}
+
+.htmlMemo {
+  background-color: green;
+}
+
+#myProgress {
+  width: 100%;
+  height: 1% !important;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#myBar {
+  width: 0%;
+  height: 5px;
+  background-color: #029bed;
+  border-radius: 20px;
+}
+
+.select#xyz {
+	border: none !important;
+}
+
+/*Remove a borda o uniSFComboBox*/
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: none;
+    border-radius: 0px;
+	font-size: 14px;
+}
+
+/*Titulo selecionado das abas do uniPageControl*/
+.x-tab-default {
+    border-color: none;
+    border-radius: 5px;
+}
+
+.f-btn-inverse {
+    background-color: #29303a!important;
+}
+
+input#rbAlt {
+   transform: scale(2);
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+    background-color: #fff;
+    cursor: default;
+}
+
+/*Substituindo a cor laranja do TUniSFToggle pela cor azul*/
+.fsSwt>.fsSwt-switch-box>.fsSwt-switch-item.fsSwt-switch-item-color-warning {
+    background-color: #337ab7!important;
+}
+
+.btn-orange {	
+	
+	/*background-color: #ff7700; /* Substitua pelo código da cor personalizada desejada */
+	/*color: #ffffff; /* Substitua pela cor de texto desejada */
+	/*--bs-btn-hover-bg: #e66c02;
+	--bs-btn-hover-border-color: #e66c02;
+	--bs-btn-hover-color: #ffffff;
+	*/
+	--bs-btn-color: #e66c02;
+    --bs-btn-border-color: #e66c02;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #e66c02;
+    --bs-btn-hover-border-color: #e66c02;
+    --bs-btn-focus-shadow-rgb: 220,53,69;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #e66c02;
+    --bs-btn-active-border-color: #e66c02;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #e66c02;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #e66c02;
+    --bs-gradient: none;
+}
+
+.badge-orange {
+  background-color: #ff7700; /* Substitua pelo código da cor personalizada desejada */
+  color: #ffffff; /* Substitua pela cor de texto desejada */
+}
+
+button, input, optgroup, select, textarea {
+    margin: 15px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/*necessário para alinhar botões da classe "btn btn-outline-danger btn-sm btn-block" no uniDBGrid*/
+.x-grid-cell-inner {
+    position: relative;
+    text-overflow: ellipsis;
+    padding: 0px 10px 0px;
+}
+
+/*retira o retângulo da celula selecionada do uniDBGrid*/
+.x-grid-cell-inner {
+    display: contents;
+}
+
+/*Força alinhamento center do texto no uniDBGrid*/
+.x-grid-row {
+    outline: none;
+    text-align: center;
+}
+
+input, optgroup, select, textarea {
+    margin: 0px !important;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.form-transparent {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+/* Definindo a classe para o efeito de fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animation-form-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+
+/* Definindo a animação */
+@keyframes animation-form-fade-in {
+  from {
+    opacity: 0; /* Começa invisível */
+  }
+  to {
+    opacity: 1; /* Termina visível */
+  }
+}
+
+.texto-sem-margem {
+    margin-left: -15px;   /* Ajuste o valor conforme necessário */
+    margin-right: 150px;  /* Ajuste o valor conforme necessário */
+}
+
+.card-sem-margem {
+    margin-left: -10px;   /* Ajuste o valor conforme necessário */
+    margin-right: 100px;  /* Ajuste o valor conforme necessário */
+}
+
+/* Definindo texto sem sublinhado no uniSFToggle */
+.fsSwt>.fsSwt-switch-box.switch-animated-on>.fsSwt-switch-item.active {
+    opacity: 1;
+    text-decoration: none !important;
+}
+/*Altera a cor verde padrao do btn-success*/
+.f-btn-success {
+    color: #fff!important;
+    background-color: #58a303!important;
+    border-color: #58a303 !important;
+}
+
+
+
+.night-trigger {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    padding: 10px;
+    font-size: 18px;
+    background: #212121;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
+    text-align: center;
+}
+.loading{
+    width: 320px;
+    height: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -30px;
+    text-align: center;
+    display: none;
+}
+
+.loading .fa{
+   color: #16a085; 
+   font-size: 52px;
+}
+
+.success-mesg{
+    background: #fff;
+    width: 320px;
+    height: 200px;
+    font-size: 13px;
+    padding: 15px 10px;
+    position: fixed;
+    box-shadow: 2px 2px 8px #000;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -160px;
+    text-align: center;
+    color: #444;
+    animation: showUp .4s forwards;
+ -webkit-animation: showUp .4s forwards;
+    display: none;
+    box-sizing: border-box;
+}
+
+@keyframes showUp {
+ from { transform: scale(0.2);
+      -webkit-transform: scale(0.2);}
+ to { transform: scale(1);
+      -webkit-transform: scale(1); }
+  }
+-webkit-@keyframes showUp {
+ from { transform: scale(0.2);
+      -webkit-transform: scale(0.2);}
+ to { transform: scale(1);
+      -webkit-transform: scale(1); }
+  }
+
+.success-mesg .large{
+    font-size: 52px;
+    display: block;
+    color: #16a085;
+    background: #fff;   
+}
+
+.confirm{
+    padding: 10px;
+    background: #16a085;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.confirm:hover{
+    background: #333;
+    transition: .2s;
+  -webkit-transition: .2s;
+}
+
+.success-mesg .fa-adjust{
+   left: 40px;
+}
+.success-mesg .fa-adjust,
+.success-mesg span{
+    position: absolute;
+    font-size: 16px;
+}
+.success-mesg span{
+    right: 20px;
+}
+
+.scrollable-div {
+    overflow-y: scroll !important;
+    overflow-x: scroll !important;
+    scrollbar-color: #e0e0e0 transparent;
+}
+
+/*Cor do toggle info*/
+.fsSwt>.fsSwt-switch-box>.fsSwt-switch-item.fsSwt-switch-item-color-info {	
+	background-color: #337ab7 !important
+}
+
+/*Aumentando o (x) da aba do TUniPageControl*/
+.x-tab-default.x-tab-active .x-tab-close-btn {
+    background-position: 0 -10px;
+}
+
+.x-tab-icon-left > .x-tab-icon-el-default, .x-tab-icon-right > .x-tab-icon-el-default {
+    width: 16px;
+    font-size: 14px;
+}
+
+/*Fundo do html frame*/
+.cardUnif-list, .selected-cards {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #eff1f7;
+}
+
+.x-form-cb-input {
+	opacity: 100%;
+}
+
+.padrao {
+	background-color: white !important;
+	border: 0px solid gray;
+
+	box-shadow: 0px 0px 0px gray;
+	-webkit-box-shadow: box-shadow: 1px 1px 1px gray;
+	-moz-box-shadow: box-shadow: 1px 1px 1px gray;
+	padding: 0;
+}
+
+.fade {
+	-webkit-animation: fadeIn 0.75s ease-in-out;
+	-moz-animation: fadeIn 0.75s ease-in-out;
+	-o-animation: fadeIn 0.75s ease-in-out;
+	animation: fadeIn 0.75s ease-in-out;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.jack {
+	-webkit-animation: jackInTheBox 0.3s;
+	-moz-animation: jackInTheBox 0.3s;
+	-o-animation: jackInTheBox 0.3s;
+
+	animation-name: jackInTheBox 0.3s;
+}
+
+.slide {
+	-webkit-animation: fadeInRight 0.5s;
+	-moz-animation: fadeInRight 0.5s;
+	-o-animation: fadeInRight 0.5s;
+	animation: fadeInRight 0.5s; 
+}
+
+.zoom {
+	-webkit-animation: zoomIn 0.5s;
+	-moz-animation: zoomIn 0.5s;
+	-o-animation: zoomIn 0.5s;
+	animation: zoomIn 0.5s;
+}
+
+/*Tema Crisp ocultar na barra de titulo do uniDBGrid*/
+.x-column-header {
+    border-right: none;
+    color: #666;
+    font: 300 13px / 15px helvetica, arial, verdana, sans-serif;
+    outline: 0;
+    background-color: #fff;
+}
+
+
+/*Ajuste do título da aba do TUniPageControll*/
+.x-tab-default {
+    /*border-color: #f5f5f5;*/
+    cursor: pointer;
+    margin: 0; /* Remove qualquer espaçamento entre as abas */
+    padding: 0; /* Ajusta o preenchimento */
+	border-radius: 3px;
+}
+
+.x-tab {
+    display: block;
+    outline: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+    height: 25px;
+    margin-right: -1; /* Remove qualquer espaço entre as abas */
+    /*background-color: #f5f5f5; /* Cor de fundo para todas as abas */
+    border: none; /* Remove bordas entre as abas */
+    padding: 0 10px; /* Adiciona espaçamento à esquerda e à direita do texto */
+}
+
+.x-tab-inner-default {
+    font: 300 15px / 18px helvetica, arial, verdana, sans-serif;
+    color: #000;
+    max-width: 100%;
+}
+
+.x-tab-bar-default {
+    background-color: #9caddf21;
+}
+
+.x-tab-close-btn {
+    margin-top: 5px;
+	margin-right: 3px;
+}
+
+.x-tab-default.x-tab-active .x-tab-close-btn {
+    background-position: 0 -12px;
+	margin-right: 3px;
+}
+
+/*Remove a linha inferior do titulo no uniDBgrid*/
+.x-grid-header-ct {
+    border-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-top-width: 1px !important;
+	background-color: #e5eaf9;
+}
+
+/*Altera a cor de fundo do titulo no uniDBgrid*/
+.x-column-header-inner {
+    padding: 7px 10px;
+    background-color: #e5eaf9;
+}
+
+/*Centraliza o texto do titulo no uniDBgrid*/
+.x-column-header-text {
+    text-overflow: clip !important;
+    text-align: center;
+}
+
+/*Fundo do titulo do uniPanel tipo collapsed*/
+.x-panel-header-default {
+    background-image: none;
+    /*background-color: #cfdde900;*/
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #eff1f7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eff1f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#eff1f7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#eff1f7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eff1f7',GradientType=0 ); /* IE6-9 */
+}
+
+/*Esconde as bordas do uniContainerPanel*/
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: none;
+    border-width: 0;
+    background-color: #eff1f7;
+}
+
+/* Altera o cursor do mouse para os uniRadioButton*/
+.x-form-cb-input {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+/*Remove a borda do uniDateTimePicker*/
+.x-form-trigger-wrap-default {
+    border-width: 1px;
+    border-style: none;
+    border-color: #cfcfcf;
+}
+
+/*Garante que o btn-group-sm ocupe toda a largura do card e quebre a linha automaticamente*/
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    width: 80%;
+    box-sizing: border-box;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/*Altera a largura do uniSFSwitAlert*/
+.swal2-popup {
+    display: none;cMovMarcacoesUrgenciaPacientesTriagem
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    padding: 1.25em;
+    border-radius: .3125em;
+    background: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/*Deixa os uniRadioButtons sem opacidade*/
+.x-form-item-default.x-item-disabled {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    opacity: 1;
+}
+
+/*Deixa os uniCheckBox sem opacidade*/
+.x-form-cb-input {
+    opacity: 0%;
+    cursor: pointer;
+}
+
+/*Centraliza o icone no centro do botão*/
+.x-btn-text.x-btn-icon-top > .x-btn-icon-el-default-medium {
+    margin-bottom: 0px;
+}
+
+/*Deixa o fundo branco do titulo no pagecontrol*/
+.x-tab-bar-default {
+    background-color: #ffffff21;
+}
+
+/*Deixa o fundo na cor por herança no titulo do pageControl*/
+.x-panel-body-default {
+    font-family: Segoe UI;
+    color: #000000;
+    background-color: #eff1f7;
+}
+
+/* Efeito css para piscar uma bola verde intermitente */
+.bola-verde-pisca {
+  color: green; /* cor inicial */
+  animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}
+
+/* Efeito css para pulsar uma bola verde intermitente */
+.bola-verde-pulsando {
+  color: green;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/*Remover margem no top do pagecontrol*/
+.x-tab-bar-default-top > .x-tab-bar-body-default {
+    padding: 0px;
+}
+
+
+/* ====== DBGRID DARK (aplique em LayoutConfig.cls = dbgrid-dark) ====== */
+
+/* Painel e corpo do grid */
+.dbgrid-dark,
+.dbgrid-dark .x-panel,
+.dbgrid-dark .x-panel-body,
+.dbgrid-dark .x-grid,
+.dbgrid-dark .x-grid-body,
+.dbgrid-dark .x-grid-view {
+  border: none !important;
+  background-color: #121212 !important;
+  color: #eaeaea !important;
+  border-color: #121212 !important;
+}
+
+/* Cabeçalho das colunas */
+.dbgrid-dark .x-grid-header-ct,
+.dbgrid-dark .x-column-header,
+.dbgrid-dark .x-column-header-default,
+.dbgrid-dark .x-column-header-over,
+.dbgrid-dark .x-column-header-inner {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border-color: #1e1e1e !important; /* mesma cor do fundo */
+  font-weight: 600;
+}
+
+/* Células e linhas */
+.dbgrid-dark .x-grid-item,
+.dbgrid-dark .x-grid-item td,
+.dbgrid-dark .x-grid-cell,
+.dbgrid-dark .x-grid-cell-inner {
+  background-color: #121212 !important;
+  color: #eaeaea !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Zebra (linha alternada) */
+.dbgrid-dark .x-grid-item.x-grid-item-alt td {
+  background-color: #151515 !important;
+}
+
+/* Hover na linha */
+.dbgrid-dark .x-grid-item-over,
+.dbgrid-dark .x-grid-item-over .x-grid-cell,
+.dbgrid-dark .x-grid-item-over .x-grid-cell-inner {
+  background-color: #1b1b1b !important;
+  color: #ffffff !important;
+}
+
+/* Selecionada */
+.dbgrid-dark .x-grid-item-selected,
+.dbgrid-dark .x-grid-item-selected .x-grid-cell,
+.dbgrid-dark .x-grid-item-selected .x-grid-cell-inner {
+  background-color: #2c3e50 !important;
+  color: #ffffff !important;
+}
+
+/* Barra de paginação / toolbars do grid */
+.dbgrid-dark .x-toolbar,
+.dbgrid-dark .x-toolbar-default,
+.dbgrid-dark .x-pagingtoolbar {
+  background-color: #121212 !important;
+  color: #eaeaea !important;
+  border-color: #2b2b2b !important;
+}
+
+/* Links/ícones dentro do grid (ex.: <a>, ícones FontAwesome) */
+.dbgrid-dark a { color: #ffffff !important; }
+
+
+.btn-dark-custom {
+  background: #1e1e1e; /* fallback */
+  background: linear-gradient(to bottom, #2a2a2a 0%, #121212 100%);
+  color: #ffffff !important;
+  border: 1px solid #333;
+  font-weight: 500;
+}
+
+.btn-dark-custom:hover {
+  background: linear-gradient(to bottom, #3a3a3a 0%, #1e1e1e 100%);
+  color: #ffffff !important;
+  border: 1px solid #444;
+}
+
+
+.btn-dark-custom:hover {
+  background: linear-gradient(to bottom, #3a3a3a 0%, #1e1e1e 100%);
+  color: #ffffff !important;
+  border: 1px solid #444;
+}
+
+.btn-red-custom {
+  background: #dc3545; /* fallback */
+  background: linear-gradient(to bottom, #e04b57 0%, #c82333 100%);
+  color: #ffffff !important;
+  border: 1px solid #b21f2d;
+  font-weight: 500;
+}
+
+.btn-red-custom:hover {
+  background: linear-gradient(to bottom, #e95a64 0%, #dc3545 100%);
+  color: #ffffff !important;
+  border: 1px solid #a71d2a;
+}
+
+.btn-custom {
+  color: #ffffff !important;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.edit-arredondado {
+    padding: 10px 10px;
+    border: none !important;
+	text-decoration: none;
+    border-radius: 5px;
+    background-color: #ffffff; /* cor inicial (azul escuro) */
+    color: #ffffff;
+    font-size: 14pt;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* suaviza a transição */
+}
+
+
+/* Classe para a animação do tipo slide da esquerda para a direita */
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+/* Keyframes para animar da esquerda p/ direita */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%); /* começa fora da tela à esquerda */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* posição final */
+    opacity: 1;
+  }
+}
+
+
+
+/* Aba padrão (reset total) */
+.x-tab.x-tab-default {
+    margin: 0 !important;
+	margin-top: 1px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #707070 !important;   /* cinza escuro */
+    box-shadow: none !important;
+	margin-left: -1px !important;
+    margin-right: -1px !important;
+}
+
+/* Texto da aba (inativa) */
+.x-tab.x-tab-default .x-tab-inner-default {
+    color: #fff !important;
+    padding: 3px 12px !important;  /* respiro do texto */
+    font-weight: 500 !important;
+}
+
+/* Aba ativa */
+.x-tab.x-tab-active.x-tab-default {
+    background: #185eba !important;   /* azul escuro */
+    border: none !important;
+}
+
+/* Texto da aba ativa */
+.x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+
+
+.x-tab-wrap {
+    height: 100%;
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+	margin-left: -3px !important;
+    margin-right: -3px !important;
+}
+
+/* Remove a linha azul lateral que o tema coloca */
+.x-tab-bar-strip-default,
+.x-tab-bar-strip {
+    background: none !important;
+    border: none !important;
+}
+
+/* Remove separadores entre as abas */
+.x-tab-bar .x-tab {
+    border-right: none !important;
+}
+
+/*Margem do icone da aba*/
+.x-tab-icon > .x-tab-icon-el {
+    display: inline-block;
+    margin-left: 10px !important;
+	margin-right: -5px !important;
+	/*color: #93a4ba !important;*/
+	color: #d6d4d4 !important;
+}
+
+/* Borda arredondada na primeira aba ativa (lado esquerdo) */
+.x-tab-bar-default .x-tab-active.x-tab-default:first-child {
+    border-top-left-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+}
+
+/* Borda arredondada na última aba ativa (lado direito) */
+.x-tab-bar-default .x-tab-active.x-tab-default:last-child {
+    border-top-right-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+}
+
+/* Ícone com círculo piscante */
+.x-tab.x-tab-default .x-tab-inner-default::before {
+    content: "\25CF";  /* círculo ● (Unicode) */
+    font-size: 12px;
+    color: #fff; /* cor do círculo */
+    margin-right: 8px; /* espaço entre ícone e texto */
+    display: inline-block;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+/* Animação do piscar */
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+

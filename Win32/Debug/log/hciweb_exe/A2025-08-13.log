@@ -1,0 +1,51 @@
+HCIWEB.exe: 000065E8: 11:09:02 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000065E8: 11:09:02 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000065E8: 11:09:02 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000065E8: 11:09:02 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000065E8: 11:09:47 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 000065E8: 11:09:47 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 000065E8: 11:09:48 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 000065E8: 11:09:48 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 000065E8: 11:09:48 []:<-------------------------------------------------------------->
+HCIWEB.exe: 000065E8: 11:09:48 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00007708: 11:10:11 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00007708: 11:10:11 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00007708: 11:10:11 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00007708: 11:10:11 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004FC0: 12:50:43 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004FC0: 12:50:43 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004FC0: 12:50:43 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00004FC0: 12:50:43 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004FC0: 12:50:43 [InitWebServer]:EIdCouldNotBindSocket : Could not bind socket. Address and port are already in use. : Addr: $006D6685
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00004FC0: 12:50:48 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00004FC0: 12:50:48 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00004FC0: 12:50:48 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00000EB8: 12:50:55 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000EB8: 12:50:55 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000EB8: 12:50:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000EB8: 12:50:55 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000658C: 12:50:57 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win32\Debug\files\css\style.css
+HCIWEB.exe: 00000EB8: 12:52:45 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00000EB8: 12:52:45 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00000EB8: 12:52:46 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00000EB8: 12:52:46 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00000EB8: 12:52:46 [Terminated]:Exit Code: 0

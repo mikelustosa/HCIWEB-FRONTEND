@@ -1,0 +1,229 @@
+HCIWEB.exe: 00002B14: 12:25:25 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002B14: 12:25:25 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002B14: 12:25:25 [TUniServerModule]:Global Cache Folder Erased. <28> Files deleted.
+HCIWEB.exe: 00002B14: 12:25:25 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002B14: 12:25:25 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005928: 12:54:14 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00005928: 12:54:14 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00005928: 12:54:14 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00005928: 12:54:14 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00005928: 12:54:14 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004270: 12:55:12 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004270: 12:55:12 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004270: 12:55:12 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00004270: 12:55:12 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004270: 12:55:12 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001A70: 12:56:49 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001A70: 12:56:49 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001A70: 12:56:49 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 00001A70: 12:56:49 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001A70: 12:56:49 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000061C4: 12:57:56 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000061C4: 12:57:56 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000061C4: 12:57:56 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 000061C4: 12:57:56 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000061C4: 12:57:56 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00000EC4: 12:57:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00000EC4: 12:57:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00000EC4: 12:57:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00000EC4: 12:57:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001E5C: 12:58:46 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001E5C: 12:58:46 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001E5C: 12:58:46 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 00001E5C: 12:58:46 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001E5C: 12:58:46 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002CB4: 12:58:48 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00000544: 13:00:55 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000544: 13:00:55 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000544: 13:00:55 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00000544: 13:00:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000544: 13:00:55 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000556C: 13:00:58 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000556C: 13:00:58 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000556C: 13:00:58 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004140: 13:02:11 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004140: 13:02:11 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004140: 13:02:11 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00004140: 13:02:11 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004140: 13:02:11 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006E7C: 13:02:11 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004548: 13:06:05 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004548: 13:06:05 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004548: 13:06:05 [TUniServerModule]:Global Cache Folder Erased. <12> Files deleted.
+HCIWEB.exe: 00004548: 13:06:05 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004548: 13:06:05 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003900: 13:06:06 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004548: 13:22:35 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
+HCIWEB.exe: 00001B1C: 18:30:36 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001B1C: 18:30:36 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001B1C: 18:30:36 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00001B1C: 18:30:36 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001B1C: 18:30:36 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000025DC: 18:32:34 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000025DC: 18:32:34 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000025DC: 18:32:34 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 000025DC: 18:32:34 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000025DC: 18:32:34 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006EF4: 18:34:55 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006EF4: 18:34:55 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006EF4: 18:34:55 [TUniServerModule]:Global Cache Folder Erased. <7> Files deleted.
+HCIWEB.exe: 00006EF4: 18:34:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006EF4: 18:34:55 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004274: 18:34:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004274: 18:34:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004274: 18:34:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004274: 18:34:56 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005D74: 18:40:50 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00005D74: 18:40:50 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00005D74: 18:40:50 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00005D74: 18:40:50 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00005D74: 18:40:50 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000057CC: 18:40:53 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000057CC: 18:40:53 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000057CC: 18:40:53 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000057CC: 18:40:53 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000057CC: 18:40:53 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001120: 18:41:01 [127.0.0.1]:EAccessViolation : Access violation at address 000000000100B0FB in module 'HCIWEB.exe'. Read of address 0000000000000000 : Addr: $000000000100B0FB
+HCIWEB.exe: 000030A0: 18:41:40 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000030A0: 18:41:40 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000030A0: 18:41:40 [TUniServerModule]:Global Cache Folder Erased. <7> Files deleted.
+HCIWEB.exe: 000030A0: 18:41:40 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000030A0: 18:41:40 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003E6C: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003E6C: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000048B4: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003E6C: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003E6C: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000048B4: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003E6C: 18:41:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001114: 18:42:57 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001114: 18:42:57 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001114: 18:42:57 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 00001114: 18:42:57 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001114: 18:42:57 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000037B8: 18:43:19 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000037B8: 18:43:19 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000037B8: 18:43:19 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 000037B8: 18:43:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000037B8: 18:43:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000005E8: 18:43:20 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005428: 18:43:30 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 00003718: 18:44:11 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003718: 18:44:11 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003718: 18:44:11 [TUniServerModule]:Global Cache Folder Erased. <6> Files deleted.
+HCIWEB.exe: 00003718: 18:44:11 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003718: 18:44:11 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005B74: 18:44:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005B74: 18:44:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005B74: 18:44:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005B74: 18:44:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00005B74: 18:44:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000025EC: 18:44:21 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 000025EC: 18:44:29 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 00003B94: 18:45:02 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003B94: 18:45:02 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003B94: 18:45:02 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00003B94: 18:45:02 [TUniServerModule]:Global Cache Folder Erased. <6> Files deleted.
+HCIWEB.exe: 00003B94: 18:45:02 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003B94: 18:45:02 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005970: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000034A4: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004064: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00002284: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00006948: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00002F24: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003EE8: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000476C: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000050D0: 18:45:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001CF8: 18:45:44 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 00001CF8: 18:46:07 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 00001CF8: 18:46:16 [127.0.0.1]:EAccessViolation : Access violation at address 0000000000BBF189 in module 'HCIWEB.exe'. Read of address 0000000000000528 : Addr: $0000000000BBF189
+HCIWEB.exe: 000024F8: 18:46:44 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000024F8: 18:46:44 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000024F8: 18:46:44 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 000024F8: 18:46:44 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000024F8: 18:46:44 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000017A8: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000025DC: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000025DC: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000056DC: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00002414: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00002414: 18:46:45 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00001C30: 18:47:00 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000025DC: 18:47:00 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000056DC: 18:47:00 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00006D70: 18:49:52 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006D70: 18:49:52 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006D70: 18:49:52 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 00006D70: 18:49:52 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006D70: 18:49:52 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000064B4: 18:50:10 [127.0.0.1]:EAccessViolation : Access violation at address 000000000100B0D3 in module 'HCIWEB.exe'. Read of address 0000000000000000 : Addr: $000000000100B0D3
+HCIWEB.exe: 000064B4: 18:50:20 [127.0.0.1]:EAccessViolation : Access violation at address 000000000100B0D3 in module 'HCIWEB.exe'. Read of address 0000000000000000 : Addr: $000000000100B0D3
+HCIWEB.exe: 0000436C: 18:51:45 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000436C: 18:51:45 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000436C: 18:51:45 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 0000436C: 18:51:45 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000436C: 18:51:45 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006CDC: 18:52:50 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006CDC: 18:52:50 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006CDC: 18:52:50 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 00006CDC: 18:52:50 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006CDC: 18:52:50 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000691C: 18:52:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003A68: 18:53:45 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003A68: 18:53:45 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003A68: 18:53:45 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 00003A68: 18:53:45 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003A68: 18:53:45 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006B64: 18:53:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00006B64: 18:53:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000066FC: 18:54:47 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000066FC: 18:54:47 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000066FC: 18:54:47 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 000066FC: 18:54:47 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000066FC: 18:54:47 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00004EE0: 18:54:47 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00006098: 18:55:46 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006098: 18:55:46 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006098: 18:55:46 [TUniServerModule]:Global Cache Folder Erased. <8> Files deleted.
+HCIWEB.exe: 00006098: 18:55:46 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006098: 18:55:46 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003BB4: 18:55:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003CD0: 18:56:33 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003CD0: 18:56:33 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003CD0: 18:56:33 [TUniServerModule]:Global Cache Folder Erased. <7> Files deleted.
+HCIWEB.exe: 00003CD0: 18:56:33 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003CD0: 18:56:33 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000062A8: 18:56:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000062A8: 18:56:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000062A8: 18:56:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 000062A8: 18:56:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 00003CD0: 18:58:07 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0

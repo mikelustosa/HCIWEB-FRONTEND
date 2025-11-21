@@ -1,0 +1,200 @@
+HCIWEB.exe: 0000159C: 17:18:55 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000159C: 17:18:55 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000159C: 17:18:55 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 0000159C: 17:18:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000159C: 17:18:55 [InitWebServer]:EIdCouldNotBindSocket : Could not bind socket. Address and port are already in use. : Addr: $000000000082E717
+HCIWEB.exe: 0000159C: 17:19:00 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 0000159C: 17:19:00 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 0000159C: 17:19:01 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 0000159C: 17:19:01 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 0000159C: 17:19:01 []:<-------------------------------------------------------------->
+HCIWEB.exe: 0000159C: 17:19:01 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00003390: 17:19:04 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003390: 17:19:04 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003390: 17:19:04 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003390: 17:19:04 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002A98: 17:20:40 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002A98: 17:20:40 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002A98: 17:20:40 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00002A98: 17:20:40 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002A98: 17:20:40 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003F34: 17:20:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006DDC: 17:21:13 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006DDC: 17:21:13 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006DDC: 17:21:13 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00006DDC: 17:21:13 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006DDC: 17:21:13 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000022C0: 17:21:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00005A64: 17:21:57 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00005A64: 17:21:57 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00005A64: 17:21:57 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00005A64: 17:21:57 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00005A64: 17:21:57 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00000F14: 17:21:57 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00000B98: 17:22:34 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000B98: 17:22:34 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000B98: 17:22:34 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00000B98: 17:22:34 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000B98: 17:22:34 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005EA4: 17:22:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 000061DC: 17:23:08 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000061DC: 17:23:08 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000061DC: 17:23:08 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 000061DC: 17:23:08 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000061DC: 17:23:08 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006820: 17:23:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006820: 17:23:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006820: 17:23:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006820: 17:23:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006820: 17:23:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00006FF0: 17:24:02 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006FF0: 17:24:02 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006FF0: 17:24:02 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00006FF0: 17:24:02 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006FF0: 17:24:02 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00007564: 17:24:03 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00007564: 17:24:03 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00007564: 17:24:03 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00007A54: 17:28:31 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00007A54: 17:28:31 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00007A54: 17:28:31 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00007A54: 17:28:31 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00007A54: 17:28:31 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004A08: 17:28:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00004A08: 17:28:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 000044E8: 17:28:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $00000000009207FA
+HCIWEB.exe: 00004A08: 17:28:50 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00006790: 17:28:50 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 000053C8: 17:28:50 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000075F0: 17:30:04 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000075F0: 17:30:04 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000075F0: 17:30:04 [TUniServerModule]:Global Cache Folder Erased. <6> Files deleted.
+HCIWEB.exe: 000075F0: 17:30:04 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000075F0: 17:30:04 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006F64: 17:30:19 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00005368: 17:30:19 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 0000781C: 17:30:19 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00002D78: 17:33:30 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002D78: 17:33:30 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002D78: 17:33:30 [TUniServerModule]:Global Cache Folder Erased. <6> Files deleted.
+HCIWEB.exe: 00002D78: 17:33:30 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002D78: 17:33:30 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001E2C: 17:33:34 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00000894: 17:33:34 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00004624: 17:33:34 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00007234: 17:34:10 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00007234: 17:34:10 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00007234: 17:34:10 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 00007234: 17:34:10 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00007234: 17:34:10 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000039E8: 17:34:12 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00006D28: 17:34:12 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 0000548C: 17:34:12 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00004174: 17:37:51 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004174: 17:37:51 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004174: 17:37:51 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 00004174: 17:37:51 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004174: 17:37:51 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002144: 17:37:54 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00007670: 17:37:54 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000010E4: 17:37:54 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 000038AC: 17:40:07 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000038AC: 17:40:07 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000038AC: 17:40:07 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 000038AC: 17:40:07 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000038AC: 17:40:07 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000075E4: 17:40:10 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 000075E4: 17:40:21 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00003958: 17:40:21 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000075F0: 17:40:21 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 000075F0: 17:41:11 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00003958: 17:41:11 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00004084: 17:41:11 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 0000549C: 17:45:55 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00000DF0: 17:45:55 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00006564: 17:45:55 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00006C34: 17:48:32 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00006AB0: 17:48:32 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00006AB8: 17:48:32 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 000034A0: 17:49:24 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00006AB8: 17:49:25 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00000880: 17:49:25 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00000880: 17:50:08 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00006AB8: 17:50:09 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00006AB0: 17:50:09 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00006F34: 17:50:48 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00005EDC: 17:50:48 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00002544: 17:50:48 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00002544: 17:51:27 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00005EDC: 17:51:27 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00002E7C: 17:51:27 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00005EDC: 17:51:58 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00002E7C: 17:51:58 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00003EC0: 17:51:58 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00002E7C: 17:52:48 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00002DC0: 17:52:49 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000044DC: 17:52:49 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00002DC0: 17:53:46 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00002F78: 17:53:46 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000079FC: 17:53:46 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00006118: 17:56:19 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00003DA8: 17:56:19 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00006568: 17:56:19 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00007380: 17:57:31 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00007380: 17:57:31 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00007380: 17:57:31 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00007380: 17:57:31 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00007380: 17:57:31 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00007190: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00007190: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00006304: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00006304: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00006304: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00007190: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00007190: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00007190: 17:57:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00004C54: 17:58:11 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00004C54: 17:58:11 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00004C54: 17:58:11 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 00004C54: 17:58:11 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00004C54: 17:58:11 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00004E98: 17:58:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00004E98: 17:58:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00004E98: 17:58:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00004394: 17:58:13 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $0000000000920BCA
+HCIWEB.exe: 00004C54: 17:58:53 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00004C54: 17:58:53 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00004C54: 17:58:54 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00004C54: 17:58:54 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00004C54: 17:58:54 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00004C54: 17:58:54 [Terminated]:Exit Code: 0
+HCIWEB.exe: 0000756C: 18:00:01 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000756C: 18:00:01 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000756C: 18:00:01 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000756C: 18:00:01 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000054C8: 18:08:01 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00000FDC: 18:08:01 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00004FB8: 18:08:01 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000050D8: 18:08:57 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000033D4: 18:08:58 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 000017F8: 18:08:58 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00006F74: 18:09:41 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000017F8: 18:09:42 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00002B80: 18:09:42 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 000033D4: 18:10:20 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 000020EC: 18:10:20 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00005850: 18:10:20 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 00007AB8: 18:13:52 [HandleFileRequest[127.0.0.1]]:File not found: C:\Github\HCI WEB\Win64\Debug\.well-known\appspecific\com.chrome.devtools.json
+HCIWEB.exe: 00003E9C: 18:13:52 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\socket.io.js.map.
+HCIWEB.exe: 00007748: 18:13:52 [HandleFileRequest[127.0.0.1]]:Access denied: C:\Github\HCI WEB\Win64\Debug\files\js\chart.umd.js.map.
+HCIWEB.exe: 0000756C: 19:11:36 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0

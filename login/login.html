@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulário Personalizado</title>
+</head>
+<body>
+    <section class="form-container">
+        <div class="container">
+            <form>
+                <img id="logo-form" src="./image/logo.png" alt="Logo" 
+                    style="display:block; margin: 0 auto 15px auto; width:190px; height:auto;">
+                <p>Preencha o formulário abaixo para entrar no sistema</p>
+                <div class="input-single">
+                    <input class="input" type="text" id="usuario" required>
+                    <label for="usuario">&nbsp&nbsp&nbsp Usuário</label>
+                </div>
+                <div class="input-single">
+                    <input class="input" type="password" id="senha" required>
+                    <label for="senha">&nbsp;&nbsp;&nbsp; Senha</label>
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Entrar" onclick="selectButton(event)">
+                </div>
+                <div style="text-align:center; margin-top:10px;">
+                    <a href="#" style="color:#2D5966; text-decoration:none;">Esqueci minha senha</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script> 
+        // Converte string (Unicode) -> Base64 (via UTF-8)
+		function toBase64Utf8(str) {
+			if (window.TextEncoder) {
+			  const bytes = new TextEncoder().encode(str); // UTF-8
+			  let bin = "";
+			  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+			  return btoa(bin);
+			} else {
+			  // Fallback (legacy): funciona, mas usa unescape (deprecado)
+			  return btoa(unescape(encodeURIComponent(str)));
+			}
+		}
+		
+		function selectButton(event) {
+            event.preventDefault(); // evita o envio do formulário
+            let usuario = document.getElementById("usuario").value;
+			let senha = document.getElementById("senha").value;
+            
+			const jsonString = JSON.stringify({ usuario, senha });
+			const usuarioESenhaBase64 = toBase64Utf8(jsonString);
+			
+			//alert(usuarioESenhaBase64);
+			
+			top.ajaxRequest(frmLogin.htmlLogin, "login:"+usuarioESenhaBase64, []); 
+        }
+    </script>
+</body>
+</html>

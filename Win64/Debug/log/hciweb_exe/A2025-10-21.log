@@ -1,0 +1,25 @@
+HCIWEB.exe: 00008670: 11:08:48 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00008670: 11:08:48 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00008670: 11:08:48 [TUniServerModule]:Global Cache Folder Erased. <2> Files deleted.
+HCIWEB.exe: 00008670: 11:08:48 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00008670: 11:08:48 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00006450: 11:11:15 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00006450: 11:11:15 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00006450: 11:11:15 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00006450: 11:11:15 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 00006450: 11:11:15 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00006450: 11:11:15 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005248: 11:13:36 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00005248: 11:13:36 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00005248: 11:13:36 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00005248: 11:13:36 [TUniServerModule]:Global Cache Folder Erased. <4> Files deleted.
+HCIWEB.exe: 00005248: 11:13:36 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00005248: 11:13:36 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00005754: 11:13:36 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000683C: 11:13:38 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000093CD6A
+HCIWEB.exe: 0000354C: 14:08:37 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000354C: 14:08:37 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000354C: 14:08:37 [TUniServerModule]:Global Cache Folder Erased. <5> Files deleted.
+HCIWEB.exe: 0000354C: 14:08:37 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000354C: 14:08:37 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000354C: 15:31:47 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
