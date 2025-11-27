@@ -182,7 +182,7 @@ procedure TfraCadAtividades.carregaDados;
 begin
   alterando            := true;
   id                   := gridTela.Columns[0].Field.AsString;
-  PreencherCamposDoForm( (Self, ativo, gridTela, nil, 'ALTERA REGISTRO');
+  PreencherCamposDoForm(Self, ativo, gridTela, nil, 'ALTERA REGISTRO');
 end;
 
 procedure TfraCadAtividades.gridTelaCellClick(Column: TUniDBGridColumn);

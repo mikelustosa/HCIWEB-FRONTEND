@@ -33,7 +33,7 @@ object fraCadCartoes: TfraCadCartoes
       Width = 1110
       Height = 718
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0

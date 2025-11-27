@@ -20,8 +20,6 @@ object frmListaBancos: TfrmListaBancos
     Align = alClient
     TabOrder = 0
     Caption = 'UniPanel1'
-    ExplicitLeft = 8
-    ExplicitTop = 8
     object UniScrollBox1: TUniScrollBox
       Left = 1
       Top = 1
@@ -233,7 +231,7 @@ object frmListaBancos: TfrmListaBancos
           end
           item
             FieldName = 'nome'
-            Title.Caption = 'nome'
+            Title.Caption = 'Nome'
             Width = 200
           end
           item

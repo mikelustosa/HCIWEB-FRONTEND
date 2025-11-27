@@ -29,6 +29,7 @@ type
 
 function UniMainModule: TUniMainModule;
 
+//var frameQueChamou : string;
 implementation
 
 {$R *.dfm}
@@ -36,6 +37,7 @@ implementation
 uses
   UniGUIVars, ServerModule, uniGUIApplication, uniGUIClasses, uniGUITypes,
   uConstantes;
+
 
 function UniMainModule: TUniMainModule;
 begin

@@ -3,6 +3,8 @@ object fraCadVendedores: TfraCadVendedores
   Top = 0
   Width = 1056
   Height = 733
+  OnCreate = UniFrameCreate
+  OnReady = UniFrameReady
   TabOrder = 0
   ClientEvents.UniEvents.Strings = (
     
@@ -15,10 +17,6 @@ object fraCadVendedores: TfraCadVendedores
     Height = 693
     Hint = ''
     Align = alClient
-    ExplicitLeft = -17
-    ExplicitTop = 15
-    ExplicitWidth = 1073
-    ExplicitHeight = 718
   end
   object scrFundo: TUniScrollBox
     Left = 0
@@ -28,10 +26,6 @@ object fraCadVendedores: TfraCadVendedores
     Hint = ''
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = -17
-    ExplicitTop = 15
-    ExplicitWidth = 1073
-    ExplicitHeight = 718
     object pgcTela: TUniPageControl
       AlignWithMargins = True
       Left = 3
@@ -43,13 +37,9 @@ object fraCadVendedores: TfraCadVendedores
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 1065
-      ExplicitHeight = 710
       object UniTabSheet1: TUniTabSheet
         Hint = ''
         Caption = 'Listagem'
-        ExplicitWidth = 1057
-        ExplicitHeight = 682
         object gridTela: TUniDBGrid
           Left = 0
           Top = 71
@@ -63,6 +53,8 @@ object fraCadVendedores: TfraCadVendedores
           LayoutConfig.Cls = 'dbgrid-light responsiva mostrar-mobile'
           Align = alClient
           TabOrder = 0
+          OnCellClick = gridTelaCellClick
+          OnDrawColumnCell = gridTelaDrawColumnCell
           Columns = <
             item
               FieldName = 'id'
@@ -111,7 +103,6 @@ object fraCadVendedores: TfraCadVendedores
           Align = alTop
           TabOrder = 1
           LayoutConfig.Cls = 'painel-sem-borda'
-          ExplicitWidth = 1057
           object UniContainerPanel22: TUniContainerPanel
             AlignWithMargins = True
             Left = 0
@@ -202,6 +193,7 @@ object fraCadVendedores: TfraCadVendedores
                     'er.id + "-inputEl").mask('#39'A'#39', {'#13#10'  //translation: {'#13#10'    //A: { ' +
                     'pattern: /^[A-Za-z'#225#224#226#227#233#232#234#237#239#243#244#245#246#250#231#241#193#192#194#195#201#200#205#207#211#212#213#214#218#199#209'\s]+$/g, recurs' +
                     'ive: true },'#13#10'  //},'#13#10'//});  '#13#10'  '#13#10'}')
+                OnKeyPress = edPesquisarKeyPress
               end
             end
           end
@@ -284,8 +276,6 @@ object fraCadVendedores: TfraCadVendedores
         Hint = ''
         TabVisible = False
         Caption = 'tabRegistro'
-        ExplicitWidth = 1057
-        ExplicitHeight = 682
         object UniContainerPanel12: TUniContainerPanel
           AlignWithMargins = True
           Left = 8
@@ -302,7 +292,6 @@ object fraCadVendedores: TfraCadVendedores
           TabOrder = 0
           TabStop = False
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          ExplicitWidth = 1037
           object compTitulo: TUniLabel
             AlignWithMargins = True
             Left = 10
@@ -329,8 +318,6 @@ object fraCadVendedores: TfraCadVendedores
           Align = alClient
           TabOrder = 1
           Caption = 'pn1'
-          ExplicitWidth = 1057
-          ExplicitHeight = 610
           object sBoxFundoRegistro: TUniScrollBox
             Left = 3
             Top = 0
@@ -466,8 +453,6 @@ object fraCadVendedores: TfraCadVendedores
           Align = alBottom
           TabOrder = 2
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          ExplicitTop = 642
-          ExplicitWidth = 1057
           object btnSalvar: TUniSFBitBtn
             AlignWithMargins = True
             Left = 915
@@ -485,12 +470,12 @@ object fraCadVendedores: TfraCadVendedores
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btnSalvarClick
             FAIcon.Icon = fa_check_circle
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 932
           end
           object btnCancelar: TUniSFBitBtn
             AlignWithMargins = True
@@ -509,12 +494,12 @@ object fraCadVendedores: TfraCadVendedores
             TabOrder = 2
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btnCancelarClick
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 802
           end
           object compativo: TUniFSToggle
             AlignWithMargins = True
@@ -531,6 +516,7 @@ object fraCadVendedores: TfraCadVendedores
             ThemeOff = Gray
             TitleOn = 'Ativo'
             TitleOff = 'Inativo'
+            OnToggled = compativoToggled
             Align = alLeft
           end
         end
@@ -547,8 +533,6 @@ object fraCadVendedores: TfraCadVendedores
     Align = alTop
     TabOrder = 2
     TabStop = False
-    ExplicitLeft = -17
-    ExplicitWidth = 1073
     object lblDescricao: TUniLabel
       AlignWithMargins = True
       Left = 46
@@ -579,6 +563,7 @@ object fraCadVendedores: TfraCadVendedores
       TabOrder = 2
       Scale = bbsMedium
       IconAlign = iaTop
+      OnClick = btnNovoClick
       FAIcon.Icon = fa_plus_circle
       FAIcon.Size = fs_24
       FAIcon.Color = fc_primary
@@ -598,7 +583,6 @@ object fraCadVendedores: TfraCadVendedores
       Align = alBottom
       TabOrder = 3
       LayoutConfig.Cls = 'painel-sem-borda'
-      ExplicitWidth = 570
     end
     object btnFechar: TUniSFBitBtn
       AlignWithMargins = True
@@ -620,7 +604,6 @@ object fraCadVendedores: TfraCadVendedores
       FAIcon.Size = fs_16
       FAIcon.Color = fc_grey
       ButtonStyles = bs_transparent
-      ExplicitLeft = 1044
     end
   end
   object alerta: TUniSFSweetAlert
@@ -693,5 +676,19 @@ object fraCadVendedores: TfraCadVendedores
     TopInicialCampos = 20
     Left = 56
     Top = 531
+  end
+  object CDSDados: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 983
+    Top = 334
+    object AggregateField1: TAggregateField
+      FieldName = 'botaoEditar'
+      DisplayName = ''
+    end
+    object AggregateField2: TAggregateField
+      FieldName = 'iconeAtivo'
+      DisplayName = ''
+    end
   end
 end

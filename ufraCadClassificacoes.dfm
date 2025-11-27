@@ -33,7 +33,7 @@ object fraCadClassificacoes: TfraCadClassificacoes
       Width = 923
       Height = 575
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0

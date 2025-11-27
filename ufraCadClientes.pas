@@ -97,7 +97,7 @@ type
     AggregateField1: TAggregateField;
     AggregateField2: TAggregateField;
     UniPanel1: TUniPanel;
-    UniEdit1: TUniEdit;
+    compdescrclf: TUniEdit;
     UniContainerPanel2: TUniContainerPanel;
     UniPanel2: TUniPanel;
     compdAlt: TUniEdit;
@@ -122,7 +122,6 @@ type
     UniPanel14: TUniPanel;
     compnumero: TUniEdit;
     UniContainerPanel13: TUniContainerPanel;
-    UniLabel14: TUniLabel;
     UniPanel15: TUniPanel;
     UniContainerPanel16: TUniContainerPanel;
     UniLabel15: TUniLabel;
@@ -209,58 +208,58 @@ type
     compconsumidor1: TUniRadioButton;
     compconsumidor2: TUniRadioButton;
     UniPanel36: TUniPanel;
-    UniEdit2: TUniEdit;
+    compUltComp: TUniEdit;
     UniContainerPanel37: TUniContainerPanel;
     UniLabel27: TUniLabel;
     UniPanel37: TUniPanel;
-    UniEdit3: TUniEdit;
+    compCliDesde: TUniEdit;
     UniContainerPanel38: TUniContainerPanel;
     UniLabel31: TUniLabel;
     UniPanel38: TUniPanel;
-    UniEdit4: TUniEdit;
+    compDNasc: TUniEdit;
     UniContainerPanel39: TUniContainerPanel;
     UniLabel32: TUniLabel;
     UniPanel39: TUniPanel;
     UniPanel40: TUniPanel;
     UniPanel41: TUniPanel;
-    UniEdit5: TUniEdit;
+    compAtiv: TUniEdit;
     UniContainerPanel40: TUniContainerPanel;
     UniLabel33: TUniLabel;
     UniSFBitBtn2: TUniSFBitBtn;
     UniPanel42: TUniPanel;
-    UniEdit6: TUniEdit;
+    compdescrat: TUniEdit;
     UniContainerPanel41: TUniContainerPanel;
     UniPanel43: TUniPanel;
     UniPanel44: TUniPanel;
-    UniEdit7: TUniEdit;
+    compCodVend: TUniEdit;
     UniContainerPanel42: TUniContainerPanel;
     UniLabel34: TUniLabel;
-    UniSFBitBtn3: TUniSFBitBtn;
+    btnVendedorers: TUniSFBitBtn;
     UniPanel45: TUniPanel;
-    UniEdit8: TUniEdit;
+    compnomevend: TUniEdit;
     UniContainerPanel43: TUniContainerPanel;
     UniPanel46: TUniPanel;
     UniPanel47: TUniPanel;
-    UniEdit9: TUniEdit;
+    compCodReg: TUniEdit;
     UniContainerPanel44: TUniContainerPanel;
     UniLabel35: TUniLabel;
     UniSFBitBtn4: TUniSFBitBtn;
     UniPanel48: TUniPanel;
-    UniEdit10: TUniEdit;
+    compDescrReg: TUniEdit;
     UniContainerPanel45: TUniContainerPanel;
     UniPanel49: TUniPanel;
     UniPanel50: TUniPanel;
-    UniEdit11: TUniEdit;
+    compLimite: TUniEdit;
     UniContainerPanel46: TUniContainerPanel;
     UniLabel36: TUniLabel;
     UniPanel51: TUniPanel;
-    UniEdit12: TUniEdit;
+    compIndicacao: TUniEdit;
     UniContainerPanel47: TUniContainerPanel;
     UniContainerPanel48: TUniContainerPanel;
     UniLabel37: TUniLabel;
     UniPanel52: TUniPanel;
     UniPanel53: TUniPanel;
-    UniEdit13: TUniEdit;
+    compCodEmpCadastro: TUniEdit;
     UniContainerPanel49: TUniContainerPanel;
     UniLabel38: TUniLabel;
     UniSFBitBtn5: TUniSFBitBtn;
@@ -286,6 +285,31 @@ type
     UniPanel61: TUniPanel;
     UniEdit18: TUniEdit;
     UniContainerPanel54: TUniContainerPanel;
+    UniPanel55: TUniPanel;
+    compMunicipio: TUniEdit;
+    UniContainerPanel55: TUniContainerPanel;
+    UniLabel14: TUniLabel;
+    UniPanel62: TUniPanel;
+    UniEdit1: TUniEdit;
+    UniContainerPanel56: TUniContainerPanel;
+    UniLabel42: TUniLabel;
+    UniPanel63: TUniPanel;
+    UniEdit2: TUniEdit;
+    UniContainerPanel57: TUniContainerPanel;
+    UniLabel43: TUniLabel;
+    UniPanel64: TUniPanel;
+    UniEdit3: TUniEdit;
+    UniContainerPanel58: TUniContainerPanel;
+    UniLabel44: TUniLabel;
+    UniPanel65: TUniPanel;
+    UniPanel66: TUniPanel;
+    UniContainerPanel59: TUniContainerPanel;
+    UniLabel45: TUniLabel;
+    UniFSToggle1: TUniFSToggle;
+    UniPanel67: TUniPanel;
+    UniContainerPanel60: TUniContainerPanel;
+    UniLabel46: TUniLabel;
+    UniFSToggle2: TUniFSToggle;
     procedure UniFrameCreate(Sender: TObject);
     procedure UniFrameReady(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -309,6 +333,11 @@ type
     procedure compenderecoEnter(Sender: TObject);
     procedure compenderecoChange(Sender: TObject);
     procedure compATIVOToggled(const Value: Boolean);
+    procedure btnClassificacaoClick(Sender: TObject);
+    procedure btnVendedorersClick(Sender: TObject);
+    procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure UniSFBitBtn4Click(Sender: TObject);
+    procedure edPesquisarKeyPress(Sender: TObject; var Key: Char);
   private
     alterando :boolean;
     id        :string;
@@ -323,22 +352,84 @@ type
     procedure preencheDadosCEP(resp: TEndereco);
     procedure PreencherComboMunicipios(const UF: string);
     procedure retornar;
+    procedure callBackClassificacoes(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackAtividades(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackVendedores(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackRegioes(Sender: TComponent;
+      AResult: Integer);
     { Private declarations }
   public
     { Public declarations }
+    idClassificacao :string;
   end;
 
 implementation
 
 {$R *.dfm}
 
-uses uConstantes, MainModule;
+uses uConstantes, MainModule, Main, ufraCadClassificacoes,
+  ufrmListaGlobal;
+
+
+procedure TfraCadClientes.callBackRegioes(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compCodReg.text     := frmListaGlobal.CDSTela.FieldByName('idCodReg').AsString;
+    compDescrReg.Text  := frmListaGlobal.CDSTela.FieldByName('descrReg').AsString;
+    alertaM.info('Região selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrReg').AsString + '</b>');
+  end;
+end;
+
+procedure TfraCadClientes.callBackVendedores(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compCodVend.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compNomeVend.Text  := frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString;
+    alertaM.info('Vendedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
+  end;
+end;
+
+procedure TfraCadClientes.callBackClassificacoes(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compclassif.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compdescrclf.Text  := frmListaGlobal.CDSTela.FieldByName('descrClf').AsString;//frmListaClassificacoes.nome;
+    alertaM.info('Classificação selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrClf').AsString + '</b>');
+  end;
+end;
+
+procedure TfraCadClientes.callBackAtividades(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compativ.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compdescrat.Text  := frmListaGlobal.CDSTela.FieldByName('descrAt').AsString;//frmListaClassificacoes.nome;
+    alertaM.info('Atividade selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrAt').AsString + '</b>');
+  end;
+end;
 
 procedure TfraCadClientes.limpaCampos;
 begin
   alterando := false;
   limpaCookiesEditRecursivo(self);
   PreencherCamposDoForm(Self, ativo, nil, nil, 'NOVO REGISTRO');
+end;
+
+procedure TfraCadClientes.btnVendedorersClick(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'VENDEDORES';
+  frmListaGlobal.lblDescricao.Caption := 'VENDEDORES';
+  frmListaGlobal.showModal(callBackVendedores);
 end;
 
 procedure TfraCadClientes.btnCancelarClick(Sender: TObject);
@@ -398,6 +489,13 @@ begin
   end;
 end;
 
+procedure TfraCadClientes.btnClassificacaoClick(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'CLASSIFICACOES';
+  frmListaGlobal.lblDescricao.Caption := 'CLASSIFICAÇÕES';
+  frmListaGlobal.showModal(callBackClassificacoes);
+end;
+
 procedure TfraCadClientes.btnNovoClick(Sender: TObject);
 begin
   limpaCampos;
@@ -433,7 +531,8 @@ begin
     jsonBody.AddPair('celular', compcelular.Text);
     jsonBody.AddPair('ie', compie.Text);
     jsonBody.AddPair('indIeDest', compindIeDest.Text);
-    jsonBody.AddPair('codReg', codReg);
+    jsonBody.AddPair('codReg', compCodReg.Text);
+//    jsonBody.AddPair('codReg', codReg);
 
     jsonBody.AddPair('suframa', ''); //não é mais necessário
 
@@ -443,8 +542,8 @@ begin
     jsonBody.AddPair('ultComp', '');
     jsonBody.AddPair('dAlt', dateToStr(date));
     jsonBody.AddPair('limite', '');
-    jsonBody.AddPair('codVend', '');
-    jsonBody.AddPair('ativ', '');
+    jsonBody.AddPair('codVend', compCodVend.text);
+    jsonBody.AddPair('ativ', compAtiv.text);
     jsonBody.AddPair('cliDesde', '');
     jsonBody.AddPair('pervis', '');
     jsonBody.AddPair('temSub', '');
@@ -503,9 +602,9 @@ begin
                 .Timeout(12000)
                 .Put;
 
-      if resp1.StatusCode = 200 then
-        alerta.Info('Cadastro alterado com sucesso!') else
-        alerta.Info(resp1.StatusCode.ToString + ' ' + resp1.Content)
+//      if resp1.StatusCode = 200 then
+//        alerta.Info('Cadastro alterado com sucesso!') else
+//        alerta.Info(resp1.StatusCode.ToString + ' ' + resp1.Content)
     end else
       begin
         resp1 := TRequest
@@ -517,13 +616,27 @@ begin
                 .Timeout(12000)
                 .Post;
 
-        if resp1.StatusCode = 200 then
-          alerta.Info('Cadastro incluido com sucesso!') else
-          alerta.Info(resp1.StatusCode.ToString + ' ' + resp1.Content)
+//        if resp1.StatusCode = 200 then
+//          alerta.Info('Cadastro incluido com sucesso!') else
+//          alerta.Info(resp1.StatusCode.ToString + ' ' + resp1.Content)
       end;
 
-    retornar;
-
+    if resp1.StatusCode = 200 then
+      begin
+        if alterando then
+          begin
+            alerta.Info('Cadastro alterado com sucesso!');
+          end
+        else
+          begin
+            alerta.Info('Cadastro incluido com sucesso!');
+          end;
+        retornar;
+      end
+    else
+      begin
+        alerta.Info(resp1.StatusCode.ToString + ' ' + resp1.Content)
+      end;
   finally
     jsonBody.Free;
   end;
@@ -661,6 +774,20 @@ begin
 //  rg9.Start;
 end;
 
+procedure TfraCadClientes.UniSFBitBtn2Click(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'ATIVIDADES';
+  frmListaGlobal.lblDescricao.Caption := 'ATIVIDADES';
+  frmListaGlobal.showModal(callBackAtividades);
+end;
+
+procedure TfraCadClientes.UniSFBitBtn4Click(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'REGIOES';
+  frmListaGlobal.lblDescricao.Caption := 'REGIÕES';
+  frmListaGlobal.showModal(callBackRegioes);
+end;
+
 procedure TfraCadClientes.compregime1Click(Sender: TObject);
 begin
   codReg := 'S';
@@ -669,6 +796,12 @@ end;
 procedure TfraCadClientes.compregime2Click(Sender: TObject);
 begin
   codReg := 'N';
+end;
+
+procedure TfraCadClientes.edPesquisarKeyPress(Sender: TObject; var Key: Char);
+begin
+  if key = #13 then
+    listar(edPesquisar.Text);
 end;
 
 procedure TfraCadClientes.compconsumidor1Click(Sender: TObject);

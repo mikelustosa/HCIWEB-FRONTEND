@@ -84,6 +84,11 @@ interface
     const putCliente    = 'putCliente';
     const deleteCliente = 'deleteCliente';
 
+    const getVendedor    = 'getVendedor';
+    const postVendedor   = 'postVendedor';
+    const putVendedor    = 'putVendedor';
+    const deleteVendedor = 'deleteVendedor';
+
     const getCidades    = 'getCidades';
   {$endregion 'Resources Cadastros e Login'}
 

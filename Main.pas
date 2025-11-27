@@ -112,7 +112,7 @@ type
     //function NovaAba(nomeFormFrame: TFrame; descFormFrame: string; Fechar: Boolean; iconTab: integer = -1; tabBar: boolean = false): boolean;
     procedure fechaAba(Sender: TObject);
     function NovaAba(nomeFormFrame: TFrame; descFormFrame: string; Fechar: Boolean;
-  iconTab: integer = -1; tabBar: boolean = false): boolean;
+    iconTab: integer = -1; tabBar: boolean = false): boolean;
     procedure ConfirmaFechamentoAba(Sender: TObject; var CanClose: Boolean);
     { Private declarations }
   public
