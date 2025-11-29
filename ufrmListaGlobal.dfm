@@ -252,6 +252,7 @@ object frmListaGlobal: TfrmListaGlobal
     end
     object CDSTelaiconeAtivo: TAggregateField
       FieldName = 'iconeAtivo'
+      OnGetText = CDSTelaiconeAtivoGetText
       DisplayName = ''
     end
   end

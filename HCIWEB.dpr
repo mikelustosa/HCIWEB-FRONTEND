@@ -36,7 +36,8 @@ uses
   ufrmListaBancos in 'ufrmListaBancos.pas' {frmListaBancos: TUniForm},
   ufraCadClientes in 'ufraCadClientes.pas' {fraCadClientes: TUniFrame},
   ufraCadVendedores in 'ufraCadVendedores.pas' {fraCadVendedores: TUniFrame},
-  ufrmListaGlobal in 'ufrmListaGlobal.pas' {frmListaGlobal: TUniForm};
+  ufrmListaGlobal in 'ufrmListaGlobal.pas' {frmListaGlobal: TUniForm},
+  ufraCadCfop in 'ufraCadCfop.pas' {fraCadCfop: TUniFrame};
 
 {$R *.res}
 

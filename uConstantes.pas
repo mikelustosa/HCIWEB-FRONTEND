@@ -89,6 +89,11 @@ interface
     const putVendedor    = 'putVendedor';
     const deleteVendedor = 'deleteVendedor';
 
+    const getCfop    = 'getCfop';
+    const postCfop   = 'postCfop';
+    const putCfop    = 'putCfop';
+    const deleteCfop = 'deleteCfop';
+
     const getCidades    = 'getCidades';
   {$endregion 'Resources Cadastros e Login'}
 

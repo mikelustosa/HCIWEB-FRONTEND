@@ -2688,6 +2688,7 @@ object frmPrincipal: TfrmPrincipal
         end
         object CFOP1: TUniMenuItem
           Caption = 'CFOP'
+          OnClick = CFOP1Click
         end
         object N2: TUniMenuItem
           Caption = '<hr>'

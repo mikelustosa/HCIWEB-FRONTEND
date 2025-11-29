@@ -33,7 +33,7 @@ object fraCadClientes: TfraCadClientes
       Width = 1429
       Height = 783
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -75,6 +75,7 @@ object fraCadClientes: TfraCadClientes
               FieldName = 'nomeF'
               Title.Caption = 'Nome fantasia'
               Width = 200
+              Visible = False
             end
             item
               FieldName = 'iconeAtivo'
@@ -420,7 +421,9 @@ object fraCadClientes: TfraCadClientes
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitTop = 3
+                ExplicitLeft = 21
+                ExplicitTop = 47
+                ExplicitHeight = 874
                 ScrollHeight = 877
                 ScrollWidth = 1329
                 object UniPanel13: TUniPanel
@@ -532,6 +535,7 @@ object fraCadClientes: TfraCadClientes
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 1
+                    ReadOnly = True
                   end
                   object UniContainerPanel34: TUniContainerPanel
                     Left = 1
@@ -2652,6 +2656,7 @@ object fraCadClientes: TfraCadClientes
                         'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
                         '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
                         'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+                    ExplicitLeft = -2
                   end
                   object UniContainerPanel40: TUniContainerPanel
                     Left = 1

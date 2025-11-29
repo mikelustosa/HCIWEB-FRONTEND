@@ -8,7 +8,8 @@ uses
   uniGUIClasses, uniGUIFrame, uniTimer, URGLayoutUnigui, UniSFiGrowl, Data.DB,
   Datasnap.DBClient, uniGUIBaseClasses, UniSFSweetAlert, UniFSToggle, uniPanel,
   uniLabel, uniButton, uniBitBtn, UniSFButton, UniSFBitBtn, uniEdit, UniSFLabel,
-  uniBasicGrid, uniDBGrid, uniPageControl, uniScrollBox, uniImage;
+  uniBasicGrid, uniDBGrid, uniPageControl, uniScrollBox, uniImage, uniCheckBox,
+  uniRadioButton;
 
 type
   TfraCadVendedores = class(TUniFrame)
@@ -33,11 +34,11 @@ type
     pn1: TUniPanel;
     sBoxFundoRegistro: TUniScrollBox;
     UniPanel2: TUniPanel;
-    compcodAtv: TUniEdit;
+    compCODVEND: TUniEdit;
     UniContainerPanel9: TUniContainerPanel;
     UniLabel10: TUniLabel;
     UniPanel3: TUniPanel;
-    compdescrAt: TUniEdit;
+    compNOMEVEND: TUniEdit;
     UniContainerPanel10: TUniContainerPanel;
     UniLabel1: TUniLabel;
     cpMenuRodape: TUniContainerPanel;
@@ -59,6 +60,60 @@ type
     CDSDados: TClientDataSet;
     AggregateField1: TAggregateField;
     AggregateField2: TAggregateField;
+    UniPanel1: TUniPanel;
+    UniContainerPanel1: TUniContainerPanel;
+    UniLabel2: TUniLabel;
+    compGERENTEVENDA: TUniFSToggle;
+    UniPanel34: TUniPanel;
+    UniContainerPanel33: TUniContainerPanel;
+    UniLabel26: TUniLabel;
+    tipoVend: TUniRadioButton;
+    tipoGer: TUniRadioButton;
+    UniPanel4: TUniPanel;
+    UniPanel28: TUniPanel;
+    compCOMVEND: TUniEdit;
+    UniContainerPanel34: TUniContainerPanel;
+    UniLabel28: TUniLabel;
+    UniPanel5: TUniPanel;
+    compCOMISSAOGERENTE: TUniEdit;
+    UniContainerPanel2: TUniContainerPanel;
+    UniLabel3: TUniLabel;
+    UniPanel6: TUniPanel;
+    compNOMEMP: TUniEdit;
+    UniContainerPanel3: TUniContainerPanel;
+    UniPanel41: TUniPanel;
+    compEMPRESA: TUniEdit;
+    UniContainerPanel40: TUniContainerPanel;
+    UniLabel33: TUniLabel;
+    UniSFBitBtn2: TUniSFBitBtn;
+    UniPanel7: TUniPanel;
+    UniPanel8: TUniPanel;
+    compCOMVENDMO: TUniEdit;
+    UniContainerPanel4: TUniContainerPanel;
+    UniLabel4: TUniLabel;
+    UniPanel10: TUniPanel;
+    compEMAIL: TUniEdit;
+    UniContainerPanel5: TUniContainerPanel;
+    UniLabel5: TUniLabel;
+    UniPanel11: TUniPanel;
+    compGERENTERESPON: TUniEdit;
+    UniContainerPanel6: TUniContainerPanel;
+    UniLabel6: TUniLabel;
+    UniSFBitBtn3: TUniSFBitBtn;
+    UniPanel12: TUniPanel;
+    compNOMEGERENTERESPON: TUniEdit;
+    UniContainerPanel7: TUniContainerPanel;
+    UniPanel13: TUniPanel;
+    UniPanel15: TUniPanel;
+    UniContainerPanel8: TUniContainerPanel;
+    UniLabel7: TUniLabel;
+    compNESSECSF: TUniFSToggle;
+    compSENHAFATURA: TUniEdit;
+    UniPanel17: TUniPanel;
+    UniContainerPanel11: TUniContainerPanel;
+    UniLabel8: TUniLabel;
+    compSENHAFVENDATU: TUniEdit;
+    chkMostraSenha: TUniCheckBox;
     procedure UniFrameReady(Sender: TObject);
     procedure UniFrameCreate(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -67,8 +122,16 @@ type
     procedure gridTelaCellClick(Column: TUniDBGridColumn);
     procedure gridTelaDrawColumnCell(Sender: TObject; ACol, ARow: Integer;
       Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
-    procedure compativoToggled(const Value: Boolean);
     procedure edPesquisarKeyPress(Sender: TObject; var Key: Char);
+    procedure CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure CDSTelaiconeAtivoGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure UniSFBitBtn3Click(Sender: TObject);
+    procedure chkMostraSenhaClick(Sender: TObject);
+    procedure tipoVendClick(Sender: TObject);
+    procedure tipoGerClick(Sender: TObject);
   private
     { Private declarations }
     alterando :boolean;
@@ -76,10 +139,16 @@ type
 //    codReg    :string;
     ativo     :string;
 //    indFinal  :string;
+    wTipoVend : string;
+
     procedure limpaCampos;
     procedure listar(pDado :string = '');
     procedure retornar;
     procedure carregaDados;
+    procedure callBackEmpresas(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackGerentes(Sender: TComponent;
+      AResult: Integer);
   public
     { Public declarations }
   end;
@@ -89,9 +158,41 @@ implementation
 {$R *.dfm}
 
 uses uConstantes,uUtils, RESTRequest4D.Response.Intf, System.JSON, RESTRequest4D.Request,
-  MainModule;
+  MainModule, ufrmListaGlobal;
 
 
+procedure TfraCadVendedores.callBackGerentes(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compGERENTERESPON.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compNOMEGERENTERESPON.Text  := frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString;
+    alertaM.info('Gerente selecionado selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
+  end;
+end;
+
+procedure TfraCadVendedores.callBackEmpresas(Sender: TComponent;
+  AResult: Integer);
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compEMPRESA.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compNOMEMP.Text  := frmListaGlobal.CDSTela.FieldByName('nomEmp').AsString;//frmListaClassificacoes.nome;
+    alertaM.info('Empresa selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('nomEmp').AsString + '</b>');
+  end;
+end;
+
+procedure TfraCadVendedores.chkMostraSenhaClick(Sender: TObject);
+begin
+  // Força de Venda
+  if chkMostraSenha.Checked then
+    compSENHAFVENDATU.PasswordChar := #0
+  else
+    compSENHAFVENDATU.PasswordChar := char('*');
+  // **
+
+end;
 
 procedure TfraCadVendedores.UniFrameCreate(Sender: TObject);
 begin
@@ -115,6 +216,20 @@ begin
 //  rg9.Start;
 end;
 
+procedure TfraCadVendedores.UniSFBitBtn2Click(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'EMPRESAS';
+  frmListaGlobal.lblDescricao.Caption := 'EMPRESAS';
+  frmListaGlobal.showModal(callBackEmpresas);
+end;
+
+procedure TfraCadVendedores.UniSFBitBtn3Click(Sender: TObject);
+begin
+  frmListaGlobal.wTabelaDePesquisa := 'GERENTES';
+  frmListaGlobal.lblDescricao.Caption := 'GERENTES';
+  frmListaGlobal.showModal(callBackGerentes);
+end;
+
 procedure TfraCadVendedores.btnCancelarClick(Sender: TObject);
 begin
   limpaCookiesEditRecursivo(self);
@@ -135,93 +250,56 @@ begin
   try
     jsonBody := TJSONObject.Create;
 
-//    jsonBody.AddPair('codCli', compcodCli.Text);
-//    jsonBody.AddPair('nome', compnome.Text);
-//    jsonBody.AddPair('nomeF', compnomeF.Text);
-//    jsonBody.AddPair('classif', '');
-//
-//    jsonBody.AddPair('endereco', compendereco.Text);
-//    jsonBody.AddPair('numero', compnumero.Text);
-//    jsonBody.AddPair('complemento', compcomplemento.Text);
-//    jsonBody.AddPair('bairro', compbairro.Text);
-//    jsonBody.AddPair('cidade', compcidade.Text);
-//    jsonBody.AddPair('pais', compPais.Text);
-//    jsonBody.AddPair('codPais', compcodPais.Text);
-//    jsonBody.AddPair('cep', compcep.Text);
-//    jsonBody.AddPair('estado', compestado.Text);
-//    jsonBody.AddPair('contato', '');
-//    jsonBody.AddPair('telefone', comptelefone.Text);
-//    jsonBody.AddPair('telefone2', comptelefone2.Text);
-//    jsonBody.AddPair('fax', compfax.Text);
-//    jsonBody.AddPair('celular', compcelular.Text);
-//    jsonBody.AddPair('ie', compie.Text);
-//    jsonBody.AddPair('indIeDest', compindIeDest.Text);
-//    jsonBody.AddPair('codReg', compCodReg.Text);
-//
-//    jsonBody.AddPair('suframa', '');
-//
-//    jsonBody.AddPair('homePage', comphomePage.Text);
-//    jsonBody.AddPair('im', '');
-//    jsonBody.AddPair('dNasc', '');
-//    jsonBody.AddPair('ultComp', '');
-//    jsonBody.AddPair('dAlt', dateToStr(date));
-//    jsonBody.AddPair('limite', '');
-//    jsonBody.AddPair('codVend', compCodVend.text);
-//    jsonBody.AddPair('ativ', compAtiv.text);
-//    jsonBody.AddPair('cliDesde', '');
-//    jsonBody.AddPair('pervis', '');
-//    jsonBody.AddPair('temSub', '');
-//    jsonBody.AddPair('area', compArea.Text);
-//    jsonBody.AddPair('simplesNac', '');
-//    jsonBody.AddPair('contato1', '');
-//    jsonBody.AddPair('contato2', '');
-//    jsonBody.AddPair('contato3', '');
-//    jsonBody.AddPair('cargo1', '');
-//    jsonBody.AddPair('cargo2', '');
-//    jsonBody.AddPair('cargo3', '');
-//    jsonBody.AddPair('departamento1', '');
-//    jsonBody.AddPair('departamento2', '');
-//    jsonBody.AddPair('departamento3', '');
-//    jsonBody.AddPair('telefone11', '');
-//    jsonBody.AddPair('telefone22', '');
-//    jsonBody.AddPair('telefone33', '');
-//    jsonBody.AddPair('celular1', '');
-//    jsonBody.AddPair('celular2', '');
-//    jsonBody.AddPair('celular3', '');
-//    jsonBody.AddPair('email', '');
-//    jsonBody.AddPair('emailNfe', compemailNfe.Text);
-//    jsonBody.AddPair('emailCom', compemailCom.Text);
-//
-//    jsonBody.AddPair('foto', '');
-//    jsonBody.AddPair('email1', '');
-//    jsonBody.AddPair('email2', '');
-//    jsonBody.AddPair('email3', '');
-//    jsonBody.AddPair('cgcCpf', compcgcCpf.Text);
-//    jsonBody.AddPair('cgcCpf1', '');
-//    jsonBody.AddPair('cgcCpf2', '');
-//    jsonBody.AddPair('cgcCpf3', '');
-//    jsonBody.AddPair('autXml1', '');
-//    jsonBody.AddPair('autXml2', '');
-//    jsonBody.AddPair('autXml3', '');
-//    jsonBody.AddPair('pfj', comppfj.Text);
-//    jsonBody.AddPair('pfj1', '');
-//    jsonBody.AddPair('pfj2', '');
-//    jsonBody.AddPair('pfj3', '');
-//    jsonBody.AddPair('indFinal', '');
-//    jsonBody.AddPair('emailFin', compemailFin.Text);
-//    jsonBody.AddPair('codEmpCadastro', '');
-//    jsonBody.AddPair('indicacao', '');
+    jsonBody.AddPair('CODVEND', compCODVEND.TEXT);
+    jsonBody.AddPair('NOMEVEND', compNOMEVEND.text);
+    jsonBody.AddPair('COMVEND', compCOMVEND.text);
+    jsonBody.AddPair('COMVENDMO', compCOMVENDMO.text);
 
-    jsonBody.AddPair('ativo', ativo);
+    jsonBody.AddPair('DALT', '');
+    jsonBody.AddPair('EMAIL', compEMAIL.text);
+
+    if compGERENTEVENDA.Toggled then
+      jsonBody.AddPair('GERENTEVENDA', 'T')
+    else
+      jsonBody.AddPair('GERENTEVENDA', 'F');
+
+    jsonBody.AddPair('COMISSAOGERENTE', compCOMISSAOGERENTE.text);
+    jsonBody.AddPair('GERENTERESPON', compGERENTERESPON.text);
+
+    jsonBody.AddPair('TIPO', '');//compTIPO.text);
+    jsonBody.AddPair('EMPRESA', compEMPRESA.text);
+//    jsonBody.AddPair('FDV', '');//, compFDV);
+//    jsonBody.AddPair('ULTDTHORA', '');//, compULTDTHORA.text);
+    jsonBody.AddPair('SENHAFVENDATU', compSENHAFVENDATU.text);//, compSENHAFVENDATU.text);
+    jsonBody.AddPair('SENHAFVENDANT', '');//, compSENHAFVENDANT.text);
+//    jsonBody.AddPair('NPEDEMITIDO', '');//, compNPEDEMITIDO.text);
+    jsonBody.AddPair('SENHAFATURA', compSENHAFATURA.text);//, compSENHAFATURA.text);
+
+    if compNESSECSF.Toggled then
+      jsonBody.AddPair('NESSECSF', '1')//sim
+    else
+      jsonBody.AddPair('NESSECSF', '0');//não
+
+//    jsonBody.AddPair('DATAATUALIZACAO', '');//, compDATAATUALIZACAO.text);
+//    jsonBody.AddPair('ULTIMASINCRONIZACAOSELLENTT', '');//, compULTIMASINCRONIZACAOSELLENTT.text);
+//    jsonBody.AddPair('VENDEDORSELLENTT', '');//, compVENDEDORSELLENTT.text);
+
+//    jsonBody.AddPair('IDSELLENT', '');//, compIDSELLENT.text);
+
+//    jsonBody.AddPair('TIPOSELLENT', '');//, compTIPOSELLENT.text);
+//    jsonBody.AddPair('VENDEDORSELLENTTATIVO', '');//, compVENDEDORSELLENTTATIVO.text);
+//    jsonBody.AddPair('METAVENDEDORSELLENTT', '');//, compMETAVENDEDORSELLENTT.text);
+//    jsonBody.AddPair('COMISSAOVENDEDORSELLENTT', '');//, compCOMISSAOVENDEDORSELLENTT.text);
+    jsonBody.AddPair('ATIVO', ativo);
 
     if alterando then
     begin
       resp1 := TRequest
                 .New
                 .BaseURL(baseurlCadastros)
-                .Resource(putCliente)
-                .AddParam('nomeBanco', uniMainModule.nomebanco)
-                .AddParam('id', id)
+                .Resource(putVendedor)
+                .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+                .AddParam('ID', id)
                 .AddBody(jsonBody.ToString)
                 .Timeout(12000)
                 .Put;
@@ -230,8 +308,8 @@ begin
         resp1 := TRequest
                 .New
                 .BaseURL(baseurlCadastros)
-                .Resource(postCliente)
-                .AddParam('nomeBanco', uniMainModule.nomebanco)
+                .Resource(postVendedor)
+                .AddParam('NOMEBANCO', uniMainModule.nomebanco)
                 .AddBody(jsonBody.ToString)
                 .Timeout(12000)
                 .Post;
@@ -256,13 +334,6 @@ begin
   finally
     jsonBody.Free;
   end;
-end;
-
-procedure TfraCadVendedores.compativoToggled(const Value: Boolean);
-begin
-  if value then
-    ativo := 'S' else
-    ativo := 'N';
 end;
 
 procedure TfraCadVendedores.edPesquisarKeyPress(Sender: TObject; var Key: Char);
@@ -307,17 +378,17 @@ begin
 
   //Aqui sim: usamos IRequest até o Get
   req := TRequest.New.BaseURL(baseurlCadastros)
-                   .resource(getCliente)
-                   .AddParam('nomeBanco', uniMainModule.nomebanco);
+                   .resource(getVendedor)
+                   .AddParam('NOMEBANCO', uniMainModule.nomebanco);
 
   if pDado <> '' then
   begin
     if ehNumero then
     begin
-      req.AddParam('id', pDado);
-      req.AddParam('codCli', pDado);
+      req.AddParam('ID', pDado);
+      req.AddParam('CODVEND', pDado);
     end else
-      req.AddParam('nome', pDado);
+      req.AddParam('NOMEVEND', pDado);
   end;
 
   req.timeOut(12000);
@@ -340,6 +411,16 @@ begin
   listar;
 end;
 
+procedure TfraCadVendedores.tipoGerClick(Sender: TObject);
+begin
+  wTipoVend := '1';
+end;
+
+procedure TfraCadVendedores.tipoVendClick(Sender: TObject);
+begin
+  wTipoVend := '0';
+end;
+
 procedure TfraCadVendedores.carregaDados;
 var
   resp1         :IResponse;
@@ -352,10 +433,11 @@ begin
                 .New
                 .BaseURL(baseurlCadastros)
                 .resource(getVendedor)
-                .AddParam('nomeBanco', uniMainModule.nomebanco)
-                .AddParam('id', id)
-                .AddParam('codCli', '')
-                .AddParam('nome', '')
+                .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+                .AddParam('ID', id)
+                .AddParam('CODVEND', '')
+                .AddParam('NOMEVEND', '')
+                .AddParam('ATIVO', '')
                 .timeOut(12000)
                 .Get;
 
@@ -369,5 +451,18 @@ begin
   end;
 end;
 
+
+procedure TfraCadVendedores.CDSTelabotaoEditarGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  if DisplayText then
+    text := colocaBotaoNoGrid('Editar', 'editar', 'dc3545');
+end;
+
+procedure TfraCadVendedores.CDSTelaiconeAtivoGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  ExibeIconeAtivo(CDSTela.FieldByName('ativo').AsString, Text, DisplayText);
+end;
 
 end.

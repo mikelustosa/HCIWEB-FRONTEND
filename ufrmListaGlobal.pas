@@ -36,6 +36,8 @@ type
       Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
     procedure btnFecharClick(Sender: TObject);
     procedure edPesquisarKeyPress(Sender: TObject; var Key: Char);
+    procedure CDSTelaiconeAtivoGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
     canClose  :boolean;
@@ -105,6 +107,30 @@ begin
       weGrid.Columns[2].FieldName := 'DESCRREG';
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //EMPRESAS
+  else if weTabelaPesquisa = 'EMPRESAS' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODEMP';
+      //NOME
+      weGrid.Columns[2].FieldName := 'NOMEMP';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //GERENTES
+  else if weTabelaPesquisa = 'GERENTES' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODVEND';
+      //NOME
+      weGrid.Columns[2].FieldName := 'NOMEVEND';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
     end;
 
 end;
@@ -120,6 +146,12 @@ procedure TfrmListaGlobal.CDSTelabotaoEditarGetText(Sender: TField;
 begin
   if DisplayText then
     text := colocaBotaoNoGrid('Selecionar', 'editar', 'dc3545');
+end;
+
+procedure TfrmListaGlobal.CDSTelaiconeAtivoGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  ExibeIconeAtivo(CDSTela.FieldByName('ativo').AsString, Text, DisplayText);
 end;
 
 procedure TfrmListaGlobal.edPesquisarKeyPress(Sender: TObject; var Key: Char);
@@ -207,6 +239,33 @@ begin
             .AddParam('ativo', '')
             .timeOut(12000)
             .Get;
+  end
+  //EMPRESAS
+  else if wTabelaDePesquisa.ToUpper = 'EMPRESAS' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getEmpresa)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('empresa', filtro)
+            .AddParam('ID', '')
+//            .AddParam('descrReg', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //GERENTES
+  else if wTabelaDePesquisa.ToUpper = 'GERENTES' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getVendedor)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODVEND', '')
+            .AddParam('NOMEVEND', filtro)
+            .AddParam('ATIVO', '')
+            .AddParam('SOGERENTEVENDA', 'T')
+            .timeOut(12000)
+            .Get;
   end;
 
 
@@ -234,6 +293,16 @@ begin
       else if wTabelaDePesquisa.ToUpper = 'REGIOES' then
       begin
         atualizaNomeColunaGrid(gridTela,'REGIOES');
+      end
+      //EMPRESAS
+      else if wTabelaDePesquisa.ToUpper = 'EMPRESAS' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'EMPRESAS');
+      end
+      //GERENTES
+      else if wTabelaDePesquisa.ToUpper = 'GERENTES' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'GERENTES');
       end;
 
     finally

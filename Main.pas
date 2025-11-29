@@ -106,6 +106,7 @@ type
     procedure Conddepagamento1Click(Sender: TObject);
     procedure Clientes2Click(Sender: TObject);
     procedure Vendedores1Click(Sender: TObject);
+    procedure CFOP1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -130,7 +131,8 @@ uses
   uUtils, Vcl.Dialogs, UniSFCore, ufraCadEmpresas, ufraCadAtividades,
   ufraCadGrupos, ufraCadClassificacoes, ufraCadArea, ufraCadPais,
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
-  ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores;
+  ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
+  ufraCadCfop;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -278,6 +280,11 @@ end;
 procedure TfrmPrincipal.Centrodecustos1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadCentroCustos),'Centro de Custos', true, -1, true);
+end;
+
+procedure TfrmPrincipal.CFOP1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCadCfop),'CFOP', true, -1, true);
 end;
 
 procedure TfrmPrincipal.Classificao1Click(Sender: TObject);
