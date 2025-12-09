@@ -74,7 +74,6 @@ object frmListaGlobal: TfrmListaGlobal
     Align = alTop
     TabOrder = 1
     LayoutConfig.Cls = 'painel-sem-borda'
-    ExplicitWidth = 619
     object UniContainerPanel22: TUniContainerPanel
       AlignWithMargins = True
       Left = 0
@@ -182,9 +181,6 @@ object frmListaGlobal: TfrmListaGlobal
     Align = alTop
     TabOrder = 2
     TabStop = False
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 726
     object lblDescricao: TUniLabel
       AlignWithMargins = True
       Left = 10
@@ -221,7 +217,6 @@ object frmListaGlobal: TfrmListaGlobal
       FAIcon.Size = fs_16
       FAIcon.Color = fc_grey
       ButtonStyles = bs_transparent
-      ExplicitLeft = 697
     end
     object UniContainerPanel27: TUniContainerPanel
       AlignWithMargins = True
@@ -237,7 +232,6 @@ object frmListaGlobal: TfrmListaGlobal
       Align = alBottom
       TabOrder = 3
       LayoutConfig.Cls = 'painel-sem-borda'
-      ExplicitWidth = 223
     end
   end
   object CDSTela: TClientDataSet

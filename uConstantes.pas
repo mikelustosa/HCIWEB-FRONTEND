@@ -94,6 +94,26 @@ interface
     const putCfop    = 'putCfop';
     const deleteCfop = 'deleteCfop';
 
+    const getStPis = 'getStPis';
+    const getStCofins = 'getStCofins';
+    const getStIpi = 'getStIpi';
+
+    const getIcmsInt = 'getIcmsInt';
+    const putIcmsInt = 'putIcmsInt';
+    const postIcmsInt = 'postIcmsInt';
+
+    const getProduto = 'getProduto';
+    const putProduto = 'putProduto';
+    const postProduto = 'postProduto';
+
+    const getGrade1 = 'getGrade1';
+    const putGrade1 = 'putGrade1';
+    const postGrade1 = 'postGrade1';
+
+    const getGrade2 = 'getGrade2';
+    const putGrade2 = 'putGrade2';
+    const postGrade2 = 'postGrade2';
+
     const getCidades    = 'getCidades';
   {$endregion 'Resources Cadastros e Login'}
 

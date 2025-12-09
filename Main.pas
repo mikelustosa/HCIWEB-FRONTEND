@@ -107,6 +107,8 @@ type
     procedure Clientes2Click(Sender: TObject);
     procedure Vendedores1Click(Sender: TObject);
     procedure CFOP1Click(Sender: TObject);
+    procedure ICMSinternoSubs1Click(Sender: TObject);
+    procedure Produtos2Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -132,7 +134,7 @@ uses
   ufraCadGrupos, ufraCadClassificacoes, ufraCadArea, ufraCadPais,
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
-  ufraCadCfop;
+  ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -196,6 +198,11 @@ end;
 procedure TfrmPrincipal.Pas1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadPais),'Países', true, -1, true);
+end;
+
+procedure TfrmPrincipal.Produtos2Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCadProdutos),'Produtos', true, -1, true);
 end;
 
 procedure TfrmPrincipal.rea1Click(Sender: TObject);
@@ -270,6 +277,11 @@ end;
 procedure TfrmPrincipal.Grupos1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadGrupos),'Grupos', true, -1, true);
+end;
+
+procedure TfrmPrincipal.ICMSinternoSubs1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCadIcmsInterno),'ICMS Interno', true, -1, true);
 end;
 
 procedure TfrmPrincipal.CartesPIXTEF1Click(Sender: TObject);

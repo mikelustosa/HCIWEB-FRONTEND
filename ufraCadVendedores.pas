@@ -9,7 +9,7 @@ uses
   Datasnap.DBClient, uniGUIBaseClasses, UniSFSweetAlert, UniFSToggle, uniPanel,
   uniLabel, uniButton, uniBitBtn, UniSFButton, UniSFBitBtn, uniEdit, UniSFLabel,
   uniBasicGrid, uniDBGrid, uniPageControl, uniScrollBox, uniImage, uniCheckBox,
-  uniRadioButton;
+  uniRadioButton, uniMultiItem, uniComboBox, UniSFComboBox;
 
 type
   TfraCadVendedores = class(TUniFrame)
@@ -67,8 +67,6 @@ type
     UniPanel34: TUniPanel;
     UniContainerPanel33: TUniContainerPanel;
     UniLabel26: TUniLabel;
-    tipoVend: TUniRadioButton;
-    tipoGer: TUniRadioButton;
     UniPanel4: TUniPanel;
     UniPanel28: TUniPanel;
     compCOMVEND: TUniEdit;
@@ -114,6 +112,7 @@ type
     UniLabel8: TUniLabel;
     compSENHAFVENDATU: TUniEdit;
     chkMostraSenha: TUniCheckBox;
+    compTIPO: TUniSFComboBox;
     procedure UniFrameReady(Sender: TObject);
     procedure UniFrameCreate(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -130,8 +129,8 @@ type
     procedure UniSFBitBtn2Click(Sender: TObject);
     procedure UniSFBitBtn3Click(Sender: TObject);
     procedure chkMostraSenhaClick(Sender: TObject);
-    procedure tipoVendClick(Sender: TObject);
-    procedure tipoGerClick(Sender: TObject);
+    procedure compTIPOVENDClick(Sender: TObject);
+    procedure compTIPOGERClick(Sender: TObject);
   private
     { Private declarations }
     alterando :boolean;
@@ -266,7 +265,8 @@ begin
     jsonBody.AddPair('COMISSAOGERENTE', compCOMISSAOGERENTE.text);
     jsonBody.AddPair('GERENTERESPON', compGERENTERESPON.text);
 
-    jsonBody.AddPair('TIPO', '');//compTIPO.text);
+    jsonBody.AddPair('TIPO', compTIPO.ItemIndex.ToString);
+
     jsonBody.AddPair('EMPRESA', compEMPRESA.text);
 //    jsonBody.AddPair('FDV', '');//, compFDV);
 //    jsonBody.AddPair('ULTDTHORA', '');//, compULTDTHORA.text);
@@ -411,12 +411,12 @@ begin
   listar;
 end;
 
-procedure TfraCadVendedores.tipoGerClick(Sender: TObject);
+procedure TfraCadVendedores.compTIPOGERClick(Sender: TObject);
 begin
   wTipoVend := '1';
 end;
 
-procedure TfraCadVendedores.tipoVendClick(Sender: TObject);
+procedure TfraCadVendedores.compTIPOVENDClick(Sender: TObject);
 begin
   wTipoVend := '0';
 end;

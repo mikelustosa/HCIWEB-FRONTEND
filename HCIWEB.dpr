@@ -37,7 +37,9 @@ uses
   ufraCadClientes in 'ufraCadClientes.pas' {fraCadClientes: TUniFrame},
   ufraCadVendedores in 'ufraCadVendedores.pas' {fraCadVendedores: TUniFrame},
   ufrmListaGlobal in 'ufrmListaGlobal.pas' {frmListaGlobal: TUniForm},
-  ufraCadCfop in 'ufraCadCfop.pas' {fraCadCfop: TUniFrame};
+  ufraCadCfop in 'ufraCadCfop.pas' {fraCadCfop: TUniFrame},
+  ufraCadIcmsInterno in 'ufraCadIcmsInterno.pas' {fraCadIcmsInterno: TUniFrame},
+  ufraCadProdutos in 'ufraCadProdutos.pas' {fraCadProdutos: TUniFrame};
 
 {$R *.res}
 

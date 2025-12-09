@@ -2657,6 +2657,7 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Produtos'
         object Produtos2: TUniMenuItem
           Caption = 'Produtos'
+          OnClick = Produtos2Click
         end
         object rocacdigo1: TUniMenuItem
           Caption = 'Troca c'#243'digo'
@@ -2685,6 +2686,7 @@ object frmPrincipal: TfrmPrincipal
         end
         object ICMSinternoSubs1: TUniMenuItem
           Caption = 'ICMS interno (Subs)'
+          OnClick = ICMSinternoSubs1Click
         end
         object CFOP1: TUniMenuItem
           Caption = 'CFOP'

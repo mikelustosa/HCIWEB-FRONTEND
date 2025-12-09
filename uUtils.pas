@@ -2001,7 +2001,66 @@ begin
                               if DataSet.Fields[i].AsString = '99' then
                                   TUniSFComboBox(Componente).SetPositionFromValue('99=Outros');
                             end else
-                              TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
+                              if Componente.Name = 'compTIPO' then
+                              begin
+                                if DataSet.Fields[i].AsString = '0' then
+                                    TUniSFComboBox(Componente).SetPositionFromValue('Vendedor') else
+                                if DataSet.Fields[i].AsString = '1' then
+                                    TUniSFComboBox(Componente).SetPositionFromValue('Gerente de venda');
+                              end else
+                                if Componente.Name = 'compFINNFE' then
+                                begin
+                                  TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
+                                end else
+                                  if Componente.Name = 'compINDPRES' then
+                                  begin
+                                    TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
+                                  end else
+                                    if Componente.Name = 'compFAIXAST' then
+                                    begin
+                                      if DataSet.Fields[i].AsString = 'T' then
+                                          TUniSFComboBox(Componente).SetPositionFromValue('T - Tributado') else
+                                      if DataSet.Fields[i].AsString = 'I' then
+                                          TUniSFComboBox(Componente).SetPositionFromValue('I - Isento') else
+                                      if DataSet.Fields[i].AsString = 'S' then
+                                          TUniSFComboBox(Componente).SetPositionFromValue('S - Imposto sobre serviços') else
+                                      if DataSet.Fields[i].AsString = 'N' then
+                                          TUniSFComboBox(Componente).SetPositionFromValue('N - Não tributado') else
+                                      if DataSet.Fields[i].AsString = 'F' then
+                                          TUniSFComboBox(Componente).SetPositionFromValue('F - Substituição tributária') else
+                                      TUniSFComboBox(Componente).ItemIndex := -1;
+                                    end else
+                                      if Componente.Name = 'compTIPOPROD' then
+                                      begin
+                                        if DataSet.Fields[i].AsString = '00' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('00 - Mercadoria para Revenda') else
+                                        if DataSet.Fields[i].AsString = '01' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('01 - Matéria-Prima') else
+                                        if DataSet.Fields[i].AsString = '02' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('02 - Embalagem') else
+                                        if DataSet.Fields[i].AsString = '03' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('03 - Produto em processo') else
+                                        if DataSet.Fields[i].AsString = '04' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('04 - Produto Acabado') else
+                                        if DataSet.Fields[i].AsString = '05' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('05 - SubProduto') else
+                                        if DataSet.Fields[i].AsString = '06' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('06 - Produta Intemedíario') else
+                                        if DataSet.Fields[i].AsString = '07' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('07 - Material de Uso e consumo') else
+                                        if DataSet.Fields[i].AsString = '08' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('08 - Ativo imobilizado') else
+                                        if DataSet.Fields[i].AsString = '09' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('09 - Serviços') else
+                                        if DataSet.Fields[i].AsString = '10' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('10 - Outros Insumos') else
+                                        if DataSet.Fields[i].AsString = '99' then
+                                            TUniSFComboBox(Componente).SetPositionFromValue('99 - Outras') else
+
+                                        TUniSFComboBox(Componente).ItemIndex := -1;
+                                      end else
+
+                                      TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
       end;
     end;
   end;

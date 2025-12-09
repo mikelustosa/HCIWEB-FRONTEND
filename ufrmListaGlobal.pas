@@ -131,6 +131,114 @@ begin
       weGrid.Columns[2].FieldName := 'NOMEVEND';
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //PISVENDA
+  else if weTabelaPesquisa = 'PISVENDA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //PISCOMPRA
+  else if weTabelaPesquisa = 'PISCOMPRA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //COFINSVENDA
+  else if weTabelaPesquisa = 'COFINSVENDA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //COFINSCOMPRA
+  else if weTabelaPesquisa = 'COFINSCOMPRA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //IPIVENDA
+  else if weTabelaPesquisa = 'IPIVENDA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //IPICOMPRA
+  else if weTabelaPesquisa = 'IPICOMPRA' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODSIT';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //GRUPOS
+  else if weTabelaPesquisa = 'GRUPOS' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODGRU';
+      //NOME
+      weGrid.Columns[2].FieldName := 'NOMEGRU';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //GRADE1
+  else if weTabelaPesquisa = 'GRADE1' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'IDGRADE';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCRGRADE';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //GRADE2
+  else if weTabelaPesquisa = 'GRADE2' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'IDGRADE';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCRGRADE';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
     end;
 
 end;
@@ -266,6 +374,123 @@ begin
             .AddParam('SOGERENTEVENDA', 'T')
             .timeOut(12000)
             .Get;
+  end
+  //PISVENDA
+  else if wTabelaDePesquisa.ToUpper = 'PISVENDA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStPis)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //PISCOMPRA
+  else if wTabelaDePesquisa.ToUpper = 'PISCOMPRA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStPis)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //COFINSVENDA
+  else if wTabelaDePesquisa.ToUpper = 'COFINSVENDA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStCofins)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //COFINSCOMPRA
+  else if wTabelaDePesquisa.ToUpper = 'COFINSCOMPRA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStCofins)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //IPIVENDA
+  else if wTabelaDePesquisa.ToUpper = 'IPIVENDA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStIpi)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //IPICOMPRA
+  else if wTabelaDePesquisa.ToUpper = 'IPICOMPRA' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getStIpi)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODSIT', '')
+            .AddParam('DESCR', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //GRUPOS
+  else if wTabelaDePesquisa.ToUpper = 'GRUPOS' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getGrupo)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('codGru', '')
+            .AddParam('nomeGru', filtro)
+            .AddParam('ativo', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //GRADE1
+  else if wTabelaDePesquisa.ToUpper = 'GRADE1' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getGrade1)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('idgrade', '')
+//            .AddParam('nomeGru', filtro)
+            .AddParam('ativo', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //GRADE2
+  else if wTabelaDePesquisa.ToUpper = 'GRADE2' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getGrade2)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('idgrade', '')
+//            .AddParam('nomeGru', filtro)
+            .AddParam('ativo', '')
+            .timeOut(12000)
+            .Get;
   end;
 
 
@@ -303,7 +528,52 @@ begin
       else if wTabelaDePesquisa.ToUpper = 'GERENTES' then
       begin
         atualizaNomeColunaGrid(gridTela,'GERENTES');
-      end;
+      end
+      //PISVENDA
+      else if wTabelaDePesquisa.ToUpper = 'PISVENDA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'PISVENDA');
+      end
+      //PISCOMPRA
+      else if wTabelaDePesquisa.ToUpper = 'PISCOMPRA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'PISCOMPRA');
+      end
+      //COFINSVENDA
+      else if wTabelaDePesquisa.ToUpper = 'COFINSVENDA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'COFINSVENDA');
+      end
+      //COFINSCOMPRA
+      else if wTabelaDePesquisa.ToUpper = 'COFINSCOMPRA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'COFINSCOMPRA');
+      end
+      //IPIVENDA
+      else if wTabelaDePesquisa.ToUpper = 'IPIVENDA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'IPIVENDA');
+      end
+      //IPICOMPRA
+      else if wTabelaDePesquisa.ToUpper = 'IPICOMPRA' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'IPICOMPRA');
+      end
+      //GRUPOS
+      else if wTabelaDePesquisa.ToUpper = 'GRUPOS' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'GRUPOS');
+      end
+      //GRADE1
+      else if wTabelaDePesquisa.ToUpper = 'GRADE1' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'GRADE1');
+      end
+      //GRADE2
+      else if wTabelaDePesquisa.ToUpper = 'GRADE2' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'GRADE2');
+      end
 
     finally
       jsonResp.Free;
