@@ -397,22 +397,19 @@ object fraCadCfop: TfraCadCfop
           TabOrder = 1
           Caption = 'pn1'
           object sBoxFundoRegistro: TUniScrollBox
-            Left = 1
-            Top = 1
+            Left = 2
+            Top = -97
             Width = 1113
             Height = 546
             Hint = ''
-            Align = alClient
             Color = 16249327
             TabOrder = 1
-            ExplicitLeft = -1
-            ExplicitTop = -218
-            ExplicitHeight = 738
             ScrollHeight = 625
             ScrollWidth = 1127
+            ScrollY = 48
             object UniPanel2: TUniPanel
               Left = 10
-              Top = 9
+              Top = -39
               Width = 256
               Height = 70
               Hint = 't1w100h0;'
@@ -469,7 +466,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel3: TUniPanel
               Left = 276
-              Top = 10
+              Top = -38
               Width = 306
               Height = 70
               Hint = 't1w500h0;'
@@ -525,7 +522,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel4: TUniPanel
               Left = 52
-              Top = 100
+              Top = 52
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -535,7 +532,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel28: TUniPanel
               Left = 18
-              Top = 110
+              Top = 62
               Width = 167
               Height = 70
               Hint = 't1w200h0;'
@@ -592,7 +589,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel5: TUniPanel
               Left = 200
-              Top = 110
+              Top = 62
               Width = 167
               Height = 70
               Hint = 't1w200h0;'
@@ -649,7 +646,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel41: TUniPanel
               Left = 580
-              Top = 110
+              Top = 62
               Width = 166
               Height = 70
               Hint = 't1w100h0;'
@@ -712,7 +709,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel7: TUniPanel
               Left = 52
-              Top = 190
+              Top = 142
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -722,7 +719,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel8: TUniPanel
               Left = 390
-              Top = 110
+              Top = 62
               Width = 167
               Height = 70
               Hint = 't1w200h0;'
@@ -780,7 +777,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel10: TUniPanel
               Left = 18
-              Top = 200
+              Top = 152
               Width = 167
               Height = 70
               Hint = 't1w200h0;'
@@ -837,7 +834,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel11: TUniPanel
               Left = 199
-              Top = 200
+              Top = 152
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -898,7 +895,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel13: TUniPanel
               Left = 52
-              Top = 280
+              Top = 232
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -908,7 +905,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel15: TUniPanel
               Left = 18
-              Top = 300
+              Top = 252
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -967,7 +964,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel9: TUniPanel
               Left = 391
-              Top = 200
+              Top = 152
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1026,7 +1023,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel14: TUniPanel
               Left = 580
-              Top = 198
+              Top = 150
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1085,7 +1082,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel16: TUniPanel
               Left = 494
-              Top = 300
+              Top = 252
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1145,7 +1142,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel6: TUniPanel
               Left = 198
-              Top = 300
+              Top = 252
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -1188,7 +1185,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel12: TUniPanel
               Left = 297
-              Top = 301
+              Top = 253
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1274,7 +1271,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel17: TUniPanel
               Left = 674
-              Top = 302
+              Top = 254
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -1317,7 +1314,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel18: TUniPanel
               Left = 773
-              Top = 302
+              Top = 254
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1403,7 +1400,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel19: TUniPanel
               Left = 33
-              Top = 378
+              Top = 330
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -1413,7 +1410,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel20: TUniPanel
               Left = 19
-              Top = 396
+              Top = 348
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1472,7 +1469,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel21: TUniPanel
               Left = 199
-              Top = 396
+              Top = 348
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -1516,7 +1513,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel22: TUniPanel
               Left = 298
-              Top = 397
+              Top = 349
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1602,7 +1599,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel23: TUniPanel
               Left = 495
-              Top = 396
+              Top = 348
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1662,7 +1659,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel24: TUniPanel
               Left = 675
-              Top = 397
+              Top = 349
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -1705,7 +1702,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel25: TUniPanel
               Left = 774
-              Top = 398
+              Top = 350
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1791,7 +1788,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel26: TUniPanel
               Left = 37
-              Top = 474
+              Top = 426
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -1801,7 +1798,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel27: TUniPanel
               Left = 20
-              Top = 482
+              Top = 434
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1860,7 +1857,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel29: TUniPanel
               Left = 496
-              Top = 482
+              Top = 434
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -1920,7 +1917,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel30: TUniPanel
               Left = 17
-              Top = 570
+              Top = 522
               Width = 1075
               Height = 2
               Hint = 't2w2075h2;'
@@ -1930,7 +1927,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel31: TUniPanel
               Left = 18
-              Top = 587
+              Top = 539
               Width = 728
               Height = 38
               Hint = 't1w600h0;'
@@ -1974,7 +1971,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel32: TUniPanel
               Left = 200
-              Top = 481
+              Top = 433
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -2018,7 +2015,7 @@ object fraCadCfop: TfraCadCfop
             end
             object compaa: TUniPanel
               Left = 299
-              Top = 482
+              Top = 434
               Width = 166
               Height = 70
               Hint = 't1w200h0;'
@@ -2104,7 +2101,7 @@ object fraCadCfop: TfraCadCfop
             end
             object UniPanel34: TUniPanel
               Left = 674
-              Top = 481
+              Top = 433
               Width = 85
               Height = 70
               Hint = 't1w100h0;'
@@ -2147,7 +2144,7 @@ object fraCadCfop: TfraCadCfop
             end
             object compaaa: TUniPanel
               Left = 773
-              Top = 482
+              Top = 434
               Width = 166
               Height = 70
               Hint = 't1w200h0;'

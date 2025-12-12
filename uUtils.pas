@@ -2059,8 +2059,74 @@ begin
 
                                         TUniSFComboBox(Componente).ItemIndex := -1;
                                       end else
+                                        if (Componente.Name = 'compCLIPI') or (Componente.Name = 'compSTICMSC') then
+                                        begin
+                                          if DataSet.Fields[i].AsString.Trim = '0' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('0  - Nacional') else
+                                          if DataSet.Fields[i].AsString.Trim = '1' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('1  - Estrangeira - Importação  direta') else
+                                          if DataSet.Fields[i].AsString.Trim = '2' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('2  - Estrangeira - Adiquirida no mercado interno') else
+                                          if DataSet.Fields[i].AsString.Trim = '3' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('3  -  Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% (quarenta por cento)') else
+                                          if DataSet.Fields[i].AsString.Trim = '4' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('4  - Nacional, cuja produção tenha sido feita em conformidade com os processos produtivos básicos de que tratam o Decreto-Lei nº 288/67, e as Leis nºs 8.248/91, 8.387/91, 10.176/01 e 11.484/07') else
+                                          if DataSet.Fields[i].AsString.Trim = '5' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('5  - Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual a 40% (quarenta por cento)') else
+                                          if DataSet.Fields[i].AsString.Trim = '6' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('6  - Estrangeira – Importação direta, sem similar nacional, constante em lista de Resolução Camex') else
+                                          if DataSet.Fields[i].AsString.Trim = '7' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('7  - Estrangeira – Adquirida no mercado interno, sem similar nacional, constante em lista de Resolução Camex') else
+                                          if DataSet.Fields[i].AsString.Trim = '8' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('8  - Nacional – Mercadoria ou bem com conteúdo de importação superior a  70%') else
+                                          if DataSet.Fields[i].AsString.Trim = '00' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('00 - Tributado integralmente') else
+                                          if DataSet.Fields[i].AsString.Trim = '10' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('10 - Tributada e com cobrança do icms por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '20' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('20 - Com redução na base de cálculo') else
 
-                                      TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
+                                          if DataSet.Fields[i].AsString.Trim = '30' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('30 - Isenta ou não Tributada e com cobrança do icms por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '40' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('40 - Isenta') else
+                                          if DataSet.Fields[i].AsString.Trim = '41' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('41 - Não tributada') else
+                                          if DataSet.Fields[i].AsString.Trim = '50' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('50 - Com suspensão') else
+                                          if DataSet.Fields[i].AsString.Trim = '51' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('51 - Diferimento') else
+                                          if DataSet.Fields[i].AsString.Trim = '60' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('60 - Icms cobrado anteriormente por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '70' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('70 - Com redução de base de cálculo e cobrança do icms por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '90' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('90 - Outras') else
+                                          if DataSet.Fields[i].AsString.Trim = '101' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('101 - Tributada pelo simples nacional com permissão de crédito') else
+                                          if DataSet.Fields[i].AsString.Trim = '102' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('102 - Tributada pelo simples nacional sem permissão de crédito') else
+                                          if DataSet.Fields[i].AsString.Trim = '103' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('103 - Isenção do ICMS no simples nacional para faixa de receita bruta') else
+                                          if DataSet.Fields[i].AsString.Trim = '201' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('201 - Tributada pelo simples nacional com permissão de crédito e com cobrança do ICMS por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '202' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('202 - Tributada pelo simples nacional sem permissão de crédito e com cobrança do ICMS por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '203' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('203 - Isenção do ICMS no simples nacional para faixa de receita bruta e com cobrança do ICMS por substituição tributária') else
+                                          if DataSet.Fields[i].AsString.Trim = '300' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('300 - Imune') else
+                                          if DataSet.Fields[i].AsString.Trim = '400' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('400 - Não tributada pelo simples nacional') else
+                                          if DataSet.Fields[i].AsString.Trim = '500' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('500 - ICMS cobrado anteriormente por substituição tributária (Substituído) ou por antecipação') else
+                                          if DataSet.Fields[i].AsString.Trim = '900' then
+                                              TUniSFComboBox(Componente).SetPositionFromValue('900 - Outros') else
+
+
+                                          TUniSFComboBox(Componente).ItemIndex := -1;
+                                        end else
+                                        TUniSFComboBox(Componente).SetPositionFromValue(DataSet.Fields[i].AsString);
       end;
     end;
   end;

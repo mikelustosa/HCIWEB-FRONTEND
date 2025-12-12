@@ -63,3 +63,4 @@ HCIWEB.exe: 000011A8: 09:44:40 [TUniServerModule]:Global Cache Folder Erased. <8
 HCIWEB.exe: 000011A8: 09:44:40 [TUniServerModule]:Starting HTTP Server on Port: 8077...
 HCIWEB.exe: 000011A8: 09:44:40 [TUniServerModule]:HTTP Server Started on Port: 8077
 HCIWEB.exe: 00001150: 09:44:46 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C5DA
+HCIWEB.exe: 000011A8: 11:15:51 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
