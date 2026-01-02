@@ -27,6 +27,7 @@ object frmPrincipal: TfrmPrincipal
         'sender.getEl();'#13#10' '#13#10'    el.setOpacity(0);'#13#10'    el.fadeIn({'#13#10'    ' +
         '    duration: 2000'#13#10'    });'#13#10'}')
     TabOrder = 0
+    ExplicitHeight = 187
     object pnTreeMenuPrincipal: TUniContainerPanel
       Left = 0
       Top = 0
@@ -2566,6 +2567,10 @@ object frmPrincipal: TfrmPrincipal
       ImageIndex = 24
       Caption = 'In'#237'cio'
       OnClose = paginaPrincipalClose
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 256
+      ExplicitHeight = 128
       object UniURLFrame1: TUniURLFrame
         Left = 0
         Top = 0
@@ -2721,9 +2726,11 @@ object frmPrincipal: TfrmPrincipal
         end
         object Grade11: TUniMenuItem
           Caption = 'Grade 1'
+          OnClick = Grade11Click
         end
         object Grade21: TUniMenuItem
           Caption = 'Grade 2'
+          OnClick = Grade21Click
         end
       end
       object Agenda1: TUniMenuItem
@@ -2752,6 +2759,16 @@ object frmPrincipal: TfrmPrincipal
     end
     object UniMenuItem15: TUniMenuItem
       Caption = 'Opera'#231#227'o'
+      object NFCeSAT1: TUniMenuItem
+        Caption = 'NFCe/SAT'
+        object Pontodevenda1: TUniMenuItem
+          Caption = 'Ponto de venda'
+          OnClick = Pontodevenda1Click
+        end
+        object Configuraes1: TUniMenuItem
+          Caption = 'Configura'#231#245'es'
+        end
+      end
     end
     object configuracoesPrivado: TUniMenuItem
       Caption = 'Mala direta'

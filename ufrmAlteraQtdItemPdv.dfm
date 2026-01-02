@@ -1,0 +1,244 @@
+object frmAlteraQtdItemPdv: TfrmAlteraQtdItemPdv
+  Left = 0
+  Top = 0
+  ClientHeight = 127
+  ClientWidth = 364
+  Caption = 'Selecionar a quantidade a excluir'
+  BorderStyle = bsDialog
+  OldCreateOrder = False
+  OnClose = UniFormClose
+  MonitoredKeys.Keys = <>
+  OnReady = UniFormReady
+  PixelsPerInch = 96
+  TextHeight = 13
+  object UniScrollBox1: TUniScrollBox
+    Left = 0
+    Top = 0
+    Width = 364
+    Height = 87
+    Hint = ''
+    Align = alClient
+    TabOrder = 1
+    ExplicitWidth = 363
+    ExplicitHeight = 86
+    object PN1: TUniPanel
+      Left = 0
+      Top = 0
+      Width = 362
+      Height = 85
+      Hint = ''
+      Align = alClient
+      TabOrder = 0
+      Caption = 'PN1'
+      ExplicitWidth = 361
+      ExplicitHeight = 84
+      object UniScrollBox2: TUniScrollBox
+        Left = 1
+        Top = 1
+        Width = 360
+        Height = 83
+        Hint = ''
+        Align = alClient
+        TabOrder = 1
+        ExplicitLeft = -1
+        ExplicitTop = 3
+        ExplicitWidth = 466
+        ExplicitHeight = 334
+        ScrollHeight = 73
+        ScrollWidth = 350
+        object UniPanel1: TUniPanel
+          Left = 4
+          Top = 3
+          Width = 152
+          Height = 70
+          Hint = 't1w200h0;'
+          TabOrder = 0
+          Caption = ''
+          Color = 16249327
+          object compQTDRETIRA: TUniEdit
+            Left = 1
+            Top = 28
+            Width = 150
+            Height = 41
+            Hint = ''
+            CharCase = ecUpperCase
+            MaxLength = 60
+            BorderStyle = ubsNone
+            Text = ''
+            ParentFont = False
+            Font.Height = -16
+            Align = alClient
+            TabOrder = 1
+          end
+          object UniContainerPanel2: TUniContainerPanel
+            Left = 1
+            Top = 1
+            Width = 150
+            Height = 27
+            Hint = ''
+            Margins.Left = 8
+            Margins.Top = 5
+            Margins.Right = 12
+            Margins.Bottom = 5
+            ParentColor = False
+            Align = alTop
+            TabOrder = 2
+            TabStop = False
+            LayoutConfig.Cls = 'body_grdnt_rounded'
+            object UniLabel48: TUniLabel
+              AlignWithMargins = True
+              Left = 10
+              Top = 3
+              Width = 44
+              Height = 17
+              Hint = ''
+              Margins.Left = 10
+              Caption = 'Retirada'
+              Align = alTop
+              ParentFont = False
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Segoe UI Light'
+              TabOrder = 1
+            end
+          end
+        end
+        object UniPanel2: TUniPanel
+          Left = 170
+          Top = 3
+          Width = 180
+          Height = 70
+          Hint = 't1w200h0;'
+          TabOrder = 1
+          Caption = ''
+          Color = 16249327
+          object compTOTAL: TUniEdit
+            Left = 1
+            Top = 28
+            Width = 178
+            Height = 41
+            Hint = ''
+            Enabled = False
+            CharCase = ecUpperCase
+            MaxLength = 6
+            BorderStyle = ubsNone
+            Text = ''
+            ParentFont = False
+            Font.Height = -16
+            Align = alClient
+            TabOrder = 1
+          end
+          object UniContainerPanel8: TUniContainerPanel
+            Left = 1
+            Top = 1
+            Width = 178
+            Height = 27
+            Hint = ''
+            Margins.Left = 8
+            Margins.Top = 5
+            Margins.Right = 12
+            Margins.Bottom = 5
+            ParentColor = False
+            Align = alTop
+            TabOrder = 2
+            TabStop = False
+            LayoutConfig.Cls = 'body_grdnt_rounded'
+            object UniLabel3: TUniLabel
+              AlignWithMargins = True
+              Left = 10
+              Top = 3
+              Width = 25
+              Height = 17
+              Hint = ''
+              Margins.Left = 10
+              Caption = 'Total'
+              Align = alTop
+              ParentFont = False
+              Font.Color = clBlack
+              Font.Height = -13
+              Font.Name = 'Segoe UI Light'
+              TabOrder = 1
+            end
+          end
+        end
+      end
+    end
+  end
+  object cpMenuRodape: TUniContainerPanel
+    Left = 0
+    Top = 87
+    Width = 364
+    Height = 40
+    Hint = ''
+    ParentColor = False
+    Align = alBottom
+    TabOrder = 0
+    LayoutConfig.Cls = 'body_grdnt_rounded'
+    ExplicitTop = 86
+    ExplicitWidth = 363
+    object UniSFBitBtn26: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 155
+      Top = 5
+      Width = 120
+      Height = 30
+      Hint = ''
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      ParentShowHint = False
+      Caption = 'CANCELA'
+      Align = alLeft
+      TabOrder = 1
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = UniSFBitBtn26Click
+      FAIcon.Icon = fa_arrow_alt_circle_left
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_white
+      FAIcon.Style = regular
+      ButtonStyles = bs_danger
+    end
+    object UniSFBitBtn27: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 5
+      Top = 5
+      Width = 140
+      Height = 30
+      Hint = ''
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      ParentShowHint = False
+      Caption = 'CONCLUI'
+      Align = alLeft
+      TabOrder = 2
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = UniSFBitBtn27Click
+      FAIcon.Icon = fa_arrow_alt_circle_left
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_white
+      FAIcon.Style = regular
+      ButtonStyles = bs_danger
+    end
+  end
+  object rg1: TRGLayoutUnigui
+    Enabled = False
+    ClientEvent.Strings = (
+      'function(sender)'
+      '{'
+      ' '
+      '}')
+    HeightEntreCampos = 8
+    WidthEntreCampos = 20
+    Frame = Owner
+    HeightCampos = 70
+    TamanhoMinimoCampos = 100
+    TopInicialCampos = 20
+    Left = 528
+    Top = 244
+  end
+end

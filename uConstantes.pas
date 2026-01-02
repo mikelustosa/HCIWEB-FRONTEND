@@ -115,6 +115,12 @@ interface
     const postGrade2 = 'postGrade2';
 
     const getCidades    = 'getCidades';
+
+    const getCupom    = 'getCupom';
+    const postCupom    = 'postCupom';
+
+    const getItemCupom    = 'getItemCupom';
+
   {$endregion 'Resources Cadastros e Login'}
 
 implementation

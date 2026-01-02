@@ -1,0 +1,46 @@
+HCIWEB.exe: 00001A60: 09:10:15 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001A60: 09:10:15 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001A60: 09:10:15 [TUniServerModule]:Global Cache Folder Erased. <20> Files deleted.
+HCIWEB.exe: 00001A60: 09:10:15 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001A60: 09:10:15 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002C54: 09:11:36 [127.0.0.1]:EJSONException : Value 'id' not found : Addr: $0000000000C6782A
+HCIWEB.exe: 00002EA0: 09:12:49 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002EA0: 09:12:49 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002EA0: 09:12:49 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00002EA0: 09:12:49 [TUniServerModule]:Global Cache Folder Erased. <15> Files deleted.
+HCIWEB.exe: 00002EA0: 09:12:49 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002EA0: 09:12:49 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001588: 09:14:38 [127.0.0.1]:EJSONException : Value 'id' not found : Addr: $0000000000C6782A
+HCIWEB.exe: 00001588: 09:15:12 [127.0.0.1]:EJSONException : Value 'id' not found : Addr: $0000000000C6782A
+HCIWEB.exe: 00002614: 09:17:21 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002614: 09:17:21 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002614: 09:17:21 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00002614: 09:17:21 [TUniServerModule]:Global Cache Folder Erased. <16> Files deleted.
+HCIWEB.exe: 00002614: 09:17:21 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002614: 09:17:21 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001910: 09:18:52 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095CF4A
+HCIWEB.exe: 0000087C: 09:24:28 [127.0.0.1]:EJSONException : Value 'id' not found : Addr: $0000000000C6782A
+HCIWEB.exe: 0000087C: 09:24:44 [127.0.0.1]:EJSONException : Value 'id' not found : Addr: $0000000000C6782A
+HCIWEB.exe: 000020E0: 09:25:09 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000020E0: 09:25:09 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000020E0: 09:25:09 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 000020E0: 09:25:09 [TUniServerModule]:Global Cache Folder Erased. <16> Files deleted.
+HCIWEB.exe: 000020E0: 09:25:09 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000020E0: 09:25:09 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003280: 09:25:09 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095CF4A
+HCIWEB.exe: 00003684: 09:46:18 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003684: 09:46:18 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003684: 09:46:18 [TUniServerModule]:Global Cache Folder Erased. <16> Files deleted.
+HCIWEB.exe: 00003684: 09:46:18 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003684: 09:46:18 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003A48: 09:53:51 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003A48: 09:53:51 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003A48: 09:53:51 [TUniServerModule]:Global Cache Folder Erased. <15> Files deleted.
+HCIWEB.exe: 00003A48: 09:53:51 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003A48: 09:53:51 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003440: 10:27:32 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003440: 10:27:32 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003440: 10:27:32 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 00003440: 10:27:32 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003440: 10:27:32 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000360C: 10:42:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095CF4A

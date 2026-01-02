@@ -2341,8 +2341,8 @@ object fraCadCfop: TfraCadCfop
     iType = it_info
     AnimationEnable = True
     PlacementX = px_left
-    Left = 384
-    Top = 587
+    Left = 656
+    Top = 547
   end
   object CDSDados: TClientDataSet
     Aggregates = <>

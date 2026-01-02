@@ -452,7 +452,6 @@ object fraCadProdutos: TfraCadProdutos
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 1126
           end
           object UniSFBitBtn27: TUniSFBitBtn
             AlignWithMargins = True
@@ -476,7 +475,29 @@ object fraCadProdutos: TfraCadProdutos
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 1126
+          end
+          object UniSFBitBtn14: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 365
+            Top = 5
+            Width = 142
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'RECALCULA TABELAS'
+            Align = alLeft
+            TabOrder = 6
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
           end
         end
         object UniContainerPanel12: TUniContainerPanel
@@ -518,7 +539,7 @@ object fraCadProdutos: TfraCadProdutos
           Width = 1381
           Height = 602
           Hint = ''
-          ActivePage = tab5
+          ActivePage = tab2
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet
@@ -534,14 +555,14 @@ object fraCadProdutos: TfraCadProdutos
               TabOrder = 0
               Caption = ''
               object sBox1: TUniScrollBox
-                Left = 34
-                Top = 59
+                Left = 76
+                Top = 85
                 Width = 1371
                 Height = 969
                 Hint = ''
                 Color = 16249327
                 TabOrder = 1
-                ScrollHeight = 837
+                ScrollHeight = 658
                 ScrollWidth = 1335
                 object UniPanel13: TUniPanel
                   Left = 11
@@ -1597,7 +1618,7 @@ object fraCadProdutos: TfraCadProdutos
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 47
+                  TabOrder = 43
                   Caption = ''
                   Color = 16249327
                 end
@@ -2674,55 +2695,6 @@ object fraCadProdutos: TfraCadProdutos
                     end
                   end
                 end
-                object UniPanel55: TUniPanel
-                  Left = 23
-                  Top = 666
-                  Width = 169
-                  Height = 70
-                  Hint = 't1w500h0;'
-                  TabOrder = 43
-                  Caption = ''
-                  Color = 16249327
-                  object UniContainerPanel55: TUniContainerPanel
-                    Left = 1
-                    Top = 1
-                    Width = 167
-                    Height = 27
-                    Hint = ''
-                    Margins.Left = 8
-                    Margins.Top = 5
-                    Margins.Right = 12
-                    Margins.Bottom = 5
-                    ParentColor = False
-                    Align = alTop
-                    TabOrder = 1
-                    TabStop = False
-                    LayoutConfig.Cls = 'body_grdnt_rounded'
-                  end
-                  object UniSFBitBtn13: TUniSFBitBtn
-                    AlignWithMargins = True
-                    Left = 6
-                    Top = 31
-                    Width = 157
-                    Height = 33
-                    Hint = ''
-                    Margins.Left = 5
-                    Margins.Top = 5
-                    Margins.Right = 5
-                    Margins.Bottom = 5
-                    ParentShowHint = False
-                    Caption = 'RECALCULA TABELAS'
-                    Align = alBottom
-                    TabOrder = 2
-                    Scale = bbsSmall
-                    LayoutConfig.Cls = 'botaoSemBorda'
-                    FAIcon.Icon = fa_arrow_alt_circle_left
-                    FAIcon.Size = fs_16
-                    FAIcon.Color = fc_white
-                    FAIcon.Style = regular
-                    ButtonStyles = bs_danger
-                  end
-                end
                 object UniPanel73: TUniPanel
                   Left = 199
                   Top = 656
@@ -2732,114 +2704,6 @@ object fraCadProdutos: TfraCadProdutos
                   TabOrder = 42
                   Caption = ''
                   Color = 16249327
-                end
-                object UniPanel74: TUniPanel
-                  Left = 212
-                  Top = 747
-                  Width = 1075
-                  Height = 2
-                  Hint = 't2w2075h2;'
-                  TabOrder = 44
-                  Caption = ''
-                  Color = 16249327
-                end
-                object UniPanel75: TUniPanel
-                  Left = 16
-                  Top = 767
-                  Width = 169
-                  Height = 70
-                  Hint = 't1w500h0;'
-                  TabOrder = 45
-                  Caption = ''
-                  Color = 16249327
-                  object UniContainerPanel65: TUniContainerPanel
-                    Left = 1
-                    Top = 1
-                    Width = 167
-                    Height = 27
-                    Hint = ''
-                    Margins.Left = 8
-                    Margins.Top = 5
-                    Margins.Right = 12
-                    Margins.Bottom = 5
-                    ParentColor = False
-                    Align = alTop
-                    TabOrder = 1
-                    TabStop = False
-                    LayoutConfig.Cls = 'body_grdnt_rounded'
-                  end
-                  object UniSFBitBtn14: TUniSFBitBtn
-                    AlignWithMargins = True
-                    Left = 6
-                    Top = 31
-                    Width = 157
-                    Height = 33
-                    Hint = ''
-                    Margins.Left = 5
-                    Margins.Top = 5
-                    Margins.Right = 5
-                    Margins.Bottom = 5
-                    ParentShowHint = False
-                    Caption = 'REPETIR'
-                    Align = alBottom
-                    TabOrder = 2
-                    Scale = bbsSmall
-                    LayoutConfig.Cls = 'botaoSemBorda'
-                    FAIcon.Icon = fa_arrow_alt_circle_left
-                    FAIcon.Size = fs_16
-                    FAIcon.Color = fc_white
-                    FAIcon.Style = regular
-                    ButtonStyles = bs_danger
-                  end
-                end
-                object UniPanel76: TUniPanel
-                  Left = 206
-                  Top = 767
-                  Width = 169
-                  Height = 70
-                  Hint = 't1w500h0;'
-                  TabOrder = 46
-                  Caption = ''
-                  Color = 16249327
-                  object UniContainerPanel66: TUniContainerPanel
-                    Left = 1
-                    Top = 1
-                    Width = 167
-                    Height = 27
-                    Hint = ''
-                    Margins.Left = 8
-                    Margins.Top = 5
-                    Margins.Right = 12
-                    Margins.Bottom = 5
-                    ParentColor = False
-                    Align = alTop
-                    TabOrder = 1
-                    TabStop = False
-                    LayoutConfig.Cls = 'body_grdnt_rounded'
-                  end
-                  object UniSFBitBtn15: TUniSFBitBtn
-                    AlignWithMargins = True
-                    Left = 6
-                    Top = 31
-                    Width = 157
-                    Height = 33
-                    Hint = ''
-                    Margins.Left = 5
-                    Margins.Top = 5
-                    Margins.Right = 5
-                    Margins.Bottom = 5
-                    ParentShowHint = False
-                    Caption = 'UF por produto'
-                    Align = alBottom
-                    TabOrder = 2
-                    Scale = bbsSmall
-                    LayoutConfig.Cls = 'botaoSemBorda'
-                    FAIcon.Icon = fa_arrow_alt_circle_left
-                    FAIcon.Size = fs_16
-                    FAIcon.Color = fc_white
-                    FAIcon.Style = regular
-                    ButtonStyles = bs_danger
-                  end
                 end
                 object UniPanel77: TUniPanel
                   Left = 211
@@ -3055,7 +2919,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 51
                     end
                   end
                   object UniSFBitBtn2: TUniSFBitBtn
@@ -3107,7 +2970,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 398
                   end
                   object UniContainerPanel41: TUniContainerPanel
                     Left = 1
@@ -3124,7 +2986,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 398
                   end
                 end
                 object UniPanel43: TUniPanel
@@ -3196,7 +3057,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                   object btnVendedorers: TUniSFBitBtn
@@ -3248,7 +3108,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 398
                   end
                   object UniContainerPanel43: TUniContainerPanel
                     Left = 1
@@ -3265,7 +3124,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 398
                   end
                 end
                 object UniPanel47: TUniPanel
@@ -3327,7 +3185,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 37
                     end
                   end
                   object UniSFBitBtn4: TUniSFBitBtn
@@ -3379,7 +3236,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 398
                   end
                   object UniContainerPanel45: TUniContainerPanel
                     Left = 1
@@ -3396,7 +3252,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 398
                   end
                 end
                 object UniPanel50: TUniPanel
@@ -3438,8 +3293,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitLeft = 8
-                    ExplicitTop = -1
                     object UniLabel36: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -3455,7 +3308,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 34
                     end
                   end
                 end
@@ -3791,7 +3643,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -3849,7 +3700,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -3907,7 +3757,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -3965,7 +3814,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -4023,7 +3871,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -4081,7 +3928,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -4199,7 +4045,6 @@ object fraCadProdutos: TfraCadProdutos
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 1
-                    ExplicitWidth = 152
                   end
                   object UniContainerPanel56: TUniContainerPanel
                     Left = 1
@@ -4231,7 +4076,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 28
                     end
                   end
                   object UniSFBitBtn25: TUniSFBitBtn
@@ -4257,7 +4101,6 @@ object fraCadProdutos: TfraCadProdutos
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
                     ButtonStyles = bs_transparent
-                    ExplicitLeft = 64
                   end
                 end
                 object UniPanel65: TUniPanel
@@ -4324,7 +4167,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 48
                     end
                   end
                 end
@@ -4382,7 +4224,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 48
                     end
                   end
                 end
@@ -4440,7 +4281,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 48
                     end
                   end
                 end
@@ -4499,7 +4339,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 48
                     end
                   end
                 end
@@ -4543,7 +4382,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 58
                     end
                   end
                   object compPRODCOMPL: TUniSFComboBox
@@ -4615,7 +4453,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 48
                     end
                   end
                 end
@@ -4658,7 +4495,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 135
                     end
                   end
                   object compCLIPI: TUniSFComboBox
@@ -4792,7 +4628,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 76
                     end
                   end
                 end
@@ -4937,7 +4772,6 @@ object fraCadProdutos: TfraCadProdutos
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 1
-                    ExplicitLeft = 6
                   end
                   object UniContainerPanel78: TUniContainerPanel
                     Left = 1
@@ -4969,7 +4803,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 76
                     end
                   end
                 end
@@ -5032,7 +4865,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 71
                     end
                   end
                   object UniSFBitBtn10: TUniSFBitBtn
@@ -5114,7 +4946,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 82
                     end
                   end
                 end
@@ -5228,7 +5059,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 171
                   end
                   object UniContainerPanel82: TUniContainerPanel
                     Left = 1
@@ -5245,7 +5075,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 171
                   end
                 end
                 object UniPanel89: TUniPanel
@@ -5272,7 +5101,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 116
                   end
                   object UniContainerPanel83: TUniContainerPanel
                     Left = 1
@@ -5289,7 +5117,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 116
                   end
                 end
                 object UniPanel90: TUniPanel
@@ -5356,7 +5183,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 82
                     end
                   end
                 end
@@ -5470,7 +5296,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 116
                   end
                   object UniContainerPanel86: TUniContainerPanel
                     Left = 1
@@ -5487,7 +5312,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 116
                   end
                 end
                 object UniPanel94: TUniPanel
@@ -5544,7 +5368,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 82
                     end
                   end
                 end
@@ -5658,7 +5481,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 116
                   end
                   object UniContainerPanel89: TUniContainerPanel
                     Left = 1
@@ -5675,7 +5497,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 116
                   end
                 end
                 object UniPanel97: TUniPanel
@@ -5732,7 +5553,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 82
                     end
                   end
                 end
@@ -5846,7 +5666,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 116
                   end
                   object UniContainerPanel92: TUniContainerPanel
                     Left = 1
@@ -5863,7 +5682,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 116
                   end
                 end
                 object UniPanel100: TUniPanel
@@ -5920,7 +5738,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 82
                     end
                   end
                 end
@@ -6034,7 +5851,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 116
                   end
                   object UniContainerPanel95: TUniContainerPanel
                     Left = 1
@@ -6051,7 +5867,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 116
                   end
                 end
                 object UniPanel103: TUniPanel
@@ -6107,7 +5922,6 @@ object fraCadProdutos: TfraCadProdutos
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 1
-                    ExplicitWidth = 98
                   end
                   object UniContainerPanel96: TUniContainerPanel
                     Left = 1
@@ -6124,7 +5938,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 98
                     object UniLabel72: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -6140,7 +5953,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 39
                     end
                   end
                 end
@@ -6198,7 +6010,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 66
                     end
                   end
                 end
@@ -6262,7 +6073,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 42
                     end
                   end
                   object UniSFBitBtn21: TUniSFBitBtn
@@ -6391,7 +6201,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 42
                     end
                   end
                   object UniSFBitBtn22: TUniSFBitBtn
@@ -6520,7 +6329,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 42
                     end
                   end
                   object UniSFBitBtn23: TUniSFBitBtn
@@ -6670,7 +6478,6 @@ object fraCadProdutos: TfraCadProdutos
                         'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
                         '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
                         'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
-                    ExplicitWidth = 58
                   end
                   object UniContainerPanel105: TUniContainerPanel
                     Left = 1
@@ -6687,7 +6494,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 98
                     object UniLabel77: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -6703,7 +6509,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 76
                     end
                   end
                   object UniSFBitBtn24: TUniSFBitBtn
@@ -6729,7 +6534,6 @@ object fraCadProdutos: TfraCadProdutos
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
                     ButtonStyles = bs_transparent
-                    ExplicitLeft = 64
                   end
                 end
                 object UniPanel117: TUniPanel
@@ -6786,7 +6590,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 66
                     end
                   end
                 end
@@ -6844,7 +6647,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 101
                     end
                   end
                 end
@@ -6902,7 +6704,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 101
                     end
                   end
                 end
@@ -6940,7 +6741,6 @@ object fraCadProdutos: TfraCadProdutos
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ExplicitWidth = 345
                   end
                   object UniContainerPanel48: TUniContainerPanel
                     Left = 1
@@ -6957,7 +6757,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 345
                   end
                 end
               end
@@ -6993,10 +6792,6 @@ object fraCadProdutos: TfraCadProdutos
                   TabOrder = 0
                   Caption = 'UniPanel4'
                   Color = clWhite
-                  ExplicitLeft = 19
-                  ExplicitTop = 113
-                  ExplicitWidth = 1054
-                  ExplicitHeight = 313
                   object UniContainerPanel109: TUniContainerPanel
                     Left = 1
                     Top = 1
@@ -7012,7 +6807,6 @@ object fraCadProdutos: TfraCadProdutos
                     TabOrder = 1
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 290
                     object UniLabel81: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -7039,10 +6833,6 @@ object fraCadProdutos: TfraCadProdutos
                     Hint = ''
                     Align = alClient
                     TabOrder = 2
-                    ExplicitLeft = 64
-                    ExplicitTop = 40
-                    ExplicitWidth = 185
-                    ExplicitHeight = 89
                   end
                 end
               end
@@ -7146,7 +6936,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 39
                     end
                   end
                 end
@@ -7203,7 +6992,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 53
                     end
                   end
                 end
@@ -7260,7 +7048,6 @@ object fraCadProdutos: TfraCadProdutos
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 84
                     end
                   end
                 end

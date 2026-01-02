@@ -1,0 +1,36 @@
+HCIWEB.exe: 00002DD0: 08:35:51 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002DD0: 08:35:51 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002DD0: 08:35:51 [TUniServerModule]:Global Cache Folder Erased. <13> Files deleted.
+HCIWEB.exe: 00002DD0: 08:35:52 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002DD0: 08:35:52 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000009AC: 15:30:59 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000009AC: 15:30:59 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000009AC: 15:30:59 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 000009AC: 15:30:59 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000009AC: 15:30:59 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00003098: 15:39:57 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003098: 15:39:57 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003098: 15:39:57 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 00003098: 15:39:57 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003098: 15:39:57 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00000BC8: 15:41:14 [Access violation at address 00000000010CF3E9 in module 'HCIWEB.exe'. Read of address 0000000000000000-127.0.0.1]:EAccessViolation : Access violation at address 00000000010CF3E9 in module 'HCIWEB.exe'. Read of address 0000000000000000 : Addr: $00000000010CF3E9
+HCIWEB.exe: 000020B0: 15:45:24 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000020B0: 15:45:24 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000020B0: 15:45:24 [TUniServerModule]:Global Cache Folder Erased. <11> Files deleted.
+HCIWEB.exe: 000020B0: 15:45:24 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000020B0: 15:45:24 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001448: 15:47:19 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001448: 15:47:19 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001448: 15:47:19 [TUniServerModule]:Global Cache Folder Erased. <13> Files deleted.
+HCIWEB.exe: 00001448: 15:47:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001448: 15:47:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000016C4: 15:51:58 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000016C4: 15:51:58 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000016C4: 15:51:58 [TUniServerModule]:Global Cache Folder Erased. <13> Files deleted.
+HCIWEB.exe: 000016C4: 15:51:58 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000016C4: 15:51:58 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002CC8: 15:55:27 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002CC8: 15:55:27 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002CC8: 15:55:27 [TUniServerModule]:Global Cache Folder Erased. <10> Files deleted.
+HCIWEB.exe: 00002CC8: 15:55:27 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002CC8: 15:55:27 [TUniServerModule]:HTTP Server Started on Port: 8077

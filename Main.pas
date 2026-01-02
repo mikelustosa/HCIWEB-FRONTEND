@@ -84,6 +84,9 @@ type
     Grade21: TUniMenuItem;
     logo1: TUniImage;
     logo2: TUniImage;
+    NFCeSAT1: TUniMenuItem;
+    Pontodevenda1: TUniMenuItem;
+    Configuraes1: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -109,6 +112,9 @@ type
     procedure CFOP1Click(Sender: TObject);
     procedure ICMSinternoSubs1Click(Sender: TObject);
     procedure Produtos2Click(Sender: TObject);
+    procedure Pontodevenda1Click(Sender: TObject);
+    procedure Grade11Click(Sender: TObject);
+    procedure Grade21Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -134,7 +140,8 @@ uses
   ufraCadGrupos, ufraCadClassificacoes, ufraCadArea, ufraCadPais,
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
-  ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos;
+  ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
+  ufraCadGrade2, ufrmPDV;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -198,6 +205,12 @@ end;
 procedure TfrmPrincipal.Pas1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadPais),'Países', true, -1, true);
+end;
+
+procedure TfrmPrincipal.Pontodevenda1Click(Sender: TObject);
+begin
+//  NovaAba(TFrame(Tfrapdv),'PDV', true, -1, true);
+  frmPDV.showModal();
 end;
 
 procedure TfrmPrincipal.Produtos2Click(Sender: TObject);
@@ -272,6 +285,16 @@ procedure TfrmPrincipal.fechaAba(Sender: TObject);
 begin
   if MessageDlg('Deseja realmente fechar esta aba?', mtConfirmation, mbYesNo) = mrYes then
     FecharAbaAtualComSeguranca(frmPrincipal.pagePrincipal);
+end;
+
+procedure TfrmPrincipal.Grade11Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCadGrade),'Grade 1', true, -1, true);
+end;
+
+procedure TfrmPrincipal.Grade21Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCadGrade2),'Grade 2', true, -1, true);
 end;
 
 procedure TfrmPrincipal.Grupos1Click(Sender: TObject);

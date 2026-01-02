@@ -39,7 +39,12 @@ uses
   ufrmListaGlobal in 'ufrmListaGlobal.pas' {frmListaGlobal: TUniForm},
   ufraCadCfop in 'ufraCadCfop.pas' {fraCadCfop: TUniFrame},
   ufraCadIcmsInterno in 'ufraCadIcmsInterno.pas' {fraCadIcmsInterno: TUniFrame},
-  ufraCadProdutos in 'ufraCadProdutos.pas' {fraCadProdutos: TUniFrame};
+  ufraCadProdutos in 'ufraCadProdutos.pas' {fraCadProdutos: TUniFrame},
+  ufraCadGrade in 'ufraCadGrade.pas' {fraCadGrade: TUniFrame},
+  ufraCadGrade2 in 'ufraCadGrade2.pas' {fraCadGrade2: TUniFrame},
+  ufrmPDV in 'ufrmPDV.pas' {frmPDV: TUniForm},
+  ufrmAlteraQtdItemPdv in 'ufrmAlteraQtdItemPdv.pas' {frmAlteraQtdItemPdv: TUniForm},
+  ufrmSelecionaPagamentoF in 'ufrmSelecionaPagamentoF.pas' {frmSelecionaPagamentoF: TUniForm};
 
 {$R *.res}
 

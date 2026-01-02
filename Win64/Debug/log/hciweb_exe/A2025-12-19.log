@@ -1,0 +1,21 @@
+HCIWEB.exe: 0000222C: 07:19:55 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000222C: 07:19:55 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000222C: 07:19:55 [TUniServerModule]:Global Cache Folder Erased. <10> Files deleted.
+HCIWEB.exe: 0000222C: 07:19:55 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000222C: 07:19:56 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000332C: 08:48:23 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000332C: 08:48:23 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000332C: 08:48:23 [TUniServerModule]:Global Cache Folder Erased. <15> Files deleted.
+HCIWEB.exe: 0000332C: 08:48:23 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000332C: 08:48:23 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000014A4: 08:53:26 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000014A4: 08:53:26 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000014A4: 08:53:26 [TUniServerModule]:Global Cache Folder Erased. <15> Files deleted.
+HCIWEB.exe: 000014A4: 08:53:26 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000014A4: 08:53:26 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000014A4: 11:16:26 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
+HCIWEB.exe: 00000180: 14:52:38 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000180: 14:52:38 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000180: 14:52:38 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 00000180: 14:52:38 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000180: 14:52:38 [TUniServerModule]:HTTP Server Started on Port: 8077

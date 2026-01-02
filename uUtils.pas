@@ -8,7 +8,7 @@ FireDAC.Comp.Client, Datasnap.DBClient, system.JSON, Data.DB, REST.Response.Adap
 UniSFComboBox, uniDateTimePicker, uniEdit, SOAP.EncdDecd, REST.Types, REST.Client, System.NetEncoding,
 uniURLFrame, RESTRequest4D.request, uniGUIFrame, uniCheckBox, uniDBGrid, uniGUITypes, uniMemo, UniFSToggle,
 Winapi.Windows, Vcl.Controls, MainModule, TCustomIdHTTPUnit, IdHTTP, Vcl.Graphics, uniRadioButton,
-uniGUIForm, uniPageControl, UniSFSweetAlert, UniSFCore, uniLabel;
+uniGUIForm, uniPageControl, UniSFSweetAlert, UniSFCore, uniLabel, system.math;
 
 type
   TEndereco = record
@@ -112,10 +112,160 @@ procedure PreencherCamposDoForm(AOwner: TComponent;
   lblTitulo: string = '');
 procedure MarcarTodosCheckBox(AFrame: TUniFrame);
 function GetJsonArrayValue(const AJson: TJSONObject; const ArrayName, FieldName: string): string;
+function red_cent(Num: double): double;
+function red_unit(Num: double; casa: integer): double;
+function EStr(Texto: string; Tam: integer): string;
+function Right(InString: string; NumChars: Byte): string;
+function Spaces(i: Byte): string;
+function formata(valor: real; tamanho: integer; Casas: integer): string;
+function transform(valor: real; mascara: string; tamanho: integer): string;
+function Replicate(Carac: Char; qtd: integer): string;
+function Repl(Carac: Char; qtd: integer): string;
+function iff(Quest: Boolean; Var1, Var2: variant): variant;
+function convfloat(Num: string): double;
 
 implementation
 
 uses uConstantes;
+
+function iff(Quest: Boolean; Var1, Var2: variant): variant;
+begin
+  if Quest then
+    result := Var1
+  else
+    result := Var2;
+end;
+
+
+function convfloat(Num: string): double;
+var
+  n: integer;
+  soma: string;
+  DecimalSeparator: char;
+begin
+  soma := '';
+
+  Num := StringReplace(Num, 'R', '', [rfReplaceAll]);
+  Num := StringReplace(Num, '$', '', [rfReplaceAll]);
+
+  if DecimalSeparator = ',' then
+  begin
+    for n := 1 to Length(Num) do
+      if copy(Num, n, 1) <> '.' then
+        soma := soma + copy(Num, n, 1);
+    soma := iff(soma <> '', soma, '0,00');
+  end
+  else
+  begin
+    for n := 1 to Length(Num) do
+      if copy(Num, n, 1) <> ',' then
+        soma := soma + copy(Num, n, 1);
+    soma := iff(soma <> '', soma, '0.00');
+  end;
+  result := strtofloat(trim(soma));
+end;
+
+function Repl(Carac: Char; qtd: integer): string;
+var
+  i: integer;
+  x: string;
+begin
+  x := '';
+
+  for i := 1 to qtd do
+    x := x + Carac;
+
+  Repl := x;
+end;
+
+function Replicate(Carac: Char; qtd: integer): string;
+var
+  i: integer;
+  x: string;
+begin
+  x := '';
+  for i := 1 to qtd do
+    x := x + Carac;
+  Replicate := x;
+end;
+
+function transform(valor: real; mascara: string; tamanho: integer): string;
+var
+  val: string;
+begin
+  val := FormatFloat(mascara, valor);
+  // try
+  result := Spaces(tamanho - Length(val)) + val;
+  // except
+  // mensagem('Valor => '+val+' não cabe no tamanho => '+inttostr(tamanho));
+  // end;
+end;
+
+function formata(valor: real; tamanho: integer; Casas: integer): string;
+begin
+  try
+    if Length(transform(valor, '###,' + Replicate('#', Casas) + '0.' + Replicate('0', Casas), tamanho)) > tamanho then
+      result := Repl('*', tamanho)
+    else
+      result := transform(valor, '###,' + Replicate('#', Casas) + '0.' + Replicate('0', Casas), tamanho);
+  except
+    result := Repl('*', tamanho);
+  end;
+end;
+
+function Spaces(i: Byte): string;
+var
+  Zip: string[255];
+
+begin
+  FillChar(Zip, i + 1, ' ');
+  Zip[0] := AnsiChar(i);
+  Spaces := Zip;
+end;
+
+function Right(InString: string; NumChars: Byte): string;
+var
+  index: Byte;
+
+begin
+  if NumChars >= Length(InString) then
+    Right := InString
+  else
+  begin
+    Index := Length(InString) - NumChars + 1;
+    Right := copy(InString, Index, NumChars)
+  end;
+end;
+
+function EStr(Texto: string; Tam: integer): string;
+begin
+
+  if Length(Texto) >= Tam then
+    EStr := copy(Texto, 1, Tam)
+  else
+    EStr := Right(Texto + Spaces(Tam - Length(Texto)), Tam);
+
+end;
+
+function red_unit(Num: double; casa: integer): double;
+var
+  n1: extended;
+  n2, n3: double;
+begin
+  n2 := power(10, casa);
+  n1 := Num * n2;
+  n3 := Frac(n1);
+  if (n3 >= 0.4999) and (n3 < 0.9) then
+    n1 := round(n1 + 0.1)
+  else
+    n1 := round(n1);
+  red_unit := n1 / n2;
+end;
+
+function red_cent(Num: double): double;
+begin
+  red_cent := red_unit(Num, 2);
+end;
 
 procedure AjustarColunasGrid(Grid: TUniDBGrid; Col1, Col2: Integer; ColDef1: integer = -1; ColDef2: integer = -1;
 ColDef3: integer = -1; ColDef4: integer = -1; ColDef5: integer = -1);

@@ -85,7 +85,7 @@ begin
       weGrid.Columns[3].FieldName := 'ativo';
     end
   //VENDEDORERS
-  else if weTabelaPesquisa = 'VENDEDORES' then
+  else if (weTabelaPesquisa = 'VENDEDORES') or (weTabelaPesquisa = 'VENDEDORES_PDV') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -312,6 +312,30 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
+  //PRODUTO PDV
+  else if weTabelaPesquisa = 'PRODUTOS_PDV' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODPRO';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCR';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+  //CLIENTE PDV
+  else if weTabelaPesquisa = 'CLIENTES_PDV' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODCLI';
+      //NOME
+      weGrid.Columns[2].FieldName := 'NOME';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
 end;
 
 procedure TfrmListaGlobal.btnFecharClick(Sender: TObject);
@@ -394,7 +418,8 @@ begin
             .Get;
   end
   //VENDEDORES
-  else if wTabelaDePesquisa.ToUpper = 'VENDEDORES' then
+//  else if wTabelaDePesquisa.ToUpper = 'VENDEDORES' then
+  else if (wTabelaDePesquisa = 'VENDEDORES') or (wTabelaDePesquisa = 'VENDEDORESPDV') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getVendedor)
@@ -640,6 +665,32 @@ begin
             .AddParam('ATIVO', '')
             .timeOut(12000)
             .Get;
+  end
+  //PRODUTO_PDV
+  else if wTabelaDePesquisa.ToUpper = 'PRODUTOS_PDV' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getProduto)
+            .AddParam('nomebanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('codpro', '')
+            .AddParam('descr', filtro)
+//            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //CLIENTE_PDV
+  else if wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV' then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getCliente)
+            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+            .AddParam('ID', '')
+            .AddParam('CODCLI', '')
+            .AddParam('NOME', filtro)
+            .AddParam('ATIVO', '')
+            .timeOut(12000)
+            .Get;
   end;
 
   if resp1.StatusCode = 200 then
@@ -658,7 +709,7 @@ begin
         atualizaNomeColunaGrid(gridTela,'ATIVIDADES');
       end
       //VENDEDORES
-      else if wTabelaDePesquisa.ToUpper = 'VENDEDORES' then
+      else if (wTabelaDePesquisa.ToUpper = 'VENDEDORES') OR (wTabelaDePesquisa.ToUpper = 'VENDEDORESPDV') then
       begin
         atualizaNomeColunaGrid(gridTela,'VENDEDORES');
       end
@@ -751,6 +802,16 @@ begin
       else if wTabelaDePesquisa.ToUpper = 'CFOPNFCE' then
       begin
         atualizaNomeColunaGrid(gridTela,'CFOPNFCE');
+      end
+      //PRODUTO_PDV
+      else if wTabelaDePesquisa.ToUpper = 'PRODUTOS_PDV' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'PRODUTOS_PDV');
+      end
+      //CLIENTE_PDV
+      else if wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CLIENTES_PDV');
       end
 
     finally
