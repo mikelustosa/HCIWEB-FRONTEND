@@ -9,7 +9,9 @@ uses
   uniDBGrid, uniScrollBox, uniPanel, uniGUIBaseClasses, uniButton, uniBitBtn,
   UniSFButton, UniSFBitBtn, UniSFSweetAlert, UniSFiGrowl, uniTimer,
   URGLayoutUnigui, Data.DB, Datasnap.DBClient, System.JSON, system.math,
-  system.ioutils;
+  system.ioutils, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TfrmPDV = class(TUniForm)
@@ -55,13 +57,13 @@ type
     UniContainerPanel22: TUniContainerPanel;
     lb_desconto: TUniLabel;
     cpMenuRodape: TUniContainerPanel;
-    btnSalvar: TUniSFBitBtn;
+    btSalvar: TUniSFBitBtn;
     btnCancelar: TUniSFBitBtn;
-    UniSFBitBtn26: TUniSFBitBtn;
-    UniSFBitBtn27: TUniSFBitBtn;
-    UniSFBitBtn14: TUniSFBitBtn;
-    UniSFBitBtn1: TUniSFBitBtn;
-    UniSFBitBtn2: TUniSFBitBtn;
+    btFatura: TUniSFBitBtn;
+    btCliente: TUniSFBitBtn;
+    btUtilidades: TUniSFBitBtn;
+    btLimpaVenda: TUniSFBitBtn;
+    btProduto: TUniSFBitBtn;
     cpMenuTopo: TUniContainerPanel;
     lblDescricao: TUniLabel;
     UniSFBitBtn3: TUniSFBitBtn;
@@ -72,40 +74,64 @@ type
     compDESCR: TUniPanel;
     alertaM: TUniSFiGrowl;
     alerta: TUniSFSweetAlert;
-    CDSTela: TClientDataSet;
-    CDSTelabotaoEditar: TAggregateField;
-    CDSTelaiconeAtivo: TAggregateField;
+    CDSTela_ant: TClientDataSet;
+    CDSTela_antbotaoEditar: TAggregateField;
+    CDSTela_anticoneAtivo: TAggregateField;
     DSTela: TDataSource;
     CDSDados: TClientDataSet;
     AggregateField1: TAggregateField;
     AggregateField2: TAggregateField;
     RG1: TRGLayoutUnigui;
     btnClassificacao: TUniSFBitBtn;
-    UniSFBitBtn4: TUniSFBitBtn;
+    btConcluir: TUniSFBitBtn;
+    CDSTela_antid: TIntegerField;
+    CDSTela_antcodpro: TStringField;
+    CDSTela_antdescr: TStringField;
+    CDSTela_antmov: TFloatField;
+    CDSTela_antvaloru: TFloatField;
+    CDSTela_anttotal: TFloatField;
+    CDSTela_antativo: TStringField;
+    CDSTela: TFDMemTable;
+    CDSTelaid: TStringField;
+    CDSTelacodpro: TStringField;
+    CDSTeladescr: TStringField;
+    CDSTelamov: TStringField;
+    CDSTelavaloru: TStringField;
+    CDSTelatotal: TStringField;
+    CDSTelaativo: TStringField;
+    CDSTelabotaoEditar: TAggregateField;
+    CDSTelaiconeAtivo: TAggregateField;
+    CDSTelavDesc: TFloatField;
     procedure UniSFBitBtn3Click(Sender: TObject);
     procedure UniFormShow(Sender: TObject);
-    procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure btProdutoClick(Sender: TObject);
     procedure UniFormCreate(Sender: TObject);
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
     procedure chAlteraQtdClick(Sender: TObject);
     procedure compMOVChange(Sender: TObject);
     procedure btnClassificacaoClick(Sender: TObject);
-    procedure UniSFBitBtn27Click(Sender: TObject);
+    procedure btClienteClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure CDSTelaiconeAtivoGetText(Sender: TField; var Text: string;
+    procedure CDSTela_anticoneAtivoGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
-    procedure CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
+    procedure CDSTela_antbotaoEditarGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure gridTelaCellClick(Column: TUniDBGridColumn);
     procedure compCODPROExit(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
-    procedure UniSFBitBtn4Click(Sender: TObject);
-    procedure UniSFBitBtn26Click(Sender: TObject);
+    procedure btSalvarClick(Sender: TObject);
+    procedure btConcluirClick(Sender: TObject);
+    procedure btFaturaClick(Sender: TObject);
     procedure UniFormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure CDSTelaiconeAtivoGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure btLimpaVendaClick(Sender: TObject);
+    procedure compCODPROKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
   private
     { Private declarations }
-    wPrimeiroAcesso : boolean;
     JProduto : TJSONObject;
     JCliente : TJSONObject;
     procedure callBackProduto(Sender: TComponent;
@@ -141,7 +167,7 @@ uses
   MainModule, uniGUIApplication, ufrmListaGlobal, uUtils,
   RESTRequest4D.Response.Intf, RESTRequest4D.Request.Intf,
   RESTRequest4D.Request, uConstantes, ufrmAlteraQtdItemPdv,
-  ufrmSelecionaPagamentoF;
+  ufrmSelecionaPagamentoF, UniSFCore;
 
 procedure TfrmPDV.retornar;
 begin
@@ -301,80 +327,39 @@ begin
 
   compTOTALGERAL.text := FormatFloat('#,0.00', totalCupom);
 //   lb_total.Caption := FormatFloat('#,0.00', totalCupom);
+  compCODPRO.Text := '';
+  compMOV.Text := '0';
+  compVALORU.Text :='0,000';
+  compTOTAL.Text :='0,000';
 
-  try
-    if not DirectoryExists(dc + '\log') then
-      CreateDir(dc + '\log');
 
-    if not DirectoryExists(dc + '\log\PDV') then
-      CreateDir(dc + '\log\PDV');
-
-    str_arquivo_log := dc + '\log\PDV\' + FormatDateTime('yyyy-mm-dd', now) + '.txt';
-    tfile.AppendAllText(str_arquivo_log, str_log);
-  finally
-
-  end;
+//  try
+//    if not DirectoryExists(dc + '\log') then
+//      CreateDir(dc + '\log');
+//
+//    if not DirectoryExists(dc + '\log\PDV') then
+//      CreateDir(dc + '\log\PDV');
+//
+//    str_arquivo_log := dc + '\log\PDV\' + FormatDateTime('yyyy-mm-dd', now) + '.txt';
+//    tfile.AppendAllText(str_arquivo_log, str_log);
+//  finally
+//
+//  end;
 end;
 
 procedure TfrmPDV.limpaCupom;
 begin
-//  cb_alteraQuantidade.Checked := vvF6Habilitado;
-//
-//  arqaux.EnableControls;
-//
-//  arqaux.EmptyDataSet;
-
   while (CDSTela.recordcount > 0) do
     CDSTela.Delete;
-
-
-//  repintaDBGrid;
-//
   sleep(200);
-
   compCODPRO.Text := '';
-//  lb_produto.Height := tamanhoLabel;
   compDESCR.Caption := 'CAIXA LIVRE';
   compMOV.Text := '';
   compVALORU.Text :='';
   compTOTAL.Text := '';
   compNOME.Text := '';
   compTOTALGERAL.Text := '';
-
-//  vvtotQuant := 0;
-//  totquant.Value := vvtotQuant;
-
-//  lb_produto.Repaint;
-//  lb_produto.Refresh;
-//  application.ProcessMessages;
-
-//  lb_produto.Left := (pn_produto.Width - lb_produto.Width) div 2;
-//  lb_produto.top := (pn_produto.Height - lb_produto.Height) div 2;
-
-//  ReferenciadoCodcli := 0;
-//  ReferenciadoCgccpf := '';
-//  ReferenciadoNomef := '';
-//  referenciadoEmail := '';
-//  lb_nomef.Caption := ReferenciadoNomef;
-
-//  pDesc := 0;
-//  vDesc := 0;
-
   calculaCupom;
-
-//  application.ProcessMessages;
-//
-//  ed_produto.Enabled := true;
-//
-//  codven.Text := intToStr(vvVendedorNFCe);
-//  // Vitor - 28/09/2017 - Chop&Chop -  146 /17
-//  arqaux.EnableControls;
-//
-//  if not(vvPedPed) then
-//    F3Click(nil);
-  // **
-
-
 end;
 
 function TfrmPDV.pesquisaItem(out weJson:TJSONObject; weId,weCodPro,weDescr :string): boolean;
@@ -408,18 +393,103 @@ end;
 
 procedure TfrmPDV.callBackFatura(Sender: TComponent;
   AResult: Integer);
+var
+  resp1       :IResponse;
+  jsonBody    :TJSONObject;
 begin
-//  if frmAlteraQtdItemPdv.ModalResult = mrOk then
-//  begin
-//    if CDSTela.FieldByName('mov').AsFloat = StrToFloatDef(frmAlteraQtdItemPdv.compQTDRETIRA.Text,0)  then
-//      CDSTela.Delete
-//    else
-//      begin
-//        CDSTela.Edit;
-//        cdstela.FieldByName('mov').AsFloat := CDSTela.FieldByName('mov').AsFloat - StrToFloatDef(frmAlteraQtdItemPdv.compQTDRETIRA.Text,0);
-//        CDSTela.Post;
-//      end;
-//  end;
+  if frmSelecionaPagamentoF.ModalResult = mrOk then
+  begin
+    alerta.QuestionBasic('Prosseguir?',
+    procedure(const ButtonClicked: TAButton)
+    begin
+      if ButtonClicked = abConfirm then
+      begin
+        try
+          jsonBody := TJSONObject.Create;
+          jsonBody.AddPair('incr', '');
+          jsonBody.AddPair('empresa', '1');
+          jsonBody.AddPair('ncfe', '');
+          jsonBody.AddPair('vcfe', '');
+          jsonBody.AddPair('status', '');
+          jsonBody.AddPair('gerouestoque', '');
+          jsonBody.AddPair('geroucaixa', '');
+          jsonBody.AddPair('geroufiscal', '');
+          jsonBody.AddPair('chnfce', '');
+          jsonBody.AddPair('retorno', '');
+          jsonBody.AddPair('nomearquivo', '');
+          jsonBody.AddPair('cpf', '');
+          jsonBody.AddPair('int_tipopagamento', '');
+          jsonBody.AddPair('int_caixa', '');
+          jsonBody.AddPair('flt_pdesc', '');
+          jsonBody.AddPair('flt_vdesc', '');
+          jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('ID'));
+          jsonBody.AddPair('str_email', '');
+          jsonBody.AddPair('int_nfce', '');
+          jsonBody.AddPair('int_serie', '');
+          jsonBody.AddPair('rejeitado', '');
+          jsonBody.AddPair('int_codven', '');
+          jsonBody.AddPair('dt_cupom', '');
+          jsonBody.AddPair('grade1', '');
+          jsonBody.AddPair('grade2', '');
+          jsonBody.AddPair('idnuvemfiscal', '');
+          jsonBody.AddPair('xmlvenda', '');
+          jsonBody.AddPair('xmlcancelamento', '');
+          jsonBody.AddPair('xmlenvio', '');
+          jsonBody.AddPair('ativo', 'T');
+
+          CDSTela.First;
+          var aItem : TJSONArray; aItem := TJSONArray.Create;
+          while not CDSTela.Eof do
+            begin
+              var jItem : TJSONObject; jItem := TJSONObject.Create;
+              jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
+              jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
+              jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
+              jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
+              jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
+              jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
+              jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
+              jItem.AddPair('vdesc','0');
+              jItem.AddPair('grade1','');
+              jItem.AddPair('grade2','');
+              jItem.AddPair('ativo','T');
+              aItem.AddElement(jItem);
+              CDSTela.Next;
+            end;
+          jsonBody.AddPair('itens',aItem);
+
+          resp1 := TRequest
+                  .New
+                  .BaseURL(baseurlCadastros)
+                  .Resource(postCupom)
+                  .AddParam('nomeBanco', uniMainModule.nomebanco)
+      //                .AddParam('id', id)
+                  .AddBody(jsonBody.ToString)
+                  .Timeout(12000)
+                  .Post;
+          if RESP1.StatusCode = 200 then
+            begin
+//              alerta.Info('Finalizado com sucesso!');
+              limpacupom;
+              frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+              frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+              frmListaGlobal.showModal(callBackCliente);
+            end
+          else
+            alerta.Info('ERRO: '+resp1.Content);
+      //    retornar;
+        finally
+          jsonBody.Free;
+        end;
+
+
+
+//        limpaCookiesEditRecursivo(self);
+//        pgcTela.ActivePageIndex := 0;
+//        alertaM.Info(msgOperacaoSucesso);
+      end;
+    end);
+  end;
 end;
 
 procedure TfrmPDV.callBackQtdRetiraItem(Sender: TComponent;
@@ -446,7 +516,7 @@ var
   i         :Integer;
   req       :IRequest;
 begin
-//  pgcTela.ActivePageIndex := 0;
+exit;
   //Verifica se o valor é numérico
   ehNumero := TryStrToInt(pDado, i);
 
@@ -467,7 +537,7 @@ begin
   else
   begin
     req.AddParam('id','');
-    req.AddParam('id_cupom', '14');
+    req.AddParam('id_cupom', '-1');
   end;
 
   req.timeOut(12000);
@@ -481,6 +551,10 @@ begin
     finally
       jsonResp.Free;
     end;
+  end
+  else
+  begin
+//    CDSTela.EmptyDataSet;
   end;
 end;
 
@@ -508,6 +582,19 @@ begin
   ExibeIconeAtivo(CDSTela.FieldByName('ativo').AsString, Text, DisplayText);
 end;
 
+procedure TfrmPDV.CDSTela_antbotaoEditarGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if DisplayText then
+    text := colocaBotaoNoGrid('Editar', 'editar', 'dc3545');
+end;
+
+procedure TfrmPDV.CDSTela_anticoneAtivoGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  ExibeIconeAtivo(CDSTela.FieldByName('ativo').AsString, Text, DisplayText);
+end;
+
 procedure TfrmPDV.btnCancelarClick(Sender: TObject);
 begin
   limpaCookiesEditRecursivo(self);
@@ -521,18 +608,20 @@ begin
   frmListaGlobal.showModal(callBackVendedores);
 end;
 
-procedure TfrmPDV.btnSalvarClick(Sender: TObject);
+procedure TfrmPDV.btSalvarClick(Sender: TObject);
 begin
-  CDSTela.Insert;
-  CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
-  CDSTela.FieldByName('descr').AsString := compDESCR.caption;
-  CDSTela.FieldByName('mov').AsString := compMOV.Text;
-  CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
-  CDSTela.FieldByName('total').AsString := compTOTAL.Text;
-  CDSTela.FieldByName('ativo').AsString := 'T';
-  CDSTela.Post;
-
-  calculaCupom;
+//  if not CDSTela.Active then
+//    CDSTela.Active := true;
+//  CDSTela.Insert;
+//  CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
+//  CDSTela.FieldByName('descr').AsString := compDESCR.caption;
+//  CDSTela.FieldByName('mov').AsString := compMOV.Text;
+//  CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
+//  CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+//  CDSTela.FieldByName('ativo').AsString := 'T';
+//  CDSTela.Post;
+//
+//  calculaCupom;
 end;
 
 procedure TfrmPDV.callBackCliente(Sender: TComponent;
@@ -555,6 +644,7 @@ begin
             frmListaGlobal.CDSTela.Fields[i].AsString
           );
       end;
+    compCODPRO.SetFocus;
   end;
 end;
 
@@ -568,7 +658,7 @@ begin
   begin
     FS := TFormatSettings.Create;
     FS.DecimalSeparator := '.';
-    compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
     compDESCR.caption     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
     //pupula um json com os dados do produto
@@ -601,25 +691,64 @@ end;
 
 procedure TfrmPDV.compCODPROExit(Sender: TObject);
 begin
-  if trim(compCODPRO.Text) <> '' then
-  begin
-    if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
-    begin
-      compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
-      compMOV.Text := '1';
-      compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
-      compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
-    end
-    else
-    begin
-      compDESCR.caption := JProduto.GetValue<string>('Result');
-      compMOV.Text := '1';
-      compVALORU.Text :=  '1,00';//FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-      compTOTAL.Text := '1,00';//FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-      compCODPRO.SetFocus;
-    end;
-  end;
+//  if trim(compCODPRO.Text) <> '' then
+//  begin
+//    if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
+//    begin
+//      compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
+//      compMOV.Text := '1';
+//      compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+//      compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+//    end
+//    else
+//    begin
+//      compDESCR.caption := JProduto.GetValue<string>('Result');
+//      compMOV.Text := '1';
+//      compVALORU.Text :=  '1,00';//FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//      compTOTAL.Text := '1,00';//FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//      compCODPRO.SetFocus;
+//    end;
+//  end;
 
+end;
+
+procedure TfrmPDV.compCODPROKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    begin
+      if trim(compCODPRO.Text) <> '' then
+      begin
+        if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
+        begin
+          compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
+          compMOV.Text := '1';
+          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+          compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+
+          if not CDSTela.Active then
+            CDSTela.Active := true;
+          CDSTela.Insert;
+          CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
+          CDSTela.FieldByName('descr').AsString := compDESCR.caption;
+          CDSTela.FieldByName('mov').AsString := compMOV.Text;
+          CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
+          CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+          CDSTela.FieldByName('ativo').AsString := 'T';
+          CDSTela.Post;
+
+          calculaCupom;
+        end
+        else
+        begin
+          compDESCR.caption := JProduto.GetValue<string>('Result');
+          compMOV.Text := '1';
+          compVALORU.Text :=  '1,00';//FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+          compTOTAL.Text := '1,00';//FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+          compCODPRO.SetFocus;
+        end;
+      end;
+    end;
 end;
 
 procedure TfrmPDV.compMOVChange(Sender: TObject);
@@ -652,9 +781,9 @@ end;
 
 procedure TfrmPDV.UniFormCreate(Sender: TObject);
 begin
- JProduto := TJSONObject.Create;
- JCliente := TJSONObject.Create;
- listar('');
+  JProduto := TJSONObject.Create;
+  JCliente := TJSONObject.Create;
+  listar('');
 end;
 
 procedure TfrmPDV.UniFormKeyDown(Sender: TObject; var Key: Word;
@@ -697,29 +826,46 @@ begin
 
   compMOV.Enabled := chAlteraQtd.Checked;
   compVALORU.Enabled := chAlteraQtd.Checked;
-  if wPrimeiroAcesso then
-    begin
-      frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-      frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-      frmListaGlobal.showModal(callBackCliente);
-    end;
+
+  frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+  frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+  frmListaGlobal.showModal(callBackCliente);
 end;
 
-procedure TfrmPDV.UniSFBitBtn26Click(Sender: TObject);
+procedure TfrmPDV.btLimpaVendaClick(Sender: TObject);
+begin
+    alerta.QuestionBasic('Prosseguir?',
+    procedure(const ButtonClicked: TAButton)
+    begin
+      if ButtonClicked = abConfirm then
+      begin
+        try
+          limpaCupom;
+          frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+          frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+          frmListaGlobal.showModal(callBackCliente);
+        finally
+
+        end;
+      end;
+    end);
+end;
+
+procedure TfrmPDV.btFaturaClick(Sender: TObject);
 begin
   frmSelecionaPagamentoF.showmodal(callBackFatura);
   frmSelecionaPagamentoF.totalGeral := strtofloatDef(compTOTALGERAL.Text,0);
   frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
 end;
 
-procedure TfrmPDV.UniSFBitBtn27Click(Sender: TObject);
+procedure TfrmPDV.btClienteClick(Sender: TObject);
 begin
   frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
   frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
   frmListaGlobal.showModal(callBackCliente);
 end;
 
-procedure TfrmPDV.UniSFBitBtn2Click(Sender: TObject);
+procedure TfrmPDV.btProdutoClick(Sender: TObject);
 begin
   frmListaGlobal.wTabelaDePesquisa := 'PRODUTOS_PDV';
   frmListaGlobal.lblDescricao.Caption := 'PRODUTOS';
@@ -732,21 +878,13 @@ begin
   close;
 end;
 
-procedure TfrmPDV.UniSFBitBtn4Click(Sender: TObject);
+procedure TfrmPDV.btConcluirClick(Sender: TObject);
 var
   resp1       :IResponse;
   jsonBody    :TJSONObject;
 begin
   try
     jsonBody := TJSONObject.Create;
-
-//    jsonBody.AddPair('area', compArea.Text);
-//    jsonBody.AddPair('municipio', compMunicipio.Text);
-//    jsonBody.AddPair('uf', compUF.text);
-//    jsonBody.AddPair('ativo', ativo);
-
-
-
     jsonBody.AddPair('incr', '');
     jsonBody.AddPair('empresa', '1');
     jsonBody.AddPair('ncfe', '');
@@ -798,72 +936,24 @@ begin
         CDSTela.Next;
       end;
     jsonBody.AddPair('itens',aItem);
-// jsonBody.AddPair('itens', '');
-//                  '' +
-//                  '
-//        {
-//            "incr": "17",
-//            "id_cupom": "22",
-//            "codpro": "teste123",
-//            "descr": "prod teste123",
-//            "mov": "1",
-//            "valoru": "1",
-//            "total": "1",
-//            "vdesc": "0",
-//            "grade1": "",
-//            "grade2": "",
-//            "ativo": "s"
-//        },
-//        {
-//            "incr": "17",
-//            "id_cupom": "22",
-//            "codpro": "00001",
-//            "descr": "prod 00001",
-//            "mov": "1",
-//            "valoru": "1",
-//            "total": "1",
-//            "vdesc": "0",
-//            "grade1": "",
-//            "grade2": "",
-//            "ativo": "s"
-//        }
-//    ]
-//}
-//
-//    if alterando then
-//    begin
-//      resp1 := TRequest
-//                .New
-//                .BaseURL(baseurlCadastros)
-//                .Resource(putArea)
-//                .AddParam('nomeBanco', uniMainModule.nomebanco)
+
+    resp1 := TRequest
+            .New
+            .BaseURL(baseurlCadastros)
+            .Resource(postCupom)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
 //                .AddParam('id', id)
-//                .AddBody(jsonBody.ToString)
-//                .Timeout(12000)
-//                .Put;
-//
-//      alerta.Info('Cadastro alterado com sucesso!');
-//    end else
-//      begin
-        resp1 := TRequest
-                .New
-                .BaseURL(baseurlCadastros)
-                .Resource(postCupom)
-                .AddParam('nomeBanco', uniMainModule.nomebanco)
-//                .AddParam('id', id)
-                .AddBody(jsonBody.ToString)
-                .Timeout(12000)
-                .Post;
-        if RESP1.StatusCode = 200 then
-          alerta.Info('Cadastro incluido com sucesso!')
-        else
-          alerta.Info('ERRO: '+resp1.Content);
-
-//      end;
-
-
-    retornar;
-
+            .AddBody(jsonBody.ToString)
+            .Timeout(12000)
+            .Post;
+    if RESP1.StatusCode = 200 then
+      begin
+        alerta.Info('Finalizado com sucesso!');
+        limpacupom;
+      end
+    else
+      alerta.Info('ERRO: '+resp1.Content);
+//    retornar;
   finally
     jsonBody.Free;
   end;

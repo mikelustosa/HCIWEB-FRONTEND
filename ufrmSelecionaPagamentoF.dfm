@@ -62,6 +62,7 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
       TabOrder = 2
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = UniSFBitBtn27Click
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
@@ -355,6 +356,7 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
             Hint = ''
             Text = '01 - Dinheiro '
             TabOrder = 2
+            ItemIndex = 0
             Items.Strings = (
               '01 - Dinheiro '
               '02 - Cheque '

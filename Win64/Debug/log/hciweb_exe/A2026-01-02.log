@@ -1,0 +1,6 @@
+HCIWEB.exe: 00002A80: 08:01:25 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002A80: 08:01:25 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002A80: 08:01:25 [TUniServerModule]:Global Cache Folder Erased. <14> Files deleted.
+HCIWEB.exe: 00002A80: 08:01:25 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002A80: 08:01:25 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00000930: 08:02:29 [127.0.0.1]:EDatabaseError : CDSTela: Missing data provider or data packet : Addr: $000000000079881E

@@ -40,9 +40,10 @@ type
     procedure UniFormReady(Sender: TObject);
     procedure compVALORPAGOChange(Sender: TObject);
     procedure UniSFBitBtn1Click(Sender: TObject);
+    procedure UniSFBitBtn27Click(Sender: TObject);
   private
     { Private declarations }
-    canClose  :boolean;
+    faturar  :boolean;
 
   public
     { Public declarations }
@@ -83,8 +84,8 @@ end;
 procedure TfrmSelecionaPagamentoF.UniFormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  if canClose then
-    modalResult := mrOk;
+//  if canClose then
+  modalResult := mrOk;
 end;
 
 procedure TfrmSelecionaPagamentoF.UniFormReady(Sender: TObject);
@@ -94,12 +95,21 @@ begin
   compTOTALGERAL.Text := FloatToStrF(totalGeral, ffFixed, 10, 2);
 //  compVALORPAGO.Text := floattostrF(0, ffFixed, 10, 2);
 //  compTROCO.Text := floattostrF(0, ffFixed, 10, 2);
+  compTIPOPAGAMENTO.ItemIndex := 0;
+  faturar := false;
 end;
 
 procedure TfrmSelecionaPagamentoF.UniSFBitBtn1Click(Sender: TObject);
 begin
+  faturar := false;
   limpaCookiesEditRecursivo(self);
   close;
+end;
+
+procedure TfrmSelecionaPagamentoF.UniSFBitBtn27Click(Sender: TObject);
+begin
+  faturar := true;
+  modalResult := mrOk;
 end;
 
 end.

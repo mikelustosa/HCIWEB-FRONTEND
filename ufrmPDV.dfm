@@ -76,17 +76,17 @@ object frmPDV: TfrmPDV
             item
               FieldName = 'mov'
               Title.Caption = 'Quantidade'
-              Width = 64
+              Width = 124
             end
             item
               FieldName = 'valoru'
               Title.Caption = ' Valor Unit'#225'rio'
-              Width = 64
+              Width = 124
             end
             item
               FieldName = 'total'
               Title.Caption = ' Total'
-              Width = 64
+              Width = 124
             end
             item
               FieldName = 'ativo'
@@ -98,11 +98,12 @@ object frmPDV: TfrmPDV
               FieldName = 'iconeAtivo'
               Title.Caption = 'AT'
               Width = 20
+              Visible = False
             end
             item
               FieldName = 'botaoEditar'
               Title.Caption = ' '
-              Width = 80
+              Width = 150
             end>
         end
       end
@@ -143,6 +144,7 @@ object frmPDV: TfrmPDV
             Align = alClient
             TabOrder = 1
             OnExit = compCODPROExit
+            OnKeyDown = compCODPROKeyDown
           end
           object UniContainerPanel23: TUniContainerPanel
             Left = 1
@@ -707,7 +709,7 @@ object frmPDV: TfrmPDV
     Align = alBottom
     TabOrder = 1
     LayoutConfig.Cls = 'body_grdnt_rounded'
-    object btnSalvar: TUniSFBitBtn
+    object btSalvar: TUniSFBitBtn
       AlignWithMargins = True
       Left = 1170
       Top = 5
@@ -718,13 +720,14 @@ object frmPDV: TfrmPDV
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Visible = False
       ParentShowHint = False
       Caption = 'SALVAR'
       Align = alRight
       TabOrder = 1
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
-      OnClick = btnSalvarClick
+      OnClick = btSalvarClick
       FAIcon.Icon = fa_check_circle
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
@@ -755,7 +758,7 @@ object frmPDV: TfrmPDV
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn26: TUniSFBitBtn
+    object btFatura: TUniSFBitBtn
       AlignWithMargins = True
       Left = 187
       Top = 5
@@ -772,14 +775,14 @@ object frmPDV: TfrmPDV
       TabOrder = 3
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
-      OnClick = UniSFBitBtn26Click
+      OnClick = btFaturaClick
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn27: TUniSFBitBtn
+    object btCliente: TUniSFBitBtn
       AlignWithMargins = True
       Left = 5
       Top = 5
@@ -796,14 +799,14 @@ object frmPDV: TfrmPDV
       TabOrder = 4
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
-      OnClick = UniSFBitBtn27Click
+      OnClick = btClienteClick
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn14: TUniSFBitBtn
+    object btUtilidades: TUniSFBitBtn
       AlignWithMargins = True
       Left = 723
       Top = 5
@@ -826,7 +829,7 @@ object frmPDV: TfrmPDV
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn1: TUniSFBitBtn
+    object btLimpaVenda: TUniSFBitBtn
       AlignWithMargins = True
       Left = 531
       Top = 5
@@ -843,13 +846,14 @@ object frmPDV: TfrmPDV
       TabOrder = 6
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = btLimpaVendaClick
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn2: TUniSFBitBtn
+    object btProduto: TUniSFBitBtn
       AlignWithMargins = True
       Left = 347
       Top = 5
@@ -866,14 +870,14 @@ object frmPDV: TfrmPDV
       TabOrder = 7
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
-      OnClick = UniSFBitBtn2Click
+      OnClick = btProdutoClick
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
     end
-    object UniSFBitBtn4: TUniSFBitBtn
+    object btConcluir: TUniSFBitBtn
       AlignWithMargins = True
       Left = 1040
       Top = 5
@@ -884,13 +888,14 @@ object frmPDV: TfrmPDV
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Visible = False
       ParentShowHint = False
       Caption = 'CONCLUIR'
       Align = alRight
       TabOrder = 8
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
-      OnClick = UniSFBitBtn4Click
+      OnClick = btConcluirClick
       FAIcon.Icon = fa_check_circle
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
@@ -1047,19 +1052,40 @@ object frmPDV: TfrmPDV
     Left = 794
     Top = 462
   end
-  object CDSTela: TClientDataSet
+  object CDSTela_ant: TClientDataSet
     Aggregates = <>
     Params = <>
     Left = 543
     Top = 182
-    object CDSTelabotaoEditar: TAggregateField
+    object CDSTela_antid: TIntegerField
+      FieldName = 'id'
+    end
+    object CDSTela_antcodpro: TStringField
+      FieldName = 'codpro'
+    end
+    object CDSTela_antdescr: TStringField
+      FieldName = 'descr'
+    end
+    object CDSTela_antmov: TFloatField
+      FieldName = 'mov'
+    end
+    object CDSTela_antvaloru: TFloatField
+      FieldName = 'valoru'
+    end
+    object CDSTela_anttotal: TFloatField
+      FieldName = 'total'
+    end
+    object CDSTela_antativo: TStringField
+      FieldName = 'ativo'
+    end
+    object CDSTela_antbotaoEditar: TAggregateField
       FieldName = 'botaoEditar'
-      OnGetText = CDSTelabotaoEditarGetText
+      OnGetText = CDSTela_antbotaoEditarGetText
       DisplayName = ''
     end
-    object CDSTelaiconeAtivo: TAggregateField
+    object CDSTela_anticoneAtivo: TAggregateField
       FieldName = 'iconeAtivo'
-      OnGetText = CDSTelaiconeAtivoGetText
+      OnGetText = CDSTela_anticoneAtivoGetText
       DisplayName = ''
     end
   end
@@ -1097,5 +1123,51 @@ object frmPDV: TfrmPDV
     TopInicialCampos = 20
     Left = 64
     Top = 403
+  end
+  object CDSTela: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 895
+    Top = 238
+    object CDSTelaid: TStringField
+      FieldName = 'id'
+    end
+    object CDSTelacodpro: TStringField
+      FieldName = 'codpro'
+    end
+    object CDSTeladescr: TStringField
+      FieldName = 'descr'
+    end
+    object CDSTelamov: TStringField
+      FieldName = 'mov'
+    end
+    object CDSTelavaloru: TStringField
+      FieldName = 'valoru'
+    end
+    object CDSTelatotal: TStringField
+      FieldName = 'total'
+    end
+    object CDSTelaativo: TStringField
+      FieldName = 'ativo'
+    end
+    object CDSTelavDesc: TFloatField
+      FieldName = 'vDesc'
+      Visible = False
+    end
+    object CDSTelabotaoEditar: TAggregateField
+      FieldName = 'botaoEditar'
+      OnGetText = CDSTelabotaoEditarGetText
+      DisplayName = ''
+    end
+    object CDSTelaiconeAtivo: TAggregateField
+      FieldName = 'iconeAtivo'
+      OnGetText = CDSTelaiconeAtivoGetText
+      DisplayName = ''
+    end
   end
 end
