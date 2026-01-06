@@ -11,7 +11,7 @@ uses
   URGLayoutUnigui, Data.DB, Datasnap.DBClient, System.JSON, system.math,
   system.ioutils, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, uniImage, dxGDIPlusClasses;
 
 type
   TfrmPDV = class(TUniForm)
@@ -102,6 +102,12 @@ type
     CDSTelabotaoEditar: TAggregateField;
     CDSTelaiconeAtivo: TAggregateField;
     CDSTelavDesc: TFloatField;
+    UniImage1: TUniImage;
+    UniImage2: TUniImage;
+    UniContainerPanel2: TUniContainerPanel;
+    UniContainerPanel3: TUniContainerPanel;
+    UniScrollBox2: TUniScrollBox;
+    timerFocoItem: TUniTimer;
     procedure UniSFBitBtn3Click(Sender: TObject);
     procedure UniFormShow(Sender: TObject);
     procedure btProdutoClick(Sender: TObject);
@@ -130,6 +136,7 @@ type
     procedure btLimpaVendaClick(Sender: TObject);
     procedure compCODPROKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure timerFocoItemTimer(Sender: TObject);
   private
     { Private declarations }
     JProduto : TJSONObject;
@@ -171,8 +178,13 @@ uses
 
 procedure TfrmPDV.retornar;
 begin
-//  pgcTela.ActivePageIndex := 0;
   listar;
+end;
+
+procedure TfrmPDV.timerFocoItemTimer(Sender: TObject);
+begin
+  compCODPRO.WebFocus;
+  timerFocoItem.Enabled := false;
 end;
 
 function red_unit(Num: double; casa: integer): double;
@@ -390,7 +402,6 @@ begin
   end;
 end;
 
-
 procedure TfrmPDV.callBackFatura(Sender: TComponent;
   AResult: Integer);
 var
@@ -469,14 +480,16 @@ begin
                   .Post;
           if RESP1.StatusCode = 200 then
             begin
-//              alerta.Info('Finalizado com sucesso!');
+              alertaM.Info('Finalizado com sucesso.');
+//    alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
               limpacupom;
               frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
               frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
               frmListaGlobal.showModal(callBackCliente);
             end
           else
-            alerta.Info('ERRO: '+resp1.Content);
+            alerta.Error('ERRO: '+resp1.Content);
+//            alerta.Info('ERRO: '+resp1.Content);
       //    retornar;
         finally
           jsonBody.Free;
@@ -644,7 +657,7 @@ begin
             frmListaGlobal.CDSTela.Fields[i].AsString
           );
       end;
-    compCODPRO.SetFocus;
+    timerFocoItem.Enabled := true;
   end;
 end;
 
@@ -675,6 +688,7 @@ begin
     compMOV.Text := '1';
     compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
     compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+    timerFocoItem.Enabled := true;
   end;
 end;
 
@@ -742,9 +756,9 @@ begin
         else
         begin
           compDESCR.caption := JProduto.GetValue<string>('Result');
-          compMOV.Text := '1';
-          compVALORU.Text :=  '1,00';//FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-          compTOTAL.Text := '1,00';//FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+          compMOV.Text := '0';
+          compVALORU.Text :=  '0,00';
+          compTOTAL.Text := '0,00';
           compCODPRO.SetFocus;
         end;
       end;
@@ -874,7 +888,6 @@ end;
 
 procedure TfrmPDV.UniSFBitBtn3Click(Sender: TObject);
 begin
-//  canClose := false;
   close;
 end;
 
@@ -883,80 +896,80 @@ var
   resp1       :IResponse;
   jsonBody    :TJSONObject;
 begin
-  try
-    jsonBody := TJSONObject.Create;
-    jsonBody.AddPair('incr', '');
-    jsonBody.AddPair('empresa', '1');
-    jsonBody.AddPair('ncfe', '');
-    jsonBody.AddPair('vcfe', '');
-    jsonBody.AddPair('status', '');
-    jsonBody.AddPair('gerouestoque', '');
-    jsonBody.AddPair('geroucaixa', '');
-    jsonBody.AddPair('geroufiscal', '');
-    jsonBody.AddPair('chnfce', '');
-    jsonBody.AddPair('retorno', '');
-    jsonBody.AddPair('nomearquivo', '');
-    jsonBody.AddPair('cpf', '');
-    jsonBody.AddPair('int_tipopagamento', '');
-    jsonBody.AddPair('int_caixa', '');
-    jsonBody.AddPair('flt_pdesc', '');
-    jsonBody.AddPair('flt_vdesc', '');
-    jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('ID'));
-    jsonBody.AddPair('str_email', '');
-    jsonBody.AddPair('int_nfce', '');
-    jsonBody.AddPair('int_serie', '');
-    jsonBody.AddPair('rejeitado', '');
-    jsonBody.AddPair('int_codven', '');
-    jsonBody.AddPair('dt_cupom', '');
-    jsonBody.AddPair('grade1', '');
-    jsonBody.AddPair('grade2', '');
-    jsonBody.AddPair('idnuvemfiscal', '');
-    jsonBody.AddPair('xmlvenda', '');
-    jsonBody.AddPair('xmlcancelamento', '');
-    jsonBody.AddPair('xmlenvio', '');
-    jsonBody.AddPair('ativo', 'T');
-
-    CDSTela.First;
-    var aItem : TJSONArray; aItem := TJSONArray.Create;
-    while not CDSTela.Eof do
-      begin
-        var jItem : TJSONObject; jItem := TJSONObject.Create;
-        jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
-        jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
-        jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
-        jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
-        jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
-        jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
-        jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
-        jItem.AddPair('vdesc','0');
-        jItem.AddPair('grade1','');
-        jItem.AddPair('grade2','');
-        jItem.AddPair('ativo','T');
-        aItem.AddElement(jItem);
-        CDSTela.Next;
-      end;
-    jsonBody.AddPair('itens',aItem);
-
-    resp1 := TRequest
-            .New
-            .BaseURL(baseurlCadastros)
-            .Resource(postCupom)
-            .AddParam('nomeBanco', uniMainModule.nomebanco)
-//                .AddParam('id', id)
-            .AddBody(jsonBody.ToString)
-            .Timeout(12000)
-            .Post;
-    if RESP1.StatusCode = 200 then
-      begin
-        alerta.Info('Finalizado com sucesso!');
-        limpacupom;
-      end
-    else
-      alerta.Info('ERRO: '+resp1.Content);
-//    retornar;
-  finally
-    jsonBody.Free;
-  end;
+//  try
+//    jsonBody := TJSONObject.Create;
+//    jsonBody.AddPair('incr', '');
+//    jsonBody.AddPair('empresa', '1');
+//    jsonBody.AddPair('ncfe', '');
+//    jsonBody.AddPair('vcfe', '');
+//    jsonBody.AddPair('status', '');
+//    jsonBody.AddPair('gerouestoque', '');
+//    jsonBody.AddPair('geroucaixa', '');
+//    jsonBody.AddPair('geroufiscal', '');
+//    jsonBody.AddPair('chnfce', '');
+//    jsonBody.AddPair('retorno', '');
+//    jsonBody.AddPair('nomearquivo', '');
+//    jsonBody.AddPair('cpf', '');
+//    jsonBody.AddPair('int_tipopagamento', '');
+//    jsonBody.AddPair('int_caixa', '');
+//    jsonBody.AddPair('flt_pdesc', '');
+//    jsonBody.AddPair('flt_vdesc', '');
+//    jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('ID'));
+//    jsonBody.AddPair('str_email', '');
+//    jsonBody.AddPair('int_nfce', '');
+//    jsonBody.AddPair('int_serie', '');
+//    jsonBody.AddPair('rejeitado', '');
+//    jsonBody.AddPair('int_codven', '');
+//    jsonBody.AddPair('dt_cupom', '');
+//    jsonBody.AddPair('grade1', '');
+//    jsonBody.AddPair('grade2', '');
+//    jsonBody.AddPair('idnuvemfiscal', '');
+//    jsonBody.AddPair('xmlvenda', '');
+//    jsonBody.AddPair('xmlcancelamento', '');
+//    jsonBody.AddPair('xmlenvio', '');
+//    jsonBody.AddPair('ativo', 'T');
+//
+//    CDSTela.First;
+//    var aItem : TJSONArray; aItem := TJSONArray.Create;
+//    while not CDSTela.Eof do
+//      begin
+//        var jItem : TJSONObject; jItem := TJSONObject.Create;
+//        jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
+//        jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
+//        jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
+//        jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
+//        jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
+//        jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
+//        jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
+//        jItem.AddPair('vdesc','0');
+//        jItem.AddPair('grade1','');
+//        jItem.AddPair('grade2','');
+//        jItem.AddPair('ativo','T');
+//        aItem.AddElement(jItem);
+//        CDSTela.Next;
+//      end;
+//    jsonBody.AddPair('itens',aItem);
+//
+//    resp1 := TRequest
+//            .New
+//            .BaseURL(baseurlCadastros)
+//            .Resource(postCupom)
+//            .AddParam('nomeBanco', uniMainModule.nomebanco)
+////                .AddParam('id', id)
+//            .AddBody(jsonBody.ToString)
+//            .Timeout(12000)
+//            .Post;
+//    if RESP1.StatusCode = 200 then
+//      begin
+//        alerta.Info('Finalizado com sucesso!');
+//        limpacupom;
+//      end
+//    else
+//      alerta.Info('ERRO: '+resp1.Content);
+////    retornar;
+//  finally
+//    jsonBody.Free;
+//  end;
 end;
 
 end.

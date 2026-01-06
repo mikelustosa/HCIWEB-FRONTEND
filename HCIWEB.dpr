@@ -44,7 +44,8 @@ uses
   ufraCadGrade2 in 'ufraCadGrade2.pas' {fraCadGrade2: TUniFrame},
   ufrmPDV in 'ufrmPDV.pas' {frmPDV: TUniForm},
   ufrmAlteraQtdItemPdv in 'ufrmAlteraQtdItemPdv.pas' {frmAlteraQtdItemPdv: TUniForm},
-  ufrmSelecionaPagamentoF in 'ufrmSelecionaPagamentoF.pas' {frmSelecionaPagamentoF: TUniForm};
+  ufrmSelecionaPagamentoF in 'ufrmSelecionaPagamentoF.pas' {frmSelecionaPagamentoF: TUniForm},
+  ufrmPagamentoParceladoF in 'ufrmPagamentoParceladoF.pas' {frmPagamentoParceladoF: TUniForm};
 
 {$R *.res}
 
