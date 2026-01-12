@@ -115,6 +115,7 @@ type
     procedure Pontodevenda1Click(Sender: TObject);
     procedure Grade11Click(Sender: TObject);
     procedure Grade21Click(Sender: TObject);
+    procedure rocacdclientesbl1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -141,7 +142,7 @@ uses
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
-  ufraCadGrade2, ufrmPDV;
+  ufraCadGrade2, ufrmPDV, ufraTrocaCodCli;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -226,6 +227,11 @@ end;
 procedure TfrmPrincipal.Regies1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadRegioes),'Regiões', true, -1, true);
+end;
+
+procedure TfrmPrincipal.rocacdclientesbl1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraTrocaCodCli),'Troca Código de Clientes', true, -1, true);
 end;
 
 procedure TfrmPrincipal.Senhas1Click(Sender: TObject);

@@ -260,12 +260,14 @@ var
   usuario         :string;
   senha           :string;
   resp1           :IResponse;
+  wJUsuario       :TJSONObject;
 begin
   try
     try
       mMenuEvento := TStringList.Create;
       mMenuEvento.Delimiter :=':';
       mMenuEvento.DelimitedText := EventName;
+      wJUsuario := TJSONObject.Create;
 
       if mMenuEvento[0] = 'login' then
       begin
@@ -297,8 +299,16 @@ begin
                   .Post;
 
                   if resp1.StatusCode = 200 then
-                    modalResult := mrOK else
+                    begin
+                    wJUsuario := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+                    vvcodemp := wJUsuario.GetValue<TJSONArray>('Result')
+                    .Items[0].GetValue<string>('empope');
+                    modalResult := mrOK;
+                    end
+                  else
+                    begin
                     alerta.Error(resp1.Content);
+                    end;
 
                    //modalResult := mrOK
 
@@ -316,6 +326,7 @@ begin
 
     finally
       mMenuEvento.Free;
+      wJUsuario.Free;
     end;
   except on e:exception do
     showmessage(e.Message);

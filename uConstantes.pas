@@ -121,6 +121,7 @@ interface
 
     const getItemCupom    = 'getItemCupom';
 
+    const putTrocaCodCli = 'putTrocaCodCli';
   {$endregion 'Resources Cadastros e Login'}
 
 implementation

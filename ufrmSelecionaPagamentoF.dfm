@@ -21,7 +21,6 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
     Align = alBottom
     TabOrder = 0
     LayoutConfig.Cls = 'body_grdnt_rounded'
-    ExplicitTop = 205
     object UniSFBitBtn26: TUniSFBitBtn
       AlignWithMargins = True
       Left = 363
@@ -39,6 +38,7 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
       TabOrder = 1
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = UniSFBitBtn26Click
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
@@ -102,7 +102,6 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
     Hint = ''
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 205
     object PN1: TUniPanel
       Left = 0
       Top = 0
@@ -112,7 +111,6 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
       Align = alClient
       TabOrder = 0
       Caption = ''
-      ExplicitHeight = 203
       object UniScrollBox2: TUniScrollBox
         Left = 1
         Top = 1
@@ -121,7 +119,6 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
         Hint = ''
         Align = alClient
         TabOrder = 1
-        ExplicitHeight = 201
         ScrollHeight = 178
         ScrollWidth = 544
         object UniPanel1: TUniPanel
@@ -356,7 +353,6 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
             Hint = ''
             Text = '01 - Dinheiro '
             TabOrder = 2
-            ItemIndex = 0
             Items.Strings = (
               '01 - Dinheiro '
               '02 - Cheque '

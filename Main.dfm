@@ -27,7 +27,6 @@ object frmPrincipal: TfrmPrincipal
         'sender.getEl();'#13#10' '#13#10'    el.setOpacity(0);'#13#10'    el.fadeIn({'#13#10'    ' +
         '    duration: 2000'#13#10'    });'#13#10'}')
     TabOrder = 0
-    ExplicitHeight = 187
     object pnTreeMenuPrincipal: TUniContainerPanel
       Left = 0
       Top = 0
@@ -2567,10 +2566,6 @@ object frmPrincipal: TfrmPrincipal
       ImageIndex = 24
       Caption = 'In'#237'cio'
       OnClose = paginaPrincipalClose
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 256
-      ExplicitHeight = 128
       object UniURLFrame1: TUniURLFrame
         Left = 0
         Top = 0
@@ -2622,6 +2617,7 @@ object frmPrincipal: TfrmPrincipal
         end
         object rocacdclientesbl1: TUniMenuItem
           Caption = 'Troca c'#243'd. clientes bl.'
+          OnClick = rocacdclientesbl1Click
         end
         object rea1: TUniMenuItem
           Caption = #193'rea'

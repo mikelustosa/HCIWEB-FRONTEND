@@ -41,6 +41,7 @@ type
     procedure compVALORPAGOChange(Sender: TObject);
     procedure UniSFBitBtn1Click(Sender: TObject);
     procedure UniSFBitBtn27Click(Sender: TObject);
+    procedure UniSFBitBtn26Click(Sender: TObject);
   private
     { Private declarations }
     faturar  :boolean;
@@ -57,7 +58,7 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication, uUtils;
+  MainModule, uniGUIApplication, uUtils, ufrmPagamentoParceladoF;
 
 function frmSelecionaPagamentoF: TfrmSelecionaPagamentoF;
 begin
@@ -104,6 +105,13 @@ begin
   faturar := false;
   limpaCookiesEditRecursivo(self);
   close;
+end;
+
+procedure TfrmSelecionaPagamentoF.UniSFBitBtn26Click(Sender: TObject);
+begin
+  frmPagamentoParceladoF.wTOTALGERALF := strtofloatdef(compTOTALGERAL.Text,0);
+  frmPagamentoParceladoF.showmodal();
+//  frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
 end;
 
 procedure TfrmSelecionaPagamentoF.UniSFBitBtn27Click(Sender: TObject);

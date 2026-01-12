@@ -11,7 +11,7 @@ uses
   URGLayoutUnigui, Data.DB, Datasnap.DBClient, System.JSON, system.math,
   system.ioutils, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, uniImage, dxGDIPlusClasses;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, uniImage, Vcl.Imaging.pngimage;
 
 type
   TfrmPDV = class(TUniForm)
@@ -137,6 +137,7 @@ type
     procedure compCODPROKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure timerFocoItemTimer(Sender: TObject);
+    procedure UniFormReady(Sender: TObject);
   private
     { Private declarations }
     JProduto : TJSONObject;
@@ -829,6 +830,21 @@ begin
         end;
     end;
   end;
+end;
+
+procedure TfrmPDV.UniFormReady(Sender: TObject);
+begin
+//  limpaCookiesEditRecursivo(self);
+  //MarcarTodosCheckBox(self);
+//  rg1.Start;
+//  rg2.Start;
+//  rg3.Start;
+//  rg4.Start;
+//  rg5.Start;
+//  rg6.Start;
+//  rg7.Start;
+//  rg8.Start;
+//  rg9.Start;
 end;
 
 procedure TfrmPDV.UniFormShow(Sender: TObject);

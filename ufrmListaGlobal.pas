@@ -85,7 +85,8 @@ begin
       weGrid.Columns[3].FieldName := 'ativo';
     end
   //VENDEDORERS
-  else if (weTabelaPesquisa = 'VENDEDORES') or (weTabelaPesquisa = 'VENDEDORES_PDV') then
+  else if (weTabelaPesquisa = 'VENDEDORES')
+    or (weTabelaPesquisa = 'VENDEDORES_PDV') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -133,7 +134,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //PISVENDA
-  else if weTabelaPesquisa = 'PISVENDA' then
+  else if (weTabelaPesquisa = 'PISVENDA')
+  or (weTabelaPesquisa = 'PISCOMPRA') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -144,20 +146,21 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //PISCOMPRA
-  else if weTabelaPesquisa = 'PISCOMPRA' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODSIT';
-      //NOME
-      weGrid.Columns[2].FieldName := 'DESCR';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //PISCOMPRA
+//  else if weTabelaPesquisa = 'PISCOMPRA' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODSIT';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'DESCR';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //COFINSVENDA
-  else if weTabelaPesquisa = 'COFINSVENDA' then
+  else if (weTabelaPesquisa = 'COFINSVENDA')
+    or (weTabelaPesquisa = 'COFINSCOMPRA') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -168,20 +171,21 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //COFINSCOMPRA
-  else if weTabelaPesquisa = 'COFINSCOMPRA' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODSIT';
-      //NOME
-      weGrid.Columns[2].FieldName := 'DESCR';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //COFINSCOMPRA
+//  else if weTabelaPesquisa = 'COFINSCOMPRA' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODSIT';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'DESCR';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //IPIVENDA
-  else if weTabelaPesquisa = 'IPIVENDA' then
+  else if (weTabelaPesquisa = 'IPIVENDA')
+    or (weTabelaPesquisa = 'IPICOMPRA') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -192,18 +196,18 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //IPICOMPRA
-  else if weTabelaPesquisa = 'IPICOMPRA' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODSIT';
-      //NOME
-      weGrid.Columns[2].FieldName := 'DESCR';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //IPICOMPRA
+//  else if weTabelaPesquisa = 'IPICOMPRA' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODSIT';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'DESCR';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //GRUPOS
   else if weTabelaPesquisa = 'GRUPOS' then
     begin
@@ -217,7 +221,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //GRADE1
-  else if weTabelaPesquisa = 'GRADE1' then
+  else if (weTabelaPesquisa = 'GRADE1')
+    or (weTabelaPesquisa = 'GRADE2') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -228,20 +233,25 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //GRADE2
-  else if weTabelaPesquisa = 'GRADE2' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'IDGRADE';
-      //NOME
-      weGrid.Columns[2].FieldName := 'DESCRGRADE';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //GRADE2
+//  else if weTabelaPesquisa = 'GRADE2' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'IDGRADE';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'DESCRGRADE';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //CLIENTES1
-  else if weTabelaPesquisa = 'CLIENTES1' then
+  else if (weTabelaPesquisa = 'CLIENTES1')
+    or (weTabelaPesquisa = 'CLIENTES2')
+    or (weTabelaPesquisa = 'CLIENTES3')
+    or (weTabelaPesquisa = 'CLIENTES_PDV')
+    or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_INI')
+    or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_FIN') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -252,32 +262,34 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //CLIENTES2
-  else if weTabelaPesquisa = 'CLIENTES2' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODCLI';
-      //NOME
-      weGrid.Columns[2].FieldName := 'NOME';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
-  //CLIENTES3
-  else if weTabelaPesquisa = 'CLIENTES3' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODCLI';
-      //NOME
-      weGrid.Columns[2].FieldName := 'NOME';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //CLIENTES2
+//  else if weTabelaPesquisa = 'CLIENTES2' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCLI';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NOME';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
+//  //CLIENTES3
+//  else if weTabelaPesquisa = 'CLIENTES3' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCLI';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NOME';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //CFOP SAÍDA
-  else if weTabelaPesquisa = 'CFOPSAIDA' then
+  else if (weTabelaPesquisa = 'CFOPSAIDA')
+    or (weTabelaPesquisa = 'CFOPENTRADA')
+    or (weTabelaPesquisa = 'CFOPNFCE') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -288,30 +300,30 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //CFOP ENTRADA
-  else if weTabelaPesquisa = 'CFOPENTRADA' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODCFOP';
-      //NOME
-      weGrid.Columns[2].FieldName := 'NATUREZA';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
-  //CFOP NFCE
-  else if weTabelaPesquisa = 'CFOPNFCE' then
-    begin
-      //ID
-      weGrid.Columns[0].FieldName := 'ID';
-      //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODCFOP';
-      //NOME
-      weGrid.Columns[2].FieldName := 'NATUREZA';
-      //ATIVO
-      weGrid.Columns[3].FieldName := 'ATIVO';
-    end
+//  //CFOP ENTRADA
+//  else if weTabelaPesquisa = 'CFOPENTRADA' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCFOP';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NATUREZA';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
+//  //CFOP NFCE
+//  else if weTabelaPesquisa = 'CFOPNFCE' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCFOP';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NATUREZA';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
   //PRODUTO PDV
   else if weTabelaPesquisa = 'PRODUTOS_PDV' then
     begin
@@ -324,18 +336,57 @@ begin
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
-  //CLIENTE PDV
-  else if weTabelaPesquisa = 'CLIENTES_PDV' then
+//  //CLIENTE PDV
+//  else if weTabelaPesquisa = 'CLIENTES_PDV' then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCLI';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NOME';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
+  //CCUSTO PDV
+  else if weTabelaPesquisa = 'CCUSTO_PDV' then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
       //CÓDIGO
-      weGrid.Columns[1].FieldName := 'CODCLI';
+      weGrid.Columns[1].FieldName := 'CODCC';
       //NOME
-      weGrid.Columns[2].FieldName := 'NOME';
+      weGrid.Columns[2].FieldName := 'DESCR';
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
+  //CONDPAG_PDV
+  else if weTabelaPesquisa = 'CONDPAG_PDV' then
+    begin
+      //ID
+      weGrid.Columns[0].FieldName := 'ID';
+      //CÓDIGO
+      weGrid.Columns[1].FieldName := 'CODPAG';
+      //NOME
+      weGrid.Columns[2].FieldName := 'DESCRPG';
+      //ATIVO
+      weGrid.Columns[3].FieldName := 'ATIVO';
+    end
+//  //CLIENTES_TROCA_COD_CLI_FIN
+//  else if (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_INI')
+//    or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_FIN') then
+//    begin
+//      //ID
+//      weGrid.Columns[0].FieldName := 'ID';
+//      //CÓDIGO
+//      weGrid.Columns[1].FieldName := 'CODCLI';
+//      //NOME
+//      weGrid.Columns[2].FieldName := 'NOME';
+//      //ATIVO
+//      weGrid.Columns[3].FieldName := 'ATIVO';
+//    end
+
+
 end;
 
 procedure TfrmListaGlobal.btnFecharClick(Sender: TObject);
@@ -418,8 +469,8 @@ begin
             .Get;
   end
   //VENDEDORES
-//  else if wTabelaDePesquisa.ToUpper = 'VENDEDORES' then
-  else if (wTabelaDePesquisa = 'VENDEDORES') or (wTabelaDePesquisa = 'VENDEDORESPDV') then
+  else if (wTabelaDePesquisa = 'VENDEDORES')
+  or (wTabelaDePesquisa = 'VENDEDORESPDV') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getVendedor)
@@ -472,7 +523,8 @@ begin
             .Get;
   end
   //PISVENDA
-  else if wTabelaDePesquisa.ToUpper = 'PISVENDA' then
+  else if (wTabelaDePesquisa.ToUpper = 'PISVENDA')
+  or (wTabelaDePesquisa.ToUpper = 'PISCOMPRA') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getStPis)
@@ -484,21 +536,22 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //PISCOMPRA
-  else if wTabelaDePesquisa.ToUpper = 'PISCOMPRA' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getStPis)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODSIT', '')
-            .AddParam('DESCR', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //PISCOMPRA
+//  else if wTabelaDePesquisa.ToUpper = 'PISCOMPRA' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getStPis)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODSIT', '')
+//            .AddParam('DESCR', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //COFINSVENDA
-  else if wTabelaDePesquisa.ToUpper = 'COFINSVENDA' then
+  else if (wTabelaDePesquisa.ToUpper = 'COFINSVENDA')
+  or (wTabelaDePesquisa.ToUpper = 'COFINSCOMPRA') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getStCofins)
@@ -510,21 +563,22 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //COFINSCOMPRA
-  else if wTabelaDePesquisa.ToUpper = 'COFINSCOMPRA' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getStCofins)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODSIT', '')
-            .AddParam('DESCR', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //COFINSCOMPRA
+//  else if wTabelaDePesquisa.ToUpper = 'COFINSCOMPRA' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getStCofins)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODSIT', '')
+//            .AddParam('DESCR', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //IPIVENDA
-  else if wTabelaDePesquisa.ToUpper = 'IPIVENDA' then
+  else if (wTabelaDePesquisa.ToUpper = 'IPIVENDA')
+  or (wTabelaDePesquisa.ToUpper = 'IPICOMPRA') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getStIpi)
@@ -536,19 +590,19 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //IPICOMPRA
-  else if wTabelaDePesquisa.ToUpper = 'IPICOMPRA' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getStIpi)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODSIT', '')
-            .AddParam('DESCR', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //IPICOMPRA
+//  else if wTabelaDePesquisa.ToUpper = 'IPICOMPRA' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getStIpi)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODSIT', '')
+//            .AddParam('DESCR', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //GRUPOS
   else if wTabelaDePesquisa.ToUpper = 'GRUPOS' then
   begin
@@ -563,7 +617,8 @@ begin
             .Get;
   end
   //GRADE1
-  else if wTabelaDePesquisa.ToUpper = 'GRADE1' then
+  else if (wTabelaDePesquisa.ToUpper = 'GRADE1')
+  or (wTabelaDePesquisa.ToUpper = 'GRADE2') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getGrade1)
@@ -575,21 +630,26 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //GRADE2
-  else if wTabelaDePesquisa.ToUpper = 'GRADE2' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getGrade2)
-            .AddParam('nomeBanco', uniMainModule.nomebanco)
-            .AddParam('id', '')
-            .AddParam('idgrade', '')
-//            .AddParam('nomeGru', filtro)
-            .AddParam('ativo', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //GRADE2
+//  else if wTabelaDePesquisa.ToUpper = 'GRADE2' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getGrade2)
+//            .AddParam('nomeBanco', uniMainModule.nomebanco)
+//            .AddParam('id', '')
+//            .AddParam('idgrade', '')
+////            .AddParam('nomeGru', filtro)
+//            .AddParam('ativo', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //CLIENTES1
-  else if wTabelaDePesquisa.ToUpper = 'CLIENTES1' then
+  else if (wTabelaDePesquisa.ToUpper = 'CLIENTES1')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES2')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES3')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_INI')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_FIN') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getCliente)
@@ -601,34 +661,36 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //CLIENTES2
-  else if wTabelaDePesquisa.ToUpper = 'CLIENTES2' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getCliente)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODCLI', '')
-            .AddParam('NOME', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //CLIENTES2
+//  else if wTabelaDePesquisa.ToUpper = 'CLIENTES2' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCliente)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCLI', '')
+//            .AddParam('NOME', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //CLIENTES3
-  else if wTabelaDePesquisa.ToUpper = 'CLIENTES3' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getCliente)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODCLI', '')
-            .AddParam('NOME', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  else if wTabelaDePesquisa.ToUpper = 'CLIENTES3' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCliente)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCLI', '')
+//            .AddParam('NOME', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //CFOP SAÍDA
-  else if wTabelaDePesquisa.ToUpper = 'CFOPSAIDA' then
+  else if (wTabelaDePesquisa.ToUpper = 'CFOPSAIDA')
+  or (wTabelaDePesquisa.ToUpper = 'CFOPSCFOPENTRADAAIDA')
+  or (wTabelaDePesquisa.ToUpper = 'CFOPNFCE') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getCfop)
@@ -640,32 +702,32 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //CFOP ENTRADA
-  else if wTabelaDePesquisa.ToUpper = 'CFOPENTRADA' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getCfop)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODCFOP', '')
-            .AddParam('NATUREZA', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
-  //CFOP NFCE
-  else if wTabelaDePesquisa.ToUpper = 'CFOPNFCE' then
-  begin
-    resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getCfop)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODCFOP', '')
-            .AddParam('NATUREZA', filtro)
-            .AddParam('ATIVO', '')
-            .timeOut(12000)
-            .Get;
-  end
+//  //CFOP ENTRADA
+//  else if wTabelaDePesquisa.ToUpper = 'CFOPENTRADA' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCfop)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCFOP', '')
+//            .AddParam('NATUREZA', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
+//  //CFOP NFCE
+//  else if wTabelaDePesquisa.ToUpper = 'CFOPNFCE' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCfop)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCFOP', '')
+//            .AddParam('NATUREZA', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
   //PRODUTO_PDV
   else if wTabelaDePesquisa.ToUpper = 'PRODUTOS_PDV' then
   begin
@@ -679,19 +741,69 @@ begin
             .timeOut(12000)
             .Get;
   end
-  //CLIENTE_PDV
-  else if wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV' then
+//  //CLIENTE_PDV
+//  else if wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV' then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCliente)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCLI', '')
+//            .AddParam('NOME', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end
+  //CCUSTO_PDV
+  else if (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L2')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L3')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L4')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L5')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L6')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L7')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L8')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L9')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L10')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L11')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L12') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
-            .resource(getCliente)
-            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
-            .AddParam('ID', '')
-            .AddParam('CODCLI', '')
-            .AddParam('NOME', filtro)
-            .AddParam('ATIVO', '')
+            .resource(getCentroCusto)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('codCc', '')
+            .AddParam('ativo', '')
+            .timeOut(12000)
+            .Get;
+  end
+  //CONDPAG_PDV
+  else if (wTabelaDePesquisa.ToUpper = 'CONDPAG_PDV') then
+  begin
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getCondPag)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('codPag', '')
+            .AddParam('descrPg', '')
+            .AddParam('ativo', '')
             .timeOut(12000)
             .Get;
   end;
+//  //CLIENTES_TROCA_COD_CLI_INI
+//  else if (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_INI')
+//  or (wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_FIN') then
+//  begin
+//    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+//            .resource(getCliente)
+//            .AddParam('NOMEBANCO', uniMainModule.nomebanco)
+//            .AddParam('ID', '')
+//            .AddParam('CODCLI', '')
+//            .AddParam('NOME', filtro)
+//            .AddParam('ATIVO', '')
+//            .timeOut(12000)
+//            .Get;
+//  end;
 
   if resp1.StatusCode = 200 then
   begin
@@ -812,6 +924,37 @@ begin
       else if wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV' then
       begin
         atualizaNomeColunaGrid(gridTela,'CLIENTES_PDV');
+      end
+      //CCUSTO_PDV
+      else if (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L2')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L3')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L4')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L5')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L6')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L7')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L8')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L9')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L10')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L11')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L12') then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CCUSTO_PDV');
+      end
+      //CONDPAG_PDV
+      else if (wTabelaDePesquisa.ToUpper = 'CONDPAG_PDV') then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CONDPAG_PDV');
+      end
+      //CLIENTES_TROCA_COD_CLI_INI
+      else if wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_INI' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CLIENTES_TROCA_COD_CLI_INI');
+      end
+      //CLIENTES_TROCA_COD_CLI_FIN
+      else if wTabelaDePesquisa.ToUpper = 'CLIENTES_TROCA_COD_CLI_FIN' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CLIENTES_TROCA_COD_CLI_FIN');
       end
 
     finally

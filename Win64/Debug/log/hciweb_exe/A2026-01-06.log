@@ -1,0 +1,37 @@
+HCIWEB.exe: 00002F38: 15:23:40 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002F38: 15:23:40 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002F38: 15:23:40 [TUniServerModule]:Global Cache Folder Erased. <7> Files deleted.
+HCIWEB.exe: 00002F38: 15:23:40 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002F38: 15:23:40 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002514: 15:23:55 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095E36A
+HCIWEB.exe: 00000E4C: 15:24:22 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000E4C: 15:24:22 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000E4C: 15:24:22 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 00000E4C: 15:24:22 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000E4C: 15:24:22 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00000E4C: 15:25:10 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00000E4C: 15:25:10 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00000E4C: 15:25:11 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00000E4C: 15:25:11 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00000E4C: 15:25:11 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00000FD0: 15:25:21 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000FD0: 15:25:21 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000FD0: 15:25:21 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000FD0: 15:25:21 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000182C: 15:26:41 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000182C: 15:26:41 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000182C: 15:26:41 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 0000182C: 15:26:41 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000182C: 15:26:41 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000182C: 15:27:26 [Exit]:Unexpected attempt to terminate server application with Exit Code: 0
+HCIWEB.exe: 00001720: 15:50:23 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001720: 15:50:23 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001720: 15:50:23 [TUniServerModule]:Global Cache Folder Erased. <3> Files deleted.
+HCIWEB.exe: 00001720: 15:50:23 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001720: 15:50:23 [TUniServerModule]:HTTP Server Started on Port: 8077

@@ -1,0 +1,18 @@
+HCIWEB.exe: 0000165C: 14:14:17 [127.0.0.1]:Sequence Error Timeout : TDiff:11015, Event: resize, Expected: 54, Received: 55, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 0000165C: 14:14:17 [127.0.0.1]:Failed Sequence Reset to: 54
+HCIWEB.exe: 00001330: 14:14:19 [127.0.0.1]:Sequence Error Timeout : TDiff:11672, Event: move, Expected: 55, Received: 56, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 00001330: 14:14:19 [127.0.0.1]:Failed Sequence Reset to: 55
+HCIWEB.exe: 000009F0: 14:14:24 [127.0.0.1]:Failed Sequence Recovery: SeqId: 56, Event: move
+HCIWEB.exe: 0000108C: 14:14:27 [127.0.0.1]:Failed Sequence Recovery: SeqId: 55, Event: resize
+HCIWEB.exe: 000009F0: 14:14:27 [127.0.0.1]:Failed Sequence Recovery : TDiff:3343, Event: move, Expected: 55, Received: 56, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 000009F0: 14:14:27 [127.0.0.1]:Processed: Id: 56, Evt: move, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 0000108C: 14:14:27 [127.0.0.1]:Processing: Id: 55, Evt: resize
+HCIWEB.exe: 0000108C: 14:14:27 [127.0.0.1]:Processed: Id: 55, Evt: resize, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 000016E8: 14:14:34 [127.0.0.1]:Failed Sequence Recovery: SeqId: 56, Event: move
+HCIWEB.exe: 000016E8: 14:14:34 [127.0.0.1]:Processing: Id: 56, Evt: move
+HCIWEB.exe: 000016E8: 14:14:34 [127.0.0.1]:Processed: Id: 56, Evt: move, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 00000D8C: 14:15:37 [127.0.0.1]:Sequence Error Timeout : TDiff:18750, Event: keydown, Expected: 77, Received: 79, [EXPeaO8yXH1125D1BE3]
+HCIWEB.exe: 00000D8C: 14:15:37 [127.0.0.1]:Failed Sequence Reset to: 77
+HCIWEB.exe: 000014CC: 14:15:43 [127.0.0.1]:Failed Sequence Recovery: SeqId: 79, Event: keydown
+HCIWEB.exe: 000014CC: 14:15:43 [127.0.0.1]:Processing: Id: 79, Evt: keydown
+HCIWEB.exe: 000014CC: 14:15:45 [127.0.0.1]:Processed: Id: 79, Evt: keydown, [EXPeaO8yXH1125D1BE3]
