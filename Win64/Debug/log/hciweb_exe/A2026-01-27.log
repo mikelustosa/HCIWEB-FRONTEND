@@ -1,0 +1,49 @@
+HCIWEB.exe: 00002648: 09:44:21 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002648: 09:44:21 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002648: 09:44:21 [TUniServerModule]:Global Cache Folder Erased. <6> Files deleted.
+HCIWEB.exe: 00002648: 09:44:21 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002648: 09:44:21 [InitWebServer]:EIdCouldNotBindSocket : Could not bind socket. Address and port are already in use. : Addr: $0000000000868BD7
+HCIWEB.exe: 00002648: 09:44:28 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00002648: 09:44:28 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00002648: 09:44:29 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00002648: 09:44:29 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00002648: 09:44:29 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00002648: 09:44:29 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00002648: 09:44:29 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00002648: 09:44:29 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00002648: 09:44:29 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00002648: 09:44:29 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00002648: 09:44:29 [Terminated]:Exit Code: 0
+HCIWEB.exe: 0000218C: 09:44:39 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000218C: 09:44:39 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000218C: 09:44:39 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000218C: 09:44:39 [InitWebServer]:EIdCouldNotBindSocket : Could not bind socket. Address and port are already in use. : Addr: $0000000000868BD7
+HCIWEB.exe: 0000218C: 09:44:45 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 0000218C: 09:44:45 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 0000218C: 09:44:46 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 0000218C: 09:44:46 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 0000218C: 09:44:46 []:<-------------------------------------------------------------->
+HCIWEB.exe: 0000218C: 09:44:46 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00002014: 09:45:06 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002014: 09:45:06 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002014: 09:45:06 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002014: 09:45:06 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002690: 09:45:18 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00001280: 11:44:19 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001280: 11:44:19 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001280: 11:44:19 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 00001280: 11:44:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001280: 11:44:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000026AC: 16:32:22 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:32:54 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:33:38 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:33:50 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:34:04 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12152) O servidor retornou uma resposta inválida ou não reconhecida : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:34:50 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:44:03 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 000026AC: 16:45:11 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122

@@ -434,7 +434,7 @@ object fraCadProdutos: TfraCadProdutos
             AlignWithMargins = True
             Left = 235
             Top = 5
-            Width = 120
+            Width = 141
             Height = 30
             Hint = ''
             Margins.Left = 5
@@ -478,9 +478,9 @@ object fraCadProdutos: TfraCadProdutos
           end
           object UniSFBitBtn14: TUniSFBitBtn
             AlignWithMargins = True
-            Left = 365
+            Left = 386
             Top = 5
-            Width = 142
+            Width = 165
             Height = 30
             Hint = ''
             Margins.Left = 5
@@ -539,7 +539,7 @@ object fraCadProdutos: TfraCadProdutos
           Width = 1381
           Height = 602
           Hint = ''
-          ActivePage = tab2
+          ActivePage = tab0
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet
@@ -555,8 +555,8 @@ object fraCadProdutos: TfraCadProdutos
               TabOrder = 0
               Caption = ''
               object sBox1: TUniScrollBox
-                Left = 76
-                Top = 85
+                Left = 27
+                Top = -346
                 Width = 1371
                 Height = 969
                 Hint = ''
@@ -2514,7 +2514,7 @@ object fraCadProdutos: TfraCadProdutos
                       Height = 17
                       Hint = ''
                       Margins.Left = 10
-                      Caption = 'PRE'#199'O 4'
+                      Caption = 'PRE'#199'O 5'
                       Align = alTop
                       ParentFont = False
                       Font.Color = clBlack
@@ -2571,7 +2571,7 @@ object fraCadProdutos: TfraCadProdutos
                       Height = 17
                       Hint = ''
                       Margins.Left = 10
-                      Caption = 'PRE'#199'O 4'
+                      Caption = 'PRE'#199'O 6'
                       Align = alTop
                       ParentFont = False
                       Font.Color = clBlack

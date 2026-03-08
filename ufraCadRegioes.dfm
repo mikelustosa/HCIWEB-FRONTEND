@@ -33,17 +33,13 @@ object fraCadRegioes: TfraCadRegioes
       Width = 1147
       Height = 736
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
       object UniTabSheet1: TUniTabSheet
         Hint = ''
         Caption = 'Listagem'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object gridTela: TUniDBGrid
           Left = 0
           Top = 71
@@ -280,10 +276,6 @@ object fraCadRegioes: TfraCadRegioes
         Hint = ''
         TabVisible = False
         Caption = 'tabRegistro'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object UniContainerPanel12: TUniContainerPanel
           AlignWithMargins = True
           Left = 8
@@ -334,6 +326,8 @@ object fraCadRegioes: TfraCadRegioes
             Hint = ''
             Color = 16249327
             TabOrder = 1
+            ScrollHeight = 79
+            ScrollWidth = 527
             object UniPanel2: TUniPanel
               Left = 10
               Top = 9

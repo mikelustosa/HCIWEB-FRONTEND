@@ -46,7 +46,9 @@ uses
   ufrmAlteraQtdItemPdv in 'ufrmAlteraQtdItemPdv.pas' {frmAlteraQtdItemPdv: TUniForm},
   ufrmSelecionaPagamentoF in 'ufrmSelecionaPagamentoF.pas' {frmSelecionaPagamentoF: TUniForm},
   ufrmPagamentoParceladoF in 'ufrmPagamentoParceladoF.pas' {frmPagamentoParceladoF: TUniForm},
-  ufraTrocaCodCli in 'ufraTrocaCodCli.pas' {fraTrocaCodCli: TUniFrame};
+  ufraTrocaCodCli in 'ufraTrocaCodCli.pas' {fraTrocaCodCli: TUniFrame},
+  ufraCnpjConfig in 'ufraCnpjConfig.pas' {fraCnpjConfig: TUniFrame},
+  uFraOperacaoEstoque in 'uFraOperacaoEstoque.pas' {fraOperacaoEstoque: TUniFrame};
 
 {$R *.res}
 

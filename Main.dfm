@@ -2629,6 +2629,15 @@ object frmPrincipal: TfrmPrincipal
         end
         object Integraes1: TUniMenuItem
           Caption = 'Integra'#231#245'es'
+          object HCICNPJConfiguraes1: TUniMenuItem
+            Caption = 'HCI CNPJ Configura'#231#245'es'
+            OnClick = HCICNPJConfiguraes1Click
+          end
+          object ProcuraeAlteraDadosdeumCNPJnoCadastroLigarnoComercialHCI1: TUniMenuItem
+            Caption = 
+              'Procura e Altera Dados de um CNPJ no Cadastro (Ligar no Comercia' +
+              'l HCI)'
+          end
         end
       end
       object Conddepagamento1: TUniMenuItem
@@ -2764,6 +2773,10 @@ object frmPrincipal: TfrmPrincipal
         object Configuraes1: TUniMenuItem
           Caption = 'Configura'#231#245'es'
         end
+      end
+      object Estoque1: TUniMenuItem
+        Caption = 'Estoque'
+        OnClick = Estoque1Click
       end
     end
     object configuracoesPrivado: TUniMenuItem

@@ -1,60 +1,146 @@
-object fraCadClientes: TfraCadClientes
+object fraOperacaoEstoque: TfraOperacaoEstoque
   Left = 0
   Top = 0
-  Width = 1437
-  Height = 831
-  OnCreate = UniFrameCreate
-  OnReady = UniFrameReady
+  Width = 1610
+  Height = 938
   TabOrder = 0
-  ClientEvents.UniEvents.Strings = (
-    
-      'beforeInit=function window.beforeInit(sender, config)'#13#10'{'#13#10'   sen' +
-      'der.cls="slide-in-left";'#13#10'}')
+  object cpMenuTopo: TUniContainerPanel
+    Left = 0
+    Top = 0
+    Width = 1610
+    Height = 40
+    Hint = ''
+    ParentColor = False
+    Align = alTop
+    TabOrder = 0
+    TabStop = False
+    ExplicitWidth = 1437
+    object lblDescricao: TUniLabel
+      AlignWithMargins = True
+      Left = 46
+      Top = 7
+      Width = 211
+      Height = 21
+      Hint = ''
+      Margins.Top = 7
+      Caption = 'MOVIMENTA'#199#195'O DE ESTOQUE'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -16
+      Font.Name = 'Segoe UI Light'
+      TabOrder = 1
+    end
+    object btnNovo: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 10
+      Top = 3
+      Width = 30
+      Height = 28
+      Hint = 'Novo registro'
+      Margins.Left = 10
+      ShowHint = True
+      ParentShowHint = False
+      Caption = '   '
+      Align = alLeft
+      TabOrder = 2
+      Scale = bbsMedium
+      IconAlign = iaTop
+      FAIcon.Icon = fa_plus_circle
+      FAIcon.Size = fs_24
+      FAIcon.Color = fc_primary
+      ButtonStyles = bs_transparent
+    end
+    object UniContainerPanel27: TUniContainerPanel
+      AlignWithMargins = True
+      Left = 3
+      Top = 37
+      Width = 1107
+      Height = 3
+      Hint = ''
+      Margins.Right = 500
+      Margins.Bottom = 0
+      ParentColor = False
+      Color = 16747287
+      Align = alBottom
+      TabOrder = 3
+      LayoutConfig.Cls = 'painel-sem-borda'
+      ExplicitWidth = 934
+    end
+    object btnFechar: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 1581
+      Top = 3
+      Width = 26
+      Height = 28
+      Hint = ''
+      Visible = False
+      Caption = ''
+      Align = alRight
+      ParentFont = False
+      Font.Color = clGray
+      TabStop = False
+      TabOrder = 4
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoPadraoManipulacao'
+      FAIcon.Icon = fa_times
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_grey
+      ButtonStyles = bs_transparent
+      ExplicitLeft = 1408
+    end
+  end
   object imgFundo: TUniImage
     Left = 0
     Top = 40
-    Width = 1437
-    Height = 791
+    Width = 1610
+    Height = 898
     Hint = ''
     Align = alClient
+    ExplicitWidth = 1437
+    ExplicitHeight = 791
   end
   object scrFundo: TUniScrollBox
     Left = 0
     Top = 40
-    Width = 1437
-    Height = 791
+    Width = 1610
+    Height = 898
     Hint = ''
     Align = alClient
-    TabOrder = 1
+    TabOrder = 2
+    ExplicitLeft = 8
+    ExplicitTop = 48
+    ExplicitWidth = 1437
+    ExplicitHeight = 791
     object pgcTela: TUniPageControl
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 1429
-      Height = 783
+      Width = 1602
+      Height = 890
       Hint = ''
       ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
+      ExplicitWidth = 1429
+      ExplicitHeight = 783
       object UniTabSheet1: TUniTabSheet
         Hint = ''
         Caption = 'Listagem'
+        ExplicitWidth = 1421
+        ExplicitHeight = 755
         object gridTela: TUniDBGrid
           Left = 0
           Top = 71
-          Width = 1421
-          Height = 684
+          Width = 1594
+          Height = 791
           Hint = ''
-          DataSource = DSTela
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgConfirmDelete, dgAutoRefreshRow]
           LoadMask.Message = 'Loading data...'
           ForceFit = True
           LayoutConfig.Cls = 'dbgrid-light responsiva mostrar-mobile'
           Align = alClient
           TabOrder = 0
-          OnCellClick = gridTelaCellClick
-          OnDrawColumnCell = gridTelaDrawColumnCell
           Columns = <
             item
               FieldName = 'id'
@@ -98,7 +184,7 @@ object fraCadClientes: TfraCadClientes
           AlignWithMargins = True
           Left = 0
           Top = 3
-          Width = 1421
+          Width = 1594
           Height = 65
           Hint = ''
           Margins.Left = 0
@@ -108,6 +194,7 @@ object fraCadClientes: TfraCadClientes
           Align = alTop
           TabOrder = 1
           LayoutConfig.Cls = 'painel-sem-borda'
+          ExplicitWidth = 1421
           object UniContainerPanel22: TUniContainerPanel
             AlignWithMargins = True
             Left = 0
@@ -198,7 +285,6 @@ object fraCadClientes: TfraCadClientes
                     'er.id + "-inputEl").mask('#39'A'#39', {'#13#10'  //translation: {'#13#10'    //A: { ' +
                     'pattern: /^[A-Za-z'#225#224#226#227#233#232#234#237#239#243#244#245#246#250#231#241#193#192#194#195#201#200#205#207#211#212#213#214#218#199#209'\s]+$/g, recurs' +
                     'ive: true },'#13#10'  //},'#13#10'//});  '#13#10'  '#13#10'}')
-                OnKeyPress = edPesquisarKeyPress
               end
             end
           end
@@ -281,19 +367,25 @@ object fraCadClientes: TfraCadClientes
         Hint = ''
         TabVisible = False
         Caption = 'tabRegistro'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 256
+        ExplicitHeight = 128
         object cpMenuRodape: TUniContainerPanel
           Left = 0
-          Top = 715
-          Width = 1421
+          Top = 822
+          Width = 1594
           Height = 40
           Hint = ''
           ParentColor = False
           Align = alBottom
           TabOrder = 0
           LayoutConfig.Cls = 'body_grdnt_rounded'
+          ExplicitTop = 715
+          ExplicitWidth = 1421
           object btnSalvar: TUniSFBitBtn
             AlignWithMargins = True
-            Left = 1296
+            Left = 1469
             Top = 5
             Width = 120
             Height = 30
@@ -308,16 +400,16 @@ object fraCadClientes: TfraCadClientes
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = btnSalvarClick
             FAIcon.Icon = fa_check_circle
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
+            ExplicitLeft = 1296
           end
           object btnCancelar: TUniSFBitBtn
             AlignWithMargins = True
-            Left = 1166
+            Left = 1339
             Top = 5
             Width = 120
             Height = 30
@@ -332,12 +424,12 @@ object fraCadClientes: TfraCadClientes
             TabOrder = 2
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = btnCancelarClick
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
+            ExplicitLeft = 1166
           end
           object compATIVO: TUniFSToggle
             AlignWithMargins = True
@@ -354,7 +446,6 @@ object fraCadClientes: TfraCadClientes
             ThemeOff = Gray
             TitleOn = 'Ativo'
             TitleOff = 'Inativo'
-            OnToggled = compATIVOToggled
             Align = alLeft
           end
         end
@@ -362,7 +453,7 @@ object fraCadClientes: TfraCadClientes
           AlignWithMargins = True
           Left = 8
           Top = 5
-          Width = 1401
+          Width = 1574
           Height = 27
           Hint = ''
           Margins.Left = 8
@@ -374,6 +465,7 @@ object fraCadClientes: TfraCadClientes
           TabOrder = 1
           TabStop = False
           LayoutConfig.Cls = 'body_grdnt_rounded'
+          ExplicitWidth = 1401
           object compTitulo: TUniLabel
             AlignWithMargins = True
             Left = 10
@@ -394,27 +486,33 @@ object fraCadClientes: TfraCadClientes
         object pgcTelaDtl: TUniPageControl
           Left = 0
           Top = 32
-          Width = 1421
-          Height = 683
+          Width = 1594
+          Height = 790
           Hint = ''
           ActivePage = tab0
           Align = alClient
           TabOrder = 2
+          ExplicitWidth = 1421
+          ExplicitHeight = 683
           object tab0: TUniTabSheet
             Hint = ''
             Caption = '1 - Dados cadastrais'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn1: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox1: TUniScrollBox
-                Left = 3
-                Top = -285
+                Left = 20
+                Top = 59
                 Width = 1411
                 Height = 929
                 Hint = ''
@@ -501,7 +599,6 @@ object fraCadClientes: TfraCadClientes
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
-                    OnClick = btnClassificacaoClick
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -864,8 +961,6 @@ object fraCadClientes: TfraCadClientes
                         'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
                         '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
                         'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
-                    OnExit = compcepExit
-                    OnKeyPress = compcepKeyPress
                   end
                   object UniContainerPanel9: TUniContainerPanel
                     Left = 1
@@ -923,8 +1018,6 @@ object fraCadClientes: TfraCadClientes
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 1
-                    OnChange = compenderecoChange
-                    OnEnter = compenderecoEnter
                   end
                   object UniContainerPanel10: TUniContainerPanel
                     Left = 1
@@ -1125,7 +1218,6 @@ object fraCadClientes: TfraCadClientes
                     Hint = ''
                     Text = ''
                     TabOrder = 2
-                    OnChange = compestadoChange
                     Items.Strings = (
                       'AC'
                       'AL'
@@ -1207,7 +1299,6 @@ object fraCadClientes: TfraCadClientes
                     Hint = ''
                     Text = ''
                     TabOrder = 2
-                    OnChange = compcidadeChange
                     Groups = <>
                     Options.Placeholders = 'Selecione'
                     Options.noResults = 'No Results Found'
@@ -2243,7 +2334,6 @@ object fraCadClientes: TfraCadClientes
                     Align = alLeft
                     Caption = 'Simples Nacional'
                     TabOrder = 2
-                    OnClick = compregime1Click
                   end
                   object compregime2: TUniRadioButton
                     AlignWithMargins = True
@@ -2259,7 +2349,6 @@ object fraCadClientes: TfraCadClientes
                     Align = alLeft
                     Caption = 'Normal'
                     TabOrder = 3
-                    OnClick = compregime2Click
                   end
                 end
                 object UniPanel34: TUniPanel
@@ -2317,7 +2406,6 @@ object fraCadClientes: TfraCadClientes
                     Align = alLeft
                     Caption = 'N'#227'o'
                     TabOrder = 2
-                    OnClick = compconsumidor1Click
                   end
                   object compconsumidor2: TUniRadioButton
                     AlignWithMargins = True
@@ -2333,7 +2421,6 @@ object fraCadClientes: TfraCadClientes
                     Align = alLeft
                     Caption = 'Consumidor final'
                     TabOrder = 3
-                    OnClick = compconsumidor2Click
                   end
                 end
                 object UniPanel35: TUniPanel
@@ -2398,20 +2485,24 @@ object fraCadClientes: TfraCadClientes
           object tab1: TUniTabSheet
             Hint = ''
             Caption = '2 - Dados adicionais'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn2: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox2: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
@@ -2420,6 +2511,8 @@ object fraCadClientes: TfraCadClientes
                     'beforeInit=function window.beforeInit(sender, config)'#13#10'{'#13#10'   sen' +
                     'der.cls="slide-in-left";'#13#10'}')
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
                 ScrollHeight = 750
                 ScrollWidth = 1305
                 object UniPanel36: TUniPanel
@@ -2695,7 +2788,6 @@ object fraCadClientes: TfraCadClientes
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
-                    OnClick = UniSFBitBtn2Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2833,7 +2925,6 @@ object fraCadClientes: TfraCadClientes
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
-                    OnClick = btnVendedorersClick
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2971,7 +3062,6 @@ object fraCadClientes: TfraCadClientes
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
-                    OnClick = UniSFBitBtn4Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -3604,24 +3694,30 @@ object fraCadClientes: TfraCadClientes
           object tab2: TUniTabSheet
             Hint = ''
             Caption = '3 - Fatura'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn3: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox3: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
                 ScrollHeight = 110
                 ScrollWidth = 1313
                 object UniPanel62: TUniPanel
@@ -3811,96 +3907,120 @@ object fraCadClientes: TfraCadClientes
           object tab3: TUniTabSheet
             Hint = ''
             Caption = '4 - Coment'#225'rios'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn4: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox4: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
               end
             end
           end
           object tab4: TUniTabSheet
             Hint = ''
             Caption = '5 - Contatos'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn5: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox5: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
               end
             end
           end
           object tab5: TUniTabSheet
             Hint = ''
             Caption = '6 - Outros'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn6: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox6: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
               end
             end
           end
           object tab6: TUniTabSheet
             Hint = ''
             Caption = '7 - For'#231'a de Venda'
+            ExplicitWidth = 1413
+            ExplicitHeight = 655
             object pn7: TUniPanel
               Left = 0
               Top = 0
-              Width = 1413
-              Height = 655
+              Width = 1586
+              Height = 762
               Hint = ''
               Align = alClient
               TabOrder = 0
               Caption = ''
+              ExplicitWidth = 1413
+              ExplicitHeight = 655
               object sBox7: TUniScrollBox
                 Left = 1
                 Top = 1
-                Width = 1411
-                Height = 653
+                Width = 1584
+                Height = 760
                 Hint = ''
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
+                ExplicitWidth = 1411
+                ExplicitHeight = 653
                 ScrollHeight = 87
                 ScrollWidth = 265
                 object UniPanel66: TUniPanel
@@ -3959,7 +4079,6 @@ object fraCadClientes: TfraCadClientes
                     ThemeOff = Gray
                     TitleOn = 'Ativo'
                     TitleOff = 'Inativo'
-                    OnToggled = compATIVOToggled
                     Align = alClient
                   end
                 end
@@ -4019,7 +4138,6 @@ object fraCadClientes: TfraCadClientes
                     ThemeOff = Gray
                     TitleOn = 'Sim'
                     TitleOff = 'N'#227'o'
-                    OnToggled = compATIVOToggled
                     Align = alClient
                   end
                 end
@@ -4028,89 +4146,6 @@ object fraCadClientes: TfraCadClientes
           end
         end
       end
-    end
-  end
-  object cpMenuTopo: TUniContainerPanel
-    Left = 0
-    Top = 0
-    Width = 1437
-    Height = 40
-    Hint = ''
-    ParentColor = False
-    Align = alTop
-    TabOrder = 2
-    TabStop = False
-    object lblDescricao: TUniLabel
-      AlignWithMargins = True
-      Left = 46
-      Top = 7
-      Width = 169
-      Height = 21
-      Hint = ''
-      Margins.Top = 7
-      Caption = 'CADASTRO DE CLIENTES'
-      Align = alLeft
-      ParentFont = False
-      Font.Height = -16
-      Font.Name = 'Segoe UI Light'
-      TabOrder = 1
-    end
-    object btnNovo: TUniSFBitBtn
-      AlignWithMargins = True
-      Left = 10
-      Top = 3
-      Width = 30
-      Height = 28
-      Hint = 'Novo registro'
-      Margins.Left = 10
-      ShowHint = True
-      ParentShowHint = False
-      Caption = '   '
-      Align = alLeft
-      TabOrder = 2
-      Scale = bbsMedium
-      IconAlign = iaTop
-      OnClick = btnNovoClick
-      FAIcon.Icon = fa_plus_circle
-      FAIcon.Size = fs_24
-      FAIcon.Color = fc_primary
-      ButtonStyles = bs_transparent
-    end
-    object UniContainerPanel27: TUniContainerPanel
-      AlignWithMargins = True
-      Left = 3
-      Top = 37
-      Width = 934
-      Height = 3
-      Hint = ''
-      Margins.Right = 500
-      Margins.Bottom = 0
-      ParentColor = False
-      Color = 16747287
-      Align = alBottom
-      TabOrder = 3
-      LayoutConfig.Cls = 'painel-sem-borda'
-    end
-    object btnFechar: TUniSFBitBtn
-      AlignWithMargins = True
-      Left = 1408
-      Top = 3
-      Width = 26
-      Height = 28
-      Hint = ''
-      Visible = False
-      Caption = ''
-      Align = alRight
-      ParentFont = False
-      Font.Color = clGray
-      TabStop = False
-      TabOrder = 4
-      Scale = bbsSmall
-      LayoutConfig.Cls = 'botaoPadraoManipulacao'
-      FAIcon.Icon = fa_times
-      FAIcon.Size = fs_16
-      FAIcon.Color = fc_grey
-      ButtonStyles = bs_transparent
     end
   end
   object alerta: TUniSFSweetAlert
@@ -4135,27 +4170,6 @@ object fraCadClientes: TfraCadClientes
     Left = 794
     Top = 462
   end
-  object DSTela: TDataSource
-    DataSet = CDSTela
-    Left = 1071
-    Top = 334
-  end
-  object CDSTela: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 1151
-    Top = 334
-    object CDSTelabotaoEditar: TAggregateField
-      FieldName = 'botaoEditar'
-      OnGetText = CDSTelabotaoEditarGetText
-      DisplayName = ''
-    end
-    object CDSTelaiconeAtivo: TAggregateField
-      FieldName = 'iconeAtivo'
-      OnGetText = CDSTelaiconeAtivoGetText
-      DisplayName = ''
-    end
-  end
   object alertaM: TUniSFiGrowl
     Spacing = 4
     AlertSize = as_Regular
@@ -4167,6 +4181,34 @@ object fraCadClientes: TfraCadClientes
     PlacementX = px_left
     Left = 384
     Top = 587
+  end
+  object CDSDados: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 983
+    Top = 334
+    object AggregateField1: TAggregateField
+      FieldName = 'botaoEditar'
+      DisplayName = ''
+    end
+    object AggregateField2: TAggregateField
+      FieldName = 'iconeAtivo'
+      DisplayName = ''
+    end
+  end
+  object CDSTela: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 1151
+    Top = 334
+    object CDSTelabotaoEditar: TAggregateField
+      FieldName = 'botaoEditar'
+      DisplayName = ''
+    end
+    object CDSTelaiconeAtivo: TAggregateField
+      FieldName = 'iconeAtivo'
+      DisplayName = ''
+    end
   end
   object rg1: TRGLayoutUnigui
     Enabled = False
@@ -4293,19 +4335,5 @@ object fraCadClientes: TfraCadClientes
     TopInicialCampos = 20
     Left = 864
     Top = 331
-  end
-  object CDSDados: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 983
-    Top = 334
-    object AggregateField1: TAggregateField
-      FieldName = 'botaoEditar'
-      DisplayName = ''
-    end
-    object AggregateField2: TAggregateField
-      FieldName = 'iconeAtivo'
-      DisplayName = ''
-    end
   end
 end

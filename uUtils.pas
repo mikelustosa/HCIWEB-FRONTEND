@@ -123,10 +123,23 @@ function Replicate(Carac: Char; qtd: integer): string;
 function Repl(Carac: Char; qtd: integer): string;
 function iff(Quest: Boolean; Var1, Var2: variant): variant;
 function convfloat(Num: string): double;
+function converteParaDecimalUsa(wvalor:string):string;
 
 implementation
 
 uses uConstantes;
+
+
+function converteParaDecimalUsa(wvalor:string):string;
+begin
+  // Substitui o separador de milhar '.' pelo separador de milhar americano ','
+  wValor := StringReplace(wValor, '.', '', [rfReplaceAll]);
+
+  // Substitui o separador decimal ',' pelo separador decimal americano '.'
+  wValor := StringReplace(wValor, ',', '.', [rfReplaceAll]);
+
+  Result := wValor;
+end;
 
 function iff(Quest: Boolean; Var1, Var2: variant): variant;
 begin

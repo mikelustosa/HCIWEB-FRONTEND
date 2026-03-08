@@ -207,3 +207,39 @@ HCIWEB.exe: 00003748: 03:51:14 [127.0.0.1]:EUniSessionException : Sessão finali
 HCIWEB.exe: 00000F60: 03:51:14 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
 HCIWEB.exe: 00003748: 03:51:14 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
 HCIWEB.exe: 00002248: 03:51:15 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00002FB0: 07:04:18 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002FB0: 07:04:18 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002FB0: 07:04:19 [TUniServerModule]:Global Cache Folder Erased. <8> Files deleted.
+HCIWEB.exe: 00002FB0: 07:04:19 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002FB0: 07:04:19 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001E34: 07:04:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00000550: 07:04:41 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00001E34: 07:04:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00002568: 07:04:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00003780: 07:04:42 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00002E84: 07:17:19 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 00002E84: 07:20:23 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 00002E84: 07:20:35 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 00002E84: 07:21:11 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 00002E84: 07:21:20 [127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12030) A conexão com o servidor foi interrompida de modo anormal : Addr: $0000000000448122
+HCIWEB.exe: 00003754: 07:46:34 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00003754: 07:46:34 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00003754: 07:46:34 [TUniServerModule]:Global Cache Folder Erased. <8> Files deleted.
+HCIWEB.exe: 00003754: 07:46:34 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00003754: 07:46:34 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000005FC: 07:46:34 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000008A0: 07:49:38 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000008A0: 07:49:38 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000008A0: 07:49:38 [TUniServerModule]:Global Cache Folder Erased. <9> Files deleted.
+HCIWEB.exe: 000008A0: 07:49:38 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000008A0: 07:49:38 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000007C4: 07:49:39 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A

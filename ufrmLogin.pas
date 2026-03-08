@@ -285,6 +285,10 @@ begin
           end else
             begin
               try
+                //Micael 27012026
+                if uniMainModule.nomebanco.Trim = '' then
+                  uniMainModule.nomebanco := 'desenvolvimento';
+
                 jsonBody := TJSONObject.Create;
                 jsonBody.AddPair('usuario', usuario);
                 jsonBody.AddPair('senha', senha);

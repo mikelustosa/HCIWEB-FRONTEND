@@ -87,6 +87,9 @@ type
     NFCeSAT1: TUniMenuItem;
     Pontodevenda1: TUniMenuItem;
     Configuraes1: TUniMenuItem;
+    HCICNPJConfiguraes1: TUniMenuItem;
+    ProcuraeAlteraDadosdeumCNPJnoCadastroLigarnoComercialHCI1: TUniMenuItem;
+    Estoque1: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -116,6 +119,8 @@ type
     procedure Grade11Click(Sender: TObject);
     procedure Grade21Click(Sender: TObject);
     procedure rocacdclientesbl1Click(Sender: TObject);
+    procedure HCICNPJConfiguraes1Click(Sender: TObject);
+    procedure Estoque1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -142,7 +147,7 @@ uses
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
-  ufraCadGrade2, ufrmPDV, ufraTrocaCodCli;
+  ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -308,6 +313,11 @@ begin
   NovaAba(TFrame(TfraCadGrupos),'Grupos', true, -1, true);
 end;
 
+procedure TfrmPrincipal.HCICNPJConfiguraes1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraCnpjConfig),'Configurações API CNPJ', true, -1, true);
+end;
+
 procedure TfrmPrincipal.ICMSinternoSubs1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadIcmsInterno),'ICMS Interno', true, -1, true);
@@ -374,6 +384,11 @@ begin
   NovaAba(TFrame(TfraCadEmpresas),'Empresas', true, -1, true);
 end;
 
+
+procedure TfrmPrincipal.Estoque1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraOperacaoEstoque),'Movimentação de Estoque', true, -1, true);
+end;
 
 function TfrmPrincipal.NovaAba(nomeFormFrame: TFrame; descFormFrame: string; Fechar: Boolean; iconTab: integer = -1; tabBar: boolean = false): boolean;
 var TabSheet      :TUniTabSheet;

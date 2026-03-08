@@ -122,6 +122,12 @@ interface
     const getItemCupom    = 'getItemCupom';
 
     const putTrocaCodCli = 'putTrocaCodCli';
+
+    const putCnpjConfig = 'putCnpjConfig';
+    const getCnpjConfig = 'getCnpjConfig';
+
+    const getGeraNfce = 'getGeraNfce';
+
   {$endregion 'Resources Cadastros e Login'}
 
 implementation

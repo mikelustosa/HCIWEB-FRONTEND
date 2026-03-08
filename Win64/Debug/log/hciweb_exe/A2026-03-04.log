@@ -1,0 +1,5 @@
+HCIWEB.exe: 00002858: 14:47:59 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002858: 14:47:59 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002858: 14:47:59 [TUniServerModule]:Global Cache Folder Erased. <19> Files deleted.
+HCIWEB.exe: 00002858: 14:48:00 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002858: 14:48:00 [TUniServerModule]:HTTP Server Started on Port: 8077

@@ -154,6 +154,8 @@ type
     procedure callBackFatura(Sender: TComponent;
       AResult: Integer);
 
+    function GeraNfceTemporario():string;
+
     function pesquisaItem(out weJson:TJSONObject; weId,weCodPro,weDescr :string): boolean;
     procedure limpaCupom;
     procedure calculaCupom;
@@ -163,6 +165,7 @@ type
     { Public declarations }
     totalCupom, totalProdutos: Double;
     pDesc, vDesc, vDescTotal: Double;
+    wTotalCupom : real;
   end;
 
 function frmPDV: TfrmPDV;
@@ -175,12 +178,58 @@ uses
   MainModule, uniGUIApplication, ufrmListaGlobal, uUtils,
   RESTRequest4D.Response.Intf, RESTRequest4D.Request.Intf,
   RESTRequest4D.Request, uConstantes, ufrmAlteraQtdItemPdv,
-  ufrmSelecionaPagamentoF, UniSFCore;
+  ufrmSelecionaPagamentoF, UniSFCore, ServerModule;
 
 procedure TfrmPDV.retornar;
 begin
   listar;
 end;
+
+function TfrmPDV.GeraNfceTemporario():string;
+var
+  resp1       :IResponse;
+  jsonBody    :TJSONObject;
+begin
+  result := '';
+  try
+    try
+      jsonBody := TJSONObject.Create;
+      jsonBody.AddPair('idEmp', '2');
+      jsonBody.AddPair('numNf', '28251');
+      jsonBody.AddPair('tipoNfeNfCe', 'NFCE');
+      jsonBody.AddPair('usuario', 'SUPERVISOR');
+      jsonBody.AddPair('horaNfe', '08:32:58');
+
+      resp1 := TRequest
+              .New
+              .BaseURL(baseurlCadastros)
+              .Resource(getGeraNfce)
+              .AddParam('nomeBanco', uniMainModule.nomebanco)
+              .AddBody(jsonBody.ToString)
+              .Timeout(12000)
+              .Get;
+      if RESP1.StatusCode = 200 then
+        begin
+          var wJsonResult: TJSONObject; wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+          result := wJsonResult.GetValue<string>('mensagem');
+//          alertaM.Info('Finalizado com sucesso.');
+        end
+      else
+        result := 'Erro na emissão da nfce';
+//        alerta.Error('ERRO: '+resp1.Content);
+
+    except on e:exception do
+      begin
+//              alerta.Error('ERRO: '+e.Message);
+      end;
+    end;
+  finally
+    jsonBody.Free;
+  end;
+
+end;
+
 
 procedure TfrmPDV.timerFocoItemTimer(Sender: TObject);
 begin
@@ -417,81 +466,135 @@ begin
       if ButtonClicked = abConfirm then
       begin
         try
-          jsonBody := TJSONObject.Create;
-          jsonBody.AddPair('incr', '');
-          jsonBody.AddPair('empresa', '1');
-          jsonBody.AddPair('ncfe', '');
-          jsonBody.AddPair('vcfe', '');
-          jsonBody.AddPair('status', '');
-          jsonBody.AddPair('gerouestoque', '');
-          jsonBody.AddPair('geroucaixa', '');
-          jsonBody.AddPair('geroufiscal', '');
-          jsonBody.AddPair('chnfce', '');
-          jsonBody.AddPair('retorno', '');
-          jsonBody.AddPair('nomearquivo', '');
-          jsonBody.AddPair('cpf', '');
-          jsonBody.AddPair('int_tipopagamento', '');
-          jsonBody.AddPair('int_caixa', '');
-          jsonBody.AddPair('flt_pdesc', '');
-          jsonBody.AddPair('flt_vdesc', '');
-          jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('ID'));
-          jsonBody.AddPair('str_email', '');
-          jsonBody.AddPair('int_nfce', '');
-          jsonBody.AddPair('int_serie', '');
-          jsonBody.AddPair('rejeitado', '');
-          jsonBody.AddPair('int_codven', '');
-          jsonBody.AddPair('dt_cupom', '');
-          jsonBody.AddPair('grade1', '');
-          jsonBody.AddPair('grade2', '');
-          jsonBody.AddPair('idnuvemfiscal', '');
-          jsonBody.AddPair('xmlvenda', '');
-          jsonBody.AddPair('xmlcancelamento', '');
-          jsonBody.AddPair('xmlenvio', '');
-          jsonBody.AddPair('ativo', 'T');
+          try
+            jsonBody := TJSONObject.Create;
+            jsonBody.AddPair('incr', '');
+            jsonBody.AddPair('empresa', '1');
+            jsonBody.AddPair('ncfe', '');
+            jsonBody.AddPair('vcfe', converteParaDecimalUsa(floattostr(totalCupom)));
+            jsonBody.AddPair('status', '');
+            jsonBody.AddPair('gerouestoque', '');
+            jsonBody.AddPair('geroucaixa', '');
+            jsonBody.AddPair('geroufiscal', '');
+            jsonBody.AddPair('chnfce', '');
+            jsonBody.AddPair('retorno', '');
+            jsonBody.AddPair('nomearquivo', '');
+            jsonBody.AddPair('cpf', '');
+            jsonBody.AddPair('int_tipopagamento', '');
+            jsonBody.AddPair('int_caixa', '');
+            jsonBody.AddPair('flt_pdesc', '');
+            jsonBody.AddPair('flt_vdesc', '');
+            jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('ID'));
+            jsonBody.AddPair('str_email', '');
+            jsonBody.AddPair('int_nfce', '');
+            jsonBody.AddPair('int_serie', '');
+            jsonBody.AddPair('rejeitado', '');
+            jsonBody.AddPair('int_codven', '');
+            jsonBody.AddPair('dt_cupom', datetostr(date()));
+            jsonBody.AddPair('grade1', '');
+            jsonBody.AddPair('grade2', '');
+            jsonBody.AddPair('idnuvemfiscal', '');
+            jsonBody.AddPair('xmlvenda', '');
+            jsonBody.AddPair('xmlcancelamento', '');
+            jsonBody.AddPair('xmlenvio', '');
+            jsonBody.AddPair('ativo', 'T');
 
-          CDSTela.First;
-          var aItem : TJSONArray; aItem := TJSONArray.Create;
-          while not CDSTela.Eof do
+            CDSTela.First;
+            var aItem : TJSONArray; aItem := TJSONArray.Create;
+            while not CDSTela.Eof do
+              begin
+                var jItem : TJSONObject; jItem := TJSONObject.Create;
+                jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
+                jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
+                jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
+                jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
+                jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
+                jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
+                jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
+                jItem.AddPair('vdesc','0');
+                jItem.AddPair('grade1','');
+                jItem.AddPair('grade2','');
+                jItem.AddPair('ativo','T');
+                aItem.AddElement(jItem);
+                CDSTela.Next;
+              end;
+            jsonBody.AddPair('itens',aItem);
+
+            resp1 := TRequest
+                    .New
+                    .BaseURL(baseurlCadastros)
+                    .Resource(postCupom)
+                    .AddParam('nomeBanco', uniMainModule.nomebanco)
+        //                .AddParam('id', id)
+                    .AddBody(jsonBody.ToString)
+                    .Timeout(12000)
+                    .Post;
+            if RESP1.StatusCode = 200 then
+              begin
+//                alertaM.Info('Finalizado com sucesso.');
+//                alerta.Error('Agora, enviar para o nuvem fiscal');
+                //gera e emite cupom (implementação temporária)
+
+                limpacupom;
+                frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+                frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+                frmListaGlobal.showModal(callBackCliente);
+
+//                alerta.Success(GeraNfceTemporario());
+
+                wteste := GeraNfceTemporario(); // caminho do PDF
+
+                UniSession.AddJS( 'window.open(' + QuotedStr(AURl) + ', ''_blank'');');
+
+                                                    fdgsdfg
+
+//                var wteste: string;
+//                // 1. Gera o PDF
+// wteste := GeraNfceTemporario(); // caminho do PDF
+//
+//  // Extrai nome do arquivo
+//  var nomearquivo:string;
+//  nomeArquivo := ExtractFileName(wteste);
+//
+//  // Pasta FILES do UniGUI (JÁ FUNCIONA!)
+//  var pastafiles:string;
+//  pastaFiles := UniServerModule.FilesFolderPath;
+//
+//  // Copia para a pasta files
+//  TFile.Copy(wteste, TPath.Combine(pastaFiles, nomeArquivo), True);
+//
+//  // URL correta
+//  var urlarquivo:string;
+//  urlArquivo := '/files/' + nomeArquivo;
+//
+//  // Abre o PDF
+//  UniSession.AddJS(Format('window.open("%s", "_blank");', [urlArquivo]));
+
+
+
+
+
+////                UniSession.SendFile(wteste);
+//                if FileExists(wteste) then
+//                  begin
+//                  alertaM.Success('o arquivo existe. antes');
+//                    UniSession.AddJS( 'window.open(' + QuotedStr(wteste) + ', ''_blank'');');
+//                    alertaM.Success('o arquivo existe. depois');
+//                  end
+//                else
+//                  begin
+//                    alerta.Success('arquivo não existe');
+//                  end;
+              end
+            else
+              alerta.Error('ERRO: '+resp1.Content);
+  //            alerta.Info('ERRO: '+resp1.Content);
+        //    retornar;
+          except on e:exception do
             begin
-              var jItem : TJSONObject; jItem := TJSONObject.Create;
-              jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
-              jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
-              jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
-              jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
-              jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
-              jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
-              jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
-              jItem.AddPair('vdesc','0');
-              jItem.AddPair('grade1','');
-              jItem.AddPair('grade2','');
-              jItem.AddPair('ativo','T');
-              aItem.AddElement(jItem);
-              CDSTela.Next;
+              alerta.Error('ERRO: '+e.Message);
             end;
-          jsonBody.AddPair('itens',aItem);
-
-          resp1 := TRequest
-                  .New
-                  .BaseURL(baseurlCadastros)
-                  .Resource(postCupom)
-                  .AddParam('nomeBanco', uniMainModule.nomebanco)
-      //                .AddParam('id', id)
-                  .AddBody(jsonBody.ToString)
-                  .Timeout(12000)
-                  .Post;
-          if RESP1.StatusCode = 200 then
-            begin
-              alertaM.Info('Finalizado com sucesso.');
-//    alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
-              limpacupom;
-              frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-              frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-              frmListaGlobal.showModal(callBackCliente);
-            end
-          else
-            alerta.Error('ERRO: '+resp1.Content);
-//            alerta.Info('ERRO: '+resp1.Content);
-      //    retornar;
+          end;
         finally
           jsonBody.Free;
         end;
