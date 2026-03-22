@@ -24,7 +24,6 @@ implementation
 
 uses
   UniGUIVars;
-
 function UniServerModule: TUniServerModule;
 begin
   Result:=TUniServerModule(UniGUIServerInstance);

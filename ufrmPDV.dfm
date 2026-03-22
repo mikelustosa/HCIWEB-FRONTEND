@@ -148,7 +148,7 @@ object frmPDV: TfrmPDV
               Width = 304
               Height = 41
               Hint = ''
-              MaxLength = 5
+              MaxLength = 50
               BorderStyle = ubsNone
               Text = ''
               ParentFont = False
@@ -217,12 +217,8 @@ object frmPDV: TfrmPDV
               Font.Height = -16
               Align = alClient
               TabOrder = 1
-              ClientEvents.UniEvents.Strings = (
-                
-                  'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                  '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                  'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
               OnChange = compMOVChange
+              OnKeyDown = compMOVKeyDown
             end
             object UniContainerPanel36: TUniContainerPanel
               Left = 1
@@ -1678,9 +1674,8 @@ object frmPDV: TfrmPDV
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Visible = False
       ParentShowHint = False
-      Caption = 'SALVAR'
+      Caption = 'SALVAR (envNfce)'
       Align = alRight
       TabOrder = 1
       Scale = bbsSmall

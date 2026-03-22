@@ -126,7 +126,8 @@ interface
     const putCnpjConfig = 'putCnpjConfig';
     const getCnpjConfig = 'getCnpjConfig';
 
-    const getGeraNfce = 'getGeraNfce';
+    const enviaNfce = 'enviaNfce';
+    const inserirNfce = 'inserirNfce';
 
   {$endregion 'Resources Cadastros e Login'}
 

@@ -277,6 +277,7 @@ begin
 
           usuario := jsonLogin.getValue('usuario').value;
           senha   := jsonLogin.getValue('senha').value;
+          UniMainModule.wUsuario := usuario;
 
           if (usuario = '') or (senha = '') then
           begin

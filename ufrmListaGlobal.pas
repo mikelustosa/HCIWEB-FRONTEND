@@ -7,7 +7,7 @@ uses
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIForm, Data.DB, Datasnap.DBClient, uniButton, uniBitBtn,
   UniSFButton, UniSFBitBtn, uniLabel, uniEdit, UniSFLabel, uniPanel,
-  uniGUIBaseClasses, uniBasicGrid, uniDBGrid;
+  uniGUIBaseClasses, uniBasicGrid, uniDBGrid, uniMultiItem, uniComboBox;
 
 type
   TfrmListaGlobal = class(TUniForm)
@@ -26,6 +26,10 @@ type
     CDSTelabotaoEditar: TAggregateField;
     CDSTelaiconeAtivo: TAggregateField;
     DSTela: TDataSource;
+    UniContainerPanel1: TUniContainerPanel;
+    UniSFLabel1: TUniSFLabel;
+    UniContainerPanel2: TUniContainerPanel;
+    compCbPesq: TUniComboBox;
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
     procedure UniFormShow(Sender: TObject);
     procedure gridTelaCellClick(Column: TUniDBGridColumn);
@@ -41,8 +45,9 @@ type
   private
     { Private declarations }
     canClose  :boolean;
-    procedure listaGlobal(filtro: string = '');
+    procedure listaGlobal(filtro: string = ''; cbOpcao: string = '');
     procedure atualizaNomeColunaGrid(weGrid:tUniDbGrid;weTabelaPesquisa:string);
+    function retornaAlgo(weJCampo: string = ''; weCbCampo: string = ''; weFiltro: string = ''):string;
   public
     { Public declarations }
     wTabelaDePesquisa : string;
@@ -57,6 +62,20 @@ implementation
 uses
   MainModule, uniGUIApplication, RESTRequest4D.Response.Intf, System.JSON,
   RESTRequest4D.Request, uConstantes, uUtils;
+
+Function TfrmListaGlobal.retornaAlgo(weJCampo,weCbCampo,weFiltro:string):string;
+begin
+  try
+    if weCbCampo.ToUpper = weJCampo.ToUpper then
+      result := weFiltro
+    else
+      result := '';
+
+  finally
+
+  end;
+
+end;
 
 procedure TfrmListaGlobal.atualizaNomeColunaGrid(weGrid:tUniDbGrid;weTabelaPesquisa:string);
 begin
@@ -411,7 +430,7 @@ end;
 procedure TfrmListaGlobal.edPesquisarKeyPress(Sender: TObject; var Key: Char);
 begin
   if key = #13 then
-    listaGlobal(trim(edPesquisar.Text));
+    listaGlobal(trim(edPesquisar.Text), compCbPesq.Text);
 end;
 
 procedure TfrmListaGlobal.gridTelaCellClick(Column: TUniDBGridColumn);
@@ -436,7 +455,7 @@ begin
   SetGridColor(Sender, Attribs);
 end;
 
-procedure TfrmListaGlobal.listaGlobal(filtro: string);
+procedure TfrmListaGlobal.listaGlobal(filtro, cbOpcao: string);
 var
   resp1       :IResponse;
   body        :string;
@@ -734,9 +753,10 @@ begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getProduto)
             .AddParam('nomebanco', uniMainModule.nomebanco)
-            .AddParam('id', '')
-            .AddParam('codpro', '')
-            .AddParam('descr', filtro)
+            .AddParam('id', retornaAlgo('id',cbOpcao,filtro))
+            .AddParam('codpro', retornaAlgo('Código',cbOpcao,filtro))
+            .AddParam('descr', retornaAlgo('Nome',cbOpcao,filtro))
+            .AddParam('empresa', vvcodemp)
 //            .AddParam('ATIVO', '')
             .timeOut(12000)
             .Get;
@@ -960,6 +980,10 @@ begin
     finally
       jsonResp.Free;
     end;
+  end
+  else
+  begin
+    CDSTela.EmptyDataSet;
   end;
 end;
 

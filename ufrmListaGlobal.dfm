@@ -76,7 +76,7 @@ object frmListaGlobal: TfrmListaGlobal
     LayoutConfig.Cls = 'painel-sem-borda'
     object UniContainerPanel22: TUniContainerPanel
       AlignWithMargins = True
-      Left = 0
+      Left = 293
       Top = 0
       Width = 288
       Height = 65
@@ -88,7 +88,7 @@ object frmListaGlobal: TfrmListaGlobal
       ParentColor = False
       Color = clWhite
       Align = alLeft
-      TabOrder = 1
+      TabOrder = 2
       LayoutConfig.Cls = 'painel-sem-borda'
       object lblFiltro: TUniSFLabel
         AlignWithMargins = True
@@ -167,6 +167,79 @@ object frmListaGlobal: TfrmListaGlobal
               'pattern: /^[A-Za-z'#225#224#226#227#233#232#234#237#239#243#244#245#246#250#231#241#193#192#194#195#201#200#205#207#211#212#213#214#218#199#209'\s]+$/g, recurs' +
               'ive: true },'#13#10'  //},'#13#10'//});  '#13#10'  '#13#10'}')
           OnKeyPress = edPesquisarKeyPress
+        end
+      end
+    end
+    object UniContainerPanel1: TUniContainerPanel
+      AlignWithMargins = True
+      Left = 0
+      Top = 0
+      Width = 288
+      Height = 65
+      Hint = ''
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 5
+      Margins.Bottom = 0
+      ParentColor = False
+      Color = clWhite
+      Align = alLeft
+      TabOrder = 1
+      LayoutConfig.Cls = 'painel-sem-borda'
+      object UniSFLabel1: TUniSFLabel
+        AlignWithMargins = True
+        Left = 30
+        Top = 5
+        Width = 76
+        Height = 16
+        Hint = ''
+        Margins.Left = 30
+        Margins.Top = 5
+        Margins.Bottom = 5
+        Caption = 'REFER'#202'NCIA'
+        Align = alTop
+        ParentFont = False
+        Font.Height = -13
+        Font.Style = [fsBold]
+        TabOrder = 1
+        StyleLabel.Model = lm_none
+        StyleLabel.Theme = lt_primary
+        FAIcon.Icon = fa_none
+        FAIcon.Size = fs_16
+        FAIcon.Color = fc_white
+      end
+      object UniContainerPanel2: TUniContainerPanel
+        AlignWithMargins = True
+        Left = 30
+        Top = 26
+        Width = 230
+        Height = 34
+        Hint = ''
+        Margins.Left = 30
+        Margins.Top = 0
+        Margins.Right = 5
+        Margins.Bottom = 5
+        ParentColor = False
+        Color = clWhite
+        Align = alLeft
+        TabOrder = 2
+        LayoutConfig.Cls = 'painel-com-borda-m'
+        object compCbPesq: TUniComboBox
+          Left = 0
+          Top = 0
+          Width = 230
+          Height = 34
+          Hint = ''
+          Style = csOwnerDrawFixed
+          Text = 'Nome'
+          Items.Strings = (
+            'ID'
+            'C'#243'digo'
+            'Nome')
+          ItemIndex = 2
+          Align = alClient
+          TabOrder = 1
+          IconItems = <>
         end
       end
     end

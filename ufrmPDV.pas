@@ -138,6 +138,8 @@ type
       Shift: TShiftState);
     procedure timerFocoItemTimer(Sender: TObject);
     procedure UniFormReady(Sender: TObject);
+    procedure compMOVKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     JProduto : TJSONObject;
@@ -154,7 +156,7 @@ type
     procedure callBackFatura(Sender: TComponent;
       AResult: Integer);
 
-    function GeraNfceTemporario():string;
+    function HenviaNfce(out weMsgOut:string; weIdEmp,weNumNf,weTipoNfeNfce,weUsuario,weHoraNfe:string):string;
 
     function pesquisaItem(out weJson:TJSONObject; weId,weCodPro,weDescr :string): boolean;
     procedure limpaCupom;
@@ -185,7 +187,7 @@ begin
   listar;
 end;
 
-function TfrmPDV.GeraNfceTemporario():string;
+function TfrmPDV.HenviaNfce(out weMsgOut:string; weIdEmp,weNumNf,weTipoNfeNfce,weUsuario,weHoraNfe:string):string;
 var
   resp1       :IResponse;
   jsonBody    :TJSONObject;
@@ -193,43 +195,57 @@ begin
   result := '';
   try
     try
-      jsonBody := TJSONObject.Create;
-      jsonBody.AddPair('idEmp', '2');
-      jsonBody.AddPair('numNf', '28251');
-      jsonBody.AddPair('tipoNfeNfCe', 'NFCE');
-      jsonBody.AddPair('usuario', 'SUPERVISOR');
-      jsonBody.AddPair('horaNfe', '08:32:58');
+      try
+        jsonBody := TJSONObject.Create;
+        jsonBody.AddPair('idEmp', weIdEmp);
+        jsonBody.AddPair('numNf', weNumNf);
+        jsonBody.AddPair('tipoNfeNfCe', weTipoNfeNfce);
+        jsonBody.AddPair('usuario', weUsuario);
+        jsonBody.AddPair('horaNfe', weHoraNfe);
 
-      resp1 := TRequest
-              .New
-              .BaseURL(baseurlCadastros)
-              .Resource(getGeraNfce)
-              .AddParam('nomeBanco', uniMainModule.nomebanco)
-              .AddBody(jsonBody.ToString)
-              .Timeout(12000)
-              .Get;
-      if RESP1.StatusCode = 200 then
+//        jsonBody.AddPair('idEmp', '2');
+//        jsonBody.AddPair('numNf', '28251');
+//        jsonBody.AddPair('tipoNfeNfCe', 'NFCE');
+//        jsonBody.AddPair('usuario', 'SUPERVISOR');
+//        jsonBody.AddPair('horaNfe', '08:32:58');
+        resp1 := TRequest
+                .New
+                .BaseURL(baseurlCadastros)
+                .Resource(enviaNfce)
+                .AddParam('nomeBanco', uniMainModule.nomebanco)
+                .AddBody(jsonBody.ToString)
+                .Timeout(12000)
+                .Get;
+        if RESP1.StatusCode = 200 then
+          begin
+            var wJsonResult: TJSONObject; wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+            result := wJsonResult.GetValue<string>('urlNfcePdf');
+//            result := resp1.Content;
+          end
+        else
+          begin
+            weMsgOut := resp1.Content;
+//            alertam.Error('Erro: '+resp1.Content);
+            result := 'Erro na emissão da nfce. '+resp1.content;
+          end;
+      except on e:exception do
         begin
-          var wJsonResult: TJSONObject; wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-
-          result := wJsonResult.GetValue<string>('mensagem');
-//          alertaM.Info('Finalizado com sucesso.');
-        end
-      else
-        result := 'Erro na emissão da nfce';
-//        alerta.Error('ERRO: '+resp1.Content);
-
-    except on e:exception do
-      begin
-//              alerta.Error('ERRO: '+e.Message);
+//          weMsgOut := e.Message;
+          result := e.Message;
+//          alertam.Error('ERRO: '+e.Message+' Content: '+resp1.Content);
+        end;
       end;
+    finally
+      jsonBody.Free;
     end;
-  finally
-    jsonBody.Free;
+  except on e:exception do
+    begin
+//      weMsgOut := e.Message;
+      result := e.Message;
+//      alertam.Error('ERRO: '+e.Message);
+    end;
   end;
-
 end;
-
 
 procedure TfrmPDV.timerFocoItemTimer(Sender: TObject);
 begin
@@ -437,6 +453,7 @@ begin
   req.AddParam('id', weId);
   req.AddParam('codpro', weCodPro);
   req.AddParam('descr', weDescr);
+  req.AddParam('empresa', vvcodemp);
 
   req.timeOut(12000);
   resp1 := req.Get; //Aqui muda de IRequest IResponse
@@ -456,7 +473,9 @@ procedure TfrmPDV.callBackFatura(Sender: TComponent;
   AResult: Integer);
 var
   resp1       :IResponse;
-  jsonBody    :TJSONObject;
+  jsonBody,jsonBodyNfce   :TJSONObject;
+  wMsgOut:string;
+  wUrlPdfCupom:string;
 begin
   if frmSelecionaPagamentoF.ModalResult = mrOk then
   begin
@@ -469,7 +488,7 @@ begin
           try
             jsonBody := TJSONObject.Create;
             jsonBody.AddPair('incr', '');
-            jsonBody.AddPair('empresa', '1');
+            jsonBody.AddPair('empresa', vvcodemp);
             jsonBody.AddPair('ncfe', '');
             jsonBody.AddPair('vcfe', converteParaDecimalUsa(floattostr(totalCupom)));
             jsonBody.AddPair('status', '');
@@ -529,81 +548,186 @@ begin
                     .AddBody(jsonBody.ToString)
                     .Timeout(12000)
                     .Post;
-            if RESP1.StatusCode = 200 then
+
+//-----------16032026----------------------------------------------------------
+            if resp1.StatusCode = 200 then
               begin
-//                alertaM.Info('Finalizado com sucesso.');
-//                alerta.Error('Agora, enviar para o nuvem fiscal');
-                //gera e emite cupom (implementação temporária)
+                //Grava na tabela wbNfce e wbInfce
+                jsonBodyNfce := TJSONObject.Create;
+    //            jsonBodyNfce.AddPair('ID', '');
+                jsonBodyNfce.AddPair('EMPRESA', vvcodemp);
+//                jsonBodyNfce.AddPair('NUMNF', '');
+    //            jsonBodyNfce.AddPair('INCR', '');
+//                jsonBodyNfce.AddPair('DIANF', datetostr(now));
+//                jsonBodyNfce.AddPair('DCANC', '');
+                jsonBodyNfce.AddPair('NF_CODOP', '5405');
+                jsonBodyNfce.AddPair('CODCLI', JCliente.GetValue<string>('CODCLI'));
+//                jsonBodyNfce.AddPair('BASEICM', '1');
+//                jsonBodyNfce.AddPair('VICM', '1');
+//                jsonBodyNfce.AddPair('TTPROD', '1');
+//                jsonBodyNfce.AddPair('TTNOTA', '1');
+//                jsonBodyNfce.AddPair('DDUP01', '0');
+//                jsonBodyNfce.AddPair('DDUP02', '0');
+//                jsonBodyNfce.AddPair('DDUP03', '0');
+//                jsonBodyNfce.AddPair('DDUP04', '0');
+//                jsonBodyNfce.AddPair('DDUP05', '0');
+//                jsonBodyNfce.AddPair('DDUP06', '0');
+//                jsonBodyNfce.AddPair('VDUP01', '0');
+//                jsonBodyNfce.AddPair('VDUP02', '0');
+//                jsonBodyNfce.AddPair('VDUP03', '0');
+//                jsonBodyNfce.AddPair('VDUP04', '0');
+//                jsonBodyNfce.AddPair('VDUP05', '0');
+//                jsonBodyNfce.AddPair('VDUP06', '0');
+//                jsonBodyNfce.AddPair('DG_CODOP', '0');
+//                jsonBodyNfce.AddPair('DESCONTO', '0');
+//                jsonBodyNfce.AddPair('CNPJCPF', '');
+                jsonBodyNfce.AddPair('NATOPERAC', '5405');
+//                jsonBodyNfce.AddPair('NF_IESUBS', '');
+//                jsonBodyNfce.AddPair('ICMRET', '0');
+//                jsonBodyNfce.AddPair('BICMSUBS', '0');
+//                jsonBodyNfce.AddPair('CFOP1', '');
+////                jsonBodyNfce.AddPair('HORANFE', wHoraNfe);
+//                jsonBodyNfce.AddPair('SERIENFCE', '');
+//                jsonBodyNfce.AddPair('PROTNFE', '');
+//                jsonBodyNfce.AddPair('TIPOES', 'S');
+//                jsonBodyNfce.AddPair('TIPNOTA', '');
+//                jsonBodyNfce.AddPair('INDPAG', '');
+//                jsonBodyNfce.AddPair('REFNFE', '');
+//                jsonBodyNfce.AddPair('DOCFISTEF', '');
+//                jsonBodyNfce.AddPair('ID_CUPOM', '');
+                jsonBodyNfce.AddPair('IDNUVEMFISCAL', '');
+//                jsonBodyNfce.AddPair('ATIVO', 'T');
 
-                limpacupom;
-                frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-                frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-                frmListaGlobal.showModal(callBackCliente);
+                CDSTela.First;
+                var aItemNfe : TJSONArray; aItemNfe := TJSONArray.Create;
+                while not CDSTela.Eof do
+                  begin
+                    var jItemNfe : TJSONObject; jItemNfe := TJSONObject.Create;
+//                    jItemNfe.AddPair('ID', '');
+//                    jItemNfe.AddPair('IDPAI', '');
+                    jItemNfe.AddPair('EMPRESA', vvcodemp);
+//                    jItemNfe.AddPair('NUMNF', '');
+//                    jItemNfe.AddPair('ITEMNF', '');
+//                    jItemNfe.AddPair('INCR', '');
+                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('codpro').AsString);
+//                    jItemNfe.AddPair('UNID', 'UND');
+                    jItemNfe.AddPair('QUANTIT', CDSTela.FieldByName('mov').AsString);
+//                    jItemNfe.AddPair('VALUNI', '1');
+//                    jItemNfe.AddPair('VALT', '1');
+//                    jItemNfe.AddPair('PICM', '0');
+//                    jItemNfe.AddPair('NUM', '0');
+//                    jItemNfe.AddPair('CFOP', '5405');
+                    jItemNfe.AddPair('REDUCAO', '0');
+//                    jItemNfe.AddPair('BICMSUBS', '0');
+//                    jItemNfe.AddPair('MMVARICM', '0');
+//                    jItemNfe.AddPair('ALIQINT', '0');
+//                    jItemNfe.AddPair('IVA', '0');
+                    jItemNfe.AddPair('REDUCAOST', '0');
+//                    jItemNfe.AddPair('S_TRIB', '');
+//                    jItemNfe.AddPair('ALIQAPRO', '0');
+                    jItemNfe.AddPair('CODOPER1', '0');
+//                    jItemNfe.AddPair('TIPOES', 'S');
+////                    jItemNfe.AddPair('HORANFE', wHoraNfe);
+                    jItemNfe.AddPair('VDESC', '0');
+                    jItemNfe.AddPair('PDESC', '0');
+//                    jItemNfe.AddPair('ICMSDESON', '0');
+//                    jItemNfe.AddPair('NCM', '0');
+//                    jItemNfe.AddPair('PPIS', '0');
+//                    jItemNfe.AddPair('PCOFINS', '0');
+//                    jItemNfe.AddPair('CSTTRIB', '');
+//                    jItemNfe.AddPair('CCLASSTRIB', '');
+//                    jItemNfe.AddPair('VDEVTRIBIBSUF', '0');
+//                    jItemNfe.AddPair('VDEVTRIBIBSMUN', '0');
+//                    jItemNfe.AddPair('VDEVTRIBCBS', '0');
+                    aItemNfe.AddElement(jItemNfe);
+                    CDSTela.Next;
+                  end;
+                jsonBodyNfce.AddPair('ITENS',aItemNfe);
 
-//                alerta.Success(GeraNfceTemporario());
-
-                wteste := GeraNfceTemporario(); // caminho do PDF
-
-                UniSession.AddJS( 'window.open(' + QuotedStr(AURl) + ', ''_blank'');');
-
-                                                    fdgsdfg
-
-//                var wteste: string;
-//                // 1. Gera o PDF
-// wteste := GeraNfceTemporario(); // caminho do PDF
-//
-//  // Extrai nome do arquivo
-//  var nomearquivo:string;
-//  nomeArquivo := ExtractFileName(wteste);
-//
-//  // Pasta FILES do UniGUI (JÁ FUNCIONA!)
-//  var pastafiles:string;
-//  pastaFiles := UniServerModule.FilesFolderPath;
-//
-//  // Copia para a pasta files
-//  TFile.Copy(wteste, TPath.Combine(pastaFiles, nomeArquivo), True);
-//
-//  // URL correta
-//  var urlarquivo:string;
-//  urlArquivo := '/files/' + nomeArquivo;
-//
-//  // Abre o PDF
-//  UniSession.AddJS(Format('window.open("%s", "_blank");', [urlArquivo]));
-
-
-
-
-
-////                UniSession.SendFile(wteste);
-//                if FileExists(wteste) then
-//                  begin
-//                  alertaM.Success('o arquivo existe. antes');
-//                    UniSession.AddJS( 'window.open(' + QuotedStr(wteste) + ', ''_blank'');');
-//                    alertaM.Success('o arquivo existe. depois');
-//                  end
-//                else
-//                  begin
-//                    alerta.Success('arquivo não existe');
-//                  end;
+                resp1 := TRequest
+                        .New
+                        .BaseURL(baseurlCadastros)
+                        .Resource(inserirNfce)
+                        .AddParam('nomeBanco', uniMainModule.nomebanco)
+            //                .AddParam('id', id)
+                        .AddBody(jsonBodyNfce.ToString)
+                        .Timeout(12000)
+                        .Post;
               end
             else
-              alerta.Error('ERRO: '+resp1.Content);
-  //            alerta.Info('ERRO: '+resp1.Content);
-        //    retornar;
+              begin
+                alerta.Error('ERRO.: '+resp1.Content);
+              end;
+            unisession.Synchronize();
+//-----------------------------------------------------------------
+            sleep(2000);
+            //gera,envia e exibe nfce
+            if RESP1.StatusCode = 200 then
+              begin
+                try
+                  var wResp:tjsonobject;
+                  wResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+                  wUrlPdfCupom := hEnviaNfce(wMsgOut,
+                                             vvcodemp,
+                                             wResp.GetValue<string>('NUMNFCE'),
+                                             'NFCE',
+                                             uniMainModule.wUsuario,
+                                             wResp.GetValue<string>('HORANF'));
+//                  wUrlPdfCupom := hEnviaNfce('2','28251','NFCE',uniMainModule.wUsuario,'08:32:58');
+                  sleep(2000);
+                  if wMsgOut.Trim = '' then
+                    begin
+                      try
+                      limpacupom;
+                      frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+                      frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+                      frmListaGlobal.showModal(callBackCliente);
+                      sleep(2000);
+                      UniSession.AddJS( 'window.open(' + QuotedStr(wUrlPdfCupom) + ', ''_blank'');');
+            unisession.Synchronize();
+                      except on e:exception do
+                        begin
+            unisession.Synchronize();
+                        end;
+                      end;
+                    end
+                  else
+                    begin
+                      sleep(1000);
+//            unisession.Synchronize();
+                      alerta.Error(wmsgOut);
+//                      sleep(1000);
+//                      alerta.Error(wMsgOut);
+                    end;
+                except on e:exception do
+                  begin
+                    alerta.Error('ERRO: '+E.Message);
+            unisession.Synchronize();
+                  end;
+                end;
+
+//                sleep(2000);
+//                limpacupom;
+//                frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+//                frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+//                frmListaGlobal.showModal(callBackCliente);
+              end
+            else
+              begin
+                alerta.Error('ERRO.: '+resp1.Content);
+            unisession.Synchronize();
+              end;
           except on e:exception do
             begin
               alerta.Error('ERRO: '+e.Message);
+            unisession.Synchronize();
             end;
           end;
         finally
           jsonBody.Free;
+          jsonBodyNfce.Free;
         end;
-
-
-
-//        limpaCookiesEditRecursivo(self);
-//        pgcTela.ActivePageIndex := 0;
-//        alertaM.Info(msgOperacaoSucesso);
       end;
     end);
   end;
@@ -726,7 +850,51 @@ begin
 end;
 
 procedure TfrmPDV.btSalvarClick(Sender: TObject);
+var
+//  resp1       :IResponse;
+//  jsonBody,jsonBodyNfce   :TJSONObject;
+  wMsgOut:string;
+  wUrlPdfCupom:string;
 begin
+
+                try
+//                  var wResp:tjsonobject;
+//                  wResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+                  wUrlPdfCupom := hEnviaNfce(wMsgOut,
+                                             vvcodemp,
+                                             '144646',//wResp.GetValue<string>('NUMNFCE'),
+//                                             '28251',//wResp.GetValue<string>('NUMNFCE'),
+                                             'NFCE',
+                                             uniMainModule.wUsuario,
+                                             '20:06:57');//wResp.GetValue<string>('HORANF'));
+//                                             '08:32:58');//wResp.GetValue<string>('HORANF'));
+//                  wUrlPdfCupom := hEnviaNfce('2','28251','NFCE',uniMainModule.wUsuario,'08:32:58');
+                  sleep(2000);
+                  if wMsgOut.Trim = '' then
+                    begin
+//                      limpacupom;
+//                      frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+//                      frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+//                      frmListaGlobal.showModal(callBackCliente);
+//                      sleep(2000);
+                      UniSession.AddJS( 'window.open(' + QuotedStr(wUrlPdfCupom) + ', ''_blank'');');
+                    end
+                  else
+                    begin
+                      sleep(1000);
+//            unisession.Synchronize();
+                      alerta.Error(wmsgOut);
+//                      sleep(1000);
+//                      alerta.Error(wMsgOut);
+                    end;
+                except on e:exception do
+                  begin
+                    alerta.Error('ERRO: '+E.Message);
+            unisession.Synchronize();
+                  end;
+                end;
+
 //  if not CDSTela.Active then
 //    CDSTela.Active := true;
 //  CDSTela.Insert;
@@ -750,7 +918,7 @@ begin
   begin
     compNOME.Text     := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
     alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
-    //pupula um json com os dados do produto
+    //pupula um json com os dados do cliente
     for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
       begin
         if frmListaGlobal.CDSTela.Fields[i].IsNull then
@@ -879,6 +1047,30 @@ begin
   except
     compTOTAL.Text := '0,00';
   end;
+end;
+
+procedure TfrmPDV.compMOVKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  if Key = VK_RETURN then
+    begin
+      if trim(compCODPRO.Text) <> '' then
+      begin
+        if not CDSTela.Active then
+          CDSTela.Active := true;
+        CDSTela.Insert;
+        CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
+        CDSTela.FieldByName('descr').AsString := compDESCR.caption;
+        CDSTela.FieldByName('mov').AsString := compMOV.Text;
+        CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
+        CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+        CDSTela.FieldByName('ativo').AsString := 'T';
+        CDSTela.Post;
+
+        calculaCupom;
+      end;
+    end;
 end;
 
 procedure TfrmPDV.gridTelaCellClick(Column: TUniDBGridColumn);
