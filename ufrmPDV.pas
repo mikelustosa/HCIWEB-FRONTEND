@@ -561,7 +561,7 @@ begin
 //                jsonBodyNfce.AddPair('DIANF', datetostr(now));
 //                jsonBodyNfce.AddPair('DCANC', '');
                 jsonBodyNfce.AddPair('NF_CODOP', '5405');
-                jsonBodyNfce.AddPair('CODCLI', JCliente.GetValue<string>('CODCLI'));
+                jsonBodyNfce.AddPair('CODCLI', JCliente.GetValue<string>('ID'));
 //                jsonBodyNfce.AddPair('BASEICM', '1');
 //                jsonBodyNfce.AddPair('VICM', '1');
 //                jsonBodyNfce.AddPair('TTPROD', '1');
@@ -609,7 +609,7 @@ begin
 //                    jItemNfe.AddPair('NUMNF', '');
 //                    jItemNfe.AddPair('ITEMNF', '');
 //                    jItemNfe.AddPair('INCR', '');
-                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('codpro').AsString);
+                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('id').AsString);
 //                    jItemNfe.AddPair('UNID', 'UND');
                     jItemNfe.AddPair('QUANTIT', CDSTela.FieldByName('mov').AsString);
 //                    jItemNfe.AddPair('VALUNI', '1');
@@ -863,11 +863,11 @@ begin
 
                   wUrlPdfCupom := hEnviaNfce(wMsgOut,
                                              vvcodemp,
-                                             '144646',//wResp.GetValue<string>('NUMNFCE'),
+                                             '28917',//wResp.GetValue<string>('NUMNFCE'),
 //                                             '28251',//wResp.GetValue<string>('NUMNFCE'),
                                              'NFCE',
                                              uniMainModule.wUsuario,
-                                             '20:06:57');//wResp.GetValue<string>('HORANF'));
+                                             '06:15:52');//wResp.GetValue<string>('HORANF'));
 //                                             '08:32:58');//wResp.GetValue<string>('HORANF'));
 //                  wUrlPdfCupom := hEnviaNfce('2','28251','NFCE',uniMainModule.wUsuario,'08:32:58');
                   sleep(2000);
@@ -879,6 +879,7 @@ begin
 //                      frmListaGlobal.showModal(callBackCliente);
 //                      sleep(2000);
                       UniSession.AddJS( 'window.open(' + QuotedStr(wUrlPdfCupom) + ', ''_blank'');');
+                      alerta.Error(wUrlPdfCupom);
                     end
                   else
                     begin

@@ -1,0 +1,84 @@
+HCIWEB.exe: 00002A90: 09:26:04 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002A90: 09:26:04 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002A90: 09:26:04 [TUniServerModule]:Global Cache Folder Erased. <41> Files deleted.
+HCIWEB.exe: 00002A90: 09:26:04 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002A90: 09:26:04 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000029D0: 09:26:33 [127.0.0.1]:Exception : Blocking method ShowMessage() can not be called here. : Addr: $00000000008FEFB9
+HCIWEB.exe: 00001844: 09:28:51 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00002D24: 09:28:51 [HandleFileRequest[127.0.0.1]]:File not found: C:\HCI\ProjetosGitHub\HCIWEB-FRONTEND\Win64\Debug\favicon.ico
+HCIWEB.exe: 00002E98: 09:32:15 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 00001294: 09:36:25 [127.0.0.1]:EUniSessionException : Sessão finalizada : Addr: $000000000095C82A
+HCIWEB.exe: 000029F0: 09:38:13 [REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido-127.0.0.1]:ERESTException : REST request failed: Error receiving data: (12002) O tempo limite da operação foi atingido : Addr: $0000000000448122
+HCIWEB.exe: 00001ADC: 09:47:48 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001ADC: 09:47:48 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001ADC: 09:47:48 [TUniServerModule]:Global Cache Folder Erased. <23> Files deleted.
+HCIWEB.exe: 00001ADC: 09:47:48 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001ADC: 09:47:48 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002898: 09:48:14 [127.0.0.1]:Exception : Blocking method ShowMessage() can not be called here. : Addr: $00000000008FEFB9
+HCIWEB.exe: 00000C80: 09:51:12 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000C80: 09:51:12 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000C80: 09:51:12 [TUniServerModule]:Global Cache Folder Erased. <20> Files deleted.
+HCIWEB.exe: 00000C80: 09:51:12 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000C80: 09:51:12 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002BA4: 09:52:25 [127.0.0.1]:EAccessViolation : Access violation at address 000000000040F45F in module 'HCIWEB.exe'. Read of address FFFFFFFFFFFFFFFF : Addr: $000000000040F45F
+HCIWEB.exe: 0000061C: 09:55:12 []:>--------------------------------------------------------------<
+HCIWEB.exe: 0000061C: 09:55:12 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 0000061C: 09:55:12 [TUniServerModule]:Global Cache Folder Erased. <20> Files deleted.
+HCIWEB.exe: 0000061C: 09:55:12 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 0000061C: 09:55:12 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000012B0: 09:55:31 [127.0.0.1]:Exception : Blocking method ShowMessage() can not be called here. : Addr: $00000000008FEFB9
+HCIWEB.exe: 000012B0: 09:56:45 [127.0.0.1]:EAccessViolation : Access violation at address 000000000040F45F in module 'HCIWEB.exe'. Read of address 0000000000000001 : Addr: $000000000040F45F
+HCIWEB.exe: 00002A2C: 10:18:20 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002A2C: 10:18:20 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002A2C: 10:18:20 [TUniServerModule]:Global Cache Folder Erased. <20> Files deleted.
+HCIWEB.exe: 00002A2C: 10:18:20 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002A2C: 10:18:20 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 0000290C: 10:19:48 [127.0.0.1]:EAccessViolation : Access violation at address 000000000110FC48 in module 'HCIWEB.exe'. Read of address 00000000000009B8 : Addr: $000000000110FC48
+HCIWEB.exe: 00002BE0: 10:23:31 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002BE0: 10:23:31 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002BE0: 10:23:31 [TUniServerModule]:Global Cache Folder Erased. <19> Files deleted.
+HCIWEB.exe: 00002BE0: 10:23:31 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002BE0: 10:23:31 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002294: 10:24:29 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002294: 10:24:29 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002294: 10:24:29 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 00002294: 10:24:29 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002294: 10:24:29 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000005EC: 10:26:10 []:>--------------------------------------------------------------<
+HCIWEB.exe: 000005EC: 10:26:10 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 000005EC: 10:26:10 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 000005EC: 10:26:10 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 000005EC: 10:26:10 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002F70: 10:29:36 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002F70: 10:29:36 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002F70: 10:29:36 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 00002F70: 10:29:36 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002F70: 10:29:36 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 000028B8: 10:29:53 [127.0.0.1]:Exception : Blocking method ShowMessage() can not be called here. : Addr: $00000000008FEFB9
+HCIWEB.exe: 00002D54: 10:39:42 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00002D54: 10:39:42 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00002D54: 10:39:42 [TUniServerModule]:Global Cache Folder Erased. <20> Files deleted.
+HCIWEB.exe: 00002D54: 10:39:42 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00002D54: 10:39:42 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001294: 10:40:24 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00001294: 10:40:24 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00001294: 10:40:24 [TUniServerModule]:Global Cache Folder Erased. <1> Files deleted.
+HCIWEB.exe: 00001294: 10:40:24 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00001294: 10:40:24 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00001294: 10:42:41 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00001294: 10:42:41 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00001294: 10:42:42 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00001294: 10:42:42 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00001294: 10:42:42 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00001294: 10:42:42 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00001294: 10:42:43 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00001294: 10:42:43 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00001294: 10:42:43 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00001294: 10:42:43 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00001294: 10:42:43 [Terminated]:Exit Code: 0
+HCIWEB.exe: 00000AC0: 10:43:02 []:>--------------------------------------------------------------<
+HCIWEB.exe: 00000AC0: 10:43:02 [TUniServerModule]:Server First Init.
+HCIWEB.exe: 00000AC0: 10:43:02 [TUniServerModule]:Debug Mode = ON
+HCIWEB.exe: 00000AC0: 10:43:02 [TUniServerModule]:Starting HTTP Server on Port: 8077...
+HCIWEB.exe: 00000AC0: 10:43:02 [TUniServerModule]:HTTP Server Started on Port: 8077
+HCIWEB.exe: 00002320: 10:43:57 [127.0.0.1]:Exception : Blocking method ShowMessage() can not be called here. : Addr: $00000000008FEFB9

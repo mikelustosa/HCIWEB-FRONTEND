@@ -1674,6 +1674,7 @@ object frmPDV: TfrmPDV
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Visible = False
       ParentShowHint = False
       Caption = 'SALVAR (envNfce)'
       Align = alRight

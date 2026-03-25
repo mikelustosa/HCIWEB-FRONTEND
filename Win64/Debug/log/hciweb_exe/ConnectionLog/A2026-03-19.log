@@ -1,0 +1,13 @@
+HCIWEB.exe: 00001880: 10:23:21 [127.0.0.1]:Sequence Error Timeout : TDiff:12969, Event: mouseover, Expected: 31, Received: 33, [EkRLogcC39112C7AD3C]
+HCIWEB.exe: 00001880: 10:23:21 [127.0.0.1]:Failed Sequence Reset to: 31
+HCIWEB.exe: 00000B0C: 10:23:24 [127.0.0.1]:Sequence Error Timeout : TDiff:16125, Event: mouseover, Expected: 31, Received: 32, [EkRLogcC39112C7AD3C]
+HCIWEB.exe: 00001508: 10:23:27 [127.0.0.1]:Failed Sequence Recovery: SeqId: 33, Event: mouseover
+HCIWEB.exe: 00001508: 10:23:29 [127.0.0.1]:Failed Sequence Recovery : TDiff:2187, Event: mouseover, Expected: 32, Received: 33, [EkRLogcC39112C7AD3C]
+HCIWEB.exe: 00001508: 10:23:29 [127.0.0.1]:Failed Sequence Reset to: 32
+HCIWEB.exe: 00001508: 10:23:29 [127.0.0.1]:Processed: Id: 33, Evt: mouseover, [EkRLogcC39112C7AD3C]
+HCIWEB.exe: 00003A34: 10:23:30 [127.0.0.1]:Failed Sequence Recovery: SeqId: 32, Event: mouseover
+HCIWEB.exe: 00003A34: 10:23:30 [127.0.0.1]:Processing: Id: 32, Evt: mouseover
+HCIWEB.exe: 00003A34: 10:23:30 [127.0.0.1]:Processed: Id: 32, Evt: mouseover, [EkRLogcC39112C7AD3C]
+HCIWEB.exe: 0000280C: 10:23:31 [127.0.0.1]:Failed Sequence Recovery: SeqId: 33, Event: mouseover
+HCIWEB.exe: 0000280C: 10:23:31 [127.0.0.1]:Processing: Id: 33, Evt: mouseover
+HCIWEB.exe: 0000280C: 10:23:31 [127.0.0.1]:Processed: Id: 33, Evt: mouseover, [EkRLogcC39112C7AD3C]
