@@ -108,6 +108,7 @@ type
     UniContainerPanel3: TUniContainerPanel;
     UniScrollBox2: TUniScrollBox;
     timerFocoItem: TUniTimer;
+    CDSTelaidCodPro: TStringField;
     procedure UniSFBitBtn3Click(Sender: TObject);
     procedure UniFormShow(Sender: TObject);
     procedure btProdutoClick(Sender: TObject);
@@ -444,7 +445,11 @@ function TfrmPDV.pesquisaItem(out weJson:TJSONObject; weId,weCodPro,weDescr :str
 var
   resp1     :IResponse;
   req       :IRequest;
+  wAItemTmp :TJSONArray;
+  wJItemTmp :TJSONObject;
 begin
+  FreeAndNil(weJson);
+  weJson := TJSONObject.Create;
   result := false;
   //Aqui sim: usamos IRequest até o Get
   req := TRequest.New.BaseURL(baseurlCadastros)
@@ -458,11 +463,39 @@ begin
   req.timeOut(12000);
   resp1 := req.Get; //Aqui muda de IRequest IResponse
 
-  weJson := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+//  weJson := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
 
   if resp1.StatusCode = 200 then
   begin
     try
+      FreeAndNil(weJson);
+      weJson := TJSONObject.Create;
+//      weJson := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      wJItemTmp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      wAItemTmp := wJItemTmp.GetValue('Result') as TJSONArray;
+      weJson := wAItemTmp.Items[0] as TJSONObject;
+
+//               sdg
+//
+//                   FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+//    //pupula um json com os dados do produto
+//    FreeAndNil(JProduto);
+//    JProduto := TJSONObject.Create;
+//    for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
+//      begin
+//        if frmListaGlobal.CDSTela.Fields[i].IsNull then
+//          JProduto.AddPair(frmListaGlobal.CDSTela.Fields[i].FieldName, TJSONNull.Create)
+//        else
+//          JProduto.AddPair(
+//            frmListaGlobal.CDSTela.Fields[i].FieldName,
+//            frmListaGlobal.CDSTela.Fields[i].AsString
+//          );
+//      end;
+
+
+
+
+//      weJson.clear;
       result := true;
     finally
     end;
@@ -609,7 +642,7 @@ begin
 //                    jItemNfe.AddPair('NUMNF', '');
 //                    jItemNfe.AddPair('ITEMNF', '');
 //                    jItemNfe.AddPair('INCR', '');
-                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('id').AsString);
+                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('ID').AsString);
 //                    jItemNfe.AddPair('UNID', 'UND');
                     jItemNfe.AddPair('QUANTIT', CDSTela.FieldByName('mov').AsString);
 //                    jItemNfe.AddPair('VALUNI', '1');
@@ -738,6 +771,7 @@ procedure TfrmPDV.callBackQtdRetiraItem(Sender: TComponent;
 begin
   if frmAlteraQtdItemPdv.ModalResult = mrOk then
   begin
+    cdsTela.locate('id',
     if CDSTela.FieldByName('mov').AsFloat = StrToFloatDef(frmAlteraQtdItemPdv.compQTDRETIRA.Text,0)  then
       CDSTela.Delete
     else
@@ -920,6 +954,8 @@ begin
     compNOME.Text     := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
     alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
     //pupula um json com os dados do cliente
+    FreeAndNil(JCliente);
+    JCliente := TJSONObject.Create;
     for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
       begin
         if frmListaGlobal.CDSTela.Fields[i].IsNull then
@@ -947,20 +983,24 @@ begin
     compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
     compDESCR.caption     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
-    //pupula um json com os dados do produto
-    for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
-      begin
-        if frmListaGlobal.CDSTela.Fields[i].IsNull then
-          JProduto.AddPair(frmListaGlobal.CDSTela.Fields[i].FieldName, TJSONNull.Create)
-        else
-          JProduto.AddPair(
-            frmListaGlobal.CDSTela.Fields[i].FieldName,
-            frmListaGlobal.CDSTela.Fields[i].AsString
-          );
-      end;
+//    //pupula um json com os dados do produto
+//    FreeAndNil(JProduto);
+//    JProduto := TJSONObject.Create;
+//    for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
+//      begin
+//        if frmListaGlobal.CDSTela.Fields[i].IsNull then
+//          JProduto.AddPair(frmListaGlobal.CDSTela.Fields[i].FieldName, TJSONNull.Create)
+//        else
+//          JProduto.AddPair(
+//            frmListaGlobal.CDSTela.Fields[i].FieldName,
+//            frmListaGlobal.CDSTela.Fields[i].AsString
+//          );
+//      end;
     compMOV.Text := '1';
-    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
+    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
+//    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
     timerFocoItem.Enabled := true;
   end;
 end;
@@ -1002,29 +1042,36 @@ end;
 procedure TfrmPDV.compCODPROKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if Key = VK_RETURN then
+  if  (Key = VK_RETURN) or (Key = VK_TAB) then
     begin
       if trim(compCODPRO.Text) <> '' then
       begin
         if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
         begin
-          compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
+          compDESCR.caption     := JProduto.GetValue('descr').Value;
+//          compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
           compMOV.Text := '1';
-          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
-          compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+          compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+//          compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
+          if (Key = VK_RETURN) then
+          begin
+            if not CDSTela.Active then
+              CDSTela.Active := true;
+            CDSTela.Insert;
+            CDSTela.FieldByName('idCodPro').AsString := JProduto.GetValue('id').Value;
+  //          CDSTela.FieldByName('id').AsString := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('id');
+            CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
+            CDSTela.FieldByName('descr').AsString := compDESCR.caption;
+            CDSTela.FieldByName('mov').AsString := compMOV.Text;
+            CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
+            CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+            CDSTela.FieldByName('ativo').AsString := 'T';
+            CDSTela.Post;
 
-          if not CDSTela.Active then
-            CDSTela.Active := true;
-          CDSTela.Insert;
-          CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
-          CDSTela.FieldByName('descr').AsString := compDESCR.caption;
-          CDSTela.FieldByName('mov').AsString := compMOV.Text;
-          CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
-          CDSTela.FieldByName('total').AsString := compTOTAL.Text;
-          CDSTela.FieldByName('ativo').AsString := 'T';
-          CDSTela.Post;
-
-          calculaCupom;
+            calculaCupom;
+          end;
         end
         else
         begin
@@ -1054,22 +1101,29 @@ procedure TfrmPDV.compMOVKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
 
-  if Key = VK_RETURN then
+  if (Key = VK_RETURN) or (Key = VK_TAB) then
     begin
       if trim(compCODPRO.Text) <> '' then
       begin
-        if not CDSTela.Active then
-          CDSTela.Active := true;
-        CDSTela.Insert;
-        CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
-        CDSTela.FieldByName('descr').AsString := compDESCR.caption;
-        CDSTela.FieldByName('mov').AsString := compMOV.Text;
-        CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
-        CDSTela.FieldByName('total').AsString := compTOTAL.Text;
-        CDSTela.FieldByName('ativo').AsString := 'T';
-        CDSTela.Post;
+        if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
+        begin
+          if (Key = VK_RETURN) then
+          begin
+            if not CDSTela.Active then
+              CDSTela.Active := true;
+            CDSTela.Insert;
+            CDSTela.FieldByName('idCodPro').AsString := JProduto.GetValue('id').Value;
+            CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
+            CDSTela.FieldByName('descr').AsString := compDESCR.caption;
+            CDSTela.FieldByName('mov').AsString := compMOV.Text;
+            CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
+            CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+            CDSTela.FieldByName('ativo').AsString := 'T';
+            CDSTela.Post;
 
-        calculaCupom;
+            calculaCupom;
+          end;
+        end;
       end;
     end;
 end;
@@ -1145,6 +1199,9 @@ end;
 
 procedure TfrmPDV.UniFormShow(Sender: TObject);
 begin
+  if not CDSTela.Active then
+    CDSTela.Active := true;
+
   frmPDV.Top := 5;
   frmPDV.Height := uniMainModule.screenHeigth - 10;
   frmPDV.Width  := uniMainModule.screenWidth  - 15;

@@ -71,9 +71,13 @@ object frmPDV: TfrmPDV
             Columns = <
               item
                 FieldName = 'id'
-                Title.Caption = 'Item'
-                Width = 64
-                Visible = False
+                Title.Caption = 'ID'
+                Width = 70
+              end
+              item
+                FieldName = 'idCodPro'
+                Title.Caption = 'Item (ID)'
+                Width = 124
               end
               item
                 FieldName = 'codpro'
@@ -157,6 +161,7 @@ object frmPDV: TfrmPDV
               TabOrder = 1
               OnExit = compCODPROExit
               OnKeyDown = compCODPROKeyDown
+              ExplicitTop = 27
             end
             object UniContainerPanel23: TUniContainerPanel
               Left = 1
@@ -3013,6 +3018,9 @@ object frmPDV: TfrmPDV
     Top = 238
     object CDSTelaid: TStringField
       FieldName = 'id'
+    end
+    object CDSTelaidCodPro: TStringField
+      FieldName = 'idCodPro'
     end
     object CDSTelacodpro: TStringField
       FieldName = 'codpro'

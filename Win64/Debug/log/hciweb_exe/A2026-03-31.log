@@ -1,0 +1,11 @@
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniServerModule]:Shutting Down Server.
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniServerModule]:Stopping HTTP Server.
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniServerModule]:HTTP Server Stopped.
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniGUISessionManager]:Terminating Session manager.
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniGUISessionManager]:Stopping Cache Eraser...
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniGUISessionManager]:Cache Eraser Stopped.
+HCIWEB.exe: 00001AF4: 09:04:59 [TUniGUISessionManager]:Destroying Worker Threads.
+HCIWEB.exe: 00001AF4: 09:05:00 [TUniGUISessionManager]:Session manager terminated.
+HCIWEB.exe: 00001AF4: 09:05:00 [TUniServerModule]:Server Shutdown Completed.
+HCIWEB.exe: 00001AF4: 09:05:00 []:<-------------------------------------------------------------->
+HCIWEB.exe: 00001AF4: 09:05:00 [Terminated]:Exit Code: 0
