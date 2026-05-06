@@ -112,7 +112,7 @@ object fraCadProdutos: TfraCadProdutos
       Width = 1389
       Height = 702
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -149,6 +149,11 @@ object fraCadProdutos: TfraCadProdutos
               FieldName = 'descr'
               Title.Caption = 'Descri'#231#227'o'
               Width = 200
+            end
+            item
+              FieldName = 'saldo'
+              Title.Caption = 'Saldo'
+              Width = 64
             end
             item
               FieldName = 'iconeAtivo'

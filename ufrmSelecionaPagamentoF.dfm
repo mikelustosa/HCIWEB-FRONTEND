@@ -390,4 +390,26 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
     Left = 528
     Top = 244
   end
+  object alerta: TUniSFSweetAlert
+    Tag = 800000
+    Timer = 0
+    IsHtmlJS = False
+    ConfirmButtonText = 'OK'
+    CancelButtonText = 'Cancel'
+    ConfirmButtonColor = '#3085d6'
+    CancelButtonColor = '#d33'
+    ShowConfirmButton = True
+    ShowCancelButton = False
+    Animation = True
+    AlertType = atNone
+    Position = top
+    ImageWidth = 0
+    ImageHeight = 0
+    AllowOutsideClick = False
+    AllowEscapeKey = False
+    ScreenMask.Theme = ht_sk_rect
+    Language = alPortuguese
+    Left = 446
+    Top = 110
+  end
 end

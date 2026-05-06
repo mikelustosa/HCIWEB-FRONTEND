@@ -47,7 +47,7 @@ type
     canClose  :boolean;
     procedure listaGlobal(filtro: string = ''; cbOpcao: string = '');
     procedure atualizaNomeColunaGrid(weGrid:tUniDbGrid;weTabelaPesquisa:string);
-    function retornaAlgo(weJCampo: string = ''; weCbCampo: string = ''; weFiltro: string = ''):string;
+    function retornaOpcao(weJCampo: string = ''; weCbCampo: string = ''; weFiltro: string = ''):string;
   public
     { Public declarations }
     wTabelaDePesquisa : string;
@@ -63,7 +63,7 @@ uses
   MainModule, uniGUIApplication, RESTRequest4D.Response.Intf, System.JSON,
   RESTRequest4D.Request, uConstantes, uUtils;
 
-Function TfrmListaGlobal.retornaAlgo(weJCampo,weCbCampo,weFiltro:string):string;
+Function TfrmListaGlobal.retornaOpcao(weJCampo,weCbCampo,weFiltro:string):string;
 begin
   try
     if weCbCampo.ToUpper = weJCampo.ToUpper then
@@ -753,9 +753,9 @@ begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getProduto)
             .AddParam('nomebanco', uniMainModule.nomebanco)
-            .AddParam('id', retornaAlgo('id',cbOpcao,filtro))
-            .AddParam('codpro', retornaAlgo('Código',cbOpcao,filtro))
-            .AddParam('descr', retornaAlgo('Nome',cbOpcao,filtro))
+            .AddParam('id', retornaOpcao('id',cbOpcao,filtro))
+            .AddParam('codpro', retornaOpcao('Código',cbOpcao,filtro))
+            .AddParam('descr', retornaOpcao('Nome',cbOpcao,filtro))
             .AddParam('empresa', vvcodemp)
 //            .AddParam('ATIVO', '')
             .timeOut(12000)

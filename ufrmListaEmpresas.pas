@@ -75,7 +75,7 @@ procedure TfrmListaEmpresas.gridTelaCellClick(Column: TUniDBGridColumn);
 begin
   if column.Field = CDSTelabotaoEditar then
   begin
-    idEmpresa := CDSTela.FieldByName('id').AsString;
+    idEmpresa := CDSTela.FieldByName('codEmp').AsString;//CDSTela.FieldByName('id').AsString;
     canClose := true;
     frmListaEmpresas.close;
   end;
@@ -83,7 +83,7 @@ end;
 
 procedure TfrmListaEmpresas.gridTelaDblClick(Sender: TObject);
 begin
-  idEmpresa := CDSTela.FieldByName('id').AsString;
+  idEmpresa := CDSTela.FieldByName('codEmp').AsString;//CDSTela.FieldByName('id').AsString;
   canClose := true;
   frmListaEmpresas.close;
 end;

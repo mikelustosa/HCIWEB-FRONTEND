@@ -90,6 +90,7 @@ type
     HCICNPJConfiguraes1: TUniMenuItem;
     ProcuraeAlteraDadosdeumCNPJnoCadastroLigarnoComercialHCI1: TUniMenuItem;
     Estoque1: TUniMenuItem;
+    Abrircaixa1: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -121,6 +122,7 @@ type
     procedure rocacdclientesbl1Click(Sender: TObject);
     procedure HCICNPJConfiguraes1Click(Sender: TObject);
     procedure Estoque1Click(Sender: TObject);
+    procedure Abrircaixa1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -147,11 +149,17 @@ uses
   ufraCadRegioes, ufraCadCentroCustos, ufraCadDepartamentos, ufraCadBancos,
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
-  ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque;
+  ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque,
+  ufrmAbrirCaixa;
 
 function frmPrincipal: TfrmPrincipal;
 begin
   Result := TfrmPrincipal(UniMainModule.GetFormInstance(TfrmPrincipal));
+end;
+
+procedure TfrmPrincipal.Abrircaixa1Click(Sender: TObject);
+begin
+  frmAbrirCaixa.showModal();
 end;
 
 procedure TfrmPrincipal.Atividades1Click(Sender: TObject);
@@ -213,10 +221,31 @@ begin
   NovaAba(TFrame(TfraCadPais),'Países', true, -1, true);
 end;
 
+
+
+
 procedure TfrmPrincipal.Pontodevenda1Click(Sender: TObject);
+var
+wOut : string;
 begin
 //  NovaAba(TFrame(Tfrapdv),'PDV', true, -1, true);
-  frmPDV.showModal();
+  UniMainModule.wCodUsuario := verificaCaixa(UniMainModule.wUsuario);
+  if UniMainModule.wCodUsuario.trim <> '' then
+  begin
+    //verifica se o caixa foi aberto
+    if caixaFechado(wout, UniMainModule.wCodUsuario) then
+    begin
+      alerta.Error('Caixa não está aberto. '+wOut);
+    end
+    else
+    begin
+      frmPDV.showModal();
+    end;
+  end
+  else
+  begin
+    alerta.Error('Caixa fechado ou não foi aberto. ');
+  end;
 end;
 
 procedure TfrmPrincipal.Produtos2Click(Sender: TObject);

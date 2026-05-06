@@ -7,7 +7,8 @@ uses
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIForm, UniSFComboBox, uniLabel, uniEdit, uniPanel,
   uniScrollBox, uniGUIBaseClasses, uniTimer, URGLayoutUnigui, uniButton,
-  uniBitBtn, UniSFButton, UniSFBitBtn, uniDateTimePicker, UniSFiGrowl;
+  uniBitBtn, UniSFButton, UniSFBitBtn, uniDateTimePicker, UniSFiGrowl, math,
+  System.JSON;
 
 type
   TfrmPagamentoParceladoF = class(TUniForm)
@@ -35,11 +36,11 @@ type
     compNUMPARC: TUniEdit;
     UniContainerPanel5: TUniContainerPanel;
     UniLabel5: TUniLabel;
-    compLN1: TUniPanel;
+    compLN01: TUniPanel;
     UniPanel11: TUniPanel;
     UniContainerPanel10: TUniContainerPanel;
     UniLabel9: TUniLabel;
-    UniSFComboBox1: TUniSFComboBox;
+    compED_PAGTO01: TUniSFComboBox;
     UniPanel93: TUniPanel;
     UniContainerPanel81: TUniContainerPanel;
     UniLabel34: TUniLabel;
@@ -60,27 +61,27 @@ type
     UniLabel30: TUniLabel;
     UniEdit63: TUniEdit;
     UniPanel12: TUniPanel;
-    UniEdit7: TUniEdit;
+    compVAL01: TUniEdit;
     UniContainerPanel11: TUniContainerPanel;
     UniPanel3: TUniPanel;
     UniContainerPanel1: TUniContainerPanel;
-    UniDateTimePicker1: TUniDateTimePicker;
+    compDATA01: TUniDateTimePicker;
     UniPanel89: TUniPanel;
     UniContainerPanel77: TUniContainerPanel;
     UniLabel29: TUniLabel;
     UniEdit62: TUniEdit;
     UniPanel2: TUniPanel;
-    compVALORPAGO: TUniEdit;
+    compDIAS01: TUniEdit;
     UniContainerPanel8: TUniContainerPanel;
     UniPanel1: TUniPanel;
     UniContainerPanel2: TUniContainerPanel;
     UniLabel48: TUniLabel;
     UniEdit61: TUniEdit;
-    compLN2: TUniPanel;
+    compLN02: TUniPanel;
     UniPanel8: TUniPanel;
     UniContainerPanel6: TUniContainerPanel;
     UniLabel1: TUniLabel;
-    UniSFComboBox2: TUniSFComboBox;
+    compED_PAGTO02: TUniSFComboBox;
     UniPanel9: TUniPanel;
     UniContainerPanel7: TUniContainerPanel;
     UniLabel3: TUniLabel;
@@ -102,27 +103,27 @@ type
     UniLabel8: TUniLabel;
     UniEdit10: TUniEdit;
     UniPanel17: TUniPanel;
-    UniEdit11: TUniEdit;
+    compVAL02: TUniEdit;
     UniContainerPanel16: TUniContainerPanel;
     UniPanel18: TUniPanel;
     UniContainerPanel17: TUniContainerPanel;
-    UniDateTimePicker2: TUniDateTimePicker;
+    compDATA02: TUniDateTimePicker;
     UniPanel19: TUniPanel;
     UniContainerPanel18: TUniContainerPanel;
     UniLabel10: TUniLabel;
     UniEdit12: TUniEdit;
     UniPanel20: TUniPanel;
-    UniEdit13: TUniEdit;
+    compDIAS02: TUniEdit;
     UniContainerPanel19: TUniContainerPanel;
     UniPanel21: TUniPanel;
     UniContainerPanel20: TUniContainerPanel;
     UniLabel11: TUniLabel;
     UniEdit14: TUniEdit;
-    compLN3: TUniPanel;
+    compLN03: TUniPanel;
     UniPanel23: TUniPanel;
     UniContainerPanel21: TUniContainerPanel;
     UniLabel12: TUniLabel;
-    UniSFComboBox3: TUniSFComboBox;
+    compED_PAGTO03: TUniSFComboBox;
     UniPanel25: TUniPanel;
     UniContainerPanel22: TUniContainerPanel;
     UniLabel13: TUniLabel;
@@ -144,27 +145,27 @@ type
     UniLabel16: TUniLabel;
     UniEdit19: TUniEdit;
     UniPanel30: TUniPanel;
-    UniEdit20: TUniEdit;
+    compVAL03: TUniEdit;
     UniContainerPanel27: TUniContainerPanel;
     UniPanel32: TUniPanel;
     UniContainerPanel28: TUniContainerPanel;
-    UniDateTimePicker3: TUniDateTimePicker;
+    compDATA03: TUniDateTimePicker;
     UniPanel33: TUniPanel;
     UniContainerPanel29: TUniContainerPanel;
     UniLabel17: TUniLabel;
     UniEdit21: TUniEdit;
     UniPanel34: TUniPanel;
-    UniEdit22: TUniEdit;
+    compDIAS03: TUniEdit;
     UniContainerPanel30: TUniContainerPanel;
     UniPanel35: TUniPanel;
     UniContainerPanel31: TUniContainerPanel;
     UniLabel18: TUniLabel;
     UniEdit23: TUniEdit;
-    compLN4: TUniPanel;
+    compLN04: TUniPanel;
     UniPanel37: TUniPanel;
     UniContainerPanel32: TUniContainerPanel;
     UniLabel19: TUniLabel;
-    UniSFComboBox4: TUniSFComboBox;
+    compED_PAGTO04: TUniSFComboBox;
     UniPanel39: TUniPanel;
     UniContainerPanel33: TUniContainerPanel;
     UniLabel20: TUniLabel;
@@ -186,27 +187,27 @@ type
     UniLabel23: TUniLabel;
     UniEdit28: TUniEdit;
     UniPanel45: TUniPanel;
-    UniEdit29: TUniEdit;
+    compVAL04: TUniEdit;
     UniContainerPanel38: TUniContainerPanel;
     UniPanel47: TUniPanel;
     UniContainerPanel39: TUniContainerPanel;
-    UniDateTimePicker4: TUniDateTimePicker;
+    compDATA04: TUniDateTimePicker;
     UniPanel48: TUniPanel;
     UniContainerPanel41: TUniContainerPanel;
     UniLabel24: TUniLabel;
     UniEdit30: TUniEdit;
     UniPanel49: TUniPanel;
-    UniEdit31: TUniEdit;
+    compDIAS04: TUniEdit;
     UniContainerPanel42: TUniContainerPanel;
     UniPanel50: TUniPanel;
     UniContainerPanel43: TUniContainerPanel;
     UniLabel25: TUniLabel;
     UniEdit32: TUniEdit;
-    compLN5: TUniPanel;
+    compLN05: TUniPanel;
     UniPanel52: TUniPanel;
     UniContainerPanel44: TUniContainerPanel;
     UniLabel26: TUniLabel;
-    UniSFComboBox5: TUniSFComboBox;
+    compED_PAGTO05: TUniSFComboBox;
     UniPanel54: TUniPanel;
     UniContainerPanel45: TUniContainerPanel;
     UniLabel27: TUniLabel;
@@ -228,27 +229,27 @@ type
     UniLabel36: TUniLabel;
     UniEdit37: TUniEdit;
     UniPanel59: TUniPanel;
-    UniEdit38: TUniEdit;
+    compVAL05: TUniEdit;
     UniContainerPanel50: TUniContainerPanel;
     UniPanel61: TUniPanel;
     UniContainerPanel51: TUniContainerPanel;
-    UniDateTimePicker5: TUniDateTimePicker;
+    compDATA05: TUniDateTimePicker;
     UniPanel62: TUniPanel;
     UniContainerPanel52: TUniContainerPanel;
     UniLabel37: TUniLabel;
     UniEdit39: TUniEdit;
     UniPanel63: TUniPanel;
-    UniEdit40: TUniEdit;
+    compDIAS05: TUniEdit;
     UniContainerPanel53: TUniContainerPanel;
     UniPanel64: TUniPanel;
     UniContainerPanel54: TUniContainerPanel;
     UniLabel38: TUniLabel;
     UniEdit41: TUniEdit;
-    compLN6: TUniPanel;
+    compLN06: TUniPanel;
     UniPanel66: TUniPanel;
     UniContainerPanel55: TUniContainerPanel;
     UniLabel39: TUniLabel;
-    UniSFComboBox6: TUniSFComboBox;
+    compED_PAGTO06: TUniSFComboBox;
     UniPanel68: TUniPanel;
     UniContainerPanel56: TUniContainerPanel;
     UniLabel40: TUniLabel;
@@ -270,27 +271,27 @@ type
     UniLabel43: TUniLabel;
     UniEdit46: TUniEdit;
     UniPanel73: TUniPanel;
-    UniEdit47: TUniEdit;
+    compVAL06: TUniEdit;
     UniContainerPanel61: TUniContainerPanel;
     UniPanel75: TUniPanel;
     UniContainerPanel62: TUniContainerPanel;
-    UniDateTimePicker6: TUniDateTimePicker;
+    compDATA06: TUniDateTimePicker;
     UniPanel76: TUniPanel;
     UniContainerPanel63: TUniContainerPanel;
     UniLabel44: TUniLabel;
     UniEdit48: TUniEdit;
     UniPanel77: TUniPanel;
-    UniEdit49: TUniEdit;
+    compDIAS06: TUniEdit;
     UniContainerPanel64: TUniContainerPanel;
     UniPanel78: TUniPanel;
     UniContainerPanel65: TUniContainerPanel;
     UniLabel45: TUniLabel;
     UniEdit50: TUniEdit;
-    compLN7: TUniPanel;
+    compLN07: TUniPanel;
     UniPanel80: TUniPanel;
     UniContainerPanel66: TUniContainerPanel;
     UniLabel46: TUniLabel;
-    UniSFComboBox7: TUniSFComboBox;
+    compED_PAGTO07: TUniSFComboBox;
     UniPanel82: TUniPanel;
     UniContainerPanel67: TUniContainerPanel;
     UniLabel47: TUniLabel;
@@ -312,27 +313,27 @@ type
     UniLabel51: TUniLabel;
     UniEdit55: TUniEdit;
     UniPanel87: TUniPanel;
-    UniEdit56: TUniEdit;
+    compVAL07: TUniEdit;
     UniContainerPanel72: TUniContainerPanel;
     UniPanel94: TUniPanel;
     UniContainerPanel73: TUniContainerPanel;
-    UniDateTimePicker7: TUniDateTimePicker;
+    compDATA07: TUniDateTimePicker;
     UniPanel95: TUniPanel;
     UniContainerPanel74: TUniContainerPanel;
     UniLabel52: TUniLabel;
     UniEdit57: TUniEdit;
     UniPanel96: TUniPanel;
-    UniEdit58: TUniEdit;
+    compDIAS07: TUniEdit;
     UniContainerPanel75: TUniContainerPanel;
     UniPanel97: TUniPanel;
     UniContainerPanel76: TUniContainerPanel;
     UniLabel53: TUniLabel;
     UniEdit59: TUniEdit;
-    compLN8: TUniPanel;
+    compLN08: TUniPanel;
     UniPanel99: TUniPanel;
     UniContainerPanel82: TUniContainerPanel;
     UniLabel54: TUniLabel;
-    UniSFComboBox8: TUniSFComboBox;
+    compED_PAGTO08: TUniSFComboBox;
     UniPanel100: TUniPanel;
     UniContainerPanel83: TUniContainerPanel;
     UniLabel55: TUniLabel;
@@ -354,27 +355,27 @@ type
     UniLabel58: TUniLabel;
     UniEdit69: TUniEdit;
     UniPanel105: TUniPanel;
-    UniEdit70: TUniEdit;
+    compVAL08: TUniEdit;
     UniContainerPanel88: TUniContainerPanel;
     UniPanel106: TUniPanel;
     UniContainerPanel89: TUniContainerPanel;
-    UniDateTimePicker8: TUniDateTimePicker;
+    compDATA08: TUniDateTimePicker;
     UniPanel107: TUniPanel;
     UniContainerPanel90: TUniContainerPanel;
     UniLabel59: TUniLabel;
     UniEdit71: TUniEdit;
     UniPanel108: TUniPanel;
-    UniEdit72: TUniEdit;
+    compDIAS08: TUniEdit;
     UniContainerPanel91: TUniContainerPanel;
     UniPanel109: TUniPanel;
     UniContainerPanel92: TUniContainerPanel;
     UniLabel60: TUniLabel;
     UniEdit73: TUniEdit;
-    compLN9: TUniPanel;
+    compLN09: TUniPanel;
     UniPanel111: TUniPanel;
     UniContainerPanel93: TUniContainerPanel;
     UniLabel61: TUniLabel;
-    UniSFComboBox9: TUniSFComboBox;
+    compED_PAGTO09: TUniSFComboBox;
     UniPanel112: TUniPanel;
     UniContainerPanel94: TUniContainerPanel;
     UniLabel62: TUniLabel;
@@ -396,17 +397,17 @@ type
     UniLabel65: TUniLabel;
     UniEdit78: TUniEdit;
     UniPanel117: TUniPanel;
-    UniEdit79: TUniEdit;
+    compVAL09: TUniEdit;
     UniContainerPanel99: TUniContainerPanel;
     UniPanel118: TUniPanel;
     UniContainerPanel100: TUniContainerPanel;
-    UniDateTimePicker9: TUniDateTimePicker;
+    compDATA09: TUniDateTimePicker;
     UniPanel119: TUniPanel;
     UniContainerPanel101: TUniContainerPanel;
     UniLabel66: TUniLabel;
     UniEdit80: TUniEdit;
     UniPanel120: TUniPanel;
-    UniEdit81: TUniEdit;
+    compDIAS09: TUniEdit;
     UniContainerPanel102: TUniContainerPanel;
     UniPanel121: TUniPanel;
     UniContainerPanel103: TUniContainerPanel;
@@ -416,7 +417,7 @@ type
     UniPanel123: TUniPanel;
     UniContainerPanel104: TUniContainerPanel;
     UniLabel68: TUniLabel;
-    UniSFComboBox10: TUniSFComboBox;
+    compED_PAGTO10: TUniSFComboBox;
     UniPanel124: TUniPanel;
     UniContainerPanel105: TUniContainerPanel;
     UniLabel69: TUniLabel;
@@ -438,17 +439,17 @@ type
     UniLabel72: TUniLabel;
     UniEdit87: TUniEdit;
     UniPanel129: TUniPanel;
-    UniEdit88: TUniEdit;
+    compVAL10: TUniEdit;
     UniContainerPanel110: TUniContainerPanel;
     UniPanel130: TUniPanel;
     UniContainerPanel111: TUniContainerPanel;
-    UniDateTimePicker10: TUniDateTimePicker;
+    compDATA10: TUniDateTimePicker;
     UniPanel131: TUniPanel;
     UniContainerPanel112: TUniContainerPanel;
     UniLabel73: TUniLabel;
     UniEdit89: TUniEdit;
     UniPanel132: TUniPanel;
-    UniEdit90: TUniEdit;
+    compDIAS10: TUniEdit;
     UniContainerPanel113: TUniContainerPanel;
     UniPanel133: TUniPanel;
     UniContainerPanel114: TUniContainerPanel;
@@ -458,7 +459,7 @@ type
     UniPanel135: TUniPanel;
     UniContainerPanel115: TUniContainerPanel;
     UniLabel75: TUniLabel;
-    UniSFComboBox11: TUniSFComboBox;
+    compED_PAGTO11: TUniSFComboBox;
     UniPanel136: TUniPanel;
     UniContainerPanel116: TUniContainerPanel;
     UniLabel76: TUniLabel;
@@ -480,17 +481,17 @@ type
     UniLabel79: TUniLabel;
     UniEdit96: TUniEdit;
     UniPanel141: TUniPanel;
-    UniEdit97: TUniEdit;
+    compVAL11: TUniEdit;
     UniContainerPanel121: TUniContainerPanel;
     UniPanel142: TUniPanel;
     UniContainerPanel122: TUniContainerPanel;
-    UniDateTimePicker11: TUniDateTimePicker;
+    compDATA11: TUniDateTimePicker;
     UniPanel143: TUniPanel;
     UniContainerPanel123: TUniContainerPanel;
     UniLabel80: TUniLabel;
     UniEdit98: TUniEdit;
     UniPanel144: TUniPanel;
-    UniEdit99: TUniEdit;
+    compDIAS11: TUniEdit;
     UniContainerPanel124: TUniContainerPanel;
     UniPanel145: TUniPanel;
     UniContainerPanel125: TUniContainerPanel;
@@ -500,7 +501,7 @@ type
     UniPanel147: TUniPanel;
     UniContainerPanel126: TUniContainerPanel;
     UniLabel82: TUniLabel;
-    UniSFComboBox12: TUniSFComboBox;
+    compED_PAGTO12: TUniSFComboBox;
     UniPanel148: TUniPanel;
     UniContainerPanel127: TUniContainerPanel;
     UniLabel83: TUniLabel;
@@ -522,17 +523,17 @@ type
     UniLabel86: TUniLabel;
     UniEdit105: TUniEdit;
     UniPanel153: TUniPanel;
-    UniEdit106: TUniEdit;
+    compVAL12: TUniEdit;
     UniContainerPanel132: TUniContainerPanel;
     UniPanel154: TUniPanel;
     UniContainerPanel133: TUniContainerPanel;
-    UniDateTimePicker12: TUniDateTimePicker;
+    compDATA12: TUniDateTimePicker;
     UniPanel155: TUniPanel;
     UniContainerPanel134: TUniContainerPanel;
     UniLabel87: TUniLabel;
     UniEdit107: TUniEdit;
     UniPanel156: TUniPanel;
-    UniEdit108: TUniEdit;
+    compDIAS12: TUniEdit;
     UniContainerPanel135: TUniContainerPanel;
     UniPanel157: TUniPanel;
     UniContainerPanel136: TUniContainerPanel;
@@ -559,16 +560,23 @@ type
     procedure UniSFBitBtn13Click(Sender: TObject);
     procedure UniSFBitBtn14Click(Sender: TObject);
     procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure compDIAS01Change(Sender: TObject);
+    procedure compCODPAGKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure UniSFBitBtn27Click(Sender: TObject);
   private
     { Private declarations }
     VAR
     Panels: array[0..11] of TUniPanel;
-//    procedure exibeParcelas(wqtdPar:integer);
+    JCondPag  : TJSONObject;
     procedure callBackCCusto(Sender: TComponent;
       AResult: Integer);
     procedure callBackCondPag(Sender: TComponent;
       AResult: Integer);
-    procedure exibeParcelas(weQtdPar:string);
+    procedure exibeParcelas(weQtdPar: string; JCondPag: TJSONObject);
+    procedure AtualizarVencimentoPorDias(ParcelaNum: Integer);
+    function pesquisaCondPag(out weJson:TJSONObject; weId,weCodPag,weDescrPg :string): boolean;
+
   public
     { Public declarations }
     wTOTALGERALF : real;
@@ -581,33 +589,343 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication, uUtils, ufrmListaGlobal;
+  MainModule, uniGUIApplication, uUtils, ufrmListaGlobal,
+  RESTRequest4D.Request, uConstantes, ufrmPDV;
 
-procedure TfrmPagamentoParceladoF.exibeParcelas(weQtdPar:string);
+
+
+function TfrmPagamentoParceladoF.pesquisaCondPag(out weJson:TJSONObject; weId,weCodPag,weDescrPg :string): boolean;
 var
-  I, Qtd: Integer;
+  resp1     :IResponse;
+  req       :IRequest;
+  wAItemTmp :TJSONArray;
+  wJItemTmp :TJSONObject;
 begin
-  Qtd := StrToIntDef(weQtdPar, 0);
+  try
+    FreeAndNil(weJson);
+    weJson := TJSONObject.Create;
+    result := false;
 
-  if Qtd > Length(Panels) then
-    Qtd := Length(Panels);
+    resp1 := TRequest.New.BaseURL(baseurlCadastros)
+            .resource(getCondPag)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('id', '')
+            .AddParam('codPag', compCODPAG.text)
+            .AddParam('descrPg', '')
+            .AddParam('ativo', '')
+            .timeOut(12000)
+            .Get;
 
-  for I := 0 to High(Panels) do
+    if resp1.StatusCode = 200 then
     begin
-      Panels[I].Visible := I < Qtd;
+      FreeAndNil(weJson);
+      weJson := TJSONObject.Create;
+      wJItemTmp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      wAItemTmp := wJItemTmp.GetValue('Result') as TJSONArray;
+      weJson := wAItemTmp.Items[0] as TJSONObject;
+
+      result := true;
     end;
+  finally
+
+  end;
 end;
+
+procedure TfrmPagamentoParceladoF.AtualizarVencimentoPorDias(ParcelaNum: Integer);
+var
+  StrDias: string;
+  compDias: TUniEdit;
+  compData: TUniDateTimePicker;
+begin
+  StrDias := FormatFloat('00', ParcelaNum);
+
+  compDias := TUniEdit(FindComponent('compDIAS' + StrDias));
+  compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+
+  if (compDias <> nil) and (compData <> nil) then
+    compData.DateTime := Date + StrToIntDef(compDias.Text, 0);
+end;
+
+procedure TfrmPagamentoParceladoF.exibeParcelas(weQtdPar: string; JCondPag: TJSONObject);
+var
+  y, n: Integer;
+  StrDias: string;
+  SomaTotalParcelado: Currency;
+  valorTotal: Currency;
+  valorParcela: Currency;
+  diferenca: Currency;
+  QtdDias: Integer;
+  DataVencimento: TDateTime;
+  compData: TUniDateTimePicker;
+  compDias: TUniEdit;
+  compPagto: TUniSFComboBox;
+begin
+  UniScrollBox2.Visible := true;
+  // Valor total
+  valorTotal := StrToCurrDef(compTOTALGERALF.Text, 0);
+
+  // Quantidade de parcelas
+  n := StrToIntDef(weQtdPar, 1);
+
+  if (n < 1) or (n > 12) then
+    n := 1;
+
+  SomaTotalParcelado := 0;
+
+  for y := 1 to 12 do
+  begin
+    StrDias := FormatFloat('00', y);
+
+    // Exibe apenas as parcelas necessárias
+    TUniLabel(FindComponent('compLN' + StrDias)).Visible := (y <= n);
+
+    if (y <= n) then
+    begin
+      // 1. VALOR DA PARCELA
+      if y < n then
+        valorParcela := SimpleRoundTo(valorTotal / n, -2)
+      else
+        valorParcela := valorTotal - SomaTotalParcelado;
+
+      SomaTotalParcelado := SomaTotalParcelado + valorParcela;
+      TUniEdit(FindComponent('compVAL' + StrDias)).Text := FormatFloat('R$ #,##0.00', valorParcela);
+
+      // 2. DIAS DA PARCELA
+      compDias := TUniEdit(FindComponent('compDIAS' + StrDias));
+      if (compDias <> nil) and (JCondPag <> nil) then
+      begin
+        QtdDias := JCondPag.GetValue<Integer>('parc' + FormatFloat('00', y), 0);
+
+        if QtdDias > 0 then
+          compDias.Text := IntToStr(QtdDias)
+        else
+          compDias.Text := '';
+
+        compDias.Visible := True;
+      end;
+
+      // 3. DATA DE VENCIMENTO
+      compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+      if (compData <> nil) and (JCondPag <> nil) then
+      begin
+        QtdDias := JCondPag.GetValue<Integer>('parc' + FormatFloat('00', y), 0);
+
+        if QtdDias > 0 then
+        begin
+          DataVencimento := Date + QtdDias;
+          compData.DateTime := DataVencimento;
+          compData.Visible := True;
+        end
+        else
+        begin
+          compData.DateTime := 0;
+          compData.Visible := True;
+        end;
+      end;
+
+      // 4. VALIDAR FORMA DE PAGAMENTO
+      compPagto := TUniSFComboBox(FindComponent('compED_PAGTO' + StrDias));
+      if compPagto <> nil then
+      begin
+        if compPagto.ItemIndex <= -1 then
+          compPagto.ItemIndex := 0;
+        compPagto.Visible := True;
+      end;
+    end
+    else
+    begin
+      // Limpa parcelas não usadas
+      TUniEdit(FindComponent('compVAL' + StrDias)).Text := '';
+
+      compDias := TUniEdit(FindComponent('compDIAS' + StrDias));
+      if compDias <> nil then
+      begin
+        compDias.Text := '';
+        compDias.Visible := False;
+      end;
+
+      compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+      if compData <> nil then
+      begin
+        compData.DateTime := 0;
+        compData.Visible := False;
+      end;
+
+      compPagto := TUniSFComboBox(FindComponent('compED_PAGTO' + StrDias));
+      if compPagto <> nil then
+        compPagto.Visible := False;
+    end;
+  end;
+
+  // Ajuste da última parcela por diferença de arredondamento
+  diferenca := valorTotal - SomaTotalParcelado;
+  if diferenca <> 0 then
+  begin
+    TUniEdit(FindComponent('compVAL' + FormatFloat('00', n))).Text :=
+      FormatFloat('R$ #,##0.00',
+        StrToCurrDef(
+          TUniEdit(FindComponent('compVAL' + FormatFloat('00', n))).Text, 0
+        ) + diferenca
+      );
+  end;
+end;
+
+//procedure TfrmPagamentoParceladoF.exibeParcelas(weQtdPar: string; JCondPag: TJSONObject);
+//var
+//  y, n: Integer;
+//  StrDias: string;
+//  SomaTotalParcelado: Currency;
+//  valorTotal: Currency;
+//  valorParcela: Currency;
+//  diferenca: Currency;
+//  QtdDias: Integer;
+//  DataVencimento: TDateTime;
+//  compData: TUniDateTimePicker;
+//  compDias: TUniEdit;
+//begin
+//  // Valor total
+//  valorTotal := StrToCurrDef(compTOTALGERALF.Text, 0);
+//
+//  // Quantidade de parcelas
+//  n := StrToIntDef(weQtdPar, 1);
+//
+//  if (n < 1) or (n > 12) then
+//    n := 1;
+//
+//  SomaTotalParcelado := 0;
+//
+//  for y := 1 to 12 do
+//  begin
+//    StrDias := FormatFloat('00', y);
+//
+//    // Exibe apenas as parcelas necessárias
+//    TUniLabel(FindComponent('compLN' + StrDias)).Visible := (y <= n);
+//
+//    if (y <= n) then
+//    begin
+//      // 1. VALOR DA PARCELA (sempre calculado proporcionalmente)
+//      if y < n then
+//        valorParcela := SimpleRoundTo(valorTotal / n, -2)
+//      else
+//        valorParcela := valorTotal - SomaTotalParcelado;
+//
+//      SomaTotalParcelado := SomaTotalParcelado + valorParcela;
+//      TUniEdit(FindComponent('compVAL' + StrDias)).Text := FormatFloat('R$ #,##0.00', valorParcela);
+//
+//      // 2. DIAS DA PARCELA (apenas se existir no JSON)
+//      compDias := TUniEdit(FindComponent('compDIAS' + StrDias));
+//      if (compDias <> nil) and (JCondPag <> nil) then
+//      begin
+//        QtdDias := JCondPag.GetValue<Integer>('parc' + FormatFloat('00', y), 0);
+//
+//        if QtdDias > 0 then
+//          compDias.Text := IntToStr(QtdDias)
+//        else
+//          compDias.Text := '';  // Dias em branco para parcelas extras
+//
+//        compDias.Visible := True;
+//      end;
+//
+//      // 3. DATA DE VENCIMENTO (apenas se existir dias no JSON)
+//      compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+//      if (compData <> nil) and (JCondPag <> nil) then
+//      begin
+//        QtdDias := JCondPag.GetValue<Integer>('parc' + FormatFloat('00', y), 0);
+//
+//        if QtdDias > 0 then
+//        begin
+//          DataVencimento := Date + QtdDias;
+//          compData.DateTime := DataVencimento;
+//          compData.Visible := True;
+//        end
+//        else
+//        begin
+//          compData.DateTime := 0;  // Data em branco
+//          compData.Visible := True; // Continua visível, mas vazia
+//        end;
+//      end;
+//    end
+//    else
+//    begin
+//      // Limpa parcelas não usadas
+//      TUniEdit(FindComponent('compVAL' + StrDias)).Text := '';
+//
+//      compDias := TUniEdit(FindComponent('compDIAS' + StrDias));
+//      if compDias <> nil then
+//      begin
+//        compDias.Text := '';
+//        compDias.Visible := False;
+//      end;
+//
+//      compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+//      if compData <> nil then
+//      begin
+//        compData.DateTime := 0;
+//        compData.Visible := False;
+//      end;
+//    end;
+//  end;
+//
+//  // Ajuste da última parcela por diferença de arredondamento
+//  diferenca := valorTotal - SomaTotalParcelado;
+//  if diferenca <> 0 then
+//  begin
+//    TUniEdit(FindComponent('compVAL' + FormatFloat('00', n))).Text :=
+//      FormatFloat('R$ #,##0.00',
+//        StrToCurrDef(
+//          TUniEdit(FindComponent('compVAL' + FormatFloat('00', n))).Text, 0
+//        ) + diferenca
+//      );
+//  end;
+//end;//procedure TfrmPagamentoParceladoF.exibeParcelas_ant(weQtdPar:string);
+
+
+//var
+//  I, Qtd: Integer;
+//begin
+//  Qtd := StrToIntDef(weQtdPar, 0);
+//
+//  if Qtd > Length(Panels) then
+//    Qtd := Length(Panels);
+//
+//  for I := 0 to High(Panels) do
+//    begin
+//      Panels[I].Visible := I < Qtd;
+//    end;
+//end;
 
 procedure TfrmPagamentoParceladoF.callBackCondPag(Sender: TComponent;
   AResult: Integer);
-begin
+var i:integer;
+begin 
   if frmListaGlobal.ModalResult = mrOk then
   begin
     compCODPAG.Text := frmListaGlobal.CDSTela.FieldByName('codPag').AsString;
     compDESCRPG.Text := frmListaGlobal.CDSTela.FieldByName('descrPg').AsString;
     compNUMPARC.Text := frmListaGlobal.CDSTela.FieldByName('numParc').AsString;
-    exibeParcelas(compNUMPARC.Text);
-    alertaM.info('Atividade selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrPg').AsString + '</b>');
+    alertaM.info('Condição de pagamento selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrPg').AsString + '</b>');
+
+    //pupula um json com os dados da condição de pagamento
+    FreeAndNil(JCondPag);
+    JCondPag := TJSONObject.Create;
+    for i := 0 to frmListaGlobal.CDSTela.FieldCount - 1 do
+      begin
+        if frmListaGlobal.CDSTela.Fields[i].IsNull then
+          JCondPag.AddPair(frmListaGlobal.CDSTela.Fields[i].FieldName, TJSONNull.Create)
+        else
+          JCondPag.AddPair(
+            frmListaGlobal.CDSTela.Fields[i].FieldName,
+            frmListaGlobal.CDSTela.Fields[i].AsString
+          );
+      end;
+
+    exibeParcelas(JCondPag.GetValue('numParc').Value,JCondPag);
+    compDESCRPG.caption := JCondPag.GetValue('descrPg').Value;
+    compNUMPARC.Text := JCondPag.GetValue('numParc').Value;
+
+//    compCODPAG.WebFocus;
+
+//27042026    exibeParcelas(compNUMPARC.Text);
   end;
 end;
 
@@ -653,23 +971,117 @@ begin
 end;
 
 
+procedure TfrmPagamentoParceladoF.compCODPAGKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if  (Key = VK_RETURN) or (Key = VK_TAB) then
+  begin
+    if trim(compCODPAG.Text) <> '' then
+    begin
+      if pesquisaCondPag(JCondPag,'',compCODPAG.Text,'') then
+      begin
+        exibeParcelas(JCondPag.GetValue('numParc').Value,JCondPag);
+        compDESCRPG.caption := JCondPag.GetValue('descrPg').Value;
+        compNUMPARC.Text := JCondPag.GetValue('numParc').Value;
+      end
+      else
+      begin
+        compDESCRPG.caption := '';
+        compNUMPARC.Text := '';
+      end;
+    end;
+  end;
+end;
 
+procedure TfrmPagamentoParceladoF.compDIAS01Change(Sender: TObject);
+var
+  ParcelaNum: Integer;
+  NomeComponente: string;
+begin
+  if Sender is TUniEdit then
+  begin
+    NomeComponente := TUniEdit(Sender).Name;
+    ParcelaNum := StrToIntDef(Copy(NomeComponente, 9, 2), 0); // 'compDIAS' tem 8 caracteres
+
+    if ParcelaNum > 0 then
+      AtualizarVencimentoPorDias(ParcelaNum);
+  end;
+end;
 
 procedure TfrmPagamentoParceladoF.compNUMPARCChange(Sender: TObject);
-var
-  I, Qtd: Integer;
 begin
-  exibeParcelas(compNUMPARC.Text);
-//  Qtd := StrToIntDef(compNUMPARC.Text, 0);
-//
-//  if Qtd > Length(Panels) then
-//    Qtd := Length(Panels);
-//
-//  for I := 0 to High(Panels) do
-//    begin
-//      Panels[I].Visible := I < Qtd;
-//    end;
+  exibeParcelas(compNUMPARC.Text,JCondPag);
 end;
+
+//procedure TfrmPagamentoParceladoF.compNUMPARCChange(Sender: TObject);
+//var
+//  I, Qtd: Integer;
+//  y, n: integer;
+//  StrDias: string;
+//  SomaTotalParcelado: double;
+//  const
+//  dias: array [1 .. 12] of integer = (0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330);
+//begin
+//  //26042026 exibeParcelas(compNUMPARC.Text);
+//
+//  var valorTotal:real;
+//  valorTotal := strtoFloatDef(compTOTALGERALF.text,0);
+//
+//  if (StrToIntDef(compNUMPARC.text,0) > 0) then
+//    n := StrToIntDef(compNUMPARC.text,0);
+//
+//  if (n < 1) or (n > 12) then
+//    n := 1;
+//
+//  SomaTotalParcelado := 0;
+//
+//  for y := 1 to 12 do
+//  begin
+//    StrDias := StrZero(y, 2, 0);
+//
+//    TUniLabel(FindComponent('compLN' + StrDias)).Visible := iff(y <= n, true, false);
+////    TNumInp(FindComponent('dias' + StrDias)).Visible := iff(y <= n, true, false);
+////
+////    TLabel(FindComponent('llabel' + StrDias)).Visible := iff(y <= n, true, false);
+////    TDatehci(FindComponent('data' + StrDias)).Visible := iff(y <= n, true, false);
+////
+////    TNumInp(FindComponent('val' + StrDias)).Visible := iff(y <= n, true, false);
+////
+////    TLabel(FindComponent('Labelche' + StrDias)).Visible := iff(y <= n, true, false);
+////    TEdit(FindComponent('cheque' + StrDias)).Visible := iff(y <= n, true, false);
+////
+////    TLabel(FindComponent('lcodcc' + StrDias)).Visible := iff(y <= n, true, false);
+////    TBedit(FindComponent('codcc' + StrDias)).Visible := iff(y <= n, true, false);
+////
+////    TLabel(FindComponent('lpagto' + StrDias)).Visible := iff(y <= n, true, false);
+////    TComboBox(FindComponent('ed_pagto' + StrDias)).Visible := iff(y <= n, true, false);
+//
+//    if (y <= n) then
+//    begin
+//      SomaTotalParcelado := SomaTotalParcelado + red_cent(valorTotal / n);
+//      TUniEdit(FindComponent('compVAL' + StrDias)).Text := FloatToStrF(red_cent(valorTotal / n), ffCurrency,10,2);
+//
+////      if (StrToIntDef(compCODPAG.text,0) = 0) then
+////      begin
+////        TNumInp(FindComponent('dias' + StrDias)).Value := dias[y];
+////        TDatehci(FindComponent('data' + StrDias)).text := FormatDateTime('dd/mm/yyyy', now + dias[y]);
+////      end;
+////
+////      // Alexandre - 28/11/2019
+////      // - Correção : #14822 - Centro de custo - cupom, não estava aparecendo informação de centro de custo em todas as parcelas.
+////      if (findkeySQLAD(tbcdpag, ['codpag'], [convint(codpag.text)], fdmbase.tblcdpag)) then
+////        TBedit(FindComponent('codcc' + StrDias)).text := fdmbase.tblcdpag.FieldByName('codccv').AsString;
+////
+////      TComboBox(FindComponent('ed_pagto' + strdias)).ItemIndex := int_pagto;
+////      // **
+//    end;
+//
+//  end;
+//
+//  if (abs(valorTotal - SomaTotalParcelado) > 0) then
+//    TUniEdit(FindComponent('compVAL01')).text := TUniEdit(FindComponent('compVAL01')).text + FloatToStr((valorTotal - SomaTotalParcelado));
+//
+//end;
 
 //procedure TfrmPagamentoParceladoF.exibeParcelas(wqtdPar:integer);
 //var
@@ -688,15 +1100,15 @@ end;
 
 procedure TfrmPagamentoParceladoF.UniFormCreate(Sender: TObject);
 begin
-  Panels[0]  := compLN1;
-  Panels[1]  := compLN2;
-  Panels[2]  := compLN3;
-  Panels[3]  := compLN4;
-  Panels[4]  := compLN5;
-  Panels[5]  := compLN6;
-  Panels[6]  := compLN7;
-  Panels[7]  := compLN8;
-  Panels[8]  := compLN9;
+  Panels[0]  := compLN01;
+  Panels[1]  := compLN02;
+  Panels[2]  := compLN03;
+  Panels[3]  := compLN04;
+  Panels[4]  := compLN05;
+  Panels[5]  := compLN06;
+  Panels[6]  := compLN07;
+  Panels[7]  := compLN08;
+  Panels[8]  := compLN09;
   Panels[9]  := compLN10;
   Panels[10] := compLN11;
   Panels[11] := compLN12;
@@ -706,6 +1118,7 @@ procedure TfrmPagamentoParceladoF.UniFormReady(Sender: TObject);
 begin
   limpaCookiesEditRecursivo(self);
   compTOTALGERALF.Text := FormatFloat('#,0.00', wTOTALGERALF);
+  UniScrollBox2.Visible := false;
   //MarcarTodosCheckBox(self);
 //  rg1.Start;
 //  rg2.Start;
@@ -772,6 +1185,67 @@ end;
 
 procedure TfrmPagamentoParceladoF.UniSFBitBtn1Click(Sender: TObject);
 begin
+  close;
+end;
+
+procedure TfrmPagamentoParceladoF.UniSFBitBtn27Click(Sender: TObject);
+var
+  y: Integer;
+  StrDias: string;
+  jsonArray: TJSONArray;
+  jsonObject: TJSONObject;
+  compData: TUniDateTimePicker;
+  compValor: TUniEdit;
+  compPagto: TUniSFComboBox;
+  compLabel: TUniLabel;
+  codigoCondPag: string;
+begin
+  jsonArray := TJSONArray.Create;
+
+  codigoCondPag := compCODPAG.Text;
+
+  for y := 1 to 12 do
+  begin
+    StrDias := FormatFloat('00', y);
+    compLabel := TUniLabel(FindComponent('compLN' + StrDias));
+
+    if (compLabel <> nil) and (compLabel.Visible) then
+    begin
+      jsonObject := TJSONObject.Create;
+
+      // DATA
+      compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+      if compData <> nil then
+        jsonObject.AddPair('data', DateToJSON(compData.DateTime))
+      else
+        jsonObject.AddPair('data', '');
+
+      // VALOR
+      compValor := TUniEdit(FindComponent('compVAL' + StrDias));
+      if compValor <> nil then
+        jsonObject.AddPair('valor', StringReplace(compValor.Text, 'R$ ', '', []))
+      else
+        jsonObject.AddPair('valor', '');
+
+      // FORMA DE PAGAMENTO
+      compPagto := TUniSFComboBox(FindComponent('compED_PAGTO' + StrDias));
+      if compPagto <> nil then
+        jsonObject.AddPair('formaPagamento', IntToStr(compPagto.ItemIndex))
+      else
+        jsonObject.AddPair('formaPagamento', '');
+
+      // CÓDIGO DA CONDIÇÃO DE PAGAMENTO
+      jsonObject.AddPair('codigoCondicaoPagamento', codigoCondPag);
+
+      // NÚMERO DA PARCELA
+      jsonObject.AddPair('parcela', IntToStr(y));
+
+      jsonArray.AddElement(jsonObject);
+    end;
+  end;
+
+  // A property chama o SetJParcelasCaixa automaticamente
+  frmPDV.JParcelasCaixa := jsonArray;
   close;
 end;
 

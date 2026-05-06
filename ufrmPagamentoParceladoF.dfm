@@ -39,6 +39,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
       TabOrder = 1
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = UniSFBitBtn27Click
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white
@@ -89,8 +90,8 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
       TabOrder = 0
       Caption = ''
       object UniScrollBox2: TUniScrollBox
-        Left = 38
-        Top = 158
+        Left = 22
+        Top = -935
         Width = 1668
         Height = 1608
         Hint = ''
@@ -98,7 +99,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
         TabOrder = 1
         ScrollHeight = 1408
         ScrollWidth = 1465
-        object compLN1: TUniPanel
+        object compLN01: TUniPanel
           Left = 3
           Top = 3
           Width = 1462
@@ -148,13 +149,14 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox1: TUniSFComboBox
+            object compED_PAGTO01: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
               Hint = ''
-              Text = ''
+              Text = '1 - Dinheiro '
               TabOrder = 2
+              ItemIndex = 0
               Items.Strings = (
                 '1 - Dinheiro '
                 '2 - Cheque '
@@ -491,7 +493,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit7: TUniEdit
+            object compVAL01: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -548,7 +550,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker1: TUniDateTimePicker
+            object compDATA01: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -631,7 +633,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object compVALORPAGO: TUniEdit
+            object compDIAS01: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -645,6 +647,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel8: TUniContainerPanel
               Left = 1
@@ -728,7 +731,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN2: TUniPanel
+        object compLN02: TUniPanel
           Left = 3
           Top = 131
           Width = 1462
@@ -778,13 +781,14 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox2: TUniSFComboBox
+            object compED_PAGTO02: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
               Hint = ''
-              Text = ''
+              Text = '1 - Dinheiro '
               TabOrder = 2
+              ItemIndex = 0
               Items.Strings = (
                 '1 - Dinheiro '
                 '2 - Cheque '
@@ -1121,7 +1125,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit11: TUniEdit
+            object compVAL02: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -1178,7 +1182,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker2: TUniDateTimePicker
+            object compDATA02: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -1261,7 +1265,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit13: TUniEdit
+            object compDIAS02: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -1275,6 +1279,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel19: TUniContainerPanel
               Left = 1
@@ -1358,7 +1363,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN3: TUniPanel
+        object compLN03: TUniPanel
           Left = 3
           Top = 259
           Width = 1462
@@ -1408,12 +1413,12 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox3: TUniSFComboBox
+            object compED_PAGTO03: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
               Hint = ''
-              Text = ''
+              Text = '1 - Dinheiro '
               TabOrder = 2
               Items.Strings = (
                 '1 - Dinheiro '
@@ -1751,7 +1756,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit20: TUniEdit
+            object compVAL03: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -1808,7 +1813,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker3: TUniDateTimePicker
+            object compDATA03: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -1891,7 +1896,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit22: TUniEdit
+            object compDIAS03: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -1905,6 +1910,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel30: TUniContainerPanel
               Left = 1
@@ -1988,7 +1994,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN4: TUniPanel
+        object compLN04: TUniPanel
           Left = 3
           Top = 379
           Width = 1462
@@ -2038,7 +2044,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox4: TUniSFComboBox
+            object compED_PAGTO04: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -2381,7 +2387,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit29: TUniEdit
+            object compVAL04: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -2438,7 +2444,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker4: TUniDateTimePicker
+            object compDATA04: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -2521,7 +2527,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit31: TUniEdit
+            object compDIAS04: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -2535,6 +2541,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel42: TUniContainerPanel
               Left = 1
@@ -2618,7 +2625,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN5: TUniPanel
+        object compLN05: TUniPanel
           Left = 3
           Top = 483
           Width = 1462
@@ -2668,7 +2675,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox5: TUniSFComboBox
+            object compED_PAGTO05: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -3011,7 +3018,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit38: TUniEdit
+            object compVAL05: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -3068,7 +3075,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker5: TUniDateTimePicker
+            object compDATA05: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -3151,7 +3158,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit40: TUniEdit
+            object compDIAS05: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -3165,6 +3172,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel53: TUniContainerPanel
               Left = 1
@@ -3248,7 +3256,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN6: TUniPanel
+        object compLN06: TUniPanel
           Left = 3
           Top = 603
           Width = 1462
@@ -3298,7 +3306,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox6: TUniSFComboBox
+            object compED_PAGTO06: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -3641,7 +3649,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit47: TUniEdit
+            object compVAL06: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -3698,7 +3706,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker6: TUniDateTimePicker
+            object compDATA06: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -3781,7 +3789,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit49: TUniEdit
+            object compDIAS06: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -3795,6 +3803,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel64: TUniContainerPanel
               Left = 1
@@ -3878,7 +3887,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN7: TUniPanel
+        object compLN07: TUniPanel
           Left = 3
           Top = 729
           Width = 1462
@@ -3928,7 +3937,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox7: TUniSFComboBox
+            object compED_PAGTO07: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -4271,7 +4280,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit56: TUniEdit
+            object compVAL07: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -4328,7 +4337,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker7: TUniDateTimePicker
+            object compDATA07: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -4411,7 +4420,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit58: TUniEdit
+            object compDIAS07: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -4425,6 +4434,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel75: TUniContainerPanel
               Left = 1
@@ -4508,7 +4518,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN8: TUniPanel
+        object compLN08: TUniPanel
           Left = 3
           Top = 849
           Width = 1462
@@ -4558,7 +4568,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox8: TUniSFComboBox
+            object compED_PAGTO08: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -4901,7 +4911,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit70: TUniEdit
+            object compVAL08: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -4958,7 +4968,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker8: TUniDateTimePicker
+            object compDATA08: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -5041,7 +5051,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit72: TUniEdit
+            object compDIAS08: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -5055,6 +5065,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel91: TUniContainerPanel
               Left = 1
@@ -5138,7 +5149,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             end
           end
         end
-        object compLN9: TUniPanel
+        object compLN09: TUniPanel
           Left = 3
           Top = 960
           Width = 1462
@@ -5188,7 +5199,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox9: TUniSFComboBox
+            object compED_PAGTO09: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -5531,7 +5542,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit79: TUniEdit
+            object compVAL09: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -5588,7 +5599,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker9: TUniDateTimePicker
+            object compDATA09: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -5671,7 +5682,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit81: TUniEdit
+            object compDIAS09: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -5685,6 +5696,8 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
+              ExplicitTop = 27
             end
             object UniContainerPanel102: TUniContainerPanel
               Left = 1
@@ -5818,7 +5831,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox10: TUniSFComboBox
+            object compED_PAGTO10: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -6161,7 +6174,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit88: TUniEdit
+            object compVAL10: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -6218,7 +6231,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker10: TUniDateTimePicker
+            object compDATA10: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -6301,7 +6314,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit90: TUniEdit
+            object compDIAS10: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -6315,6 +6328,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel113: TUniContainerPanel
               Left = 1
@@ -6448,7 +6462,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox11: TUniSFComboBox
+            object compED_PAGTO11: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -6791,7 +6805,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit97: TUniEdit
+            object compVAL11: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -6848,7 +6862,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker11: TUniDateTimePicker
+            object compDATA11: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -6931,7 +6945,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit99: TUniEdit
+            object compDIAS11: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -6945,6 +6959,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel124: TUniContainerPanel
               Left = 1
@@ -7078,7 +7093,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
                 TabOrder = 1
               end
             end
-            object UniSFComboBox12: TUniSFComboBox
+            object compED_PAGTO12: TUniSFComboBox
               Left = 3
               Top = 45
               Width = 206
@@ -7421,7 +7436,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 7
             Caption = ''
             Color = 16249327
-            object UniEdit106: TUniEdit
+            object compVAL12: TUniEdit
               Left = 1
               Top = 28
               Width = 178
@@ -7478,7 +7493,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               TabStop = False
               LayoutConfig.Cls = 'body_grdnt_rounded'
             end
-            object UniDateTimePicker12: TUniDateTimePicker
+            object compDATA12: TUniDateTimePicker
               Left = 1
               Top = 28
               Width = 178
@@ -7561,7 +7576,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
             TabOrder = 10
             Caption = ''
             Color = 16249327
-            object UniEdit108: TUniEdit
+            object compDIAS12: TUniEdit
               Left = 1
               Top = 28
               Width = 63
@@ -7575,6 +7590,7 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Font.Height = -16
               Align = alClient
               TabOrder = 1
+              OnChange = compDIAS01Change
             end
             object UniContainerPanel135: TUniContainerPanel
               Left = 1
@@ -7753,12 +7769,12 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
         Font.Height = -16
         Align = alClient
         TabOrder = 1
-        ReadOnly = True
         ClientEvents.UniEvents.Strings = (
           
             'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
             '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
             'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+        OnKeyDown = compCODPAGKeyDown
       end
       object UniContainerPanel40: TUniContainerPanel
         Left = 1

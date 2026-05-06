@@ -305,14 +305,22 @@ begin
 
                   if resp1.StatusCode = 200 then
                     begin
-                    wJUsuario := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-                    vvcodemp := wJUsuario.GetValue<TJSONArray>('Result')
-                    .Items[0].GetValue<string>('empope');
-                    modalResult := mrOK;
+                      wJUsuario := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+                      vvNomeUsuarioLogin := wJUsuario.GetValue<TJSONArray>('Result')
+                      .Items[0].GetValue<string>('usuario');
+
+                      vvcodemp := wJUsuario.GetValue<TJSONArray>('Result')
+                      .Items[0].GetValue<string>('empope');
+
+                      UniMainModule.wCodUsuario := wJUsuario.GetValue<TJSONArray>('Result')
+                      .Items[0].GetValue<string>('id');
+
+                      modalResult := mrOK;
                     end
                   else
                     begin
-                    alerta.Error(resp1.Content);
+                      alerta.Error(resp1.Content);
                     end;
 
                    //modalResult := mrOK

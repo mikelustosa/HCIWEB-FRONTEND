@@ -124,11 +124,82 @@ function Repl(Carac: Char; qtd: integer): string;
 function iff(Quest: Boolean; Var1, Var2: variant): variant;
 function convfloat(Num: string): double;
 function converteParaDecimalUsa(wvalor:string):string;
+function caixaFechado(out wOut:string; weCodUsuario:string):boolean;
+function verificaCaixa(weNomeUsuario:string):string;
+function StrZero(Num: real; Zeros, Deci: integer): string;
+function DateToJSON(ADate: TDateTime): string;
 
 implementation
 
 uses uConstantes;
 
+function DateToJSON(ADate: TDateTime): string;
+begin
+  if ADate = 0 then
+    Result := ''
+  else
+    Result := FormatDateTime('yyyy-mm-dd', ADate);
+end;
+
+function StrZero(Num: real; Zeros, Deci: integer): string;
+var
+  Tam, z: integer;
+  REs, Zer: string;
+begin
+  str(Num: Zeros: Deci, REs);
+
+  REs := trim(REs);
+  Tam := Length(REs);
+  Zer := '';
+  for z := 1 to (Zeros - Tam) do
+    Zer := Zer + '0';
+  result := Zer + REs;
+end;
+
+function verificaCaixa(weNomeUsuario:string):string;
+var
+  LJsonResponse: TJSONObject;
+  resp1: IResponse;
+begin
+  result := '';
+  resp1 := TRequest.New
+            .BaseURL(baseurlCadastros)
+            .Resource(getVerificaCaixa)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('nomeUsuario', weNomeUsuario)
+            .AddParam('empresa',vvcodemp)
+            .Timeout(12000)
+            .Get;
+  if resp1.StatusCode = 200 then
+  begin
+    var wObResult : TJSONObject; wObResult := TJSONObject.Create;
+    wObResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+    result := wObResult.GetValue('codUsuario').Value;
+  end;
+end;
+
+function caixaFechado(out wOut:string; weCodUsuario:string):boolean;
+var
+  LJsonResponse: TJSONObject;
+  resp1: IResponse;
+begin
+  result := false;
+  resp1 := TRequest.New
+            .BaseURL(baseurlCadastros)
+            .Resource(getVerificaCaixaFechado)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddParam('codUsuario', weCodUsuario)
+            .AddParam('empresa',vvcodemp)
+            .Timeout(12000)
+            .Get;
+  wOut := resp1.Content+ ' statusCode:'+inttostr(resp1.StatusCode);
+  if resp1.StatusCode = 200 then
+  begin
+    result := true;
+    var wObResult : TJSONObject; wObResult := TJSONObject.Create;
+    wObResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+  end;
+end;
 
 function converteParaDecimalUsa(wvalor:string):string;
 begin

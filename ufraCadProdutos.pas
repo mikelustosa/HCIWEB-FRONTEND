@@ -824,18 +824,19 @@ var
 begin
   pgcTela.ActivePageIndex := 0;
   //Verifica se o valor é numérico
-  ehNumero := TryStrToInt(pDado, i);
+//  ehNumero := TryStrToInt(pDado, i);
+  ehNumero := TryStrToInt(stringreplace(pDado,'.','',[rfreplaceall]), i);
 
   //Aqui sim: usamos IRequest até o Get
   req := TRequest.New.BaseURL(baseurlCadastros)
                    .resource(getProduto)
                    .AddParam('nomeBanco', uniMainModule.nomebanco);
-
+  req.AddParam('empresa',vvcodemp);
   if pDado <> '' then
   begin
     if ehNumero then
     begin
-      req.AddParam('id', pDado);
+      req.AddParam('id', '');//pDado);
       req.AddParam('codpro', pDado);
     end else
       req.AddParam('descr', pDado);

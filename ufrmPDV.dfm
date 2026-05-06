@@ -72,12 +72,14 @@ object frmPDV: TfrmPDV
               item
                 FieldName = 'id'
                 Title.Caption = 'ID'
-                Width = 70
+                Width = 124
+                Visible = False
               end
               item
                 FieldName = 'idCodPro'
                 Title.Caption = 'Item (ID)'
                 Width = 124
+                Visible = False
               end
               item
                 FieldName = 'codpro'
@@ -159,9 +161,7 @@ object frmPDV: TfrmPDV
               Font.Height = -16
               Align = alClient
               TabOrder = 1
-              OnExit = compCODPROExit
               OnKeyDown = compCODPROKeyDown
-              ExplicitTop = 27
             end
             object UniContainerPanel23: TUniContainerPanel
               Left = 1
@@ -223,6 +223,7 @@ object frmPDV: TfrmPDV
               Align = alClient
               TabOrder = 1
               OnChange = compMOVChange
+              OnEnter = compMOVEnter
               OnKeyDown = compMOVKeyDown
             end
             object UniContainerPanel36: TUniContainerPanel
@@ -467,11 +468,6 @@ object frmPDV: TfrmPDV
                 Align = alClient
                 TabOrder = 1
                 ReadOnly = True
-                ClientEvents.UniEvents.Strings = (
-                  
-                    'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                    '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                    'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
               end
               object UniContainerPanel37: TUniContainerPanel
                 Left = 1
@@ -631,13 +627,13 @@ object frmPDV: TfrmPDV
                   TabOrder = 1
                 end
               end
-              object btnClassificacao: TUniSFBitBtn
+              object btnVendedor: TUniSFBitBtn
                 AlignWithMargins = True
                 Left = 63
                 Top = 34
                 Width = 30
                 Height = 29
-                Hint = 'Novo registro'
+                Hint = 'Pesquisar'
                 Margins.Left = 5
                 Margins.Top = 6
                 Margins.Right = 5
@@ -649,7 +645,7 @@ object frmPDV: TfrmPDV
                 TabOrder = 3
                 Scale = bbsSmall
                 IconAlign = iaTop
-                OnClick = btnClassificacaoClick
+                OnClick = btnVendedorClick
                 FAIcon.Icon = fa_search
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -665,7 +661,7 @@ object frmPDV: TfrmPDV
               TabOrder = 3
               Caption = 'UniPanel4'
               Color = clWhite
-              object compNomeVend: TUniEdit
+              object compNOMEVEND: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 174
@@ -680,11 +676,6 @@ object frmPDV: TfrmPDV
                 Align = alClient
                 TabOrder = 1
                 ReadOnly = True
-                ClientEvents.UniEvents.Strings = (
-                  
-                    'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                    '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                    'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
               end
               object UniContainerPanel26: TUniContainerPanel
                 Left = 1

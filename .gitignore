@@ -69,6 +69,7 @@
 *.tvsconfig
 *.dsk
 *.dsv
+Win64/
 
 # Delphi history and backups
 __history/

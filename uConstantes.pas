@@ -2,6 +2,9 @@ unit uConstantes;
 
 interface
 
+uses
+  System.JSON;
+
   {$region 'Constantes Mensagens'}
     const  msgCadastroNovoSucesso = 'Cadastro realizado com sucesso.';
     const  msgCadastroAlteraSucesso = 'Cadastro alterado com sucesso.';
@@ -11,9 +14,11 @@ interface
   {$region 'Resources Cadastros e Login'}
     var baseurlCadastros: string;
     var vvcodemp: string;
+    var vvNomeUsuarioLogin: string;
+//    var vvjUsuarioPdv: TJSonObject;
 
     const postLogin     = 'postLogin';
-
+    const getPerfilUsuarioPdv = 'getPerfilUsuarioPdv';
     const getUsuario    = 'getUsuario';
     const putUsuario    = 'putUsuario';
     const postUsuario   = 'postUsuario';
@@ -118,6 +123,7 @@ interface
 
     const getCupom    = 'getCupom';
     const postCupom    = 'postCupom';
+    const postFinalizaPdv = 'postFinalizaPdv';
 
     const getItemCupom    = 'getItemCupom';
 
@@ -128,6 +134,11 @@ interface
 
     const enviaNfce = 'enviaNfce';
     const inserirNfce = 'inserirNfce';
+
+    const getVerificaCaixaFechado = 'getVerificaCaixaFechado';
+    const getVerificaCaixa = 'getVerificaCaixa';
+
+    const postAbrirCaixa = 'postAbrirCaixa';
 
   {$endregion 'Resources Cadastros e Login'}
 

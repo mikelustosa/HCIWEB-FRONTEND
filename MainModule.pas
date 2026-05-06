@@ -26,6 +26,8 @@ type
     screenWidth   :integer;
     function aplicaMascara(Obj: TUniEdit; tipoMask: TpMask): string;
     var wUsuario      :string;
+    var wCodUsuario   :string;
+    var vvcaixa       :string;
   end;
 
 function UniMainModule: TUniMainModule;

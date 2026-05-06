@@ -7,7 +7,7 @@ uses
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIForm, uniLabel, uniEdit, uniPanel, uniScrollBox,
   uniGUIBaseClasses, uniTimer, URGLayoutUnigui, uniButton, uniBitBtn,
-  UniSFButton, UniSFBitBtn, UniSFComboBox;
+  UniSFButton, UniSFBitBtn, UniSFComboBox, UniSFSweetAlert, system.json;
 
 type
   TfrmSelecionaPagamentoF = class(TUniForm)
@@ -36,6 +36,7 @@ type
     UniLabel59: TUniLabel;
     compTIPOPAGAMENTO: TUniSFComboBox;
     UniSFBitBtn1: TUniSFBitBtn;
+    alerta: TUniSFSweetAlert;
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
     procedure UniFormReady(Sender: TObject);
     procedure compVALORPAGOChange(Sender: TObject);
@@ -58,7 +59,7 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication, uUtils, ufrmPagamentoParceladoF;
+  MainModule, uniGUIApplication, uUtils, ufrmPagamentoParceladoF, ufrmPDV;
 
 function frmSelecionaPagamentoF: TfrmSelecionaPagamentoF;
 begin
@@ -111,13 +112,79 @@ procedure TfrmSelecionaPagamentoF.UniSFBitBtn26Click(Sender: TObject);
 begin
   frmPagamentoParceladoF.wTOTALGERALF := strtofloatdef(compTOTALGERAL.Text,0);
   frmPagamentoParceladoF.showmodal();
+  close;
 //  frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
 end;
 
 procedure TfrmSelecionaPagamentoF.UniSFBitBtn27Click(Sender: TObject);
 begin
-  faturar := true;
-  modalResult := mrOk;
+  if (StrToFloatDef(compVALORPAGO.Text,0) < StrToFloatDef(compTOTALGERAL.Text,0))
+  or (StrToFloatDef(compVALORPAGO.Text,0) = 0) then
+  begin
+    alerta.Error('O valor pago é menor do que valor da compra. '+#13+
+                 'Total restante: R$ '+FloatToStr((StrToFloatDef(compVALORPAGO.Text,0) - StrToFloatDef(compTOTALGERAL.Text,0))) );
+    compVALORPAGO.SetFocus;
+  end
+  else
+  begin
+//    jsonArray := TJSONArray.Create;
+//
+//    codigoCondPag := compCODPAG.Text;
+//
+//    for y := 1 to 12 do
+//    begin
+//      StrDias := FormatFloat('00', y);
+//      compLabel := TUniLabel(FindComponent('compLN' + StrDias));
+//
+//      if (compLabel <> nil) and (compLabel.Visible) then
+//      begin
+//        jsonObject := TJSONObject.Create;
+//
+//        // DATA
+//        compData := TUniDateTimePicker(FindComponent('compDATA' + StrDias));
+//        if compData <> nil then
+//          jsonObject.AddPair('data', DateToJSON(compData.DateTime))
+//        else
+//          jsonObject.AddPair('data', '');
+//
+//        // VALOR
+//        compValor := TUniEdit(FindComponent('compVAL' + StrDias));
+//        if compValor <> nil then
+//          jsonObject.AddPair('valor', StringReplace(compValor.Text, 'R$ ', '', []))
+//        else
+//          jsonObject.AddPair('valor', '');
+//
+//        // FORMA DE PAGAMENTO
+//        compPagto := TUniSFComboBox(FindComponent('compED_PAGTO' + StrDias));
+//        if compPagto <> nil then
+//          jsonObject.AddPair('formaPagamento', IntToStr(compPagto.ItemIndex))
+//        else
+//          jsonObject.AddPair('formaPagamento', '');
+//
+//        // CÓDIGO DA CONDIÇÃO DE PAGAMENTO
+//        jsonObject.AddPair('codigoCondicaoPagamento', codigoCondPag);
+//
+//        // NÚMERO DA PARCELA
+//        jsonObject.AddPair('parcela', IntToStr(y));
+//
+//        jsonArray.AddElement(jsonObject);
+//      end;
+//    end;
+    var jTmp : TJSONObject; jTmp := TJSONObject.Create;
+    var aTmp : TJSONArray; aTmp := TJSONArray.Create;
+
+    jTmp.AddPair('data', DateToJSON(now));
+    jTmp.AddPair('valor', StringReplace(compTOTALGERAL.Text, 'R$ ', '', []));
+    jTmp.AddPair('formaPagamento', IntToStr(compTIPOPAGAMENTO.ItemIndex));
+    jTmp.AddPair('codigoCondicaoPagamento', '0');// codigoCondPag);
+    aTmp.AddElement(jTmp);
+
+    //
+    frmPDV.JParcelasCaixa := aTmp;
+
+    faturar := true;
+    modalResult := mrOk;
+  end;
 end;
 
 end.

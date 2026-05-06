@@ -2773,6 +2773,10 @@ object frmPrincipal: TfrmPrincipal
         object Configuraes1: TUniMenuItem
           Caption = 'Configura'#231#245'es'
         end
+        object Abrircaixa1: TUniMenuItem
+          Caption = 'Abrir caixa'
+          OnClick = Abrircaixa1Click
+        end
       end
       object Estoque1: TUniMenuItem
         Caption = 'Estoque'
