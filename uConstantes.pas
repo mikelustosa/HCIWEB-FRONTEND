@@ -139,6 +139,7 @@ uses
     const getVerificaCaixa = 'getVerificaCaixa';
 
     const postAbrirCaixa = 'postAbrirCaixa';
+    const getFechaCaixaAbrirPesquisa = 'getFechaCaixaAbrirPesquisa';
 
   {$endregion 'Resources Cadastros e Login'}
 

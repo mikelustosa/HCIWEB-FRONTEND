@@ -33,7 +33,7 @@ object fraCadClientes: TfraCadClientes
       Width = 1429
       Height = 783
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0

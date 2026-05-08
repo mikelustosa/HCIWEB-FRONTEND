@@ -34,7 +34,7 @@ object fraCadEmpresas: TfraCadEmpresas
       Width = 1220
       Height = 723
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -1312,8 +1312,6 @@ object fraCadEmpresas: TfraCadEmpresas
                         'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
                         '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
                         'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
-                    ExplicitLeft = 3
-                    ExplicitTop = 27
                   end
                   object UniContainerPanel11: TUniContainerPanel
                     Left = 1

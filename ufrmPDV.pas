@@ -141,6 +141,7 @@ type
     procedure compMOVKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure compMOVEnter(Sender: TObject);
+    procedure btUtilidadesClick(Sender: TObject);
   private
     { Private declarations }
     JProduto : TJSONObject;
@@ -166,6 +167,8 @@ type
     procedure callBackQtdRetiraItem(Sender: TComponent;
       AResult: Integer);
     procedure callBackFatura(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackUtilidades(Sender: TComponent;
       AResult: Integer);
 
     function HenviaNfce(out weMsgOut:string; weIdEmp,weNumNf,weTipoNfeNfce,weUsuario,weHoraNfe:string):string;
@@ -195,7 +198,29 @@ uses
   MainModule, uniGUIApplication, ufrmListaGlobal, uUtils,
   RESTRequest4D.Response.Intf, RESTRequest4D.Request.Intf,
   RESTRequest4D.Request, uConstantes, ufrmAlteraQtdItemPdv,
-  ufrmSelecionaPagamentoF, UniSFCore, ServerModule, ufrmConfirmacaoVenda;
+  ufrmSelecionaPagamentoF, UniSFCore, ServerModule, ufrmConfirmacaoVenda,
+  ufrmPDVUtilidades;
+
+procedure TfrmPDV.callBackUtilidades(Sender: TComponent;
+  AResult: Integer);
+//var
+//i: Integer;
+//FS: TFormatSettings;
+begin
+alerta.Warning('Rotina em desenvolvimento.');
+//  if frmListaGlobal.ModalResult = mrOk then
+//  begin
+//    FS := TFormatSettings.Create;
+//    FS.DecimalSeparator := '.';
+//    compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
+//    compDESCR.caption     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
+//    alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
+//    compMOV.Text := '1';
+//    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
+//    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
+//    timerFocoItem.Enabled := true;
+//  end;
+end;
 
 procedure TfrmPDV.retornar;
 begin
@@ -541,7 +566,7 @@ begin
             var jPedido : TJSONObject; jPedido := TJSONObject.Create;
             jPedido.AddPair('int_CodCli',JCliente.GetValue<string>('CODCLI'));
             jPedido.AddPair('int_TipoPagamento','');
-            jPedido.AddPair('int_Caixa','');
+            jPedido.AddPair('int_Caixa',UniMainModule.vvcaixa);
             jPedido.AddPair('int_CodVen',JVendedor.GetValue<string>('CODVEND'));
 
             aPedido.AddElement(jPedido);
@@ -1128,6 +1153,13 @@ begin
 //  calculaCupom;
 end;
 
+procedure TfrmPDV.btUtilidadesClick(Sender: TObject);
+begin
+//  frmListaGlobal.wTabelaDePesquisa := 'PRODUTOS_PDV';
+//  frmListaGlobal.lblDescricao.Caption := 'PRODUTOS';
+  frmPDVUtilidades.showModal(callBackUtilidades);
+end;
+
 procedure TfrmPDV.callBackCliente(Sender: TComponent;
   AResult: Integer);
 var
@@ -1210,9 +1242,14 @@ begin
       if pesquisaItem(JProduto, '',trim(compCODPRO.Text),'') then
       begin
         compDESCR.caption     := JProduto.GetValue('descr').Value;
-        compMOV.Text := '1';
+        if StrToFloatDef(compMov.Text,0) = 0 then
+          compMOV.Text := '1';
         compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-        compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//        compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+        compTOTAL.Text := FormatFloat('0.00',
+                               StrToFloatDef(compMOV.Text,0) *
+                               StrToFloatDef(compVALORU.Text,0)
+                               );
         if (Key = VK_RETURN) then
         begin
           if not CDSTela.Active then
@@ -1262,9 +1299,15 @@ begin
     begin
       compDESCR.caption     := JProduto.GetValue('descr').Value;
 //          compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
-      compMOV.Text := '1';
+      if StrToFloatDef(compMov.Text,0) = 0 then
+        compMOV.Text := '1';
+
       compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-      compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+//      compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+      compTOTAL.Text := FormatFloat('0.00',
+                             StrToFloatDef(compMOV.Text,0) *
+                             StrToFloatDef(compVALORU.Text,0)
+                             );
 //          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
 //          compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
 //      if (Key = VK_RETURN) then
@@ -1299,7 +1342,6 @@ end;
 procedure TfrmPDV.compMOVKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-
   if (Key = VK_RETURN) or (Key = VK_TAB) then
     begin
       if trim(compCODPRO.Text) <> '' then
@@ -1308,6 +1350,10 @@ begin
         begin
           if (Key = VK_RETURN) then
           begin
+            compTOTAL.Text := FormatFloat('0.00',
+                                   StrToFloatDef(compMOV.Text,0) *
+                                   StrToFloatDef(compVALORU.Text,0)
+                                   );
             if not CDSTela.Active then
               CDSTela.Active := true;
             CDSTela.Insert;
@@ -1421,6 +1467,8 @@ begin
       FreeAndNil(JUsuarioPdv);
       JUsuarioPdv := TJSONObject.Create;
       JUsuarioPdv := aTmp.Items[0] as TJSONObject;
+
+      uniMainModule.vvcaixa := JUsuarioPdv.GetValue('idUsuario').Value;
     end
     else
     begin
@@ -1532,6 +1580,7 @@ begin
   end;
 
   uniMainModule.vvcaixa := verificaCaixa(uniMainModule.wUsuario);
+
   //verifica se há produtos inseridos no pedido
   if CDSTela.RecordCount <= 0 then
   begin

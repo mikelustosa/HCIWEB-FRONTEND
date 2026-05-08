@@ -285,11 +285,6 @@ object frmPDV: TfrmPDV
               Font.Height = -16
               Align = alClient
               TabOrder = 1
-              ClientEvents.UniEvents.Strings = (
-                
-                  'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                  '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                  'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
             end
             object UniContainerPanel38: TUniContainerPanel
               Left = 1
@@ -351,11 +346,6 @@ object frmPDV: TfrmPDV
               Font.Height = -16
               Align = alClient
               TabOrder = 1
-              ClientEvents.UniEvents.Strings = (
-                
-                  'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                  '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                  'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
             end
             object UniContainerPanel39: TUniContainerPanel
               Left = 1
@@ -1773,6 +1763,7 @@ object frmPDV: TfrmPDV
       TabOrder = 5
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
+      OnClick = btUtilidadesClick
       FAIcon.Icon = fa_arrow_alt_circle_left
       FAIcon.Size = fs_16
       FAIcon.Color = fc_white

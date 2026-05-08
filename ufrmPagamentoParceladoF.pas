@@ -590,7 +590,7 @@ implementation
 
 uses
   MainModule, uniGUIApplication, uUtils, ufrmListaGlobal,
-  RESTRequest4D.Request, uConstantes, ufrmPDV;
+  RESTRequest4D.Request, uConstantes, ufrmPDV, ufrmSelecionaPagamentoF;
 
 
 
@@ -961,7 +961,7 @@ begin
 
 //    compativ.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
 //    compdescrat.Text  := frmListaGlobal.CDSTela.FieldByName('descrAt').AsString;//frmListaClassificacoes.nome;
-    alertaM.info('Atividade selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
+    alertaM.info('Custo selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
 end;
 
@@ -1239,6 +1239,8 @@ begin
 
       // NÚMERO DA PARCELA
       jsonObject.AddPair('parcela', IntToStr(y));
+
+      jsonObject.AddPair('tipoPagamento', inttostr(strtointdef(copy(frmSelecionaPagamentoF.compTIPOPAGAMENTO.Text,1,2),0)));
 
       jsonArray.AddElement(jsonObject);
     end;

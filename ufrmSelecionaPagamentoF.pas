@@ -177,6 +177,7 @@ begin
     jTmp.AddPair('valor', StringReplace(compTOTALGERAL.Text, 'R$ ', '', []));
     jTmp.AddPair('formaPagamento', IntToStr(compTIPOPAGAMENTO.ItemIndex));
     jTmp.AddPair('codigoCondicaoPagamento', '0');// codigoCondPag);
+    jTmp.AddPair('tipoPagamento', inttostr(strtointdef(copy(compTIPOPAGAMENTO.Text,1,2),0)));
     aTmp.AddElement(jTmp);
 
     //

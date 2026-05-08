@@ -156,7 +156,6 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Hint = ''
               Text = '1 - Dinheiro '
               TabOrder = 2
-              ItemIndex = 0
               Items.Strings = (
                 '1 - Dinheiro '
                 '2 - Cheque '
@@ -788,7 +787,6 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Hint = ''
               Text = '1 - Dinheiro '
               TabOrder = 2
-              ItemIndex = 0
               Items.Strings = (
                 '1 - Dinheiro '
                 '2 - Cheque '
@@ -5697,7 +5695,6 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Align = alClient
               TabOrder = 1
               OnChange = compDIAS01Change
-              ExplicitTop = 27
             end
             object UniContainerPanel102: TUniContainerPanel
               Left = 1

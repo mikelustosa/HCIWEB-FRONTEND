@@ -50,7 +50,9 @@ uses
   ufraCnpjConfig in 'ufraCnpjConfig.pas' {fraCnpjConfig: TUniFrame},
   uFraOperacaoEstoque in 'uFraOperacaoEstoque.pas' {fraOperacaoEstoque: TUniFrame},
   ufrmAbrirCaixa in 'ufrmAbrirCaixa.pas' {frmAbrirCaixa: TUniForm},
-  ufrmConfirmacaoVenda in 'ufrmConfirmacaoVenda.pas' {frmConfirmacaoVenda: TUniForm};
+  ufrmConfirmacaoVenda in 'ufrmConfirmacaoVenda.pas' {frmConfirmacaoVenda: TUniForm},
+  ufrmPDVUtilidades in 'ufrmPDVUtilidades.pas' {frmPDVUtilidades: TUniForm},
+  ufraFecharCaixa in 'ufraFecharCaixa.pas' {fraFecharCaixa: TUniFrame};
 
 {$R *.res}
 
