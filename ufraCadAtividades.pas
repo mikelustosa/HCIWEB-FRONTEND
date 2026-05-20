@@ -142,7 +142,10 @@ begin
                 .Timeout(12000)
                 .Put;
 
-      alerta.Info('Cadastro alterado com sucesso!');
+      if resp1.StatusCode = 200 then
+        alerta.Info('Cadastro alterado com sucesso!')
+      else
+        alerta.Error('Erro: '+resp1.Content);
     end else
       begin
         resp1 := TRequest
@@ -154,8 +157,10 @@ begin
                 .AddBody(jsonBody.ToString)
                 .Timeout(12000)
                 .Post;
-
-        alerta.Info('Cadastro incluido com sucesso!');
+        if resp1.StatusCode = 200 then
+          alerta.Info('Cadastro incluido com sucesso!')
+        else
+          alerta.Error('Erro: '+resp1.Content);
       end;
 
     retornar;

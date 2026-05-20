@@ -115,8 +115,8 @@ begin
   if not Assigned(fraFecharCaixa) then
     fraFecharCaixa := TfraFecharCaixa.Create(Self);
   fraFecharCaixa.Parent := tsFecharCaixa;
+  fraFecharCaixa.Align := alClient;
   PgcPrincipal.ActivePage := TsFecharCaixa;
-
 end;
 
 procedure TfrmPDVUtilidades.UniSFBitBtn6Click(Sender: TObject);
@@ -124,6 +124,7 @@ begin
   if not Assigned(fraClientes) then
     fraClientes := TfraCadClientes.Create(Self);
   fraClientes.Parent := tsClientes;
+  fraClientes.Align := alClient;
   PgcPrincipal.ActivePage := TsClientes;
 end;
 
@@ -132,6 +133,7 @@ begin
   if not Assigned(fraCadProdutos) then
     fraCadProdutos := TfraCadProdutos.Create(Self);
   fraCadProdutos.Parent := tsProdutos;
+  fraCadProdutos.Align := alClient;
   PgcPrincipal.ActivePage := TsProdutos;
 end;
 
@@ -140,6 +142,7 @@ begin
   if not Assigned(fraCadEmpresas) then
     fraCadEmpresas := TfraCadEmpresas.Create(Self);
   fraCadEmpresas.Parent := tsEmpresas;
+  fraCadEmpresas.Align := alClient;
   PgcPrincipal.ActivePage := TsEmpresas;
 end;
 
@@ -148,8 +151,8 @@ begin
   if not Assigned(fraCadVendedores) then
     fraCadVendedores := TfraCadVendedores.Create(Self);
   fraCadVendedores.Parent := tsVendedores;
+  fraCadVendedores.Align := alClient;
   PgcPrincipal.ActivePage := TsVendedores;
-
 end;
 
 end.

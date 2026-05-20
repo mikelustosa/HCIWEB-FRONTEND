@@ -91,6 +91,8 @@ type
     ProcuraeAlteraDadosdeumCNPJnoCadastroLigarnoComercialHCI1: TUniMenuItem;
     Estoque1: TUniMenuItem;
     Abrircaixa1: TUniMenuItem;
+    Contas1: TUniMenuItem;
+    Contas2: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -123,6 +125,7 @@ type
     procedure HCICNPJConfiguraes1Click(Sender: TObject);
     procedure Estoque1Click(Sender: TObject);
     procedure Abrircaixa1Click(Sender: TObject);
+    procedure Contas2Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -150,7 +153,7 @@ uses
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
   ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque,
-  ufrmAbrirCaixa;
+  ufrmAbrirCaixa, ufraOperacaoContas;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -401,6 +404,11 @@ begin
     end;
   end;
   //CanClose := MessageDlg('Deseja realmente fechar esta aba?', mtConfirmation, mbYesNo) = mrYes;
+end;
+
+procedure TfrmPrincipal.Contas2Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraOperacaoContas),'Movimentação de contas', true, -1, true);
 end;
 
 procedure TfrmPrincipal.Departamentos1Click(Sender: TObject);

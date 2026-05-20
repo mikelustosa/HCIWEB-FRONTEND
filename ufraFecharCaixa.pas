@@ -9,7 +9,7 @@ uses
   UniSFBitBtn, uniPanel, uniGUIBaseClasses, uniScrollBox, uniTimer,
   URGLayoutUnigui, UniSFiGrowl, UniSFSweetAlert, uniEdit, uniLabel, UniSFLabel,
   uniBasicGrid, uniDBGrid, Data.DB, Datasnap.DBClient, uniMultiItem,
-  uniComboBox, uniDateTimePicker;
+  uniComboBox, uniDateTimePicker, System.JSON, UniSFComboBox;
 
 type
   TfraFecharCaixa = class(TUniFrame)
@@ -28,18 +28,44 @@ type
     CDSTela: TClientDataSet;
     CDSTelabotaoEditar: TAggregateField;
     CDSTelaiconeAtivo: TAggregateField;
-    UniPanel18: TUniPanel;
+    DSTela: TDataSource;
     scrFundo: TUniScrollBox;
+    UniPanel18: TUniPanel;
+    cpPesquisa: TUniContainerPanel;
+    UniContainerPanel17: TUniContainerPanel;
+    UniSFLabel3: TUniSFLabel;
+    UniContainerPanel18: TUniContainerPanel;
+    UniSFLabel4: TUniSFLabel;
+    compCAIXA: TUniEdit;
+    UniContainerPanel21: TUniContainerPanel;
+    UniSFLabel5: TUniSFLabel;
+    UniContainerPanel25: TUniContainerPanel;
+    UniSFLabel6: TUniSFLabel;
+    compDtIni: TUniDateTimePicker;
+    UniContainerPanel27: TUniContainerPanel;
+    UniSFLabel7: TUniSFLabel;
+    UniContainerPanel28: TUniContainerPanel;
+    UniSFLabel8: TUniSFLabel;
+    UniEdit18: TUniEdit;
+    UniContainerPanel29: TUniContainerPanel;
+    UniSFLabel9: TUniSFLabel;
+    UniContainerPanel30: TUniContainerPanel;
+    UniSFLabel10: TUniSFLabel;
+    compDtFim: TUniDateTimePicker;
+    UniContainerPanel31: TUniContainerPanel;
+    UniSFLabel11: TUniSFLabel;
+    UniContainerPanel32: TUniContainerPanel;
+    UniSFLabel12: TUniSFLabel;
+    UniPanel19: TUniPanel;
+    btnPesquisar: TUniSFBitBtn;
     cpMenuRodape: TUniContainerPanel;
     btnSalvar: TUniSFBitBtn;
     btnCancelar: TUniSFBitBtn;
     compATIVO: TUniFSToggle;
+    UniScrollBox1: TUniScrollBox;
+    UniPanel20: TUniPanel;
+    UniScrollBox2: TUniScrollBox;
     gridTela: TUniDBGrid;
-    cpPesquisa: TUniContainerPanel;
-    UniPanel49: TUniPanel;
-    compTOTAL: TUniEdit;
-    UniContainerPanel39: TUniContainerPanel;
-    UniLabel38: TUniLabel;
     pnlEntradasDeCaixa: TUniPanel;
     UniPanel1: TUniPanel;
     compFLTDINHEIRO: TUniEdit;
@@ -79,7 +105,7 @@ type
     UniLabel10: TUniLabel;
     UniContainerPanel1: TUniContainerPanel;
     UniLabel1: TUniLabel;
-    UniPanel10: TUniPanel;
+    pnlSaidas: TUniPanel;
     UniPanel11: TUniPanel;
     compSANGRIASDINHEIRO: TUniEdit;
     UniContainerPanel11: TUniContainerPanel;
@@ -98,49 +124,35 @@ type
     UniLabel14: TUniLabel;
     UniContainerPanel20: TUniContainerPanel;
     UniLabel20: TUniLabel;
-    UniPanel15: TUniPanel;
+    pnlTotais: TUniPanel;
     UniPanel16: TUniPanel;
     UniEdit14: TUniEdit;
     UniContainerPanel15: TUniContainerPanel;
     UniLabel15: TUniLabel;
     UniPanel17: TUniPanel;
-    UniEdit15: TUniEdit;
+    compTOTALDECLARADO: TUniEdit;
     UniContainerPanel16: TUniContainerPanel;
     UniLabel16: TUniLabel;
     UniContainerPanel19: TUniContainerPanel;
     UniLabel19: TUniLabel;
-    UniContainerPanel17: TUniContainerPanel;
-    UniSFLabel3: TUniSFLabel;
-    UniContainerPanel18: TUniContainerPanel;
-    UniSFLabel4: TUniSFLabel;
-    compCAIXA: TUniEdit;
-    UniContainerPanel21: TUniContainerPanel;
-    UniSFLabel5: TUniSFLabel;
-    UniContainerPanel25: TUniContainerPanel;
-    UniSFLabel6: TUniSFLabel;
-    UniContainerPanel27: TUniContainerPanel;
-    UniSFLabel7: TUniSFLabel;
-    UniContainerPanel28: TUniContainerPanel;
-    UniSFLabel8: TUniSFLabel;
-    UniEdit18: TUniEdit;
-    UniContainerPanel29: TUniContainerPanel;
-    UniSFLabel9: TUniSFLabel;
-    UniContainerPanel30: TUniContainerPanel;
-    UniSFLabel10: TUniSFLabel;
-    UniContainerPanel31: TUniContainerPanel;
-    UniSFLabel11: TUniSFLabel;
-    UniContainerPanel32: TUniContainerPanel;
-    UniSFLabel12: TUniSFLabel;
-    compDtIni: TUniDateTimePicker;
-    compDtFim: TUniDateTimePicker;
-    UniComboBox1: TUniComboBox;
-    UniPanel19: TUniPanel;
-    UniSFBitBtn1: TUniSFBitBtn;
+    pnlValorInicial: TUniPanel;
+    compVALORINICIAL: TUniEdit;
+    UniContainerPanel39: TUniContainerPanel;
+    UniLabel38: TUniLabel;
+    cbUsuario: TUniSFComboBox;
     procedure btnCancelarClick(Sender: TObject);
     procedure UniFrameReady(Sender: TObject);
-    procedure UniSFBitBtn1Click(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure gridTelaDrawColumnCell(Sender: TObject; ACol, ARow: Integer;
+      Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+    procedure CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure gridTelaCellClick(Column: TUniDBGridColumn);
   private
     { Private declarations }
+    wIdWbFechamentoCaixa : string;
+    function hFecharCaixa(weId: string; weValorDeclarado: string; out wejRet: TJSONObject): boolean;
   public
     { Public declarations }
   end;
@@ -148,12 +160,195 @@ type
 implementation
 
 uses
-  RESTRequest4D.Request, System.JSON, uConstantes, MainModule;
+  RESTRequest4D.Request, uConstantes, MainModule, uUtils;
 
 {$R *.dfm}
+function TfraFecharCaixa.hFecharCaixa(weId: string; weValorDeclarado: string; out wejRet: TJSONObject): boolean;
+var
+  resp1       : IResponse;
+  jsonBody    : TJSONObject;
+begin
+  Result := false;
+  wejRet := nil;
 
+  // Validações
+  if weId.Trim.IsEmpty or weValorDeclarado.Trim.IsEmpty then
+  begin
+    wejRet := TJSONObject.Create;
+    wejRet.AddPair('erro', 'Parâmetros inválidos');
+    Exit;
+  end;
 
+  if baseurlCadastros.IsEmpty then
+  begin
+    wejRet := TJSONObject.Create;
+    wejRet.AddPair('erro', 'URL base não configurada');
+    Exit;
+  end;
+  try
+    jsonBody := TJSONObject.Create;
+    try
+      jsonBody.AddPair('empresa', vvCodEmp);
+      jsonBody.AddPair('id', weId);
+      jsonBody.AddPair('fltValorDeclarado', weValorDeclarado);
 
+      resp1 := TRequest
+              .New
+              .BaseURL(baseurlCadastros)
+              .Resource(postFecharCaixa)
+              .AddParam('nomeBanco', uniMainModule.nomebanco)
+              .AddBody(jsonBody.ToString)
+              .Timeout(15000)
+              .Post;
+
+      if (resp1 <> nil) and (resp1.StatusCode = 200) then
+      begin
+        wejRet := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+        if wejRet <> nil then
+        begin
+          Result := true;
+        end
+        else
+        begin
+          wejRet := TJSONObject.Create;
+          wejRet.AddPair('erro', 'Resposta inválida do servidor');
+          wejRet.AddPair('detalhes', resp1.Content);
+        end;
+      end
+      else
+      begin
+        wejRet := TJSONObject.Create;
+        wejRet.AddPair('erro', Format('HTTP %d', [resp1.StatusCode]));
+        wejRet.AddPair('detalhes', resp1.Content);
+      end;
+
+    except
+      on e: Exception do
+      begin
+        wejRet := TJSONObject.Create;
+        wejRet.AddPair('erro', 'Exceção: ' + e.Message);
+        Result := false;
+      end;
+    end;
+  finally
+    jsonBody.Free;
+  end;
+end;
+
+//function hFecharCaixa(weId: string; weValorDeclarado: string; out wejRet: TJSONObject): boolean;
+//var
+//  resp1       : IResponse;
+//  jsonBody    : TJSONObject;
+//  wJsonResult : TJSONObject;
+//begin
+//  Result := false;
+//  wejRet := nil;  // IMPORTANTE: inicializar out parameter
+//  resp1 := nil;
+//
+//  // Validações (não comente!)
+//  if weId.Trim.IsEmpty or weValorDeclarado.Trim.IsEmpty then
+//    Exit;
+//
+//  if baseurlCadastros.IsEmpty then
+//    Exit;
+//
+//  jsonBody := TJSONObject.Create;
+//  try
+//    try
+//      jsonBody.AddPair('empresa', vvCodEmp);
+//      jsonBody.AddPair('id', weId);
+//      jsonBody.AddPair('fltValorDeclarado', weValorDeclarado);
+//
+//      resp1 := TRequest
+//              .New
+//              .BaseURL(baseurlCadastros)
+//              .Resource(postFecharCaixa)
+//              .AddParam('nomeBanco', uniMainModule.nomebanco)
+//              .AddBody(jsonBody.ToString)
+//              .Timeout(15000)
+//              .Post;
+//
+//      if (resp1 <> nil) and (resp1.StatusCode = 200) then
+//      begin
+//        wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+//
+//        if wJsonResult <> nil then
+//        begin
+//          wejRet := wJsonResult;  //  transfere a propriedade
+//          Result := true;
+//        end
+//        else
+//        begin
+//          // Cria um objeto de erro
+//          wejRet := TJSONObject.Create;
+//          wejRet.AddPair('erro', 'Resposta inválida do servidor');
+//          wejRet.AddPair('conteudo', resp1.Content);
+//        end;
+//      end
+//      else
+//      begin
+//        wejRet := TJSONObject.Create;
+//        wejRet.AddPair('erro', Format('HTTP %d', [resp1.StatusCode]));
+//      end;
+//
+//    except
+//      on e: Exception do
+//      begin
+//        wejRet := TJSONObject.Create;
+//        wejRet.AddPair('erro', 'Exceção: ' + e.Message);
+//        Result := false;
+//      end;
+//    end;
+//  finally
+//    jsonBody.Free;
+//    // NÃO libere wJsonResult aqui!
+//  end;
+//end;
+
+//function hFecharCaixa(weId,weValorDeclarado:string):boolean;
+//var
+//  resp1       :IResponse;
+//  jsonBody,wJsonResult    :TJSONObject;
+//begin
+//  result := false;
+//  resp1 := nil;
+//  wJsonResult := nil;
+//  try
+//    jsonBody := TJSONObject.Create;
+//    try
+//      try
+//        jsonBody.AddPair('empresa', vvCodEmp);
+//        jsonBody.AddPair('id', weId);
+//        jsonBody.AddPair('fltValorDeclarado', weValorDeclarado);
+//
+//        resp1 := TRequest
+//                .New
+//                .BaseURL(baseurlCadastros)
+//                .Resource(postFecharCaixa)
+//                .AddParam('nomeBanco', uniMainModule.nomebanco)
+//                .AddBody(jsonBody.ToString)
+//                .Timeout(12000)
+//                .Get;
+
+//        if RESP1.StatusCode = 200 then
+//          begin
+//            result := true;
+//          end;
+//      except on e:exception do
+//        begin
+////          alerta.Error('Erro: '+e.Message);
+//        end;
+//      end;
+//    finally
+//      jsonBody.Free;
+//    end;
+//  except on e:exception do
+//    begin
+////      alerta.Error('Erro: '+e.Message);
+//    end;
+//  end;
+//end;
 procedure TfraFecharCaixa.btnCancelarClick(Sender: TObject);
 begin
   FreeAndNil(self);
@@ -161,6 +356,13 @@ end;
 
 procedure TfraFecharCaixa.UniFrameReady(Sender: TObject);
 begin
+  cbUsuario.Text := vvNomeUsuarioLogin;
+  compCAIXA.Text := UniMainModule.vvcaixa;
+  populaCombo(cbUsuario,uniMainModule.wUsuario);
+//  compDtIni.Text := '';
+//  compDtFim.Text := '';
+  btnPesquisar.Click;
+
 //  rg1.Start;
 //  rg2.Start;
 //  rg3.Start;
@@ -172,13 +374,11 @@ begin
 //  rg9.Start;
 end;
 
-procedure TfraFecharCaixa.UniSFBitBtn1Click(Sender: TObject);
+procedure TfraFecharCaixa.btnPesquisarClick(Sender: TObject);
 var
   resp1       :IResponse;
   jsonBody,wJsonResult    :TJSONObject;
 begin
-
-//  result := '';
   resp1 := nil;
   wJsonResult := nil;
   try
@@ -199,93 +399,112 @@ begin
                 .AddBody(jsonBody.ToString)
                 .Timeout(12000)
                 .Get;
-        if RESP1.StatusCode = 200 then          sdf
+        if RESP1.StatusCode = 200 then
+        begin
+          wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+          if (not Assigned(wJsonResult.GetValue('Result'))) or (wJsonResult.GetValue<TJSONArray>('Result').Count = 0 ) then
           begin
-            wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-//ENTRADAS DE CAIXA
-            compFLTDINHEIRO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDinheiro')
-                                      ,0)
-                                    );
-
-            compFLTPRAZO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPrazo')
-                                      ,0)
-                                    );
-
-            compCARTAODEBITO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoDebito')
-                                      ,0)
-                                    );
-
-            compCARTAOCREDITO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoCredito')
-                                      ,0)
-                                    );
-
-            compCHEQUEAVISTA.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAvista')
-                                      ,0)
-                                    );
-
-            compCHEQUEAPRAZO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAprazo')
-                                      ,0)
-                                    );
-
-            compREFORCO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltReforcosDinheiro')
-                                      ,0)
-                                    );
-
-            compPIX.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPix')
-                                      ,0)
-                                    );
-
-            compOUTROS.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltOutros')
-                                      ,0)
-                                    );
-//SAÍDAS
-            compSANGRIASDINHEIRO.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasDinheiro')
-                                      ,0)
-                                    );
-
-            compSANGRIASCHEQUE.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasCheque')
-                                      ,0)
-                                    );
-
-            compDESCONTOS.Text := FormatFloat('0.00',
-                                      strtofloatDef(
-                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDescontos')
-                                      ,0)
-                                    );
-
-            compDEVOLUCOES.Text := '0.00';
-          end
-        else
-          begin
-            alerta.Error(wJsonResult.ToString);
-//            weMsgOut := resp1.Content;
-//            result := 'Erro na emissão da nfce. '+resp1.content;
+            gridTela.Visible := false;
+//             UniPanel20.Visible := false;
+            exit;
           end;
+
+          wIdWbFechamentoCaixa := (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('id');
+
+          gridTela.Visible := true;
+//          UniPanel20.Visible := true;
+
+          compVALORINICIAL.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('valorInicial')
+                                    ,0)
+                                  );
+
+          //ENTRADAS DE CAIXA
+          compFLTDINHEIRO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDinheiro')
+                                    ,0)
+                                  );
+
+          compFLTPRAZO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPrazo')
+                                    ,0)
+                                  );
+
+          compCARTAODEBITO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoDebito')
+                                    ,0)
+                                  );
+
+          compCARTAOCREDITO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoCredito')
+                                    ,0)
+                                  );
+
+          compCHEQUEAVISTA.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAvista')
+                                    ,0)
+                                  );
+
+          compCHEQUEAPRAZO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAprazo')
+                                    ,0)
+                                  );
+
+          compREFORCO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltReforcosDinheiro')
+                                    ,0)
+                                  );
+
+          compPIX.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPix')
+                                    ,0)
+                                  );
+
+          compOUTROS.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltOutros')
+                                    ,0)
+                                  );
+          //SAÍDAS
+          compSANGRIASDINHEIRO.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasDinheiro')
+                                    ,0)
+                                  );
+
+          compSANGRIASCHEQUE.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasCheque')
+                                    ,0)
+                                  );
+
+          compDESCONTOS.Text := FormatFloat('0.00',
+                                    strtofloatDef(
+                                      (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDescontos')
+                                    ,0)
+                                  );
+
+          compDEVOLUCOES.Text := '0.00';
+          JsonToDataset(CDSTela, wJsonResult.getValue('Result').toJson);
+
+        end
+        else
+        begin
+          alerta.Error(wJsonResult.ToString);
+        end;
       except on e:exception do
         begin
-//          result := e.Message;
+          alerta.Error('Erro: '+e.Message);
         end;
       end;
     finally
@@ -293,9 +512,179 @@ begin
     end;
   except on e:exception do
     begin
-//      result := e.Message;
+      alerta.Error('Erro: '+e.Message);
     end;
   end;
+end;
+
+procedure TfraFecharCaixa.btnSalvarClick(Sender: TObject);
+var
+wjRet : TJSONObject;
+begin
+  try
+    wjRet := TJSONObject.Create;
+    if hFecharCaixa(CDSTela.FieldByName('id').AsString.Trim, compTOTALDECLARADO.Text, wjRet) then
+      alerta.Success('Caixa fechado com sucesso.')
+    else
+      alerta.Error(wjRet.ToString);
+  finally
+    if Assigned(wjRet) then
+      wjRet.Free;
+  end;
+//  resp1 := nil;
+//  wJsonResult := nil;
+//  try
+//    jsonBody := TJSONObject.Create;
+//    try
+//      try
+//        jsonBody.AddPair('empresa', vvCodEmp);
+//        jsonBody.AddPair('caixa', compCAIXA.Text);
+//        jsonBody.AddPair('dtIni', datetostr(compDtIni.DateTime));
+//        jsonBody.AddPair('dtFim', datetostr(compDtFim.DateTime));
+//        jsonBody.AddPair('usuario', vvNomeUsuarioLogin);
+//
+//        resp1 := TRequest
+//                .New
+//                .BaseURL(baseurlCadastros)
+//                .Resource(getFechaCaixaAbrirPesquisa)
+//                .AddParam('nomeBanco', uniMainModule.nomebanco)
+//                .AddBody(jsonBody.ToString)
+//                .Timeout(12000)
+//                .Get;
+//        if RESP1.StatusCode = 200 then
+//          begin
+//            wJsonResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+//
+//            wIdWbFechamentoCaixa := (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('id');
+//
+//            compVALORINICIAL.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('valorInicial')
+//                                      ,0)
+//                                    );
+//
+//            //ENTRADAS DE CAIXA
+//            compFLTDINHEIRO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDinheiro')
+//                                      ,0)
+//                                    );
+//
+//            compFLTPRAZO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPrazo')
+//                                      ,0)
+//                                    );
+//
+//            compCARTAODEBITO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoDebito')
+//                                      ,0)
+//                                    );
+//
+//            compCARTAOCREDITO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltCartaoCredito')
+//                                      ,0)
+//                                    );
+//
+//            compCHEQUEAVISTA.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAvista')
+//                                      ,0)
+//                                    );
+//
+//            compCHEQUEAPRAZO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltChequeAprazo')
+//                                      ,0)
+//                                    );
+//
+//            compREFORCO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltReforcosDinheiro')
+//                                      ,0)
+//                                    );
+//
+//            compPIX.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltPix')
+//                                      ,0)
+//                                    );
+//
+//            compOUTROS.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltOutros')
+//                                      ,0)
+//                                    );
+//            //SAÍDAS
+//            compSANGRIASDINHEIRO.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasDinheiro')
+//                                      ,0)
+//                                    );
+//
+//            compSANGRIASCHEQUE.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltSangriasCheque')
+//                                      ,0)
+//                                    );
+//
+//            compDESCONTOS.Text := FormatFloat('0.00',
+//                                      strtofloatDef(
+//                                        (wJsonResult.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('fltDescontos')
+//                                      ,0)
+//                                    );
+//
+//            compDEVOLUCOES.Text := '0.00';
+//          end
+//        else
+//          begin
+//            alerta.Error(wJsonResult.ToString);
+//          end;
+//      except on e:exception do
+//        begin
+//          alerta.Error('Erro: '+e.Message);
+//        end;
+//      end;
+//    finally
+//      jsonBody.Free;
+//    end;
+//  except on e:exception do
+//    begin
+//      alerta.Error('Erro: '+e.Message);
+//    end;
+//  end;
+end;
+
+procedure TfraFecharCaixa.CDSTelabotaoEditarGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  if DisplayText then
+    text := colocaBotaoNoGrid('Fechar caixa', 'editar', 'dc3545');
+end;
+
+procedure TfraFecharCaixa.gridTelaCellClick(Column: TUniDBGridColumn);
+begin
+  if CDSTela.FieldByName('status').AsString.Trim.ToUpper = 'ABERTO' then
+  begin
+    compTOTALDECLARADO.Enabled := true;
+  end
+  else
+  begin
+    compTOTALDECLARADO.Enabled := false;
+  end;
+//  if column.Field = CDSTelabotaoEditar then
+//  begin
+//    pgcTela.ActivePageIndex := 1;
+//    carregaDados;
+//  end;
+end;
+
+procedure TfraFecharCaixa.gridTelaDrawColumnCell(Sender: TObject; ACol,
+  ARow: Integer; Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+begin
+  SetGridColor(Sender, Attribs);
 end;
 
 end.

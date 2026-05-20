@@ -203,23 +203,8 @@ uses
 
 procedure TfrmPDV.callBackUtilidades(Sender: TComponent;
   AResult: Integer);
-//var
-//i: Integer;
-//FS: TFormatSettings;
 begin
-alerta.Warning('Rotina em desenvolvimento.');
-//  if frmListaGlobal.ModalResult = mrOk then
-//  begin
-//    FS := TFormatSettings.Create;
-//    FS.DecimalSeparator := '.';
-//    compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
-//    compDESCR.caption     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
-//    alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
-//    compMOV.Text := '1';
-//    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
-//    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
-//    timerFocoItem.Enabled := true;
-//  end;
+//alerta.Warning('Rotina em desenvolvimento.');
 end;
 
 procedure TfrmPDV.retornar;
@@ -1245,7 +1230,6 @@ begin
         if StrToFloatDef(compMov.Text,0) = 0 then
           compMOV.Text := '1';
         compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-//        compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
         compTOTAL.Text := FormatFloat('0.00',
                                StrToFloatDef(compMOV.Text,0) *
                                StrToFloatDef(compVALORU.Text,0)

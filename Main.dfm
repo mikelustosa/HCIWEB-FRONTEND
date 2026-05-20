@@ -2782,6 +2782,13 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Estoque'
         OnClick = Estoque1Click
       end
+      object Contas1: TUniMenuItem
+        Caption = 'Contas'
+        object Contas2: TUniMenuItem
+          Caption = 'Contas'
+          OnClick = Contas2Click
+        end
+      end
     end
     object configuracoesPrivado: TUniMenuItem
       Caption = 'Mala direta'

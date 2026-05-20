@@ -1240,7 +1240,8 @@ begin
       // NÚMERO DA PARCELA
       jsonObject.AddPair('parcela', IntToStr(y));
 
-      jsonObject.AddPair('tipoPagamento', inttostr(strtointdef(copy(frmSelecionaPagamentoF.compTIPOPAGAMENTO.Text,1,2),0)));
+      jsonObject.AddPair('tipoPagamento', copy(compPagto.Text,1,2));
+//      jsonObject.AddPair('tipoPagamento', inttostr(strtointdef(copy(frmSelecionaPagamentoF.compTIPOPAGAMENTO.Text,1,2),0)));
 
       jsonArray.AddElement(jsonObject);
     end;

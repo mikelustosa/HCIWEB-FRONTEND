@@ -33,7 +33,7 @@ object fraCadClientes: TfraCadClientes
       Width = 1429
       Height = 783
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -413,8 +413,8 @@ object fraCadClientes: TfraCadClientes
               TabOrder = 0
               Caption = ''
               object sBox1: TUniScrollBox
-                Left = 3
-                Top = -285
+                Left = 84
+                Top = 18
                 Width = 1411
                 Height = 929
                 Hint = ''

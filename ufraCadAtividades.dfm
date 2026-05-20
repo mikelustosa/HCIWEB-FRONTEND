@@ -38,14 +38,9 @@ object fraCadAtividades: TfraCadAtividades
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
-      ExplicitTop = 2
       object UniTabSheet1: TUniTabSheet
         Hint = ''
         Caption = 'Listagem'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object gridTela: TUniDBGrid
           Left = 0
           Top = 71
@@ -109,8 +104,6 @@ object fraCadAtividades: TfraCadAtividades
           Align = alTop
           TabOrder = 1
           LayoutConfig.Cls = 'painel-sem-borda'
-          ExplicitLeft = 2
-          ExplicitTop = 11
           object UniContainerPanel22: TUniContainerPanel
             AlignWithMargins = True
             Left = 0
@@ -284,10 +277,6 @@ object fraCadAtividades: TfraCadAtividades
         Hint = ''
         TabVisible = False
         Caption = 'tabRegistro'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object UniContainerPanel12: TUniContainerPanel
           AlignWithMargins = True
           Left = 8
@@ -338,6 +327,8 @@ object fraCadAtividades: TfraCadAtividades
             Hint = ''
             Color = 16249327
             TabOrder = 1
+            ScrollHeight = 79
+            ScrollWidth = 527
             object UniPanel2: TUniPanel
               Left = 10
               Top = 9

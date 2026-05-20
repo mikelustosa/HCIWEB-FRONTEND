@@ -515,6 +515,8 @@ type
     UniContainerPanel113: TUniContainerPanel;
     UniLabel85: TUniLabel;
     UniSFBitBtn14: TUniSFBitBtn;
+    UniContainerPanel55: TUniContainerPanel;
+    UniSFBitBtn29: TUniSFBitBtn;
     procedure UniFrameReady(Sender: TObject);
     procedure UniFrameCreate(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -545,6 +547,7 @@ type
     procedure UniSFBitBtn23Click(Sender: TObject);
     procedure UniSFBitBtn24Click(Sender: TObject);
     procedure UniSFBitBtn25Click(Sender: TObject);
+    procedure UniSFBitBtn29Click(Sender: TObject);
   private
     { Private declarations }
     alterando :boolean;
@@ -600,7 +603,8 @@ implementation
 {$R *.dfm}
 
 uses uConstantes, uUtils, RESTRequest4D.Response.Intf, System.JSON,
-  RESTRequest4D.Request, MainModule, ufrmListaGlobal;
+  RESTRequest4D.Request, MainModule, ufrmListaGlobal,
+  ufrmCadProdutosSimplificado;
 
 procedure TfraCadProdutos.callBackClassificacoes(Sender: TComponent;
   AResult: Integer);
@@ -1186,6 +1190,13 @@ begin
   frmListaGlobal.wTabelaDePesquisa := 'CLASSIFICACOES';
   frmListaGlobal.lblDescricao.Caption := 'CLASSIFICAÇÕES';
   frmListaGlobal.showModal(callBackClassificacoes);
+end;
+
+procedure TfraCadProdutos.UniSFBitBtn29Click(Sender: TObject);
+begin
+//  frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
+//  frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
+  frmCadProdutosSimplificado.showModal();
 end;
 
 procedure TfraCadProdutos.UniSFBitBtn2Click(Sender: TObject);

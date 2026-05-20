@@ -128,10 +128,68 @@ function caixaFechado(out wOut:string; weCodUsuario:string):boolean;
 function verificaCaixa(weNomeUsuario:string):string;
 function StrZero(Num: real; Zeros, Deci: integer): string;
 function DateToJSON(ADate: TDateTime): string;
+procedure populaCombo(weCombo:tUniSfComboBox;weNomeUsuarioDefault:string);
 
 implementation
 
 uses uConstantes;
+
+
+procedure populaCombo(weCombo:tUniSfComboBox;weNomeUsuarioDefault:string);
+var
+  resp1       :IResponse;
+  jsonResponse: TJSONObject;
+  arResult : TJSONArray;
+  i : integer;
+begin
+  jsonResponse := nil;
+  arResult := nil;
+  try
+    resp1 := TRequest
+            .New
+            .BaseURL(baseurlCadastros)
+            .Resource(getUsuario)
+            .AddParam('nomeBanco', UniMainModule.nomeBanco)
+            .AddParam('usuario', '')
+            .AddParam('ativo', '')
+            .Timeout(12000)
+            .Get;
+
+    if not Assigned(resp1) then
+      exit;
+
+    if resp1.StatusCode <> 200 then
+      exit;
+
+    jsonResponse  :=  TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+    if not Assigned(jsonResponse) then
+      exit;
+
+    arResult := jsonResponse.GetValue<TJSONArray>('Result');
+
+    if not Assigned(arResult) then
+      exit;
+
+    weCombo.Items.BeginUpdate;
+    try
+      weCombo.Items.Clear;
+      for I := 0 to arResult.Count -1 do
+        begin
+          weCombo.Items.AddObject(
+            arResult.Items[i].GetValue<string>('usuario'),
+            TObject(NativeInt(strtointdef(arResult.Items[i].GetValue<string>('id'),0)))
+          );
+        end;
+    finally
+      weCombo.Items.EndUpdate;
+    end;
+    weCombo.LoadData;
+    weCombo.SetPositionFromValue(weNomeUsuarioDefault);
+  finally
+    FreeAndNil(jsonResponse);
+  end;
+end;
 
 function DateToJSON(ADate: TDateTime): string;
 begin
@@ -522,95 +580,7 @@ begin
     end;
 end;
 
-//procedure populaCombo(weCombo:tUniSfComboBox;weTabela:string);
-//var
-//  i:integer;
-//  resp1         :IResponse;
-//  wBody         :TJSONObject;
-//  jsonResponse  :TJSONObject;
-//  jContentDados,wRecurso,wBaseUrl      :string;
-//begin
-//  try
-//    i  :=1;
-//    wBody  :=TJSONObject.Create;
-//    wBody.AddPair('idEmpresaVinculada',UniMainModule.idEmpresaVinculada);
-//    wBody.AddPair('nomeBanco',UniMainModule.nomeBanco);
-//    wBody.AddPair('codFuncionario',UniMainModule.gCodFuncionario);
-//    //convênio
-//    if weTabela.Trim.ToUpper = 'CONVENIO' then
-//      begin
-//        wBody.AddPair('codConvenio','');
-//        wBody.AddPair('convenio','');
-//        wBody.AddPair('descriTabela','');
-//        wBaseUrl  :=  baseurlhorse;
-//        wRecurso  :=  getConvenioAll;
-//      end
-//    //médicos
-//    else if weTabela.Trim.ToUpper = 'MEDICOS' then
-//      begin
-//        wBody.AddPair('codMedico','');
-//        wBody.AddPair('nome','');
-//        wBody.AddPair('ativo','');
-//        wBaseUrl  :=  baseurlhorse;
-//        wRecurso  :=  getMedicosEEMpresasAll;
-//      end
-//    //empresa executante (exame)
-//    else if weTabela.Trim.ToUpper = 'SOLICITANTE' then
-//      begin
-//        wBody.AddPair('codCliente','');
-//        wBody.AddPair('nome','');
-//        wBody.AddPair('cnpj','');
-//        wBaseUrl  :=  baseurlhorse;
-//        wRecurso  :=  getEmpresasFiliaisApoiadosSELECT;
-//      end
-//    //solicitante (exame)
-//    else if weTabela.Trim.ToUpper = 'FILIALAPOIADO' then
-//      begin
-//        wBody.AddPair('cod_ClienteDestino','');
-//        wBody.AddPair('nome','');
-//        wBody.AddPair('cnpj','');
-//        wBaseUrl  :=  baseurlhorse;
-//        wRecurso  :=  getSolicitELabsSELECT;
-//      end
-//    else
-//      exit;
-//    resp1 := TRequest.New.BaseURL(wBaseUrl)
-//          .Resource(wRecurso)
-//          .AddBody(wBody)
-//          .Timeout(12000)
-//          .post;
-//    jsonResponse  :=  TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-//    if resp1.StatusCode = 200 then
-//      begin
-//        weCombo.items.clear;
-//        jContentDados  := jsonResponse.GetValue('Result').ToString;
-//        jsonToDataSet(uniMainModule.cdsTmp2, jContentDados);
-//        weCombo.Items.Clear;
-//        while not UniMainModule.cdsTmp2.Eof do
-//          begin
-//            //convênio
-//            if weTabela.Trim.ToUpper = 'CONVENIO' then
-//              weCombo.Items.AddObject(UniMainModule.cdsTmp2.FieldByName('convenio').value, TObject(strToInt(UniMainModule.cdsTmp2.FieldByName('codConvenio').value)))
-////              weCombo.Items.Add(UniMainModule.cdsTmp2.FieldByName('convenio').AsString)
-//            //médicos
-//            else if weTabela.Trim.ToUpper = 'MEDICOS' then
-//              weCombo.Items.Add(UniMainModule.cdsTmp2.FieldByName('nome').AsString)
-//            //empresa executante (exame)
-//            else if weTabela.Trim.ToUpper = 'SOLICITANTE' then
-//              weCombo.Items.Add(UniMainModule.cdsTmp2.FieldByName('nome').AsString)
-//            //solicitante
-//            else if weTabela.Trim.ToUpper = 'FILIALAPOIADO' then
-//              weCombo.Items.Add(UniMainModule.cdsTmp2.FieldByName('nome').AsString);
-//
-//            UniMainModule.cdsTmp2.Next;
-//            inc(i);
-//          end;
-//        weCombo.LoadData;
-//      end;
-//  finally
-//      wBody.free;
-//  end;
-//end;
+
 
 procedure ocultarMenuGrid(pGrid: TUniDBGrid);
 var
@@ -630,6 +600,7 @@ begin
     Attribs.Color := clWhite
   else
     Attribs.Color := $00F7F1EF; // leve azul
+
 end;
 
 function checkBoxParaString(CheckBox: TUniCheckBox): string;

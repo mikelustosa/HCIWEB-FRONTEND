@@ -1,10 +1,11 @@
 object frmPDVUtilidades: TfrmPDVUtilidades
   Left = 0
   Top = 0
-  ClientHeight = 717
-  ClientWidth = 1137
+  ClientHeight = 756
+  ClientWidth = 1153
   Caption = 'Utilidades'
   OnShow = UniFormShow
+  BorderStyle = bsNone
   OldCreateOrder = False
   OnClose = UniFormClose
   MonitoredKeys.Keys = <>
@@ -13,41 +14,51 @@ object frmPDVUtilidades: TfrmPDVUtilidades
   object UniScrollBox1: TUniScrollBox
     Left = 0
     Top = 0
-    Width = 1137
-    Height = 677
+    Width = 1153
+    Height = 716
     Hint = ''
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 1137
+    ExplicitHeight = 677
     object PgcPrincipal: TUniPageControl
       Left = 0
       Top = 0
-      Width = 1135
-      Height = 675
+      Width = 1151
+      Height = 714
       Hint = ''
       ActivePage = TsPrincipal
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
+      ExplicitWidth = 1135
+      ExplicitHeight = 675
       object TsPrincipal: TUniTabSheet
         Hint = ''
         Caption = 'TsPrincipal'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
         object UniPanel1: TUniPanel
           Left = 0
           Top = 0
-          Width = 1127
-          Height = 647
+          Width = 1143
+          Height = 686
           Hint = ''
           Align = alClient
           TabOrder = 0
           Caption = ''
+          ExplicitWidth = 1127
+          ExplicitHeight = 647
           object UniScrollBox2: TUniScrollBox
             Left = 1
             Top = 1
-            Width = 1125
-            Height = 645
+            Width = 1141
+            Height = 684
             Hint = ''
             Align = alClient
             TabOrder = 1
+            ExplicitWidth = 1125
+            ExplicitHeight = 645
             ScrollHeight = 301
             ScrollWidth = 1042
             object UniPanel19: TUniPanel
@@ -457,38 +468,50 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       object TsClientes: TUniTabSheet
         Hint = ''
         Caption = 'TsClientes'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
       end
       object TsEmpresas: TUniTabSheet
         Hint = ''
         Caption = 'TsEmpresas'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
       end
       object TsProdutos: TUniTabSheet
         Hint = ''
         Caption = 'TsProdutos'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
       end
       object TsVendedores: TUniTabSheet
         Hint = ''
         Caption = 'TsVendedores'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
       end
       object TsFecharCaixa: TUniTabSheet
         Hint = ''
         Caption = 'TsFecharCaixa'
+        ExplicitWidth = 1127
+        ExplicitHeight = 647
       end
     end
   end
   object cpMenuRodape: TUniContainerPanel
     Left = 0
-    Top = 677
-    Width = 1137
+    Top = 716
+    Width = 1153
     Height = 40
     Hint = ''
     ParentColor = False
     Align = alBottom
     TabOrder = 1
     LayoutConfig.Cls = 'body_grdnt_rounded'
+    ExplicitTop = 677
+    ExplicitWidth = 1137
     object btnSalvar: TUniSFBitBtn
       AlignWithMargins = True
-      Left = 1012
+      Left = 1028
       Top = 5
       Width = 120
       Height = 30
@@ -509,10 +532,11 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
+      ExplicitLeft = 1012
     end
     object btnCancelar: TUniSFBitBtn
       AlignWithMargins = True
-      Left = 882
+      Left = 898
       Top = 5
       Width = 120
       Height = 30
@@ -533,6 +557,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
+      ExplicitLeft = 882
     end
   end
   object alerta: TUniSFSweetAlert

@@ -112,7 +112,7 @@ object fraCadProdutos: TfraCadProdutos
       Width = 1389
       Height = 702
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -123,7 +123,7 @@ object fraCadProdutos: TfraCadProdutos
           Left = 0
           Top = 71
           Width = 1381
-          Height = 603
+          Height = 563
           Hint = ''
           DataSource = DSTela
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgConfirmDelete, dgAutoRefreshRow]
@@ -354,6 +354,41 @@ object fraCadProdutos: TfraCadProdutos
             end
           end
         end
+        object UniContainerPanel55: TUniContainerPanel
+          Left = 0
+          Top = 634
+          Width = 1381
+          Height = 40
+          Hint = ''
+          ParentColor = False
+          Align = alBottom
+          TabOrder = 2
+          LayoutConfig.Cls = 'body_grdnt_rounded'
+          object UniSFBitBtn29: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 5
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'PRODUTO'
+            Align = alLeft
+            TabOrder = 1
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = UniSFBitBtn29Click
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+        end
       end
       object tabNovo: TUniTabSheet
         Hint = ''
@@ -544,7 +579,7 @@ object fraCadProdutos: TfraCadProdutos
           Width = 1381
           Height = 602
           Hint = ''
-          ActivePage = tab0
+          ActivePage = tab1
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet
@@ -560,8 +595,8 @@ object fraCadProdutos: TfraCadProdutos
               TabOrder = 0
               Caption = ''
               object sBox1: TUniScrollBox
-                Left = 27
-                Top = -346
+                Left = 3
+                Top = -174
                 Width = 1371
                 Height = 969
                 Hint = ''

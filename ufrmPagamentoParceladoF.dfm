@@ -90,8 +90,8 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
       TabOrder = 0
       Caption = ''
       object UniScrollBox2: TUniScrollBox
-        Left = 22
-        Top = -935
+        Left = 12
+        Top = -927
         Width = 1668
         Height = 1608
         Hint = ''
@@ -157,15 +157,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = '1 - Dinheiro '
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -788,15 +790,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = '1 - Dinheiro '
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -1419,15 +1423,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = '1 - Dinheiro '
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -2050,15 +2056,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -2681,15 +2689,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -3312,15 +3322,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -3943,15 +3955,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -4574,15 +4588,17 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
                 '99 - Outros')
               Groups = <>
               Options.Placeholders = 'Selecione'
@@ -5205,16 +5221,19 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
-                '99 - Outros')
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
+                '99 - Outros'
+                '')
               Groups = <>
               Options.Placeholders = 'Selecione'
               Options.noResults = 'No Results Found'
@@ -5836,16 +5855,19 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
-                '99 - Outros')
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
+                '99 - Outros'
+                '')
               Groups = <>
               Options.Placeholders = 'Selecione'
               Options.noResults = 'No Results Found'
@@ -6467,16 +6489,19 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
-                '99 - Outros')
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
+                '99 - Outros'
+                '')
               Groups = <>
               Options.Placeholders = 'Selecione'
               Options.noResults = 'No Results Found'
@@ -7098,16 +7123,19 @@ object frmPagamentoParceladoF: TfrmPagamentoParceladoF
               Text = ''
               TabOrder = 2
               Items.Strings = (
-                '1 - Dinheiro '
-                '2 - Cheque '
-                '3 - Cart'#227'o de Cr'#233'dito '
-                '4 - Cart'#227'o de D'#233'bito '
-                '5 - Cr'#233'dito Loja '
+                '01 - Dinheiro '
+                '02 - Cheque '
+                '03 - Cart'#227'o de Cr'#233'dito '
+                '04 - Cart'#227'o de D'#233'bito '
+                '05 - Cr'#233'dito Loja '
                 '10 - Vale Alimenta'#231#227'o '
                 '11 - Vale Refei'#231#227'o '
                 '12 - Vale Presente '
-                '13 - Vale Combust'#237'vel '
-                '99 - Outros')
+                '13 - Vale Combust'#237'vel'
+                '97 - Cheque'
+                '98 - Cheque Pr'#233' datado '
+                '99 - Outros'
+                '')
               Groups = <>
               Options.Placeholders = 'Selecione'
               Options.noResults = 'No Results Found'

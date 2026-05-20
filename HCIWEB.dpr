@@ -52,7 +52,9 @@ uses
   ufrmAbrirCaixa in 'ufrmAbrirCaixa.pas' {frmAbrirCaixa: TUniForm},
   ufrmConfirmacaoVenda in 'ufrmConfirmacaoVenda.pas' {frmConfirmacaoVenda: TUniForm},
   ufrmPDVUtilidades in 'ufrmPDVUtilidades.pas' {frmPDVUtilidades: TUniForm},
-  ufraFecharCaixa in 'ufraFecharCaixa.pas' {fraFecharCaixa: TUniFrame};
+  ufraFecharCaixa in 'ufraFecharCaixa.pas' {fraFecharCaixa: TUniFrame},
+  ufrmCadProdutosSimplificado in 'ufrmCadProdutosSimplificado.pas' {frmCadProdutosSimplificado: TUniForm},
+  ufraOperacaoContas in 'ufraOperacaoContas.pas' {fraOperacaoContas: TUniFrame};
 
 {$R *.res}
 

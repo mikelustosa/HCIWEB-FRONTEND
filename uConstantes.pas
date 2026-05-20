@@ -110,6 +110,7 @@ uses
     const getProduto = 'getProduto';
     const putProduto = 'putProduto';
     const postProduto = 'postProduto';
+    const getProdutoSimplificado = 'getProdutoSimplificado';
 
     const getGrade1 = 'getGrade1';
     const putGrade1 = 'putGrade1';
@@ -137,9 +138,12 @@ uses
 
     const getVerificaCaixaFechado = 'getVerificaCaixaFechado';
     const getVerificaCaixa = 'getVerificaCaixa';
-
     const postAbrirCaixa = 'postAbrirCaixa';
     const getFechaCaixaAbrirPesquisa = 'getFechaCaixaAbrirPesquisa';
+    const postFecharCaixa = 'postFecharCaixa';
+
+    const getMovContas = 'getMovContas';
+    const getConta = 'getConta';
 
   {$endregion 'Resources Cadastros e Login'}
 

@@ -34,7 +34,7 @@ object fraCadEmpresas: TfraCadEmpresas
       Width = 1220
       Height = 723
       Hint = ''
-      ActivePage = UniTabSheet1
+      ActivePage = tabNovo
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
