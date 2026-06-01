@@ -153,7 +153,7 @@ uses
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
   ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque,
-  ufrmAbrirCaixa, ufraOperacaoContas;
+  ufrmAbrirCaixa, ufraOperacaoContas, uConstantes;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -231,14 +231,16 @@ procedure TfrmPrincipal.Pontodevenda1Click(Sender: TObject);
 var
 wOut : string;
 begin
-//  NovaAba(TFrame(Tfrapdv),'PDV', true, -1, true);
-  UniMainModule.wCodUsuario := verificaCaixa(UniMainModule.wUsuario);
-  if UniMainModule.wCodUsuario.trim <> '' then
+  vvCaixa := verificaCaixa(UniMainModule.wUsuario);
+//  UniMainModule.wCodUsuario := verificaCaixa(UniMainModule.wUsuario);
+  if vvCaixa.trim <> '' then
+//  if UniMainModule.wCodUsuario.trim <> '' then
   begin
     //verifica se o caixa foi aberto
-    if caixaFechado(wout, UniMainModule.wCodUsuario) then
+    if caixaFechado(wout, vvCaixa) then
+//    if caixaFechado(wout, UniMainModule.wCodUsuario) then
     begin
-      alerta.Error('Caixa não está aberto. '+wOut);
+      alerta.Error('O Caixa está fechado. '+wOut);
     end
     else
     begin

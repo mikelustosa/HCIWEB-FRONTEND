@@ -316,6 +316,7 @@ begin
                       UniMainModule.wCodUsuario := wJUsuario.GetValue<TJSONArray>('Result')
                       .Items[0].GetValue<string>('id');
 
+                      JParGer := TJSONObject.ParseJSONValue((wJUsuario.GetValue('parGer') as TJSONArray).Items[0].ToString)  as TJSONObject;
                       modalResult := mrOK;
                     end
                   else

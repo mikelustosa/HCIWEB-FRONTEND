@@ -129,11 +129,29 @@ function verificaCaixa(weNomeUsuario:string):string;
 function StrZero(Num: real; Zeros, Deci: integer): string;
 function DateToJSON(ADate: TDateTime): string;
 procedure populaCombo(weCombo:tUniSfComboBox;weNomeUsuarioDefault:string);
+function FormatFloatHci(Valor: Double; CasasDecimais: Integer): string;
+
 
 implementation
 
 uses uConstantes;
 
+
+function FormatFloatHci(Valor: Double; CasasDecimais: Integer): string;
+begin
+  if CasasDecimais <= 0 then
+    Result := FormatFloat('0', Valor)
+  else
+    Result := FormatFloat(Format('0.%s', [StringOfChar('0', CasasDecimais)]), Valor);
+end;
+
+function ifs(Expressao: Boolean; Verdadeiro, Falso: string): string;
+begin
+  if Expressao then
+    Result := Verdadeiro
+  else
+    Result := Falso;
+end;
 
 procedure populaCombo(weCombo:tUniSfComboBox;weNomeUsuarioDefault:string);
 var
@@ -232,13 +250,13 @@ begin
   begin
     var wObResult : TJSONObject; wObResult := TJSONObject.Create;
     wObResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-    result := wObResult.GetValue('codUsuario').Value;
+    result := wObResult.GetValue('incr').Value;
   end;
 end;
 
 function caixaFechado(out wOut:string; weCodUsuario:string):boolean;
 var
-  LJsonResponse: TJSONObject;
+//  LJsonResponse: TJSONObject;
   resp1: IResponse;
 begin
   result := false;
@@ -253,9 +271,11 @@ begin
   wOut := resp1.Content+ ' statusCode:'+inttostr(resp1.StatusCode);
   if resp1.StatusCode = 200 then
   begin
-    result := true;
+//    result := true;
     var wObResult : TJSONObject; wObResult := TJSONObject.Create;
     wObResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+    if wObResult.GetValue('Result').Value.ToUpper = 'FECHADO' then
+      result := true;
   end;
 end;
 

@@ -46,6 +46,7 @@ object fraOperacaoContas: TfraOperacaoContas
       TabOrder = 2
       Scale = bbsMedium
       IconAlign = iaTop
+      OnClick = btnNovoClick
       FAIcon.Icon = fa_plus_circle
       FAIcon.Size = fs_24
       FAIcon.Color = fc_primary
@@ -111,7 +112,7 @@ object fraOperacaoContas: TfraOperacaoContas
       Width = 1279
       Height = 721
       Hint = ''
-      ActivePage = tsDetalhe
+      ActivePage = tsListagem
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -138,6 +139,11 @@ object fraOperacaoContas: TfraOperacaoContas
           OnDblClick = gridTelaDblClick
           OnDrawColumnCell = gridTelaDrawColumnCell
           Columns = <
+            item
+              FieldName = 'botaoEditar'
+              Title.Caption = ' '
+              Width = 200
+            end
             item
               FieldName = 'Empresa'
               Title.Caption = 'Empresa'
@@ -269,11 +275,6 @@ object fraOperacaoContas: TfraOperacaoContas
               FieldName = 'NOMEF'
               Title.Caption = 'Nome Cliente Fantasia '
               Width = 300
-            end
-            item
-              FieldName = 'botaoEditar'
-              Title.Caption = ' '
-              Width = 200
             end>
         end
         object cpPesquisa: TUniContainerPanel
@@ -362,7 +363,7 @@ object fraOperacaoContas: TfraOperacaoContas
               object compVALORNUM1: TUniEdit
                 Left = 0
                 Top = 0
-                Width = 58
+                Width = 135
                 Height = 34
                 Hint = ''
                 CharCase = ecUpperCase
@@ -371,6 +372,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 Text = ''
                 ParentFont = False
                 Font.Height = -16
+                Align = alClient
                 TabOrder = 2
                 EmptyText = 'Digite aqui...'
                 ClientEvents.UniEvents.Strings = (
@@ -416,7 +418,7 @@ object fraOperacaoContas: TfraOperacaoContas
               object compVALORNUM2: TUniEdit
                 Left = 0
                 Top = 0
-                Width = 58
+                Width = 135
                 Height = 34
                 Hint = ''
                 CharCase = ecUpperCase
@@ -425,6 +427,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 Text = ''
                 ParentFont = False
                 Font.Height = -16
+                Align = alClient
                 TabOrder = 2
                 EmptyText = 'Digite aqui...'
                 ClientEvents.UniEvents.Strings = (
@@ -508,13 +511,13 @@ object fraOperacaoContas: TfraOperacaoContas
               object UniDateTimePicker1: TUniDateTimePicker
                 Left = 0
                 Top = 0
-                Width = 120
+                Width = 135
                 Height = 34
                 Hint = ''
                 DateTime = 46156.000000000000000000
                 DateFormat = 'dd/MM/yyyy'
                 TimeFormat = 'HH:mm:ss'
-                Align = alLeft
+                Align = alClient
                 TabOrder = 2
               end
             end
@@ -553,13 +556,13 @@ object fraOperacaoContas: TfraOperacaoContas
               object compDATA2: TUniDateTimePicker
                 Left = 0
                 Top = 0
-                Width = 120
+                Width = 135
                 Height = 34
                 Hint = ''
                 DateTime = 46156.000000000000000000
                 DateFormat = 'dd/MM/yyyy'
                 TimeFormat = 'HH:mm:ss'
-                Align = alLeft
+                Align = alClient
                 TabOrder = 2
               end
             end
@@ -702,7 +705,7 @@ object fraOperacaoContas: TfraOperacaoContas
               Align = alClient
               TabOrder = 2
               LayoutConfig.Cls = 'painel-sem-borda'
-              object UniSFBitBtn1: TUniSFBitBtn
+              object btnPesquisar: TUniSFBitBtn
                 Left = 0
                 Top = 0
                 Width = 172
@@ -716,7 +719,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botao'
-                OnClick = UniSFBitBtn1Click
+                OnClick = btnPesquisarClick
                 FAIcon.Icon = fa_search
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_white
@@ -808,7 +811,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
               end
-              object UniEdit4: TUniEdit
+              object compTEXTOPESQUISAR: TUniEdit
                 Left = 0
                 Top = 0
                 Width = 341
@@ -975,7 +978,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
               end
-              object UniSFComboBox1: TUniSFComboBox
+              object cbCampos: TUniSFComboBox
                 Left = 3
                 Top = 6
                 Width = 227
@@ -1212,34 +1215,9 @@ object fraOperacaoContas: TfraOperacaoContas
           Align = alBottom
           TabOrder = 0
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object btnSalvar: TUniSFBitBtn
+          object btnVoltar: TUniSFBitBtn
             AlignWithMargins = True
             Left = 1146
-            Top = 5
-            Width = 120
-            Height = 30
-            Hint = ''
-            Margins.Left = 5
-            Margins.Top = 5
-            Margins.Right = 5
-            Margins.Bottom = 5
-            Visible = False
-            ParentShowHint = False
-            Caption = 'SALVAR'
-            Align = alRight
-            TabOrder = 1
-            Scale = bbsSmall
-            LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = btnSalvarClick
-            FAIcon.Icon = fa_check_circle
-            FAIcon.Size = fs_16
-            FAIcon.Color = fc_white
-            FAIcon.Style = regular
-            ButtonStyles = bs_danger
-          end
-          object btCancelar: TUniSFBitBtn
-            AlignWithMargins = True
-            Left = 1016
             Top = 5
             Width = 120
             Height = 30
@@ -1251,10 +1229,106 @@ object fraOperacaoContas: TfraOperacaoContas
             ParentShowHint = False
             Caption = 'VOLTAR'
             Align = alRight
+            TabOrder = 1
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btnVoltarClick
+            FAIcon.Icon = fa_check_circle
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object btExcluir: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 886
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'EXCLUIR'
+            Align = alRight
             TabOrder = 2
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = btCancelarClick
+            OnClick = btExcluirClick
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object btIncluir: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 626
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'INCLUIR'
+            Align = alRight
+            TabOrder = 3
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btIncluirClick
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object btAlterar: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 756
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'ALTERAR'
+            Align = alRight
+            TabOrder = 4
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btAlterarClick
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object btGravar: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 1016
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'GRAVAR'
+            Align = alRight
+            TabOrder = 5
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btGravarClick
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -1301,11 +1375,11 @@ object fraOperacaoContas: TfraOperacaoContas
           Width = 1230
           Height = 630
           Hint = ''
-          ActivePage = tsObservacoes
+          ActivePage = tsDadosDaConta
           TabOrder = 2
           object tsDadosDaConta: TUniTabSheet
             Hint = ''
-            Caption = 'tabDadosDaConta'
+            Caption = 'Dados da conta'
             DesignSize = (
               1222
               602)
@@ -1352,17 +1426,17 @@ object fraOperacaoContas: TfraOperacaoContas
               TabOrder = 0
               Caption = ''
               object scrDetalhe: TUniScrollBox
-                Left = 30
-                Top = 91
-                Width = 1033
-                Height = 441
+                Left = 23
+                Top = 3
+                Width = 1050
+                Height = 505
                 Hint = ''
                 Color = 16249327
                 TabOrder = 1
                 ScrollHeight = 463
                 ScrollWidth = 1097
                 object UniPanel6: TUniPanel
-                  Left = 365
+                  Left = 339
                   Top = 3
                   Width = 157
                   Height = 70
@@ -1405,29 +1479,29 @@ object fraOperacaoContas: TfraOperacaoContas
                   object compDREF: TUniDateTimePicker
                     Left = 1
                     Top = 28
-                    Width = 141
+                    Width = 155
                     Height = 41
                     Hint = ''
                     DateTime = 46156.000000000000000000
                     DateFormat = 'dd/MM/yyyy'
                     TimeFormat = 'HH:mm:ss'
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
                 object UniPanel5: TUniPanel
-                  Left = 366
-                  Top = 82
+                  Left = 510
+                  Top = 86
                   Width = 500
                   Height = 37
                   Hint = 't1w500h0;'
-                  TabOrder = 5
+                  TabOrder = 6
                   Caption = ''
                   Color = 16249327
                   object UniEdit1: TUniEdit
                     Left = 1
                     Top = 1
-                    Width = 480
+                    Width = 498
                     Height = 35
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1436,23 +1510,23 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 1
                   end
                 end
                 object UniPanel7: TUniPanel
-                  Left = 529
-                  Top = 35
+                  Left = 674
+                  Top = 34
                   Width = 336
                   Height = 37
                   Hint = 't1w500h0;'
-                  TabOrder = 3
+                  TabOrder = 4
                   Caption = ''
                   Color = 16249327
                   object UniEdit2: TUniEdit
-                    Left = 88
+                    Left = 1
                     Top = 1
-                    Width = 247
+                    Width = 334
                     Height = 35
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1461,7 +1535,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
-                    Align = alRight
+                    Align = alClient
                     TabOrder = 1
                   end
                 end
@@ -1471,7 +1545,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 26
+                  TabOrder = 27
                   Caption = ''
                   Color = 16249327
                 end
@@ -1519,13 +1593,13 @@ object fraOperacaoContas: TfraOperacaoContas
                   object compDIADESPP: TUniDateTimePicker
                     Left = 1
                     Top = 28
-                    Width = 141
+                    Width = 155
                     Height = 41
                     Hint = ''
                     DateTime = 46156.000000000000000000
                     DateFormat = 'dd/MM/yyyy'
                     TimeFormat = 'HH:mm:ss'
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1573,13 +1647,13 @@ object fraOperacaoContas: TfraOperacaoContas
                   object compDIADESPR: TUniDateTimePicker
                     Left = 1
                     Top = 28
-                    Width = 141
+                    Width = 155
                     Height = 41
                     Hint = ''
                     DateTime = 46156.000000000000000000
                     DateFormat = 'dd/MM/yyyy'
                     TimeFormat = 'HH:mm:ss'
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1589,7 +1663,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 7
+                  TabOrder = 8
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel7: TUniContainerPanel
@@ -1625,9 +1699,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compVALORP: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 155
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1636,6 +1710,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1645,7 +1720,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 6
+                  TabOrder = 7
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel8: TUniContainerPanel
@@ -1681,9 +1756,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compVALORR: TUniEdit
-                    Left = 3
-                    Top = 27
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 155
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1692,6 +1767,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1701,7 +1777,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 8
+                  TabOrder = 9
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel9: TUniContainerPanel
@@ -1737,9 +1813,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compNUMDOC: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 155
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1748,6 +1824,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1757,7 +1834,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 9
+                  TabOrder = 10
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel10: TUniContainerPanel
@@ -1793,9 +1870,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compNUMDOC2: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 155
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1804,6 +1881,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1813,7 +1891,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 10
+                  TabOrder = 11
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel11: TUniContainerPanel
@@ -1849,9 +1927,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compAGENCIA: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 155
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1860,22 +1938,23 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
                 object UniPanel12: TUniPanel
                   Left = 852
                   Top = 129
-                  Width = 157
+                  Width = 158
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 11
+                  TabOrder = 12
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel13: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 155
+                    Width = 156
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -1905,9 +1984,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compREPASSE: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 90
+                    Left = 1
+                    Top = 28
+                    Width = 156
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1916,6 +1995,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -1925,23 +2005,23 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 12
+                  TabOrder = 13
                   Caption = ''
                   Color = 16249327
                 end
                 object UniPanel42: TUniPanel
                   Left = 171
                   Top = 213
-                  Width = 320
+                  Width = 325
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 14
+                  TabOrder = 15
                   Caption = ''
                   Color = 16249327
                   object compDESCRPR: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 304
+                    Width = 323
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1950,13 +2030,14 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 1
                     ReadOnly = True
                   end
                   object UniContainerPanel41: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 318
+                    Width = 323
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -1976,7 +2057,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 13
+                  TabOrder = 14
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODPR: TUniEdit
@@ -1985,7 +2066,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Width = 116
                     Height = 41
                     Hint = ''
-                    MaxLength = 4
+                    MaxLength = 50
                     BorderStyle = ubsNone
                     Text = ''
                     ParentFont = False
@@ -1993,11 +2074,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ClientEvents.UniEvents.Strings = (
-                      
-                        'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                        '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                        'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
                   end
                   object UniContainerPanel40: TUniContainerPanel
                     Left = 1
@@ -2049,6 +2125,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
+                    OnClick = UniSFBitBtn2Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2056,12 +2133,12 @@ object fraOperacaoContas: TfraOperacaoContas
                   end
                 end
                 object UniPanel14: TUniPanel
-                  Left = 513
+                  Left = 510
                   Top = 213
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 15
+                  TabOrder = 16
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODCC: TUniEdit
@@ -2070,7 +2147,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Width = 116
                     Height = 41
                     Hint = ''
-                    MaxLength = 4
+                    MaxLength = 50
                     BorderStyle = ubsNone
                     Text = ''
                     ParentFont = False
@@ -2078,11 +2155,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ClientEvents.UniEvents.Strings = (
-                      
-                        'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                        '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                        'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
                   end
                   object UniContainerPanel14: TUniContainerPanel
                     Left = 1
@@ -2134,6 +2206,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
+                    OnClick = UniSFBitBtn4Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2143,16 +2216,16 @@ object fraOperacaoContas: TfraOperacaoContas
                 object UniPanel15: TUniPanel
                   Left = 681
                   Top = 213
-                  Width = 248
+                  Width = 217
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 16
+                  TabOrder = 17
                   Caption = ''
                   Color = 16249327
                   object compDESCR: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 232
+                    Width = 144
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2167,7 +2240,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   object UniContainerPanel15: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 246
+                    Width = 215
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2179,22 +2252,21 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 318
                   end
                 end
                 object UniPanel16: TUniPanel
-                  Left = 682
+                  Left = 681
                   Top = 309
-                  Width = 320
+                  Width = 331
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 22
+                  TabOrder = 23
                   Caption = ''
                   Color = 16249327
                   object compNOMECLI: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 296
+                    Width = 329
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2203,13 +2275,14 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 1
                     ReadOnly = True
                   end
                   object UniContainerPanel16: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 318
+                    Width = 329
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2224,12 +2297,12 @@ object fraOperacaoContas: TfraOperacaoContas
                   end
                 end
                 object UniPanel17: TUniPanel
-                  Left = 514
+                  Left = 510
                   Top = 309
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 21
+                  TabOrder = 22
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODCLI: TUniEdit
@@ -2238,7 +2311,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Width = 116
                     Height = 41
                     Hint = ''
-                    MaxLength = 4
+                    MaxLength = 50
                     BorderStyle = ubsNone
                     Text = ''
                     ParentFont = False
@@ -2246,11 +2319,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ClientEvents.UniEvents.Strings = (
-                      
-                        'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                        '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                        'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
                   end
                   object UniContainerPanel17: TUniContainerPanel
                     Left = 1
@@ -2302,6 +2370,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
+                    OnClick = UniSFBitBtn5Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2309,18 +2378,18 @@ object fraOperacaoContas: TfraOperacaoContas
                   end
                 end
                 object UniPanel18: TUniPanel
-                  Left = 172
+                  Left = 171
                   Top = 309
-                  Width = 320
+                  Width = 325
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 20
+                  TabOrder = 21
                   Caption = ''
                   Color = 16249327
                   object compNOME: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 304
+                    Width = 323
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2329,13 +2398,14 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 1
                     ReadOnly = True
                   end
                   object UniContainerPanel18: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 318
+                    Width = 323
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2350,12 +2420,12 @@ object fraOperacaoContas: TfraOperacaoContas
                   end
                 end
                 object UniPanel19: TUniPanel
-                  Left = 4
+                  Left = 3
                   Top = 309
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 19
+                  TabOrder = 20
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODBAN: TUniEdit
@@ -2364,7 +2434,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Width = 116
                     Height = 41
                     Hint = ''
-                    MaxLength = 4
+                    MaxLength = 50
                     BorderStyle = ubsNone
                     Text = ''
                     ParentFont = False
@@ -2372,11 +2442,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     Align = alClient
                     TabOrder = 1
                     ReadOnly = True
-                    ClientEvents.UniEvents.Strings = (
-                      
-                        'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                        '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                        'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
                   end
                   object UniContainerPanel19: TUniContainerPanel
                     Left = 1
@@ -2428,6 +2493,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 3
                     Scale = bbsSmall
                     IconAlign = iaTop
+                    OnClick = UniSFBitBtn6Click
                     FAIcon.Icon = fa_search
                     FAIcon.Size = fs_16
                     FAIcon.Color = fc_grey
@@ -2440,7 +2506,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 18
+                  TabOrder = 19
                   Caption = ''
                   Color = 16249327
                 end
@@ -2450,23 +2516,23 @@ object fraOperacaoContas: TfraOperacaoContas
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 23
+                  TabOrder = 24
                   Caption = ''
                   Color = 16249327
                 end
                 object UniPanel23: TUniPanel
                   Left = 3
                   Top = 393
-                  Width = 491
+                  Width = 493
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 24
+                  TabOrder = 25
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel21: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 489
+                    Width = 491
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2496,9 +2562,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compDESCRMV: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 454
+                    Left = 1
+                    Top = 28
+                    Width = 491
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2507,22 +2573,23 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
                 object UniPanel22: TUniPanel
-                  Left = 520
+                  Left = 510
                   Top = 393
-                  Width = 491
+                  Width = 502
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 25
+                  TabOrder = 26
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel20: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 489
+                    Width = 500
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2552,9 +2619,9 @@ object fraOperacaoContas: TfraOperacaoContas
                     end
                   end
                   object compOBS: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 462
+                    Left = 1
+                    Top = 28
+                    Width = 500
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2563,38 +2630,94 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
                 object UniPanel24: TUniPanel
-                  Left = 939
+                  Left = 904
                   Top = 213
-                  Width = 72
+                  Width = 106
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 17
+                  TabOrder = 18
                   Caption = ''
                   Color = 16249327
-                  object compDEBCRED: TUniEdit
-                    Left = 1
-                    Top = 28
-                    Width = 48
-                    Height = 41
-                    Hint = ''
-                    CharCase = ecUpperCase
-                    MaxLength = 150
-                    BorderStyle = ubsNone
-                    Alignment = taCenter
-                    Text = ''
-                    ParentFont = False
-                    Font.Height = -16
-                    TabOrder = 1
-                    ReadOnly = True
-                  end
                   object UniContainerPanel29: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 70
+                    Width = 104
+                    Height = 27
+                    Hint = ''
+                    Margins.Left = 8
+                    Margins.Top = 5
+                    Margins.Right = 12
+                    Margins.Bottom = 5
+                    ParentColor = False
+                    Align = alTop
+                    TabOrder = 1
+                    TabStop = False
+                    LayoutConfig.Cls = 'body_grdnt_rounded'
+                  end
+                  object compDEBCRED: TUniSFComboBox
+                    Left = 3
+                    Top = 36
+                    Width = 94
+                    Hint = ''
+                    Text = ''
+                    TabOrder = 2
+                    Items.Strings = (
+                      'C'
+                      'D')
+                    Groups = <>
+                    Options.Placeholders = 'Select Some Options'
+                    Options.noResults = 'No Results Found'
+                  end
+                end
+                object UniPanel35: TUniPanel
+                  Left = 22
+                  Top = 77
+                  Width = 1075
+                  Height = 2
+                  Hint = 't2w2075h2;'
+                  TabOrder = 5
+                  Caption = ''
+                  Color = 16249327
+                end
+                object pnlID: TUniPanel
+                  Left = 502
+                  Top = 3
+                  Width = 166
+                  Height = 70
+                  Hint = 't1w100h0;'
+                  TabOrder = 3
+                  Caption = 'UniPanel4'
+                  Color = clWhite
+                  object compID: TUniEdit
+                    Left = 1
+                    Top = 28
+                    Width = 164
+                    Height = 41
+                    Hint = ''
+                    Enabled = False
+                    MaxLength = 4
+                    BorderStyle = ubsNone
+                    Text = ''
+                    ParentFont = False
+                    Font.Height = -16
+                    Align = alClient
+                    TabOrder = 1
+                    ReadOnly = True
+                    ClientEvents.UniEvents.Strings = (
+                      
+                        'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
+                        '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
+                        'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+                  end
+                  object UniContainerPanel37: TUniContainerPanel
+                    Left = 1
+                    Top = 1
+                    Width = 164
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2606,221 +2729,65 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 2
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 218
+                    object UniLabel23: TUniLabel
+                      AlignWithMargins = True
+                      Left = 10
+                      Top = 3
+                      Width = 12
+                      Height = 17
+                      Hint = ''
+                      Margins.Left = 10
+                      Caption = 'ID'
+                      Align = alTop
+                      ParentFont = False
+                      Font.Color = clBlack
+                      Font.Height = -13
+                      Font.Name = 'Segoe UI Light'
+                      TabOrder = 1
+                    end
                   end
                 end
-                object UniPanel35: TUniPanel
-                  Left = 22
-                  Top = 77
-                  Width = 1075
-                  Height = 2
-                  Hint = 't2w2075h2;'
-                  TabOrder = 4
-                  Caption = ''
-                  Color = 16249327
-                end
               end
-              object UniContainerPanel25: TUniContainerPanel
-                Left = 1
-                Top = 523
-                Width = 1085
-                Height = 40
+            end
+            object UniContainerPanel39: TUniContainerPanel
+              Left = 0
+              Top = 562
+              Width = 1222
+              Height = 40
+              Hint = ''
+              ParentColor = False
+              Align = alBottom
+              TabOrder = 2
+              LayoutConfig.Cls = 'body_grdnt_rounded'
+              object btnBaixar: TUniSFBitBtn
+                AlignWithMargins = True
+                Left = 1097
+                Top = 5
+                Width = 120
+                Height = 30
                 Hint = ''
-                ParentColor = False
-                Align = alBottom
-                TabOrder = 2
-                LayoutConfig.Cls = 'body_grdnt_rounded'
-                object btBaixar: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 960
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'BAIXAR'
-                  Align = alRight
-                  TabOrder = 1
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_check_circle
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btVoltar: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 830
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'VOLTAR'
-                  Align = alRight
-                  TabOrder = 2
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  OnClick = btVoltarClick
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btSaldoBancario: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 5
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'SALDO BANC'#193'RIO'
-                  Align = alLeft
-                  TabOrder = 3
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btRepeteValor: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 135
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'REPETE VALOR'
-                  Align = alLeft
-                  TabOrder = 4
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btMudaEmpresa: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 265
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'MUDA EMPRESA'
-                  Align = alLeft
-                  TabOrder = 5
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btCheque: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 395
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CHEQUE'
-                  Align = alLeft
-                  TabOrder = 6
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btRecibo: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 525
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'RECIBO'
-                  Align = alLeft
-                  TabOrder = 7
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object btConcilia: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 655
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CONCILIA'
-                  Align = alLeft
-                  TabOrder = 8
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
+                Margins.Left = 5
+                Margins.Top = 5
+                Margins.Right = 5
+                Margins.Bottom = 5
+                ParentShowHint = False
+                Caption = 'BAIXAR'
+                Align = alRight
+                TabOrder = 1
+                Scale = bbsSmall
+                LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = btBaixarClick
+                FAIcon.Icon = fa_check_circle
+                FAIcon.Size = fs_16
+                FAIcon.Color = fc_white
+                FAIcon.Style = regular
+                ButtonStyles = bs_danger
               end
             end
           end
           object tsObservacoes: TUniTabSheet
             Hint = ''
-            Caption = 'tsObservacoes'
+            Caption = 'Observa'#231#245'es'
             DesignSize = (
               1222
               602)
@@ -2900,219 +2867,23 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 1
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 70
                   end
-                  object UniMemo1: TUniMemo
-                    Left = 8
-                    Top = 40
-                    Width = 649
-                    Height = 327
+                  object compTEXTO: TUniMemo
+                    Left = 1
+                    Top = 28
+                    Width = 853
+                    Height = 355
                     Hint = ''
+                    Align = alClient
                     TabOrder = 2
                   end
-                end
-              end
-              object UniContainerPanel51: TUniContainerPanel
-                Left = 1
-                Top = 523
-                Width = 1085
-                Height = 40
-                Hint = ''
-                ParentColor = False
-                Align = alBottom
-                TabOrder = 2
-                LayoutConfig.Cls = 'body_grdnt_rounded'
-                object UniSFBitBtn11: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 960
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'BAIXAR'
-                  Align = alRight
-                  TabOrder = 1
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_check_circle
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn12: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 830
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'VOLTAR'
-                  Align = alRight
-                  TabOrder = 2
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  OnClick = btVoltarClick
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn13: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 5
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'SALDO BANC'#193'RIO'
-                  Align = alLeft
-                  TabOrder = 3
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn14: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 135
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'REPETE VALOR'
-                  Align = alLeft
-                  TabOrder = 4
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn15: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 265
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'MUDA EMPRESA'
-                  Align = alLeft
-                  TabOrder = 5
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn16: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 395
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CHEQUE'
-                  Align = alLeft
-                  TabOrder = 6
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn17: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 525
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'RECIBO'
-                  Align = alLeft
-                  TabOrder = 7
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn18: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 655
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CONCILIA'
-                  Align = alLeft
-                  TabOrder = 8
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
                 end
               end
             end
           end
           object tsRemessaBancaria: TUniTabSheet
             Hint = ''
-            Caption = 'tsRemessaBancaria'
+            Caption = 'Remessa banc'#225'ria'
             DesignSize = (
               1222
               602)
@@ -3207,19 +2978,18 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 78
                     end
                   end
                   object UniDateTimePicker2: TUniDateTimePicker
                     Left = 1
                     Top = 28
-                    Width = 141
+                    Width = 155
                     Height = 41
                     Hint = ''
                     DateTime = 46156.000000000000000000
                     DateFormat = 'dd/MM/yyyy'
                     TimeFormat = 'HH:mm:ss'
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -3240,7 +3010,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Height = 70
                   Hint = 't1w100h0;'
                   TabOrder = 0
-                  Caption = 'UniPanel4'
+                  Caption = ''
                   Color = clWhite
                   object UniContainerPanel31: TUniContainerPanel
                     Left = 1
@@ -3257,7 +3027,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 1
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 98
                     object UniLabel8: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -3273,13 +3042,12 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 36
                     end
                   end
                   object comppfj: TUniSFComboBox
                     Left = 3
                     Top = 36
-                    Width = 90
+                    Width = 110
                     Hint = ''
                     Text = ''
                     TabOrder = 2
@@ -3316,7 +3084,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 1
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 155
                     object UniLabel18: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -3332,13 +3099,12 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 65
                     end
                   end
                   object UniEdit3: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 406
+                    Left = 1
+                    Top = 28
+                    Width = 444
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -3347,6 +3113,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -3367,7 +3134,7 @@ object fraOperacaoContas: TfraOperacaoContas
                   Height = 70
                   Hint = 't1w100h0;'
                   TabOrder = 5
-                  Caption = 'UniPanel4'
+                  Caption = ''
                   Color = clWhite
                   object UniContainerPanel33: TUniContainerPanel
                     Left = 1
@@ -3399,13 +3166,12 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 86
                     end
                   end
                   object UniSFComboBox4: TUniSFComboBox
                     Left = 3
                     Top = 36
-                    Width = 90
+                    Width = 110
                     Hint = ''
                     Text = ''
                     TabOrder = 2
@@ -3462,13 +3228,13 @@ object fraOperacaoContas: TfraOperacaoContas
                   object UniDateTimePicker3: TUniDateTimePicker
                     Left = 1
                     Top = 28
-                    Width = 141
+                    Width = 155
                     Height = 41
                     Hint = ''
                     DateTime = 46156.000000000000000000
                     DateFormat = 'dd/MM/yyyy'
                     TimeFormat = 'HH:mm:ss'
-                    Align = alLeft
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -3506,7 +3272,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 1
                     TabStop = False
                     LayoutConfig.Cls = 'body_grdnt_rounded'
-                    ExplicitWidth = 444
                     object UniLabel21: TUniLabel
                       AlignWithMargins = True
                       Left = 10
@@ -3522,13 +3287,12 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 80
                     end
                   end
                   object UniEdit5: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 262
+                    Left = 1
+                    Top = 28
+                    Width = 292
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -3537,6 +3301,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
@@ -3579,13 +3344,12 @@ object fraOperacaoContas: TfraOperacaoContas
                       Font.Height = -13
                       Font.Name = 'Segoe UI Light'
                       TabOrder = 1
-                      ExplicitWidth = 43
                     end
                   end
                   object UniEdit6: TUniEdit
-                    Left = 11
-                    Top = 29
-                    Width = 262
+                    Left = 1
+                    Top = 28
+                    Width = 292
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -3594,207 +3358,162 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 2
                   end
                 end
               end
-              object UniContainerPanel30: TUniContainerPanel
-                Left = 1
-                Top = 523
-                Width = 1085
-                Height = 40
-                Hint = ''
-                ParentColor = False
-                Align = alBottom
-                TabOrder = 2
-                LayoutConfig.Cls = 'body_grdnt_rounded'
-                object UniSFBitBtn7: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 960
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'BAIXAR'
-                  Align = alRight
-                  TabOrder = 1
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_check_circle
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn8: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 830
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'VOLTAR'
-                  Align = alRight
-                  TabOrder = 2
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  OnClick = btVoltarClick
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn9: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 5
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'SALDO BANC'#193'RIO'
-                  Align = alLeft
-                  TabOrder = 3
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn10: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 135
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'REPETE VALOR'
-                  Align = alLeft
-                  TabOrder = 4
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn19: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 265
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'MUDA EMPRESA'
-                  Align = alLeft
-                  TabOrder = 5
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn20: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 395
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CHEQUE'
-                  Align = alLeft
-                  TabOrder = 6
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn21: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 525
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'RECIBO'
-                  Align = alLeft
-                  TabOrder = 7
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-                object UniSFBitBtn22: TUniSFBitBtn
-                  AlignWithMargins = True
-                  Left = 655
-                  Top = 5
-                  Width = 120
-                  Height = 30
-                  Hint = ''
-                  Margins.Left = 5
-                  Margins.Top = 5
-                  Margins.Right = 5
-                  Margins.Bottom = 5
-                  ParentShowHint = False
-                  Caption = 'CONCILIA'
-                  Align = alLeft
-                  TabOrder = 8
-                  Scale = bbsSmall
-                  LayoutConfig.Cls = 'botaoSemBorda'
-                  FAIcon.Icon = fa_arrow_alt_circle_left
-                  FAIcon.Size = fs_16
-                  FAIcon.Color = fc_white
-                  FAIcon.Style = regular
-                  ButtonStyles = bs_danger
-                end
-              end
             end
+          end
+        end
+        object UniContainerPanel38: TUniContainerPanel
+          Left = 0
+          Top = 613
+          Width = 1271
+          Height = 40
+          Hint = ''
+          ParentColor = False
+          Align = alBottom
+          TabOrder = 3
+          LayoutConfig.Cls = 'body_grdnt_rounded'
+          object UniSFBitBtn25: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 5
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'SALDO BANC'#193'RIO'
+            Align = alLeft
+            TabOrder = 1
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object UniSFBitBtn26: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 135
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'REPETE VALOR'
+            Align = alLeft
+            TabOrder = 2
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object UniSFBitBtn27: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 265
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'MUDA EMPRESA'
+            Align = alLeft
+            TabOrder = 3
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object UniSFBitBtn28: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 395
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'CHEQUE'
+            Align = alLeft
+            TabOrder = 4
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object btnRecibo: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 525
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'RECIBO'
+            Align = alLeft
+            TabOrder = 5
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            OnClick = btnReciboClick
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
+          end
+          object UniSFBitBtn30: TUniSFBitBtn
+            AlignWithMargins = True
+            Left = 655
+            Top = 5
+            Width = 120
+            Height = 30
+            Hint = ''
+            Margins.Left = 5
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ParentShowHint = False
+            Caption = 'CONCILIA'
+            Align = alLeft
+            TabOrder = 6
+            Scale = bbsSmall
+            LayoutConfig.Cls = 'botaoSemBorda'
+            FAIcon.Icon = fa_arrow_alt_circle_left
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_white
+            FAIcon.Style = regular
+            ButtonStyles = bs_danger
           end
         end
       end
@@ -3837,8 +3556,8 @@ object fraOperacaoContas: TfraOperacaoContas
   object CDSDados: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 983
-    Top = 334
+    Left = 991
+    Top = 294
     object AggregateField1: TAggregateField
       FieldName = 'botaoEditar'
       DisplayName = ''
@@ -3980,5 +3699,11 @@ object fraOperacaoContas: TfraOperacaoContas
     DataSet = CDSTela
     Left = 1071
     Top = 334
+  end
+  object UniSFBadge1: TUniSFBadge
+    BackGroundColor = clRed
+    FontColor = clWhite
+    Left = 1194
+    Top = 155
   end
 end

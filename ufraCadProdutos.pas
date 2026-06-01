@@ -808,6 +808,29 @@ begin
     JsonToDataset(CDSDados, jsonResp.GetValue('Result').ToString);
 
     PreencherCamposDoForm(Self, ativo, nil, CDSDados, 'ALTERA REGISTRO');
+
+    compPRECO1.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco1'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPRECO2.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco2'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPRECO3.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco3'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPRECO4.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco4'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPRECO5.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco5'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPRECO6.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('preco6'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compMEDIO.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('medio'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPESOPROD.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('pesoprod'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compPESOPRODBRUTO.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('pesoprodbruto'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compMAXIMO.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('maximo'),
+                       JParGer.GetValue<integer>('DECPRECO'));
+    compMINIMO.Text := FormatFloatHci((jsonResp.GetValue('Result') as TJSONArray).Items[0].GetValue<double>('minimo'),
+                       JParGer.GetValue<integer>('DECPRECO'));
     jsonResp.free;
   end;
 end;

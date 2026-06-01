@@ -112,7 +112,7 @@ object fraCadProdutos: TfraCadProdutos
       Width = 1389
       Height = 702
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -579,7 +579,7 @@ object fraCadProdutos: TfraCadProdutos
           Width = 1381
           Height = 602
           Hint = ''
-          ActivePage = tab1
+          ActivePage = tab0
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet
@@ -603,7 +603,7 @@ object fraCadProdutos: TfraCadProdutos
                 Color = 16249327
                 TabOrder = 1
                 ScrollHeight = 658
-                ScrollWidth = 1335
+                ScrollWidth = 1321
                 object UniPanel13: TUniPanel
                   Left = 11
                   Top = 105
@@ -949,13 +949,13 @@ object fraCadProdutos: TfraCadProdutos
                   end
                 end
                 object UniPanel3: TUniPanel
-                  Left = 872
+                  Left = 607
                   Top = 286
                   Width = 250
                   Height = 70
                   Hint = 't1w200h0;'
                   TabOrder = 23
-                  Caption = 'UniPanel4'
+                  Caption = ''
                   Color = 16249327
                   object compCOMPLEMENTAR: TUniEdit
                     Left = 1
@@ -1122,9 +1122,9 @@ object fraCadProdutos: TfraCadProdutos
                   end
                 end
                 object UniPanel12: TUniPanel
-                  Left = 406
+                  Left = 283
                   Top = 286
-                  Width = 165
+                  Width = 116
                   Height = 70
                   Hint = 't1w200h0;'
                   TabOrder = 21
@@ -1133,7 +1133,7 @@ object fraCadProdutos: TfraCadProdutos
                   object compGRADE2: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 123
+                    Width = 74
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1149,7 +1149,7 @@ object fraCadProdutos: TfraCadProdutos
                   object UniContainerPanel14: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 163
+                    Width = 114
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -1180,7 +1180,7 @@ object fraCadProdutos: TfraCadProdutos
                   end
                   object UniSFBitBtn9: TUniSFBitBtn
                     AlignWithMargins = True
-                    Left = 129
+                    Left = 80
                     Top = 34
                     Width = 30
                     Height = 29
@@ -1265,9 +1265,9 @@ object fraCadProdutos: TfraCadProdutos
                   end
                 end
                 object UniPanel15: TUniPanel
-                  Left = 1132
+                  Left = 871
                   Top = 286
-                  Width = 203
+                  Width = 180
                   Height = 70
                   Hint = 't1w200h0;'
                   TabOrder = 24
@@ -1276,7 +1276,7 @@ object fraCadProdutos: TfraCadProdutos
                   object UniContainerPanel16: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 201
+                    Width = 178
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -1809,7 +1809,7 @@ object fraCadProdutos: TfraCadProdutos
                 object UniPanel72: TUniPanel
                   Left = 17
                   Top = 287
-                  Width = 180
+                  Width = 116
                   Height = 70
                   Hint = 't1w200h0;'
                   TabOrder = 19
@@ -1818,7 +1818,7 @@ object fraCadProdutos: TfraCadProdutos
                   object compGRADE1: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 138
+                    Width = 74
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -1834,7 +1834,7 @@ object fraCadProdutos: TfraCadProdutos
                   object UniContainerPanel64: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 178
+                    Width = 114
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -1865,7 +1865,7 @@ object fraCadProdutos: TfraCadProdutos
                   end
                   object UniSFBitBtn12: TUniSFBitBtn
                     AlignWithMargins = True
-                    Left = 144
+                    Left = 80
                     Top = 34
                     Width = 30
                     Height = 29
@@ -2746,9 +2746,9 @@ object fraCadProdutos: TfraCadProdutos
                   Color = 16249327
                 end
                 object UniPanel77: TUniPanel
-                  Left = 211
+                  Left = 147
                   Top = 286
-                  Width = 181
+                  Width = 118
                   Height = 70
                   Hint = 't1w500h0;'
                   TabOrder = 20
@@ -2757,7 +2757,7 @@ object fraCadProdutos: TfraCadProdutos
                   object compDESCRGRADE1: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 179
+                    Width = 116
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2773,7 +2773,7 @@ object fraCadProdutos: TfraCadProdutos
                   object UniContainerPanel67: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 179
+                    Width = 116
                     Height = 27
                     Hint = ''
                     Margins.Left = 8
@@ -2788,9 +2788,9 @@ object fraCadProdutos: TfraCadProdutos
                   end
                 end
                 object UniPanel78: TUniPanel
-                  Left = 580
-                  Top = 286
-                  Width = 181
+                  Left = 413
+                  Top = 287
+                  Width = 180
                   Height = 70
                   Hint = 't1w500h0;'
                   TabOrder = 22
@@ -2799,7 +2799,7 @@ object fraCadProdutos: TfraCadProdutos
                   object compDESCRGRADE2: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 179
+                    Width = 178
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2815,7 +2815,7 @@ object fraCadProdutos: TfraCadProdutos
                   object UniContainerPanel68: TUniContainerPanel
                     Left = 1
                     Top = 1
-                    Width = 179
+                    Width = 178
                     Height = 27
                     Hint = ''
                     Margins.Left = 8

@@ -27,7 +27,7 @@ type
     function aplicaMascara(Obj: TUniEdit; tipoMask: TpMask): string;
     var wUsuario      :string;
     var wCodUsuario   :string;
-    var vvcaixa       :string;
+//    var vvcaixa       :string;
   end;
 
 function UniMainModule: TUniMainModule;
@@ -89,6 +89,10 @@ begin
   try
     arqIni  := Tinifile.Create(UniServerModule.StartPath+'config.ini'); // Caminho do arquivo.
     baseurlCadastros  := arqIni.ReadString('BACKEND', 'baseurlcadastros', '');   // base url api backend de cadastro
+    baseurlImpressao  := arqIni.ReadString('BACKEND', 'baseurlimpressao', '');   // base url api backend de impressão
+
+//    wPastaTmpPdf := arqIni.ReadString('BACKEND', 'pastapdf', '');
+
     nomeBanco         := uniGUIApplication.UniApplication.Parameters.Values['nomebanco'];//Base de dados
   finally
     arqIni.Free;

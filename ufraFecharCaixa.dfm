@@ -525,7 +525,7 @@ object fraFecharCaixa: TfraFecharCaixa
       Align = alBottom
       TabOrder = 2
       LayoutConfig.Cls = 'body_grdnt_rounded'
-      object btnSalvar: TUniSFBitBtn
+      object btnFecharCaixa: TUniSFBitBtn
         AlignWithMargins = True
         Left = 874
         Top = 5
@@ -542,7 +542,7 @@ object fraFecharCaixa: TfraFecharCaixa
         TabOrder = 1
         Scale = bbsSmall
         LayoutConfig.Cls = 'botaoSemBorda'
-        OnClick = btnSalvarClick
+        OnClick = btnFecharCaixaClick
         FAIcon.Icon = fa_check_circle
         FAIcon.Size = fs_16
         FAIcon.Color = fc_white
@@ -1619,7 +1619,7 @@ object fraFecharCaixa: TfraFecharCaixa
               TabOrder = 1
               Caption = 'UniPanel4'
               Color = clWhite
-              object UniEdit14: TUniEdit
+              object compDISPONIVEL: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 141

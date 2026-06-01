@@ -8,7 +8,7 @@ uses
   uniGUIClasses, uniGUIForm, uniPanel, uniPageControl, uniGUIBaseClasses,
   uniScrollBox, uniTimer, URGLayoutUnigui, UniSFiGrowl, UniSFSweetAlert,
   uniButton, uniBitBtn, UniSFButton, UniSFBitBtn, ufraCadClientes, ufraCadEmpresas,
-  ufraCadProdutos, ufraCadVendedores, ufraFecharCaixa;
+  ufraCadProdutos, ufraCadVendedores, ufraFecharCaixa, ufraReceberContaCliente;
 
 type
   TfrmPDVUtilidades = class(TUniForm)
@@ -21,7 +21,6 @@ type
     TsClientes: TUniTabSheet;
     TsEmpresas: TUniTabSheet;
     cpMenuRodape: TUniContainerPanel;
-    btnSalvar: TUniSFBitBtn;
     btnCancelar: TUniSFBitBtn;
     UniPanel1: TUniPanel;
     UniScrollBox2: TUniScrollBox;
@@ -52,6 +51,7 @@ type
     TsProdutos: TUniTabSheet;
     TsVendedores: TUniTabSheet;
     TsFecharCaixa: TUniTabSheet;
+    tsReceberContaCliente: TUniTabSheet;
     procedure btnCancelarClick(Sender: TObject);
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
     procedure UniFormShow(Sender: TObject);
@@ -60,6 +60,7 @@ type
     procedure UniSFBitBtn7Click(Sender: TObject);
     procedure UniSFBitBtn9Click(Sender: TObject);
     procedure UniSFBitBtn1Click(Sender: TObject);
+    procedure UniSFBitBtn2Click(Sender: TObject);
   private
     { Private declarations }
     fraClientes: TfraCadClientes;
@@ -67,6 +68,7 @@ type
     fraCadProdutos: TfraCadProdutos;
     fraCadVendedores: TfraCadVendedores;
     fraFecharCaixa: TfraFecharCaixa;
+    fraReceberContaCliente: TfraReceberContaCliente;
 
   public
     { Public declarations }
@@ -117,6 +119,15 @@ begin
   fraFecharCaixa.Parent := tsFecharCaixa;
   fraFecharCaixa.Align := alClient;
   PgcPrincipal.ActivePage := TsFecharCaixa;
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn2Click(Sender: TObject);
+begin
+  if not Assigned(fraReceberContaCliente) then
+    fraReceberContaCliente := TfraReceberContaCliente.Create(Self);
+  fraReceberContaCliente.Parent := TsReceberContaCliente;
+  fraReceberContaCliente.Align := alClient;
+  PgcPrincipal.ActivePage := TsReceberContaCliente;
 end;
 
 procedure TfrmPDVUtilidades.UniSFBitBtn6Click(Sender: TObject);

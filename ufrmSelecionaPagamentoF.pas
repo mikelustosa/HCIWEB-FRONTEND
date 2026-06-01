@@ -59,7 +59,8 @@ implementation
 {$R *.dfm}
 
 uses
-  MainModule, uniGUIApplication, uUtils, ufrmPagamentoParceladoF, ufrmPDV;
+  MainModule, uniGUIApplication, uUtils, ufrmPagamentoParceladoF, ufrmPDV,
+  uConstantes;
 
 function frmSelecionaPagamentoF: TfrmSelecionaPagamentoF;
 begin
@@ -94,7 +95,9 @@ procedure TfrmSelecionaPagamentoF.UniFormReady(Sender: TObject);
 begin
   limpaCookiesEditRecursivo(self);
 //  rg1.Start;
-  compTOTALGERAL.Text := FloatToStrF(totalGeral, ffFixed, 10, 2);
+  compTOTALGERAL.Text := FormatFloatHci(totalGeral,
+                         JParGer.GetValue<integer>('DECPRECO'));
+//  compTOTALGERAL.Text := FloatToStrF(totalGeral, ffFixed, 10, 2);
 //  compVALORPAGO.Text := floattostrF(0, ffFixed, 10, 2);
 //  compTROCO.Text := floattostrF(0, ffFixed, 10, 2);
   compTIPOPAGAMENTO.ItemIndex := 0;

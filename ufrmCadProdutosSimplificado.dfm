@@ -100,8 +100,10 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
           Top = 0
           Width = 230
           Height = 34
-          Hint = ''
+          Hint = 'Tecle <ENTER> para realizar busca por c'#243'digo'
           Margins.Right = 10
+          ShowHint = True
+          ParentShowHint = False
           CharCase = ecUpperCase
           MaxLength = 150
           BorderStyle = ubsNone
@@ -120,7 +122,7 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
         Top = 32
         Width = 30
         Height = 27
-        Hint = 'Novo registro'
+        Hint = 'Pesquisar produto'
         Margins.Left = 10
         Margins.Top = 6
         Margins.Right = 5
@@ -249,7 +251,7 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
     Caption = ''
     object UniScrollBox1: TUniScrollBox
       Left = 46
-      Top = 3
+      Top = -269
       Width = 878
       Height = 868
       Hint = ''
@@ -279,7 +281,6 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
           Font.Height = -16
           Align = alClient
           TabOrder = 1
-          ExplicitWidth = 290
         end
         object UniContainerPanel11: TUniContainerPanel
           Left = 1
@@ -296,7 +297,6 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
           TabOrder = 2
           TabStop = False
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          ExplicitWidth = 290
           object UniLabel13: TUniLabel
             AlignWithMargins = True
             Left = 10
@@ -933,8 +933,6 @@ object frmCadProdutosSimplificado: TfrmCadProdutosSimplificado
           Font.Height = -16
           Align = alClient
           TabOrder = 1
-          ExplicitLeft = 0
-          ExplicitTop = 27
         end
         object UniContainerPanel10: TUniContainerPanel
           Left = 1

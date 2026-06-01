@@ -80,7 +80,8 @@ begin
       end;
       jsonBody.AddPair('usuario', compUSUARIO.Text);
       jsonBody.AddPair('senha', compSENHA.Text);
-
+      jsonBody.AddPair('empresa', vvcodemp);
+      jsonBody.AddPair('valorInicial', compVALOREMCAIXA.Text);
 
       resp1 := TRequest
               .New
@@ -101,7 +102,7 @@ begin
 
 //        //objecto que armazena informações do usuário da tabela wbNfceConfig
 //        vvjUsuarioPdv := aTmp.Items[0] as TJSONObject;
-
+        vvCaixa := jTmp.GetValue('incr').Value;
         alerta.Success('Caixa aberto com sucesso.');
         close;
       end

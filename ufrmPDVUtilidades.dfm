@@ -19,8 +19,6 @@ object frmPDVUtilidades: TfrmPDVUtilidades
     Hint = ''
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 1137
-    ExplicitHeight = 677
     object PgcPrincipal: TUniPageControl
       Left = 0
       Top = 0
@@ -31,13 +29,9 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 1135
-      ExplicitHeight = 675
       object TsPrincipal: TUniTabSheet
         Hint = ''
         Caption = 'TsPrincipal'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
         object UniPanel1: TUniPanel
           Left = 0
           Top = 0
@@ -47,8 +41,6 @@ object frmPDVUtilidades: TfrmPDVUtilidades
           Align = alClient
           TabOrder = 0
           Caption = ''
-          ExplicitWidth = 1127
-          ExplicitHeight = 647
           object UniScrollBox2: TUniScrollBox
             Left = 1
             Top = 1
@@ -57,8 +49,6 @@ object frmPDVUtilidades: TfrmPDVUtilidades
             Hint = ''
             Align = alClient
             TabOrder = 1
-            ExplicitWidth = 1125
-            ExplicitHeight = 645
             ScrollHeight = 301
             ScrollWidth = 1042
             object UniPanel19: TUniPanel
@@ -121,6 +111,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn2Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -468,32 +459,30 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       object TsClientes: TUniTabSheet
         Hint = ''
         Caption = 'TsClientes'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
       end
       object TsEmpresas: TUniTabSheet
         Hint = ''
         Caption = 'TsEmpresas'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
       end
       object TsProdutos: TUniTabSheet
         Hint = ''
         Caption = 'TsProdutos'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
       end
       object TsVendedores: TUniTabSheet
         Hint = ''
         Caption = 'TsVendedores'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
       end
       object TsFecharCaixa: TUniTabSheet
         Hint = ''
         Caption = 'TsFecharCaixa'
-        ExplicitWidth = 1127
-        ExplicitHeight = 647
+      end
+      object tsReceberContaCliente: TUniTabSheet
+        Hint = ''
+        Caption = 'tsReceberContaCliente'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1151
+        ExplicitHeight = 714
       end
     end
   end
@@ -507,36 +496,9 @@ object frmPDVUtilidades: TfrmPDVUtilidades
     Align = alBottom
     TabOrder = 1
     LayoutConfig.Cls = 'body_grdnt_rounded'
-    ExplicitTop = 677
-    ExplicitWidth = 1137
-    object btnSalvar: TUniSFBitBtn
-      AlignWithMargins = True
-      Left = 1028
-      Top = 5
-      Width = 120
-      Height = 30
-      Hint = ''
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Visible = False
-      ParentShowHint = False
-      Caption = 'SALVAR'
-      Align = alRight
-      TabOrder = 1
-      Scale = bbsSmall
-      LayoutConfig.Cls = 'botaoSemBorda'
-      FAIcon.Icon = fa_check_circle
-      FAIcon.Size = fs_16
-      FAIcon.Color = fc_white
-      FAIcon.Style = regular
-      ButtonStyles = bs_danger
-      ExplicitLeft = 1012
-    end
     object btnCancelar: TUniSFBitBtn
       AlignWithMargins = True
-      Left = 898
+      Left = 1028
       Top = 5
       Width = 120
       Height = 30
@@ -548,7 +510,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       ParentShowHint = False
       Caption = 'VOLTAR'
       Align = alRight
-      TabOrder = 2
+      TabOrder = 1
       Scale = bbsSmall
       LayoutConfig.Cls = 'botaoSemBorda'
       OnClick = btnCancelarClick
@@ -557,7 +519,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
-      ExplicitLeft = 882
+      ExplicitLeft = 898
     end
   end
   object alerta: TUniSFSweetAlert

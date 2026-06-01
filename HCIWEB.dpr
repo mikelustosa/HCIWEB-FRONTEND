@@ -54,7 +54,10 @@ uses
   ufrmPDVUtilidades in 'ufrmPDVUtilidades.pas' {frmPDVUtilidades: TUniForm},
   ufraFecharCaixa in 'ufraFecharCaixa.pas' {fraFecharCaixa: TUniFrame},
   ufrmCadProdutosSimplificado in 'ufrmCadProdutosSimplificado.pas' {frmCadProdutosSimplificado: TUniForm},
-  ufraOperacaoContas in 'ufraOperacaoContas.pas' {fraOperacaoContas: TUniFrame};
+  ufraOperacaoContas in 'ufraOperacaoContas.pas' {fraOperacaoContas: TUniFrame},
+  ufrmBaixaConta in 'ufrmBaixaConta.pas' {frmBaixaConta: TUniForm},
+  ufraImpressao in 'ufraImpressao.pas' {fraImpressao: TUniFrame},
+  ufraReceberContaCliente in 'ufraReceberContaCliente.pas' {fraReceberContaCliente: TUniFrame};
 
 {$R *.res}
 

@@ -13,9 +13,14 @@ uses
 
   {$region 'Resources Cadastros e Login'}
     var baseurlCadastros: string;
+    var baseurlImpressao: string;
     var vvcodemp: string;
     var vvNomeUsuarioLogin: string;
-//    var vvjUsuarioPdv: TJSonObject;
+    var JParGer: TJSONObject;
+    var vvCaixa: string;
+
+//    var    wPastaTmpPdf: string;
+    var    wUrlRelatorioTmpPdf: string;
 
     const postLogin     = 'postLogin';
     const getPerfilUsuarioPdv = 'getPerfilUsuarioPdv';
@@ -139,11 +144,20 @@ uses
     const getVerificaCaixaFechado = 'getVerificaCaixaFechado';
     const getVerificaCaixa = 'getVerificaCaixa';
     const postAbrirCaixa = 'postAbrirCaixa';
-    const getFechaCaixaAbrirPesquisa = 'getFechaCaixaAbrirPesquisa';
+    const getFechaCaixaAbrirPesquisaDetalhe = 'getFechaCaixaAbrirPesquisaDetalhe';
     const postFecharCaixa = 'postFecharCaixa';
+    const getMovCaixa = 'getMovCaixa';
 
     const getMovContas = 'getMovContas';
     const getConta = 'getConta';
+    const deleteConta = 'deleteConta';
+    const putBaixaConta = 'putBaixaConta';
+    const postConta = 'postConta';
+    const putConta = 'putConta';
+
+    //Impressões
+    const getRecibo = 'getRecibo';
+
 
   {$endregion 'Resources Cadastros e Login'}
 

@@ -115,7 +115,7 @@ implementation
 
 uses
   MainModule, uniGUIApplication, RESTRequest4D.Response.Intf, System.JSON,
-  uConstantes, RESTRequest4D.Request, ufrmListaGlobal;
+  uConstantes, RESTRequest4D.Request, ufrmListaGlobal, uUtils;
 
 procedure TfrmCadProdutosSimplificado.callBackProduto(Sender: TComponent;
   AResult: Integer);
@@ -128,8 +128,10 @@ begin
     FS := TFormatSettings.Create;
     FS.DecimalSeparator := '.';
     edPesquisar.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
-    edPesquisar.WebFocus;
+//    edPesquisar.WebFocus;
+    edPesquisar.SetFocus;
   end;
+
 end;
 
 function frmCadProdutosSimplificado: TfrmCadProdutosSimplificado;
@@ -188,16 +190,16 @@ begin
             compDESCR.Text := wJsonResult.GetValue('descr').Value;
             compUNIDADE.Text := wJsonResult.GetValue('unidade').Value;
             compLOCAL.Text := wJsonResult.GetValue('local').Value;
-            compCUSTO.Text := wJsonResult.GetValue('custo').Value;
-            compPRECO2.Text := wJsonResult.GetValue('preco2').Value;
-            compPRECO3.Text := wJsonResult.GetValue('preco3').Value;
-            compPRECO4.Text := wJsonResult.GetValue('preco4').Value;
-            compPRECO5.Text := wJsonResult.GetValue('preco5').Value;
-            compPRECO6.Text := wJsonResult.GetValue('preco6').Value;
-            compSALDO.Text := wJsonResult.GetValue('saldo').Value;
-            compEMPENHO.Text := wJsonResult.GetValue('empenho').Value;
-            compCOMPRADO.Text := wJsonResult.GetValue('compra').Value;
-            compDISPONIVEL.Text := wJsonResult.GetValue('disponivel').Value;
+            compCUSTO.Text := FormatFloatHci(wJsonResult.GetValue<double>('custo'), JParGer.GetValue<integer>('DECPRECO'));
+            compPRECO2.Text := FormatFloatHci(wJsonResult.GetValue<double>('preco2'), JParGer.GetValue<integer>('DECPRECO'));
+            compPRECO3.Text := FormatFloatHci(wJsonResult.GetValue<double>('preco3'), JParGer.GetValue<integer>('DECPRECO'));
+            compPRECO4.Text := FormatFloatHci(wJsonResult.GetValue<double>('preco4'), JParGer.GetValue<integer>('DECPRECO'));
+            compPRECO5.Text := FormatFloatHci(wJsonResult.GetValue<double>('preco5'), JParGer.GetValue<integer>('DECPRECO'));
+            compPRECO6.Text := FormatFloatHci(wJsonResult.GetValue<double>('preco6'), JParGer.GetValue<integer>('DECPRECO'));
+            compSALDO.Text := FormatFloatHci(wJsonResult.GetValue<double>('saldo'), JParGer.GetValue<integer>('PICEST'));
+            compEMPENHO.Text := FormatFloatHci(wJsonResult.GetValue<double>('empenho'), JParGer.GetValue<integer>('PICEST'));
+            compCOMPRADO.Text := FormatFloatHci(wJsonResult.GetValue<double>('compra'), JParGer.GetValue<integer>('PICEST'));
+            compDISPONIVEL.Text := FormatFloatHci(wJsonResult.GetValue<double>('disponivel'), JParGer.GetValue<integer>('PICEST'));
           end
           else
           begin

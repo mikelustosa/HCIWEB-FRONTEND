@@ -313,9 +313,9 @@ begin
   vDescTotal := 0;
 
   if (pDesc <> 0) then
-    lb_desconto.Caption := 'Total geral com ' + FormatFloat('0.00', pDesc) + ' % de desconto:'
+    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(pDesc, JParGer.GetValue<integer>('DECPRECO')) + ' % de desconto:'
   else if (vDesc <> 0) then
-    lb_desconto.Caption := 'Total geral com ' + FormatFloat('0.00', vDesc) + ' R$ de desconto:'
+    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(vDesc, JParGer.GetValue<integer>('DECPRECO')) + ' R$ de desconto:'
   else
     lb_desconto.Caption := 'Total geral:';
 
@@ -430,14 +430,16 @@ begin
   if (ytiprel = 'V') or (ytiprel = 'C') then
     totalCupom := totalCupom - vDescTotal;
 
-  str_log := str_log + 'TOTAL ' + FormatFloat('#,0.00', totalCupom) + ' (' + FloatToStr(totalCupom) + ')' + sLineBreak;
+  str_log := str_log + 'TOTAL ' +
+  FormatFloatHci(totalCupom, JParGer.GetValue<integer>('DECPRECO')) +
+  ' (' + FloatToStr(totalCupom) +')' + sLineBreak;
 
-  compTOTALGERAL.text := FormatFloat('#,0.00', totalCupom);
+  compTOTALGERAL.text := FormatFloatHci(totalCupom, JParGer.GetValue<integer>('DECPRECO'));
 //   lb_total.Caption := FormatFloat('#,0.00', totalCupom);
   compCODPRO.Text := '';
-  compMOV.Text := '0';
-  compVALORU.Text :='0,000';
-  compTOTAL.Text :='0,000';
+  compMOV.Text := FormatFloatHci(0, JParGer.GetValue<integer>('PICEST'));;
+  compVALORU.Text := FormatFloatHci(0, JParGer.GetValue<integer>('DECPRECO'));
+  compTOTAL.Text := FormatFloatHci(0, JParGer.GetValue<integer>('DECPRECO'));
 
 
 //  try
@@ -484,7 +486,6 @@ end;
 function TfrmPDV.pesquisaItem(out weJson:TJSONObject; weId,weCodPro,weDescr :string): boolean;
 var
   resp1     :IResponse;
-//  req       :IRequest;
   wAItemTmp :TJSONArray;
   wJItemTmp :TJSONObject;
 begin
@@ -502,9 +503,6 @@ begin
            .AddParam('empresa', vvcodemp)
            .timeOut(12000)
            .Get;
-
-//    resp1 := req.Get;
-
     if resp1.StatusCode = 200 then
     begin
       FreeAndNil(weJson);
@@ -551,7 +549,8 @@ begin
             var jPedido : TJSONObject; jPedido := TJSONObject.Create;
             jPedido.AddPair('int_CodCli',JCliente.GetValue<string>('CODCLI'));
             jPedido.AddPair('int_TipoPagamento','');
-            jPedido.AddPair('int_Caixa',UniMainModule.vvcaixa);
+            jPedido.AddPair('int_Caixa',vvCaixa);
+//            jPedido.AddPair('int_Caixa',UniMainModule.vvcaixa);
             jPedido.AddPair('int_CodVen',JVendedor.GetValue<string>('CODVEND'));
 
             aPedido.AddElement(jPedido);
@@ -1183,7 +1182,7 @@ begin
     FS.DecimalSeparator := '.';
     compCODPRO.text     := frmListaGlobal.CDSTela.FieldByName('codPro').AsString;
     compDESCR.caption     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
-    alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
+//    alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
 //    //pupula um json com os dados do produto
 //    FreeAndNil(JProduto);
 //    JProduto := TJSONObject.Create;
@@ -1197,11 +1196,15 @@ begin
 //            frmListaGlobal.CDSTela.Fields[i].AsString
 //          );
 //      end;
-    compMOV.Text := '1';
-    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
-    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0));
+    compMOV.Text := FormatFloatHci(1,
+                        JParGer.GetValue<integer>('PICEST'));
+    compVALORU.Text :=  FormatFloatHci(StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0),
+                        JParGer.GetValue<integer>('DECPRECO'));
+    compTOTAL.Text := FormatFloatHci(1 * StrToFloatDef(frmListaGlobal.CDSTela.FieldByName('preco1').AsString,0),
+                      JParGer.GetValue<integer>('DECPRECO'));
 //    compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
 //    compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+    alertaM.info('Produto selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
     timerFocoItem.Enabled := true;
   end;
 end;
@@ -1228,12 +1231,17 @@ begin
       begin
         compDESCR.caption     := JProduto.GetValue('descr').Value;
         if StrToFloatDef(compMov.Text,0) = 0 then
-          compMOV.Text := '1';
-        compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-        compTOTAL.Text := FormatFloat('0.00',
-                               StrToFloatDef(compMOV.Text,0) *
-                               StrToFloatDef(compVALORU.Text,0)
-                               );
+          compMOV.Text := FormatFloatHci(1,JParGer.GetValue<integer>('PICEST'));
+        compVALORU.Text := FormatFloatHci(JProduto.GetValue<double>('preco1'),
+                           JParGer.GetValue<integer>('DECPRECO'));
+//        compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+        compTOTAL.Text := FormatFloatHci(StrToFloatDef(compMOV.Text,0) *
+                          StrToFloatDef(compVALORU.Text,0),
+                          JParGer.GetValue<integer>('DECPRECO'));
+//        compTOTAL.Text := FormatFloat('0.00',
+//                               StrToFloatDef(compMOV.Text,0) *
+//                               StrToFloatDef(compVALORU.Text,0)
+//                               );
         if (Key = VK_RETURN) then
         begin
           if not CDSTela.Active then
@@ -1242,9 +1250,9 @@ begin
           CDSTela.FieldByName('idCodPro').AsString := JProduto.GetValue('id').Value;
           CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
           CDSTela.FieldByName('descr').AsString := compDESCR.caption;
-          CDSTela.FieldByName('mov').AsString := compMOV.Text;
-          CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
-          CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+          CDSTela.FieldByName('mov').asstring := FormatFloatHci(strtofloatdef(compMOV.Text,0),JParGer.GetValue<integer>('PICEST'));;
+          CDSTela.FieldByName('valoru').asstring := FormatFloatHci(strtofloatdef(compVALORU.Text,0),JParGer.GetValue<integer>('DECPRECO'));
+          CDSTela.FieldByName('total').asstring := FormatFloatHci(strtofloatdef(compTOTAL.Text,0),JParGer.GetValue<integer>('DECPRECO'));;
           CDSTela.FieldByName('ativo').AsString := 'T';
           CDSTela.Post;
 
@@ -1254,9 +1262,9 @@ begin
       else
       begin
         compDESCR.caption := JProduto.GetValue<string>('Result');
-        compMOV.Text := '0';
-        compVALORU.Text :=  '0,00';
-        compTOTAL.Text := '0,00';
+        compMOV.Text := FormatFloatHci(0,JParGer.GetValue<integer>('PICEST'));
+        compVALORU.Text := FormatFloatHci(0, JParGer.GetValue<integer>('DECPRECO'));
+        compTOTAL.Text := FormatFloatHci(0, JParGer.GetValue<integer>('DECPRECO'));
         compCODPRO.SetFocus;
       end;
     end;
@@ -1266,12 +1274,18 @@ end;
 procedure TfrmPDV.compMOVChange(Sender: TObject);
 begin
   try
-    compTOTAL.Text := FormatFloat('0.00',
+    compTOTAL.Text := FormatFloatHci(
                        StrToFloatDef(compMOV.Text,0) *
-                       StrToFloatDef(compVALORU.Text,0)
-                       );
-  except
-    compTOTAL.Text := '0,00';
+                       StrToFloatDef(compVALORU.Text,0),
+                       JParGer.GetValue<integer>('DECPRECO'));
+//    compTOTAL.Text := FormatFloat('0.00',
+//                       StrToFloatDef(compMOV.Text,0) *
+//                       StrToFloatDef(compVALORU.Text,0)
+//                       );
+  except on e:exception do
+    begin
+     compTOTAL.Text := '0,00';
+    end;
   end;
 end;
 
@@ -1284,14 +1298,13 @@ begin
       compDESCR.caption     := JProduto.GetValue('descr').Value;
 //          compDESCR.caption     := (JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('descr');
       if StrToFloatDef(compMov.Text,0) = 0 then
-        compMOV.Text := '1';
+        compMOV.Text := FormatFloatHci(1,JParGer.GetValue<integer>('PICEST'));
 
-      compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
+      compVALORU.Text :=  FormatFloatHci(JProduto.GetValue<double>('preco1'),
+                          JParGer.GetValue<integer>('DECPRECO'));
 //      compTOTAL.Text := FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
-      compTOTAL.Text := FormatFloat('0.00',
-                             StrToFloatDef(compMOV.Text,0) *
-                             StrToFloatDef(compVALORU.Text,0)
-                             );
+      compTOTAL.Text := FormatFloatHci(StrToFloatDef(compMOV.Text,0) * StrToFloatDef(compVALORU.Text,0),
+                        JParGer.GetValue<integer>('DECPRECO'));
 //          compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
 //          compTOTAL.Text := FormatFloat('0.00',1 * StrToFloatDef((JProduto.GetValue('Result') as TJSONArray).Items[0].GetValue<string>('preco1'),0));
 //      if (Key = VK_RETURN) then
@@ -1315,9 +1328,9 @@ begin
     else
     begin
       compDESCR.caption := JProduto.GetValue<string>('Result');
-      compMOV.Text := '0';
-      compVALORU.Text :=  '0,00';
-      compTOTAL.Text := '0,00';
+      compMOV.Text := FormatFloatHci(0,JParGer.GetValue<integer>('PICEST'));
+      compVALORU.Text := FormatFloatHci(0,JParGer.GetValue<integer>('DECPRECO'));
+      compTOTAL.Text := FormatFloatHci(0,JParGer.GetValue<integer>('DECPRECO'));
       compCODPRO.SetFocus;
     end;
   end;
@@ -1334,19 +1347,18 @@ begin
         begin
           if (Key = VK_RETURN) then
           begin
-            compTOTAL.Text := FormatFloat('0.00',
-                                   StrToFloatDef(compMOV.Text,0) *
-                                   StrToFloatDef(compVALORU.Text,0)
-                                   );
+            compTOTAL.Text := FormatFloatHci(StrToFloatDef(compMOV.Text,0) * StrToFloatDef(compVALORU.Text,0),
+                              JParGer.GetValue<integer>('DECPRECO'));
+
             if not CDSTela.Active then
               CDSTela.Active := true;
             CDSTela.Insert;
             CDSTela.FieldByName('idCodPro').AsString := JProduto.GetValue('id').Value;
             CDSTela.FieldByName('codPro').AsString := compCODPRO.Text;
             CDSTela.FieldByName('descr').AsString := compDESCR.caption;
-            CDSTela.FieldByName('mov').AsString := compMOV.Text;
-            CDSTela.FieldByName('valoru').AsString := compVALORU.Text;
-            CDSTela.FieldByName('total').AsString := compTOTAL.Text;
+            CDSTela.FieldByName('mov').AsString := FormatFloatHci(strtofloatdef(compMOV.Text,0),JParGer.GetValue<integer>('PICEST'));
+            CDSTela.FieldByName('valoru').AsString := FormatFloatHci(strtofloatdef(compVALORU.Text,0),JParGer.GetValue<integer>('DECPRECO'));
+            CDSTela.FieldByName('total').AsString := FormatFloatHci(strtofloatdef(compTOTAL.Text,0),JParGer.GetValue<integer>('DECPRECO'));
             CDSTela.FieldByName('ativo').AsString := 'T';
             CDSTela.Post;
 
@@ -1452,7 +1464,7 @@ begin
       JUsuarioPdv := TJSONObject.Create;
       JUsuarioPdv := aTmp.Items[0] as TJSONObject;
 
-      uniMainModule.vvcaixa := JUsuarioPdv.GetValue('idUsuario').Value;
+//      uniMainModule.vvcaixa := JUsuarioPdv.GetValue('idUsuario').Value;
     end
     else
     begin
@@ -1563,7 +1575,8 @@ begin
     exit;
   end;
 
-  uniMainModule.vvcaixa := verificaCaixa(uniMainModule.wUsuario);
+  vvCaixa := verificaCaixa(uniMainModule.wUsuario);
+//  uniMainModule.vvcaixa := verificaCaixa(uniMainModule.wUsuario);
 
   //verifica se há produtos inseridos no pedido
   if CDSTela.RecordCount <= 0 then
@@ -1572,7 +1585,8 @@ begin
     exit;
   end;
 
-  if (uniMainModule.vvcaixa = '') or (uniMainModule.vvcaixa = '0') then
+  if (vvCaixa = '') or (vvCaixa = '0') then
+//  if (uniMainModule.vvcaixa = '') or (uniMainModule.vvcaixa = '0') then
   begin
     alerta.Error('Para realizar uma venda é necessário abrir o caixa.');
     exit;
@@ -1588,6 +1602,7 @@ begin
   begin
     frmSelecionaPagamentoF.showmodal(callBackFatura);
     frmSelecionaPagamentoF.totalGeral := strtofloatDef(compTOTALGERAL.Text,0);
+
     frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
   end
   else
@@ -1603,7 +1618,7 @@ begin
         end;
 
         frmSelecionaPagamentoF.showmodal(callBackFatura);
-        frmSelecionaPagamentoF.totalGeral := strtofloatDef(compTOTALGERAL.Text,0);
+        frmSelecionaPagamentoF.totalGeral := strTofloatDef(compTOTALGERAL.Text,0);
         frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
       end);
   end;
