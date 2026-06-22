@@ -232,7 +232,7 @@ type
     UniLabel35: TUniLabel;
     UniSFBitBtn4: TUniSFBitBtn;
     UniPanel48: TUniPanel;
-    compDescrReg: TUniEdit;
+    compDescr: TUniEdit;
     UniContainerPanel45: TUniContainerPanel;
     UniPanel49: TUniPanel;
     UniPanel50: TUniPanel;

@@ -44,7 +44,7 @@ type
     btnPesquisar: TUniSFBitBtn;
     cpMenuRodape: TUniContainerPanel;
     btnFecharCaixa: TUniSFBitBtn;
-    btnCancelar: TUniSFBitBtn;
+    btnRecebeConta: TUniSFBitBtn;
     UniScrollBox1: TUniScrollBox;
     UniPanel20: TUniPanel;
     UniScrollBox2: TUniScrollBox;
@@ -139,6 +139,65 @@ type
     compDESCRMV: TUniEdit;
     compDIADESPP_ADC: TUniDateTimePicker;
     compDIADESPR_ADC: TUniDateTimePicker;
+    UniSFBitBtn1: TUniSFBitBtn;
+    UniPanel5: TUniPanel;
+    compID: TUniEdit;
+    UniContainerPanel7: TUniContainerPanel;
+    UniLabel12: TUniLabel;
+    UniPanel24: TUniPanel;
+    UniContainerPanel8: TUniContainerPanel;
+    UniContainerPanel9: TUniContainerPanel;
+    UniSFLabel7: TUniSFLabel;
+    UniContainerPanel10: TUniContainerPanel;
+    UniSFLabel8: TUniSFLabel;
+    compDIADESPPESTORNO: TUniDateTimePicker;
+    UniContainerPanel11: TUniContainerPanel;
+    UniSFLabel9: TUniSFLabel;
+    UniContainerPanel12: TUniContainerPanel;
+    UniSFLabel10: TUniSFLabel;
+    compNUMDOCESTORNO: TUniEdit;
+    UniPanel25: TUniPanel;
+    btnPesquisarEstorno: TUniSFBitBtn;
+    UniContainerPanel13: TUniContainerPanel;
+    UniSFLabel13: TUniSFLabel;
+    UniContainerPanel33: TUniContainerPanel;
+    UniSFLabel14: TUniSFLabel;
+    compNOMEESTORNO: TUniEdit;
+    UniContainerPanel34: TUniContainerPanel;
+    UniSFLabel15: TUniSFLabel;
+    UniContainerPanel35: TUniContainerPanel;
+    UniSFLabel16: TUniSFLabel;
+    compVALORPESTORNO: TUniEdit;
+    UniContainerPanel36: TUniContainerPanel;
+    UniSFBitBtn9: TUniSFBitBtn;
+    UniSFBitBtn11: TUniSFBitBtn;
+    UniScrollBox4: TUniScrollBox;
+    UniPanel28: TUniPanel;
+    UniScrollBox5: TUniScrollBox;
+    gridTelaEstorno: TUniDBGrid;
+    UniPanel29: TUniPanel;
+    UniPanel30: TUniPanel;
+    compVALORPREVISTOESTORNO: TUniEdit;
+    UniContainerPanel37: TUniContainerPanel;
+    UniLabel13: TUniLabel;
+    UniPanel31: TUniPanel;
+    compVALORREALESTORNO: TUniEdit;
+    UniContainerPanel38: TUniContainerPanel;
+    UniLabel14: TUniLabel;
+    UniPanel32: TUniPanel;
+    UniContainerPanel39: TUniContainerPanel;
+    UniLabel15: TUniLabel;
+    compTIPOPAGAMENTOESTORNO: TUniSFComboBox;
+    UniContainerPanel40: TUniContainerPanel;
+    UniLabel16: TUniLabel;
+    UniPanel33: TUniPanel;
+    compIDESTORNO: TUniEdit;
+    UniContainerPanel41: TUniContainerPanel;
+    UniLabel17: TUniLabel;
+    CDSTelaEstorno: TClientDataSet;
+    AggregateField3: TAggregateField;
+    AggregateField4: TAggregateField;
+    DSTelaEstorno: TDataSource;
     procedure UniFrameReady(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
     procedure CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
@@ -149,11 +208,22 @@ type
     procedure UniFrameCreate(Sender: TObject);
     procedure UniSFBitBtn5Click(Sender: TObject);
     procedure UniSFBitBtn10Click(Sender: TObject);
+    procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure UniSFBitBtn1Click(Sender: TObject);
+    procedure btnRecebeContaClick(Sender: TObject);
+    procedure btnPesquisarEstornoClick(Sender: TObject);
+    procedure gridTelaEstornoCellClick(Column: TUniDBGridColumn);
+    procedure gridTelaDrawColumnCell(Sender: TObject; ACol, ARow: Integer;
+      Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+    procedure gridTelaEstornoDrawColumnCell(Sender: TObject; ACol,
+      ARow: Integer; Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
   private
     { Private declarations }
     procedure callBackCliente(Sender: TComponent;
       AResult: Integer);
     procedure callBackBanco(Sender: TComponent;
+      AResult: Integer);
+    procedure callBackCCusto(Sender: TComponent;
       AResult: Integer);
   public
     { Public declarations }
@@ -163,10 +233,23 @@ implementation
 
 uses
   RESTRequest4D.Response.Intf, System.JSON, uConstantes, RESTRequest4D.Request,
-  MainModule, uUtils, ufrmListaGlobal;
+  MainModule, uUtils, ufrmListaGlobal, UniSFCore;
 
 {$R *.dfm}
 
+
+procedure TfraReceberContaCliente.callBackCCusto(Sender: TComponent;
+  AResult: Integer);
+var
+i: Integer;
+begin
+  if frmListaGlobal.ModalResult = mrOk then
+  begin
+    compDESCRCC.Text     := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
+    compCODCC.Text     := frmListaGlobal.CDSTela.FieldByName('codCc').AsString;
+    alertaM.info('Centro de custo selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
+  end;
+end;
 
 procedure TfraReceberContaCliente.callBackBanco(Sender: TComponent;
   AResult: Integer);
@@ -211,8 +294,118 @@ begin
 
 end;
 
-procedure TfraReceberContaCliente.btnPesquisarClick(Sender: TObject);
+procedure TfraReceberContaCliente.btnRecebeContaClick(Sender: TObject);
+var
+  resp1     :IResponse;
+  wValor : string;
+  jBody : TJSONObject;
+begin
+  jBody := nil;
+  try
+    //recebimentos
+    if UniPageControl1.ActivePage = tsAReceber then
+      begin
+        alerta.QuestionBasic('Confirma para receber esta conta?',
+        procedure(const ButtonClicked: TAButton)
+        begin
+          if ButtonClicked = abConfirm then
+          begin
+            try
+              try
+                jBody := TJSONObject.Create;
+                jBody.AddPair('codBan', CDSTela.FieldByName('codBan').AsString);
+                jBody.AddPair('debCred', 'C');
+                jBody.AddPair('diaDespR', '');
+                jBody.AddPair('valorR', compVALORREAL.Text);
+                jBody.AddPair('id', compID.Text);
+                jBody.AddPair('empresa', vvcodemp);
+                jBody.AddPair('int_Caixa_Pagto', vvCaixa);
+                jBody.AddPair('int_Recebimento', '1');
+                jBody.AddPair('int_TipoPagamento', copy(compTIPOPAGAMENTO.Text,1,2));
 
+                resp1 := TRequest.New.BaseURL(baseurlCadastros)
+                       .resource(putBaixaContaPdvUtilidades)
+                       .AddParam('nomeBanco', uniMainModule.nomebanco)
+                       .AddBody(jBody)
+                       .timeOut(12000)
+                       .Put;
+                sleep(2000);
+                if resp1.StatusCode = 200 then
+                begin
+                  alertaM.Success('Conta baixada com sucesso.');
+                  btnPesquisar.Click;
+                end
+                else
+                begin
+                  alerta.Error(resp1.Content);
+                end;
+              except on e:exception do
+                begin
+                  alerta.Error('ERRO: '+e.Message);
+                end;
+              end;
+              unisession.Synchronize();
+            finally
+      //        jBody.Free;
+            end;
+          end;
+        end);
+      end
+      //estorno/cancelamento
+      else if UniPageControl1.ActivePage = tsCancelarRecebimentos then
+      begin
+        alerta.QuestionBasic('Confirma para estornar este recebimento?',
+        procedure(const ButtonClicked: TAButton)
+        begin
+          if ButtonClicked = abConfirm then
+          begin
+            try
+              try
+                jBody := TJSONObject.Create;
+//                jBody.AddPair('codBan', CDSTelaEstorno.FieldByName('codBan').AsString);
+                jBody.AddPair('debCred', 'D');
+//                jBody.AddPair('diaDespR', datetostr(now));
+                jBody.AddPair('valorR', compVALORREALESTORNO.Text);
+                jBody.AddPair('id', compIDESTORNO.Text);
+                jBody.AddPair('empresa', vvcodemp);
+                jBody.AddPair('int_Caixa_Pagto', vvCaixa);
+//                jBody.AddPair('int_Recebimento', '0');
+                jBody.AddPair('int_TipoPagamento', copy(compTIPOPAGAMENTOESTORNO.Text,1,2));
+
+                resp1 := TRequest.New.BaseURL(baseurlCadastros)
+                       .resource(putEstornaContaPdvUtilidades)
+                       .AddParam('nomeBanco', uniMainModule.nomebanco)
+                       .AddBody(jBody)
+                       .timeOut(12000)
+                       .Put;
+                sleep(2000);
+                if resp1.StatusCode = 200 then
+                begin
+                  alertaM.Success('Conta estornada com sucesso.');
+                  btnPesquisarEstorno.Click;
+                end
+                else
+                begin
+                  alerta.Error(resp1.Content);
+                end;
+              except on e:exception do
+                begin
+                  alerta.Error('ERRO: '+e.Message);
+                end;
+              end;
+              unisession.Synchronize();
+            finally
+      //        jBody.Free;
+            end;
+          end;
+        end);
+      end;
+  finally
+    FreeAndNil(jBody);
+  end;
+end;
+
+procedure TfraReceberContaCliente.btnPesquisarClick(Sender: TObject);
 var
   resp1     :IResponse;
   jsonBody : TJSONObject;
@@ -227,10 +420,11 @@ begin
     jsonBody.AddPair('diaDespP',compDIADESPP.Text);
     jsonBody.AddPair('valorP',compVALORP.Text);
     jsonBody.AddPair('numDoc',compNUMDOC.Text);
+//    jsonBody.AddPair('int_Caixa_Pagto',vvCaixa);
 
     try
       resp1 := TRequest.New.BaseURL(baseurlCadastros)
-             .resource(getMovContas)
+             .resource(getMovContasPdvUtilidades)
              .AddParam('nomeBanco', uniMainModule.nomebanco)
              .AddBody(jsonBody)
              .timeOut(12000)
@@ -243,7 +437,54 @@ begin
       end
       else
       begin
-        alerta.Warning(jsonResp.GetValue('Result').Value);
+        CDSTela.EmptyDataSet;
+        alertam.Warning(jsonResp.GetValue('Result').Value);
+      end;
+    except on e: exception do
+      begin
+        alerta.Error('Erro: '+e.Message);
+      end;
+    end;
+  finally
+//    FreeAndNil(jsonBody);
+//    FreeAndNil(jsonResp);
+  end;
+end;
+
+procedure TfraReceberContaCliente.btnPesquisarEstornoClick(Sender: TObject);
+var
+  resp1     :IResponse;
+  jsonBody : TJSONObject;
+  jsonResp : TJSONObject;
+begin
+  jsonBody := nil;
+  jsonResp := nil;
+  try
+    jsonBody := TJSONObject.Create;
+    jsonBody.AddPair('empresa',vvcodemp);
+    jsonBody.AddPair('nomCli',trim(compNOMEESTORNO.Text));
+    jsonBody.AddPair('diaDespP',compDIADESPPESTORNO.Text);
+    jsonBody.AddPair('valorP',compVALORPESTORNO.Text);
+    jsonBody.AddPair('numDoc',compNUMDOCESTORNO.Text);
+    jsonBody.AddPair('int_Caixa_Pagto',vvCaixa);
+
+    try
+      resp1 := TRequest.New.BaseURL(baseurlCadastros)
+             .resource(getEstornaContaPdvUtilidades)
+             .AddParam('nomeBanco', uniMainModule.nomebanco)
+             .AddBody(jsonBody)
+             .timeOut(12000)
+             .Get;
+
+      jsonResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      if resp1.StatusCode = 200 then
+      begin
+        JsonToDataset(CDSTelaEstorno, jsonResp.GetValue('Result').ToString);
+      end
+      else
+      begin
+//        CDSTelaEstorno.EmptyDataSet;
+        alertam.Warning(jsonResp.GetValue('Result').Value);
       end;
     except on e: exception do
       begin
@@ -265,14 +506,34 @@ end;
 
 procedure TfraReceberContaCliente.gridTelaCellClick(Column: TUniDBGridColumn);
 begin
-  if column.Field = CDSTelabotaoEditar then
-  begin
+//  if column.Field = CDSTelabotaoEditar then
+//  begin
     compVALORPREVISTO.Text := CDSTela.FieldByName('valorP').AsString;
     compVALORREAL.Text := CDSTela.FieldByName('valorR').AsString;
-    LocalizarItemPorCodigoNoComboBox(CDSTela.FieldByName('tPag').AsInteger,compTIPOPAGAMENTO);
+    compID.Text := CDSTela.FieldByName('id').AsString;
+    compTIPOPAGAMENTO.ItemIndex := 0;
+//  end;
+end;
 
-//function LocalizarItemPorCodigoNoComboBox(Codigo: Integer;weCbGrupo:tUniSfComboBox): Integer;
-  end;
+procedure TfraReceberContaCliente.gridTelaDrawColumnCell(Sender: TObject; ACol,
+  ARow: Integer; Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+begin
+  SetGridColor(Sender, Attribs);
+end;
+
+procedure TfraReceberContaCliente.gridTelaEstornoCellClick(
+  Column: TUniDBGridColumn);
+begin
+  compVALORPREVISTOESTORNO.Text := CDSTelaEstorno.FieldByName('valorP').AsString;
+  compVALORREALESTORNO.Text := CDSTelaEstorno.FieldByName('valorR').AsString;
+  compIDESTORNO.Text := CDSTelaEstorno.FieldByName('id').AsString;
+  compTIPOPAGAMENTOESTORNO.ItemIndex := 0;
+end;
+
+procedure TfraReceberContaCliente.gridTelaEstornoDrawColumnCell(Sender: TObject;
+  ACol, ARow: Integer; Column: TUniDBGridColumn; Attribs: TUniCellAttribs);
+begin
+  SetGridColor(Sender, Attribs);
 end;
 
 procedure TfraReceberContaCliente.UniFrameCreate(Sender: TObject);
@@ -289,10 +550,71 @@ end;
 
 procedure TfraReceberContaCliente.UniSFBitBtn10Click(Sender: TObject);
 begin
-asdfa  frmListaGlobal.wTabelaDePesquisa := 'BANCOS_PDV_UTILITARIO';
-  frmListaGlobal.lblDescricao.Caption := 'BANCOS';
-  frmListaGlobal.showModal(callBackBanco);
+  frmListaGlobal.wTabelaDePesquisa := 'CCUSTO_PDV_UTILITARIO';
+  frmListaGlobal.lblDescricao.Caption := 'CENTRO DE CUSTO';
+  frmListaGlobal.showModal(callBackCCusto);
+end;
 
+procedure TfraReceberContaCliente.UniSFBitBtn1Click(Sender: TObject);
+begin
+  UniPageControl1.ActivePage := tsAReceber;
+end;
+
+procedure TfraReceberContaCliente.UniSFBitBtn2Click(Sender: TObject);
+var
+  resp1       :IResponse;
+  jsonBody   :TJSONObject;
+  jsonResp :TJSONObject;
+begin
+  try
+    jsonBody := TJSONObject.Create;
+    jsonResp := TJSONObject.Create;
+
+    //dados gerais
+    jsonBody.AddPair('empresa', vvcodemp);
+    jsonBody.AddPair('diaDespP',compDIADESPP_ADC.Text);
+    jsonBody.AddPair('codCli',compCODCLI.Text);
+    jsonBody.AddPair('diaDespR','');
+    jsonBody.AddPair('dRef',compDIADESPR_ADC.Text);
+    jsonBody.AddPair('valorP',compVALORP_ADC.Text);
+    jsonBody.AddPair('valorR','0');
+    jsonBody.AddPair('codBan',compCODBAN.Text);
+    jsonBody.AddPair('codCc',compCODCC.Text);
+    jsonBody.AddPair('codPr','');
+    jsonBody.AddPair('debCred','C');
+    jsonBody.AddPair('descrMv',compDESCRMV.Text);
+    jsonBody.AddPair('numDoc',compNUMDOC_ADC.Text);
+    jsonBody.AddPair('numDoc2','');
+    jsonBody.AddPair('repasse','');
+    jsonBody.AddPair('agencia','');
+    jsonBody.AddPair('obs','');
+    jsonBody.AddPair('texto','');
+
+    resp1 := TRequest
+            .New
+            .BaseURL(baseurlCadastros)
+            .Resource(postConta)
+            .AddParam('nomeBanco', uniMainModule.nomebanco)
+            .AddBody(jsonBody.ToString)
+            .Timeout(12000)
+            .Post;
+
+    sleep(2000);
+    jsonResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+    if resp1.StatusCode = 200 then
+    begin
+      alertam.Success('Conta inserida com sucesso.');
+      UniPageControl1.ActivePage := tsAReceber;
+    end
+    else
+    begin
+      alertam.Error(jsonResp.GetValue<string>('Erro'));
+    end;
+  finally
+    FreeAndNil(jsonBody);
+    FreeAndNil(jsonResp);
+  end;
 end;
 
 procedure TfraReceberContaCliente.UniSFBitBtn5Click(Sender: TObject);

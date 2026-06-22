@@ -2772,6 +2772,7 @@ object frmPrincipal: TfrmPrincipal
         end
         object Configuraes1: TUniMenuItem
           Caption = 'Configura'#231#245'es'
+          OnClick = Configuraes1Click
         end
         object Abrircaixa1: TUniMenuItem
           Caption = 'Abrir caixa'
@@ -2807,6 +2808,10 @@ object frmPrincipal: TfrmPrincipal
         object Senhas1: TUniMenuItem
           Caption = 'Senhas'
           OnClick = Senhas1Click
+        end
+        object Parmetrosgerais1: TUniMenuItem
+          Caption = 'Par'#226'metros gerais'
+          OnClick = Parmetrosgerais1Click
         end
       end
     end

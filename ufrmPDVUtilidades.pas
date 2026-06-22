@@ -8,7 +8,9 @@ uses
   uniGUIClasses, uniGUIForm, uniPanel, uniPageControl, uniGUIBaseClasses,
   uniScrollBox, uniTimer, URGLayoutUnigui, UniSFiGrowl, UniSFSweetAlert,
   uniButton, uniBitBtn, UniSFButton, UniSFBitBtn, ufraCadClientes, ufraCadEmpresas,
-  ufraCadProdutos, ufraCadVendedores, ufraFecharCaixa, ufraReceberContaCliente;
+  ufraCadProdutos, ufraCadVendedores, ufraFecharCaixa, ufraReceberContaCliente,
+  ufraSangria, ufraGerenciamentoCupons, uFraDescontoPdv,
+  ufraConfiguracoesNfceF;
 
 type
   TfrmPDVUtilidades = class(TUniForm)
@@ -52,6 +54,10 @@ type
     TsVendedores: TUniTabSheet;
     TsFecharCaixa: TUniTabSheet;
     tsReceberContaCliente: TUniTabSheet;
+    tsSangria: TUniTabSheet;
+    tsGerenciamentoCupons: TUniTabSheet;
+    tsDescontoPdv: TUniTabSheet;
+    TsfraConfiguracoesNfceF: TUniTabSheet;
     procedure btnCancelarClick(Sender: TObject);
     procedure UniFormClose(Sender: TObject; var Action: TCloseAction);
     procedure UniFormShow(Sender: TObject);
@@ -61,6 +67,12 @@ type
     procedure UniSFBitBtn9Click(Sender: TObject);
     procedure UniSFBitBtn1Click(Sender: TObject);
     procedure UniSFBitBtn2Click(Sender: TObject);
+    procedure UniSFBitBtn4Click(Sender: TObject);
+    procedure UniSFBitBtn5Click(Sender: TObject);
+    procedure UniSFBitBtn10Click(Sender: TObject);
+    procedure UniSFBitBtn11Click(Sender: TObject);
+    procedure UniSFBitBtn3Click(Sender: TObject);
+    procedure UniSFBitBtn12Click(Sender: TObject);
   private
     { Private declarations }
     fraClientes: TfraCadClientes;
@@ -69,6 +81,10 @@ type
     fraCadVendedores: TfraCadVendedores;
     fraFecharCaixa: TfraFecharCaixa;
     fraReceberContaCliente: TfraReceberContaCliente;
+    fraSangria: TfraSangria;
+    fraGerenciamentoCupons: TfraGerenciamentoCupons;
+    fraDescontoPdv: TfraDescontoPdv;
+    fraConfiguracoesNfceF: TfraConfiguracoesNfceF;
 
   public
     { Public declarations }
@@ -112,6 +128,27 @@ begin
   DefinirTodasAbasNaPrimeiraPagina(self)
 end;
 
+procedure TfrmPDVUtilidades.UniSFBitBtn10Click(Sender: TObject);
+begin
+  if not Assigned(fraConfiguracoesNfceF) then
+    fraConfiguracoesNfceF := TfraConfiguracoesNfceF.Create(Self);
+  fraConfiguracoesNfceF.Parent := TsfraConfiguracoesNfceF;
+  fraConfiguracoesNfceF.Align := alClient;
+  PgcPrincipal.ActivePage := TsfraConfiguracoesNfceF;
+
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn11Click(Sender: TObject);
+begin
+
+  alertam.Warning('Rotina em manutenção.');
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn12Click(Sender: TObject);
+begin
+  alertam.Warning('Rotina em manutenção.');
+end;
+
 procedure TfrmPDVUtilidades.UniSFBitBtn1Click(Sender: TObject);
 begin
   if not Assigned(fraFecharCaixa) then
@@ -128,6 +165,36 @@ begin
   fraReceberContaCliente.Parent := TsReceberContaCliente;
   fraReceberContaCliente.Align := alClient;
   PgcPrincipal.ActivePage := TsReceberContaCliente;
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn3Click(Sender: TObject);
+begin
+  if not Assigned(fraDescontoPdv) then
+    fraDescontoPdv := TfraDescontoPdv.Create(Self);
+
+  uniMainModule.pDesc := 0;
+  uniMainModule.vDesc := 0;
+  fraDescontoPdv.Parent := tsDescontoPdv;
+//  fraDescontoPdv.Align := alClient;
+  PgcPrincipal.ActivePage := TsDescontoPdv;
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn4Click(Sender: TObject);
+begin
+  if not Assigned(fraSangria) then
+    fraSangria := TfraSangria.Create(Self);
+  fraSangria.Parent := TsSangria;
+  fraSangria.Align := alClient;
+  PgcPrincipal.ActivePage := TsSangria;
+end;
+
+procedure TfrmPDVUtilidades.UniSFBitBtn5Click(Sender: TObject);
+begin
+  if not Assigned(fraGerenciamentoCupons) then
+    fraGerenciamentoCupons := TfraGerenciamentoCupons.Create(Self);
+  fraGerenciamentoCupons.Parent := TsGerenciamentoCupons;
+  fraGerenciamentoCupons.Align := alClient;
+  PgcPrincipal.ActivePage := TsGerenciamentoCupons;
 end;
 
 procedure TfrmPDVUtilidades.UniSFBitBtn6Click(Sender: TObject);

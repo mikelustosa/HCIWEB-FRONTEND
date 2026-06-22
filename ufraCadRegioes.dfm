@@ -33,7 +33,7 @@ object fraCadRegioes: TfraCadRegioes
       Width = 1147
       Height = 736
       Hint = ''
-      ActivePage = tabNovo
+      ActivePage = UniTabSheet1
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -68,7 +68,7 @@ object fraCadRegioes: TfraCadRegioes
               Width = 50
             end
             item
-              FieldName = 'descrReg'
+              FieldName = 'descr'
               Title.Caption = 'Descri'#231#227'o'
               Width = 200
             end
@@ -394,7 +394,7 @@ object fraCadRegioes: TfraCadRegioes
               TabOrder = 1
               Caption = 'UniPanel3'
               Color = 16249327
-              object compdescrReg: TUniEdit
+              object compDESCR: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 254

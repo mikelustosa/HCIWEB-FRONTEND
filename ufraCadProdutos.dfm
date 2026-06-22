@@ -4053,8 +4053,8 @@ object fraCadProdutos: TfraCadProdutos
               TabOrder = 0
               Caption = ''
               object sBox3: TUniScrollBox
-                Left = 54
-                Top = 18
+                Left = 34
+                Top = -278
                 Width = 1411
                 Height = 1031
                 Hint = ''

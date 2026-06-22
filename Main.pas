@@ -93,6 +93,7 @@ type
     Abrircaixa1: TUniMenuItem;
     Contas1: TUniMenuItem;
     Contas2: TUniMenuItem;
+    Parmetrosgerais1: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -126,6 +127,8 @@ type
     procedure Estoque1Click(Sender: TObject);
     procedure Abrircaixa1Click(Sender: TObject);
     procedure Contas2Click(Sender: TObject);
+    procedure Configuraes1Click(Sender: TObject);
+    procedure Parmetrosgerais1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -153,7 +156,8 @@ uses
   ufraCadCartoes, ufraCadCondPag, ufraCadClientes, ufraCadVendedores,
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
   ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque,
-  ufrmAbrirCaixa, ufraOperacaoContas, uConstantes;
+  ufrmAbrirCaixa, ufraOperacaoContas, uConstantes, ufraConfiguracoesNfceF,
+  ufraParamGerais;
 
 function frmPrincipal: TfrmPrincipal;
 begin
@@ -217,6 +221,11 @@ procedure TfrmPrincipal.paginaPrincipalClose(Sender: TObject;
 begin
   if MessageDlg('Deseja realmente fechar esta aba?', mtConfirmation, mbYesNo) = mrYes then
     FecharAbaAtualComSeguranca(frmPrincipal.pagePrincipal);
+end;
+
+procedure TfrmPrincipal.Parmetrosgerais1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraParamGerais),'Parâmetros gerais', true, -1, true);
 end;
 
 procedure TfrmPrincipal.Pas1Click(Sender: TObject);
@@ -385,6 +394,11 @@ end;
 procedure TfrmPrincipal.Conddepagamento1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadCondPag),'Condição de pagamento', true, -1, true);
+end;
+
+procedure TfrmPrincipal.Configuraes1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfraConfiguracoesNfceF),'Configurações NFC-e', true, -1, true);
 end;
 
 procedure TfrmPrincipal.ConfirmaFechamentoAba(Sender: TObject; var CanClose: Boolean);

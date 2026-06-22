@@ -140,6 +140,11 @@ type
     UniContainerPanel39: TUniContainerPanel;
     UniLabel38: TUniLabel;
     cbUsuario: TUniSFComboBox;
+    UniContainerPanel22: TUniContainerPanel;
+    UniSFLabel1: TUniSFLabel;
+    UniContainerPanel23: TUniContainerPanel;
+    UniSFLabel2: TUniSFLabel;
+    cbStatus: TUniSFComboBox;
     procedure btnCancelarClick(Sender: TObject);
     procedure UniFrameReady(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
@@ -415,6 +420,7 @@ begin
 //        jsonBody.AddPair('dtIni', datetostr(compDtIni.DateTime));
 //        jsonBody.AddPair('dtFim', datetostr(compDtFim.DateTime));
         jsonBody.AddPair('usuario', vvNomeUsuarioLogin);
+        jsonBody.AddPair('status', cbStatus.Text);
 
         resp1 := TRequest
                 .New

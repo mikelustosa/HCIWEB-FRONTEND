@@ -38,7 +38,7 @@ type
     UniContainerPanel9: TUniContainerPanel;
     UniLabel10: TUniLabel;
     UniPanel3: TUniPanel;
-    compdescrReg: TUniEdit;
+    compDESCR: TUniEdit;
     UniContainerPanel10: TUniContainerPanel;
     UniLabel1: TUniLabel;
     cpMenuRodape: TUniContainerPanel;
@@ -112,7 +112,7 @@ begin
     jsonBody := TJSONObject.Create;
 
     jsonBody.AddPair('codReg', compcodReg.Text);
-    jsonBody.AddPair('descrReg', compdescrReg.Text);
+    jsonBody.AddPair('descr', compdescr.Text);
     jsonBody.AddPair('graf', '');
     jsonBody.AddPair('grafs', '');
     jsonBody.AddPair('ativo', ativo);
@@ -221,7 +221,7 @@ begin
             .AddParam('nomeBanco', uniMainModule.nomebanco)
             .AddParam('id', '')
             .AddParam('codReg', '')
-            .AddParam('descrReg', pDado)
+            .AddParam('descr', pDado)
             .timeOut(12000)
             .Get;
 

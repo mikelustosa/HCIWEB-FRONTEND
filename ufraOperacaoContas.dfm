@@ -112,7 +112,7 @@ object fraOperacaoContas: TfraOperacaoContas
       Width = 1279
       Height = 721
       Hint = ''
-      ActivePage = tsListagem
+      ActivePage = tsDetalhe
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -1205,6 +1205,10 @@ object fraOperacaoContas: TfraOperacaoContas
         Hint = ''
         TabVisible = False
         Caption = 'tabDetalhe'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 256
+        ExplicitHeight = 128
         object cpMenuRodape: TUniContainerPanel
           Left = 0
           Top = 653
@@ -1712,6 +1716,11 @@ object fraOperacaoContas: TfraOperacaoContas
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 2
+                    ClientEvents.UniEvents.Strings = (
+                      
+                        'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                        'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                        '});'#13#10'}')
                   end
                 end
                 object UniPanel10: TUniPanel
@@ -1769,6 +1778,11 @@ object fraOperacaoContas: TfraOperacaoContas
                     Font.Height = -16
                     Align = alClient
                     TabOrder = 2
+                    ClientEvents.UniEvents.Strings = (
+                      
+                        'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                        'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                        '});'#13#10'}')
                   end
                 end
                 object UniPanel2: TUniPanel

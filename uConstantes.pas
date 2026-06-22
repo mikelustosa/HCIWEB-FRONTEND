@@ -21,6 +21,11 @@ uses
 
 //    var    wPastaTmpPdf: string;
     var    wUrlRelatorioTmpPdf: string;
+    //variaveis utilizadas no pdv
+//    var wVlDesPdv: double;
+//    var wPerDescPdv: double;
+//    var wVlTotPdv: double;
+//    var wVlTotComDescPdv: double;
 
     const postLogin     = 'postLogin';
     const getPerfilUsuarioPdv = 'getPerfilUsuarioPdv';
@@ -28,6 +33,10 @@ uses
     const putUsuario    = 'putUsuario';
     const postUsuario   = 'postUsuario';
     const deleteUsuario = 'deleteUsuario';
+
+    const getPdvConfiguracao = 'getPdvConfiguracao';
+    const putPdvConfiguracao = 'putPdvConfiguracao';
+
 
     const getAtividade    = 'getAtividade';
     const putAtividade    = 'putAtividade';
@@ -130,6 +139,8 @@ uses
     const getCupom    = 'getCupom';
     const postCupom    = 'postCupom';
     const postFinalizaPdv = 'postFinalizaPdv';
+    const getMovCupom = 'getMovCupom';
+    const getMovCupomP = 'getMovCupomP';
 
     const getItemCupom    = 'getItemCupom';
 
@@ -139,7 +150,7 @@ uses
     const getCnpjConfig = 'getCnpjConfig';
 
     const enviaNfce = 'enviaNfce';
-    const inserirNfce = 'inserirNfce';
+//16062026    const inserirNfce = 'inserirNfce';
 
     const getVerificaCaixaFechado = 'getVerificaCaixaFechado';
     const getVerificaCaixa = 'getVerificaCaixa';
@@ -152,8 +163,22 @@ uses
     const getConta = 'getConta';
     const deleteConta = 'deleteConta';
     const putBaixaConta = 'putBaixaConta';
+    const putBaixaContaPdvUtilidades = 'putBaixaContaPdvUtilidades';
+    const getMovContasPdvUtilidades = 'getMovContasPdvUtilidades';
+    const getEstornaContaPdvUtilidades = 'getEstornaContaPdvUtilidades';
+    const putEstornaContaPdvUtilidades = 'putEstornaContaPdvUtilidades';
     const postConta = 'postConta';
     const putConta = 'putConta';
+
+    const getSangria = 'getSangria';
+    const postSangria = 'postSangria';
+    const putSangria = 'putSangria';
+    const deleteSangria = 'deleteSangria';
+
+    const getReforco = 'getReforco';
+    const deleteReforco = 'deleteReforco';
+    const postReforco = 'postReforco';
+    const putReforco = 'putReforco';
 
     //Impressões
     const getRecibo = 'getRecibo';

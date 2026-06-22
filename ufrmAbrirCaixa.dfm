@@ -258,9 +258,9 @@ object frmAbrirCaixa: TfrmAbrirCaixa
               TabOrder = 1
               ClientEvents.UniEvents.Strings = (
                 
-                  'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                  '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                  'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+                  'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                  'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                  '});'#13#10'}')
             end
             object UniContainerPanel38: TUniContainerPanel
               Left = 1

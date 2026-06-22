@@ -1,0 +1,494 @@
+object fraParamGerais: TfraParamGerais
+  Left = 0
+  Top = 0
+  Width = 1103
+  Height = 675
+  OnCreate = UniFrameCreate
+  OnReady = UniFrameReady
+  TabOrder = 0
+  object cpMenuTopo: TUniContainerPanel
+    Left = 0
+    Top = 0
+    Width = 1103
+    Height = 40
+    Hint = ''
+    ParentColor = False
+    Align = alTop
+    TabOrder = 0
+    TabStop = False
+    ExplicitLeft = -334
+    ExplicitWidth = 1437
+    object lblDescricao: TUniLabel
+      AlignWithMargins = True
+      Left = 46
+      Top = 7
+      Width = 148
+      Height = 21
+      Hint = ''
+      Margins.Top = 7
+      Caption = 'PAR'#194'METROS GERAIS'
+      Align = alLeft
+      ParentFont = False
+      Font.Height = -16
+      Font.Name = 'Segoe UI Light'
+      TabOrder = 1
+    end
+    object btnNovo: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 10
+      Top = 3
+      Width = 30
+      Height = 28
+      Hint = 'Novo registro'
+      Margins.Left = 10
+      ShowHint = True
+      ParentShowHint = False
+      Caption = '   '
+      Align = alLeft
+      TabOrder = 2
+      Scale = bbsMedium
+      IconAlign = iaTop
+      FAIcon.Icon = fa_plus_circle
+      FAIcon.Size = fs_24
+      FAIcon.Color = fc_primary
+      ButtonStyles = bs_transparent
+    end
+    object UniContainerPanel27: TUniContainerPanel
+      AlignWithMargins = True
+      Left = 3
+      Top = 37
+      Width = 600
+      Height = 3
+      Hint = ''
+      Margins.Right = 500
+      Margins.Bottom = 0
+      ParentColor = False
+      Color = 16747287
+      Align = alBottom
+      TabOrder = 3
+      LayoutConfig.Cls = 'painel-sem-borda'
+      ExplicitWidth = 934
+    end
+    object btnFechar: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 1074
+      Top = 3
+      Width = 26
+      Height = 28
+      Hint = ''
+      Visible = False
+      Caption = ''
+      Align = alRight
+      ParentFont = False
+      Font.Color = clGray
+      TabStop = False
+      TabOrder = 4
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoPadraoManipulacao'
+      FAIcon.Icon = fa_times
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_grey
+      ButtonStyles = bs_transparent
+      ExplicitLeft = 1408
+    end
+  end
+  object UniScrollBox1: TUniScrollBox
+    Left = 10
+    Top = 46
+    Width = 1071
+    Height = 577
+    Hint = ''
+    TabOrder = 1
+    ScrollHeight = 561
+    ScrollWidth = 1017
+    object pgcTela: TUniPageControl
+      Left = 3
+      Top = 3
+      Width = 1014
+      Height = 558
+      Hint = ''
+      ActivePage = tsGeral
+      TabOrder = 0
+      object tsGeral: TUniTabSheet
+        Hint = ''
+        Caption = 'Geral'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 289
+        ExplicitHeight = 193
+        object UniPanel1: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox2: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsNotaFiscal: TUniTabSheet
+        Hint = ''
+        Caption = 'Nota fiscal'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 289
+        ExplicitHeight = 193
+        object UniPanel2: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox3: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsVendas: TUniTabSheet
+        Hint = ''
+        Caption = 'Vendas'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel3: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox4: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsCompras: TUniTabSheet
+        Hint = ''
+        Caption = 'Compras'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel4: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox5: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsFormularios: TUniTabSheet
+        Hint = ''
+        Caption = 'Formul'#225'rios'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel5: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox6: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsProdutos: TUniTabSheet
+        Hint = ''
+        Caption = 'Produtos'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel6: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox7: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsEmail: TUniTabSheet
+        Hint = ''
+        Caption = 'Email'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel7: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox8: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsGrades: TUniTabSheet
+        Hint = ''
+        Caption = 'Grades'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel8: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox9: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsOrdenacoes: TUniTabSheet
+        Hint = ''
+        Caption = 'Ordena'#231#245'es'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel9: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox10: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+      object tsOrdemDeServico: TUniTabSheet
+        Hint = ''
+        Caption = 'Ordem de servi'#231'o'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 1014
+        ExplicitHeight = 558
+        object UniPanel10: TUniPanel
+          Left = 0
+          Top = 0
+          Width = 1006
+          Height = 530
+          Hint = ''
+          Align = alClient
+          TabOrder = 0
+          Caption = ''
+          ExplicitLeft = 3
+          ExplicitTop = 3
+          ExplicitWidth = 926
+          ExplicitHeight = 494
+          object UniScrollBox11: TUniScrollBox
+            Left = 16
+            Top = 16
+            Width = 945
+            Height = 497
+            Hint = ''
+            TabOrder = 1
+          end
+        end
+      end
+    end
+  end
+  object cpMenuRodape: TUniContainerPanel
+    Left = 0
+    Top = 635
+    Width = 1103
+    Height = 40
+    Hint = ''
+    ParentColor = False
+    Align = alBottom
+    TabOrder = 2
+    LayoutConfig.Cls = 'body_grdnt_rounded'
+    ExplicitLeft = -318
+    ExplicitTop = 586
+    ExplicitWidth = 1421
+    object btnSalvar: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 978
+      Top = 5
+      Width = 120
+      Height = 30
+      Hint = ''
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      ParentShowHint = False
+      Caption = 'SALVAR'
+      Align = alRight
+      TabOrder = 1
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoSemBorda'
+      FAIcon.Icon = fa_check_circle
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_white
+      FAIcon.Style = regular
+      ButtonStyles = bs_danger
+      ExplicitLeft = 1296
+    end
+    object btnCancelar: TUniSFBitBtn
+      AlignWithMargins = True
+      Left = 848
+      Top = 5
+      Width = 120
+      Height = 30
+      Hint = ''
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Visible = False
+      ParentShowHint = False
+      Caption = 'VOLTAR'
+      Align = alRight
+      TabOrder = 2
+      Scale = bbsSmall
+      LayoutConfig.Cls = 'botaoSemBorda'
+      FAIcon.Icon = fa_arrow_alt_circle_left
+      FAIcon.Size = fs_16
+      FAIcon.Color = fc_white
+      FAIcon.Style = regular
+      ButtonStyles = bs_danger
+      ExplicitLeft = 1166
+    end
+    object compATIVO: TUniFSToggle
+      AlignWithMargins = True
+      Left = 10
+      Top = 5
+      Width = 80
+      Height = 30
+      Hint = ''
+      Margins.Left = 10
+      Margins.Top = 5
+      Margins.Right = 10
+      Margins.Bottom = 5
+      ThemeOn = Success
+      ThemeOff = Gray
+      TitleOn = 'Ativo'
+      TitleOff = 'Inativo'
+      Align = alLeft
+    end
+  end
+end

@@ -102,7 +102,8 @@ begin
     end
   //VENDEDORERS
   else if (weTabelaPesquisa = 'VENDEDORES')
-    or (weTabelaPesquisa = 'VENDEDORES_PDV') then
+    or (weTabelaPesquisa = 'VENDEDORES_PDV')
+    or (weTabelaPesquisa = 'VENDEDORES_PDV_CONFIGURACOES')then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -121,7 +122,7 @@ begin
       //CÓDIGO
       weGrid.Columns[1].FieldName := 'CODREG';
       //NOME
-      weGrid.Columns[2].FieldName := 'DESCRREG';
+      weGrid.Columns[2].FieldName := 'DESCR';
       //ATIVO
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
@@ -214,7 +215,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //CLIENTES
-  else if (weTabelaPesquisa = 'CLIENTES1')
+  else if (weTabelaPesquisa = 'CLIENTE')
+    or (weTabelaPesquisa = 'CLIENTES1')
     or (weTabelaPesquisa = 'CLIENTES2')
     or (weTabelaPesquisa = 'CLIENTES3')
     or (weTabelaPesquisa = 'CLIENTES_PDV')
@@ -233,7 +235,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //CFOP SAÍDA
-  else if (weTabelaPesquisa = 'CFOPSAIDA')
+  else if (weTabelaPesquisa = 'CFOP')
+    or (weTabelaPesquisa = 'CFOPENTRADA')
     or (weTabelaPesquisa = 'CFOPENTRADA')
     or (weTabelaPesquisa = 'CFOPNFCE') then
     begin
@@ -259,7 +262,10 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //CCUSTO PDV
-  else if weTabelaPesquisa = 'CCUSTO_PDV' then
+  else if (weTabelaPesquisa = 'CCUSTO')
+   or (weTabelaPesquisa = 'CCUSTO_PDV')
+   or (weTabelaPesquisa = 'CCUSTO_PDV_UTILITARIO')
+   or (weTabelaPesquisa = 'CCUSTO_PDV_CONFIGURACOES')then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -283,7 +289,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //DEPARTAMENTOS
-  else if weTabelaPesquisa = 'DEPARTAMENTOS' then
+  else if (weTabelaPesquisa = 'DEPARTAMENTO')
+  or (weTabelaPesquisa = 'DEPARTAMENTOS') then
     begin
       //ID
       weGrid.Columns[0].FieldName := 'ID';
@@ -295,7 +302,8 @@ begin
       weGrid.Columns[3].FieldName := 'ATIVO';
     end
   //BANCOS
-  else if (weTabelaPesquisa = 'BANCOS')
+  else if (weTabelaPesquisa = 'BANCO')
+   or (weTabelaPesquisa = 'BANCOS')
    or (weTabelaPesquisa = 'BANCOS_PDV_UTILITARIO') then
     begin
       //ID
@@ -389,7 +397,8 @@ begin
   end
   //VENDEDORES
   else if (wTabelaDePesquisa = 'VENDEDORES')
-  or (wTabelaDePesquisa = 'VENDEDORESPDV') then
+  or (wTabelaDePesquisa = 'VENDEDORESPDV')
+  or (wTabelaDePesquisa = 'VENDEDORES_PDV_CONFIGURACOES') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getVendedor)
@@ -409,7 +418,7 @@ begin
             .AddParam('nomeBanco', uniMainModule.nomebanco)
             .AddParam('idCodReg', retornaOpcao('id',cbOpcao,filtro))
             .AddParam('codReg', retornaOpcao('Código',cbOpcao,filtro))
-            .AddParam('descrReg', retornaOpcao('Nome',cbOpcao,filtro))
+            .AddParam('descr', retornaOpcao('Nome',cbOpcao,filtro))
             .AddParam('ativo', '')
             .timeOut(12000)
             .Get;
@@ -515,7 +524,8 @@ begin
             .Get;
   end
   //CLIENTES
-  else if (wTabelaDePesquisa.ToUpper = 'CLIENTES1')
+  else if (wTabelaDePesquisa.ToUpper = 'CLIENTE')
+  or (wTabelaDePesquisa.ToUpper = 'CLIENTES1')
   or (wTabelaDePesquisa.ToUpper = 'CLIENTES2')
   or (wTabelaDePesquisa.ToUpper = 'CLIENTES3')
   or (wTabelaDePesquisa.ToUpper = 'CLIENTES_PDV')
@@ -535,7 +545,8 @@ begin
             .Get;
   end
   //CFOP SAÍDA
-  else if (wTabelaDePesquisa.ToUpper = 'CFOPSAIDA')
+  else if (wTabelaDePesquisa.ToUpper = 'CFOP')
+  or (wTabelaDePesquisa.ToUpper = 'CFOPSCFOPENTRADAAIDA')
   or (wTabelaDePesquisa.ToUpper = 'CFOPSCFOPENTRADAAIDA')
   or (wTabelaDePesquisa.ToUpper = 'CFOPNFCE') then
   begin
@@ -564,7 +575,8 @@ begin
             .Get;
   end
   //CCUSTO_PDV
-  else if (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
+  else if (wTabelaDePesquisa.ToUpper = 'CCUSTO')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L2')
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L3')
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L4')
@@ -576,7 +588,9 @@ begin
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L10')
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L11')
     or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L12')
-    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_CONTA') then
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_CONTA')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_UTILITARIO')
+    or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_CONFIGURACOES') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getCentroCusto)
@@ -602,7 +616,8 @@ begin
             .Get;
   end
   //DEPARTAMENTOS
-  else if (wTabelaDePesquisa.ToUpper = 'DEPARTAMENTOS') then
+  else if (wTabelaDePesquisa.ToUpper = 'DEPARTAMENTO')
+  or (wTabelaDePesquisa.ToUpper = 'DEPARTAMENTOS') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
             .resource(getDepartamento)
@@ -615,7 +630,8 @@ begin
             .Get;
   end
   //BANCOS
-  else if (wTabelaDePesquisa.ToUpper = 'BANCOS')
+  else if (wTabelaDePesquisa.ToUpper = 'BANCO')
+  or (wTabelaDePesquisa.ToUpper = 'BANCOS')
   or (wTabelaDePesquisa.ToUpper = 'BANCOS_PDV_UTILITARIO') then
   begin
     resp1 := TRequest.New.BaseURL(baseurlCadastros)
@@ -647,7 +663,9 @@ begin
         atualizaNomeColunaGrid(gridTela,'ATIVIDADES');
       end
       //VENDEDORES
-      else if (wTabelaDePesquisa.ToUpper = 'VENDEDORES') OR (wTabelaDePesquisa.ToUpper = 'VENDEDORESPDV') then
+      else if (wTabelaDePesquisa.ToUpper = 'VENDEDORES')
+      or (wTabelaDePesquisa.ToUpper = 'VENDEDORESPDV')
+      or (wTabelaDePesquisa.ToUpper = 'VENDEDORES_PDV_CONFIGURACOES') then
       begin
         atualizaNomeColunaGrid(gridTela,'VENDEDORES');
       end
@@ -711,6 +729,11 @@ begin
       begin
         atualizaNomeColunaGrid(gridTela,'GRADE2');
       end
+      //CLIENTES
+      else if wTabelaDePesquisa.ToUpper = 'CLIENTE' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CLIENTE');
+      end
       //CLIENTES1
       else if wTabelaDePesquisa.ToUpper = 'CLIENTES1' then
       begin
@@ -725,6 +748,11 @@ begin
       else if wTabelaDePesquisa.ToUpper = 'CLIENTES3' then
       begin
         atualizaNomeColunaGrid(gridTela,'CLIENTES3');
+      end
+      //CFOP
+      else if wTabelaDePesquisa.ToUpper = 'CFOP' then
+      begin
+        atualizaNomeColunaGrid(gridTela,'CFOP');
       end
       //CFOP SAÍDA
       else if wTabelaDePesquisa.ToUpper = 'CFOPSAIDA' then
@@ -753,7 +781,8 @@ begin
         atualizaNomeColunaGrid(gridTela,'CLIENTES_PDV');
       end
       //CCUSTO_PDV
-      else if (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
+      else if (wTabelaDePesquisa.ToUpper = 'CCUSTO')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L1')
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L2')
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L3')
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L4')
@@ -765,7 +794,9 @@ begin
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L10')
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L11')
         or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_L12')
-        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_CONTA') then
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_CONTA')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_UTILITARIO')
+        or (wTabelaDePesquisa.ToUpper = 'CCUSTO_PDV_CONFIGURACOES') then
       begin
         atualizaNomeColunaGrid(gridTela,'CCUSTO_PDV');
       end
@@ -790,17 +821,18 @@ begin
         atualizaNomeColunaGrid(gridTela,'CLIENTES_CONTA');
       end
       //DEPARTAMENTOS
-      else if wTabelaDePesquisa.ToUpper = 'DEPARTAMENTOS' then
+      else if (wTabelaDePesquisa.ToUpper = 'DEPARTAMENTO')
+      or (wTabelaDePesquisa.ToUpper = 'DEPARTAMENTOS') then
       begin
         atualizaNomeColunaGrid(gridTela,'DEPARTAMENTOS');
       end
       //BANCOS
-      else if (wTabelaDePesquisa.ToUpper = 'BANCOS')
+      else if (wTabelaDePesquisa.ToUpper = 'BANCO')
+      or (wTabelaDePesquisa.ToUpper = 'BANCOS')
       or (wTabelaDePesquisa.ToUpper = 'BANCOS_PDV_UTILITARIO') then
       begin
-        atualizaNomeColunaGrid(gridTela,'BANCOS');
+        atualizaNomeColunaGrid(gridTela,'BANCO');
       end
-
     finally
       jsonResp.Free;
     end;

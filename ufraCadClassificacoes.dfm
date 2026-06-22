@@ -69,13 +69,14 @@ object fraCadClassificacoes: TfraCadClassificacoes
             end
             item
               FieldName = 'descrClf'
-              Title.Caption = 'Atividade'
+              Title.Caption = 'Classifica'#231#227'o'
               Width = 200
             end
             item
               FieldName = 'ativo'
               Title.Caption = 'ativo'
               Width = 64
+              Visible = False
             end
             item
               FieldName = 'iconeAtivo'

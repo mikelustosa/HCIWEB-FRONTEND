@@ -271,7 +271,6 @@ begin
   wOut := resp1.Content+ ' statusCode:'+inttostr(resp1.StatusCode);
   if resp1.StatusCode = 200 then
   begin
-//    result := true;
     var wObResult : TJSONObject; wObResult := TJSONObject.Create;
     wObResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
     if wObResult.GetValue('Result').Value.ToUpper = 'FECHADO' then
@@ -1998,7 +1997,7 @@ begin
   if not DisplayText then
     Exit;
 
-  if Valor = 'S' then
+  if (Valor = 'S') or (Valor = 's') or (Valor = 'T') or (Valor = 't') or (Valor = '1') then
     Texto := '<span style="cursor:pointer"> <i class="fa fa-circle bola-verde-pisca" style="color:green;"></i></span>'
   else
     Texto := '<span style="cursor:pointer"> <i class="fa fa-circle" style="color:red;"></i></span>';

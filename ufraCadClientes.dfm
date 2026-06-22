@@ -397,7 +397,7 @@ object fraCadClientes: TfraCadClientes
           Width = 1421
           Height = 683
           Hint = ''
-          ActivePage = tab0
+          ActivePage = tab1
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet
@@ -413,11 +413,12 @@ object fraCadClientes: TfraCadClientes
               TabOrder = 0
               Caption = ''
               object sBox1: TUniScrollBox
-                Left = 84
-                Top = 18
+                Left = 1
+                Top = 1
                 Width = 1411
-                Height = 929
+                Height = 653
                 Hint = ''
+                Align = alClient
                 Color = 16249327
                 TabOrder = 1
                 ScrollHeight = 877
@@ -688,7 +689,7 @@ object fraCadClientes: TfraCadClientes
                   TabOrder = 5
                   Caption = ''
                   Color = 16249327
-                  object compdescrclf: TUniEdit
+                  object compDESCRCLF: TUniEdit
                     Left = 1
                     Top = 28
                     Width = 398
@@ -2987,7 +2988,7 @@ object fraCadClientes: TfraCadClientes
                   TabOrder = 12
                   Caption = ''
                   Color = 16249327
-                  object compDescrReg: TUniEdit
+                  object compDescr: TUniEdit
                     Left = 1
                     Top = 28
                     Width = 398

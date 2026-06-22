@@ -27,6 +27,9 @@ type
     function aplicaMascara(Obj: TUniEdit; tipoMask: TpMask): string;
     var wUsuario      :string;
     var wCodUsuario   :string;
+    var pDesc :double;
+    var vDesc :double;
+    var vTotalSemDesc : double;
 //    var vvcaixa       :string;
   end;
 

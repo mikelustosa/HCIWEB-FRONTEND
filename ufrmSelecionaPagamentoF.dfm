@@ -205,13 +205,18 @@ object frmSelecionaPagamentoF: TfrmSelecionaPagamentoF
             Height = 41
             Hint = ''
             CharCase = ecUpperCase
-            MaxLength = 6
+            MaxLength = 15
             BorderStyle = ubsNone
             Text = ''
             ParentFont = False
             Font.Height = -16
             Align = alClient
             TabOrder = 1
+            ClientEvents.UniEvents.Strings = (
+              
+                'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                '});'#13#10'}')
             OnChange = compVALORPAGOChange
           end
           object UniContainerPanel8: TUniContainerPanel

@@ -181,7 +181,8 @@ type
   public
     { Public declarations }
     totalCupom, totalProdutos: Double;
-    pDesc, vDesc, vDescTotal: Double;
+//    pDesc, vDesc,
+    vDescTotal: Double;
     wTotalCupom : real;
     JParcelasCaixa : TJSONArray;
 //    property JParcelasCaixa: TJSONArray read FJParcelasCaixa write SetJParcelasCaixa;
@@ -204,7 +205,7 @@ uses
 procedure TfrmPDV.callBackUtilidades(Sender: TComponent;
   AResult: Integer);
 begin
-//alerta.Warning('Rotina em desenvolvimento.');
+  calculaCupom;
 end;
 
 procedure TfrmPDV.retornar;
@@ -312,19 +313,19 @@ begin
   totalProdutos := 0;
   vDescTotal := 0;
 
-  if (pDesc <> 0) then
-    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(pDesc, JParGer.GetValue<integer>('DECPRECO')) + ' % de desconto:'
-  else if (vDesc <> 0) then
-    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(vDesc, JParGer.GetValue<integer>('DECPRECO')) + ' R$ de desconto:'
+  if (uniMainModule.pDesc <> 0) then
+    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(uniMainModule.pDesc, 2) + ' % de desconto:'
+  else if (uniMainModule.vDesc <> 0) then
+    lb_desconto.Caption := 'Total geral com ' + FormatFloatHci(uniMainModule.vDesc, 2) + ' R$ de desconto:'
   else
     lb_desconto.Caption := 'Total geral:';
 
   str_log := '-------------------------------------------------------' + sLineBreak;
 
-  if (pDesc <> 0) then
-    str_log := str_log + 'RecordCount : ' + intToStr(CDSTela.recordcount) + '    Desconto %% : ' + FloatToStr(pDesc) + sLineBreak
-  else if (vDesc <> 0) then
-    str_log := str_log + 'RecordCount : ' + intToStr(CDSTela.recordcount) + '    Desconto R$ : ' + FloatToStr(vDesc) + sLineBreak;
+  if (uniMainModule.pDesc <> 0) then
+    str_log := str_log + 'RecordCount : ' + intToStr(CDSTela.recordcount) + '    Desconto %% : ' + FloatToStr(uniMainModule.pDesc) + sLineBreak
+  else if (uniMainModule.vDesc <> 0) then
+    str_log := str_log + 'RecordCount : ' + intToStr(CDSTela.recordcount) + '    Desconto R$ : ' + FloatToStr(uniMainModule.vDesc) + sLineBreak;
 
   CDSTela.DisableControls;
   if (CDSTela.recordcount > 0) then
@@ -343,13 +344,13 @@ begin
       if (ytiprel = 'V') or (ytiprel = 'C') then
         totalCupom := totalCupom + CDSTela.fieldbyname('total').asfloat
       else
-        totalCupom := totalCupom + red_cent((CDSTela.fieldbyname('total').asfloat - (red_cent((CDSTela.fieldbyname('total').asfloat / 100) * pDesc))) { , 2vvdecpreco } );
+        totalCupom := totalCupom + red_cent((CDSTela.fieldbyname('total').asfloat - (red_cent((CDSTela.fieldbyname('total').asfloat / 100) * uniMainModule.pDesc))) { , 2vvdecpreco } );
       // **
 
       str_log := str_log
         + estr(CDSTela.fieldbyname('codpro').AsString, 15) + ' '
         + formata(red_cent(CDSTela.fieldbyname('total').asfloat), 15, 2) + ' '
-        + formata(red_cent(CDSTela.fieldbyname('total').asfloat - (red_cent((CDSTela.fieldbyname('total').asfloat / 100) * pDesc))), 15, 2) + sLineBreak;
+        + formata(red_cent(CDSTela.fieldbyname('total').asfloat - (red_cent((CDSTela.fieldbyname('total').asfloat / 100) * uniMainModule.pDesc))), 15, 2) + sLineBreak;
 
       CDSTela.next;
     end;
@@ -362,13 +363,13 @@ begin
 
     flt_valorDescontoProdutoSoma := 0;
 
-    if (vDesc <> 0) then
+    if (uniMainModule.vDesc <> 0) then
     begin
       CDSTela.first;
       while not(CDSTela.eof) do
       begin
         flt_porcentagemDoTotal := (CDSTela.fieldbyname('total').asfloat / totalProdutos) * 100;
-        flt_valorDescontoProduto := red_cent((vDesc / 100) * flt_porcentagemDoTotal);
+        flt_valorDescontoProduto := red_cent((uniMainModule.vDesc / 100) * flt_porcentagemDoTotal);
 
         flt_valorDescontoProdutoSoma := flt_valorDescontoProdutoSoma + flt_valorDescontoProduto;
 
@@ -379,23 +380,23 @@ begin
         CDSTela.next;
       end;
 
-      if not(SameValue(vDesc, flt_valorDescontoProdutoSoma)) then
+      if not(SameValue(uniMainModule.vDesc, flt_valorDescontoProdutoSoma)) then
       begin
         CDSTela.first;
         CDSTela.edit;
-        CDSTela.fieldbyname('vDesc').asfloat := CDSTela.fieldbyname('vDesc').asfloat + (vDesc - flt_valorDescontoProdutoSoma);
+        CDSTela.fieldbyname('vDesc').asfloat := CDSTela.fieldbyname('vDesc').asfloat + (uniMainModule.vDesc - flt_valorDescontoProdutoSoma);
         CDSTela.post;
       end;
 
-      totalCupom := totalCupom - vDesc;
-      vDescTotal := vDesc;
+      //18062026totalCupom := totalCupom - uniMainModule.vDesc;
+      vDescTotal := uniMainModule.vDesc;
     end
-    else if (pDesc > 0) then
+    else if (uniMainModule.pDesc > 0) then
     begin
       CDSTela.first;
       while not(CDSTela.eof) do
       begin
-        flt_valorDescontoProduto := red_cent((CDSTela.fieldbyname('total').asfloat / 100) * pDesc);
+        flt_valorDescontoProduto := red_cent((CDSTela.fieldbyname('total').asfloat / 100) * uniMainModule.pDesc);
         vDescTotal := vDescTotal + flt_valorDescontoProduto;
 
         CDSTela.edit;
@@ -407,13 +408,13 @@ begin
     end
     // Alexandre - 21/03/2019
     // - Correção : #13478 - Desconto PDV, cliente não estava conseguindo tirar o desconto.
-    else if (vDesc = 0) and (pDesc = 0) then
+    else if (uniMainModule.vDesc = 0) and (uniMainModule.pDesc = 0) then
     begin
       CDSTela.first;
 
       while not(CDSTela.eof) do
       begin
-        flt_valorDescontoProduto := red_cent((CDSTela.fieldbyname('total').asfloat / 100) * pDesc);
+        flt_valorDescontoProduto := red_cent((CDSTela.fieldbyname('total').asfloat / 100) * uniMainModule.pDesc);
         vDescTotal := vDescTotal + flt_valorDescontoProduto;
 
         CDSTela.edit;
@@ -434,7 +435,7 @@ begin
   FormatFloatHci(totalCupom, JParGer.GetValue<integer>('DECPRECO')) +
   ' (' + FloatToStr(totalCupom) +')' + sLineBreak;
 
-  compTOTALGERAL.text := FormatFloatHci(totalCupom, JParGer.GetValue<integer>('DECPRECO'));
+  compTOTALGERAL.text := FormatFloatHci(totalCupom, 2);
 //   lb_total.Caption := FormatFloat('#,0.00', totalCupom);
   compCODPRO.Text := '';
   compMOV.Text := FormatFloatHci(0, JParGer.GetValue<integer>('PICEST'));;
@@ -468,8 +469,8 @@ begin
   compTOTAL.Text := '';
   compNOME.Text := '';
   compTOTALGERAL.Text := '';
-  compINT_CODVEN.Text := '';
-  compNOMEVEND.Text := '';
+//  compINT_CODVEN.Text := '';
+//  compNOMEVEND.Text := '';
 
   FreeAndNil(JProduto);
   JProduto := nil;
@@ -477,8 +478,8 @@ begin
   FreeAndNil(JCliente);
   JCliente := nil;
 
-//  FreeAndNil(JVendedor);
-//  JVendedor := nil;
+  uniMainModule.pDesc := 0;
+  uniMainModule.vDesc := 0;
 
   calculaCupom;
 end;
@@ -550,8 +551,18 @@ begin
             jPedido.AddPair('int_CodCli',JCliente.GetValue<string>('CODCLI'));
             jPedido.AddPair('int_TipoPagamento','');
             jPedido.AddPair('int_Caixa',vvCaixa);
-//            jPedido.AddPair('int_Caixa',UniMainModule.vvcaixa);
             jPedido.AddPair('int_CodVen',JVendedor.GetValue<string>('CODVEND'));
+
+            //quando desconto é em valor, transforma esse valor em percentual
+            if (UniMainModule.pDesc = 0) and (UniMainModule.vDesc <> 0) then
+              jPedido.AddPair('flt_Pdesc', floattostr((uniMainModule.vDesc * 100) / uniMainModule.vTotalSemDesc))
+
+
+//              jPedido.AddPair('flt_Pdesc', floattostr(((uniMainModule.vTotalSemDesc * uniMainModule.pDesc) /100)))
+            else
+              jPedido.AddPair('flt_Pdesc',floattostr(uniMainModule.pDesc));
+
+            jPedido.AddPair('flt_Vdesc','0');//obsoleto em 18062026floattostr(uniMainModule.vDesc));
 
             aPedido.AddElement(jPedido);
             jsonBody.AddPair('pedido',aPedido);
@@ -644,279 +655,10 @@ begin
               alerta.Error('ERRO.: '+resp1.Content);
               unisession.Synchronize();
             end;
-//-------------------------------------------
-
-//            if resp1.StatusCode = 200 then
-//            begin
-//              try
-//                limpacupom;
-//                frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-//                frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-//                frmListaGlobal.showModal(callBackCliente);
-//                sleep(2000);
-////                UniSession.AddJS( 'window.open(' + QuotedStr(wUrlPdfCupom) + ', ''_blank'');');
-//                unisession.Synchronize();
-//              except on e:exception do
-//                begin
-//                  unisession.Synchronize();
-//                end;
-//              end
-//            end
-//            else
-//            begin
-//              alerta.Error('ERRO.: '+resp1.Content);
-//            end;
-
-
-
-
-
-
-
-
-
-
-//            jsonBody := TJSONObject.Create;
-//            jsonBody.AddPair('incr', '');
-//            jsonBody.AddPair('empresa', vvcodemp);
-//            jsonBody.AddPair('ncfe', '');
-//            jsonBody.AddPair('vcfe', converteParaDecimalUsa(floattostr(totalCupom)));
-//            jsonBody.AddPair('status', '');
-//            jsonBody.AddPair('gerouestoque', '');
-//            jsonBody.AddPair('geroucaixa', '');
-//            jsonBody.AddPair('geroufiscal', '');
-//            jsonBody.AddPair('chnfce', '');
-//            jsonBody.AddPair('retorno', '');
-//            jsonBody.AddPair('nomearquivo', '');
-//            jsonBody.AddPair('cpf', '');
-//            jsonBody.AddPair('int_tipopagamento', '');
-//            jsonBody.AddPair('int_caixa', '');
-//            jsonBody.AddPair('flt_pdesc', '');
-//            jsonBody.AddPair('flt_vdesc', '');
-//            jsonBody.AddPair('int_codcli', JCliente.GetValue<string>('CODCLI'));
-//            jsonBody.AddPair('str_email', '');
-//            jsonBody.AddPair('int_nfce', '');
-//            jsonBody.AddPair('int_serie', '');
-//            jsonBody.AddPair('rejeitado', '');
-//            jsonBody.AddPair('int_codven', '');
-//            jsonBody.AddPair('dt_cupom', datetostr(date()));
-//            jsonBody.AddPair('grade1', '');
-//            jsonBody.AddPair('grade2', '');
-//            jsonBody.AddPair('idnuvemfiscal', '');
-//            jsonBody.AddPair('xmlvenda', '');
-//            jsonBody.AddPair('xmlcancelamento', '');
-//            jsonBody.AddPair('xmlenvio', '');
-//            jsonBody.AddPair('ativo', 'T');
-//
-////            jsonBody.AddPair('gerarcupomfiscal', wGerarCupomFiscal);
-////            jsonBody.AddPair('gerarmovcaixa', wGerarMovEstoque);
-//            jsonBody.AddPair('gerarmovestoque', wGerarMovEstoque);
-//
-//            CDSTela.First;
-//            var aItem : TJSONArray; aItem := TJSONArray.Create;
-//            while not CDSTela.Eof do
-//              begin
-//                var jItem : TJSONObject; jItem := TJSONObject.Create;
-//                jItem.AddPair('incr',CDSTela.FieldByName('id').AsString);
-//                jItem.AddPair('id_cupom',CDSTela.FieldByName('id').AsString);
-//                jItem.AddPair('codpro',CDSTela.FieldByName('codpro').AsString);
-//                jItem.AddPair('descr',CDSTela.FieldByName('descr').AsString);
-//                jItem.AddPair('mov',CDSTela.FieldByName('mov').AsString);
-//                jItem.AddPair('valoru',CDSTela.FieldByName('valoru').AsString);
-//                jItem.AddPair('total',CDSTela.FieldByName('total').AsString);
-//                jItem.AddPair('vdesc','0');
-//                jItem.AddPair('grade1','');
-//                jItem.AddPair('grade2','');
-//                jItem.AddPair('ativo','T');
-//                aItem.AddElement(jItem);
-//                CDSTela.Next;
-//              end;
-//            jsonBody.AddPair('itens',aItem);
-//
-//            resp1 := TRequest
-//                    .New
-//                    .BaseURL(baseurlCadastros)
-//                    .Resource(postCupom)
-//                    .AddParam('nomeBanco', uniMainModule.nomebanco)
-//        //                .AddParam('id', id)
-//                    .AddBody(jsonBody.ToString)
-//                    .Timeout(12000)
-//                    .Post;
-//
-////-----------16032026----------------------------------------------------------
-//            if resp1.StatusCode = 200 then
-//              begin
-//                //Grava na tabela wbNfce e wbInfce
-//                jsonBodyNfce := TJSONObject.Create;
-//    //            jsonBodyNfce.AddPair('ID', '');
-//                jsonBodyNfce.AddPair('EMPRESA', vvcodemp);
-////                jsonBodyNfce.AddPair('NUMNF', '');
-//    //            jsonBodyNfce.AddPair('INCR', '');
-////                jsonBodyNfce.AddPair('DIANF', datetostr(now));
-////                jsonBodyNfce.AddPair('DCANC', '');
-//                jsonBodyNfce.AddPair('NF_CODOP', '5405');
-//                jsonBodyNfce.AddPair('CODCLI', JCliente.GetValue<string>('CODCLI'));
-////                jsonBodyNfce.AddPair('BASEICM', '1');
-////                jsonBodyNfce.AddPair('VICM', '1');
-////                jsonBodyNfce.AddPair('TTPROD', '1');
-////                jsonBodyNfce.AddPair('TTNOTA', '1');
-////                jsonBodyNfce.AddPair('DDUP01', '0');
-////                jsonBodyNfce.AddPair('DDUP02', '0');
-////                jsonBodyNfce.AddPair('DDUP03', '0');
-////                jsonBodyNfce.AddPair('DDUP04', '0');
-////                jsonBodyNfce.AddPair('DDUP05', '0');
-////                jsonBodyNfce.AddPair('DDUP06', '0');
-////                jsonBodyNfce.AddPair('VDUP01', '0');
-////                jsonBodyNfce.AddPair('VDUP02', '0');
-////                jsonBodyNfce.AddPair('VDUP03', '0');
-////                jsonBodyNfce.AddPair('VDUP04', '0');
-////                jsonBodyNfce.AddPair('VDUP05', '0');
-////                jsonBodyNfce.AddPair('VDUP06', '0');
-////                jsonBodyNfce.AddPair('DG_CODOP', '0');
-////                jsonBodyNfce.AddPair('DESCONTO', '0');
-////                jsonBodyNfce.AddPair('CNPJCPF', '');
-//                jsonBodyNfce.AddPair('NATOPERAC', '5405');
-////                jsonBodyNfce.AddPair('NF_IESUBS', '');
-////                jsonBodyNfce.AddPair('ICMRET', '0');
-////                jsonBodyNfce.AddPair('BICMSUBS', '0');
-////                jsonBodyNfce.AddPair('CFOP1', '');
-//////                jsonBodyNfce.AddPair('HORANFE', wHoraNfe);
-////                jsonBodyNfce.AddPair('SERIENFCE', '');
-////                jsonBodyNfce.AddPair('PROTNFE', '');
-////                jsonBodyNfce.AddPair('TIPOES', 'S');
-////                jsonBodyNfce.AddPair('TIPNOTA', '');
-////                jsonBodyNfce.AddPair('INDPAG', '');
-////                jsonBodyNfce.AddPair('REFNFE', '');
-////                jsonBodyNfce.AddPair('DOCFISTEF', '');
-////                jsonBodyNfce.AddPair('ID_CUPOM', '');
-//                jsonBodyNfce.AddPair('IDNUVEMFISCAL', '');
-////                jsonBodyNfce.AddPair('ATIVO', 'T');
-//                jsonBodyNfce.AddPair('gerarmovestoque', wGerarMovEstoque);
-//
-//                CDSTela.First;
-//                var aItemNfe : TJSONArray; aItemNfe := TJSONArray.Create;
-//                while not CDSTela.Eof do
-//                  begin
-//                    var jItemNfe : TJSONObject; jItemNfe := TJSONObject.Create;
-////                    jItemNfe.AddPair('ID', '');
-////                    jItemNfe.AddPair('IDPAI', '');
-//                    jItemNfe.AddPair('EMPRESA', vvcodemp);
-////                    jItemNfe.AddPair('NUMNF', '');
-////                    jItemNfe.AddPair('ITEMNF', '');
-////                    jItemNfe.AddPair('INCR', '');
-//                    jItemNfe.AddPair('CODPRO', CDSTela.FieldByName('CODPRO').AsString);
-////                    jItemNfe.AddPair('UNID', 'UND');
-//                    jItemNfe.AddPair('QUANTIT', CDSTela.FieldByName('mov').AsString);
-////                    jItemNfe.AddPair('VALUNI', '1');
-////                    jItemNfe.AddPair('VALT', '1');
-////                    jItemNfe.AddPair('PICM', '0');
-////                    jItemNfe.AddPair('NUM', '0');
-////                    jItemNfe.AddPair('CFOP', '5405');
-//                    jItemNfe.AddPair('REDUCAO', '0');
-////                    jItemNfe.AddPair('BICMSUBS', '0');
-////                    jItemNfe.AddPair('MMVARICM', '0');
-////                    jItemNfe.AddPair('ALIQINT', '0');
-////                    jItemNfe.AddPair('IVA', '0');
-//                    jItemNfe.AddPair('REDUCAOST', '0');
-////                    jItemNfe.AddPair('S_TRIB', '');
-////                    jItemNfe.AddPair('ALIQAPRO', '0');
-//                    jItemNfe.AddPair('CODOPER1', '0');
-////                    jItemNfe.AddPair('TIPOES', 'S');
-//////                    jItemNfe.AddPair('HORANFE', wHoraNfe);
-//                    jItemNfe.AddPair('VDESC', '0');
-//                    jItemNfe.AddPair('PDESC', '0');
-////                    jItemNfe.AddPair('ICMSDESON', '0');
-////                    jItemNfe.AddPair('NCM', '0');
-////                    jItemNfe.AddPair('PPIS', '0');
-////                    jItemNfe.AddPair('PCOFINS', '0');
-////                    jItemNfe.AddPair('CSTTRIB', '');
-////                    jItemNfe.AddPair('CCLASSTRIB', '');
-////                    jItemNfe.AddPair('VDEVTRIBIBSUF', '0');
-////                    jItemNfe.AddPair('VDEVTRIBIBSMUN', '0');
-////                    jItemNfe.AddPair('VDEVTRIBCBS', '0');
-//                    aItemNfe.AddElement(jItemNfe);
-//                    CDSTela.Next;
-//                  end;
-//                jsonBodyNfce.AddPair('ITENS',aItemNfe);
-//
-//                resp1 := TRequest
-//                        .New
-//                        .BaseURL(baseurlCadastros)
-//                        .Resource(inserirNfce)
-//                        .AddParam('nomeBanco', uniMainModule.nomebanco)
-//            //                .AddParam('id', id)
-//                        .AddBody(jsonBodyNfce.ToString)
-//                        .Timeout(12000)
-//                        .Post;
-//              end
-//            else
-//              begin
-//                alerta.Error('ERRO.: '+resp1.Content);
-//              end;
-//            unisession.Synchronize();
-////-----------------------------------------------------------------
-//            sleep(2000);
-//            //gera,envia e exibe nfce
-//            if RESP1.StatusCode = 200 then
-//              begin
-//                try
-//                  var wResp:tjsonobject;
-//                  wResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-//
-//                  wUrlPdfCupom := hEnviaNfce(wMsgOut,
-//                                             vvcodemp,
-//                                             wResp.GetValue<string>('NUMNFCE'),
-//                                             'NFCE',
-//                                             uniMainModule.wUsuario,
-//                                             wResp.GetValue<string>('HORANF'));
-////                  wUrlPdfCupom := hEnviaNfce('2','28251','NFCE',uniMainModule.wUsuario,'08:32:58');
-//                  sleep(2000);
-//                  if wMsgOut.Trim = '' then
-//                    begin
-//                      try
-//                      limpacupom;
-//                      frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-//                      frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-//                      frmListaGlobal.showModal(callBackCliente);
-//                      sleep(2000);
-//                      UniSession.AddJS( 'window.open(' + QuotedStr(wUrlPdfCupom) + ', ''_blank'');');
-//            unisession.Synchronize();
-//                      except on e:exception do
-//                        begin
-//            unisession.Synchronize();
-//                        end;
-//                      end;
-//                    end
-//                  else
-//                    begin
-//                      sleep(1000);
-////            unisession.Synchronize();
-//                      alerta.Error(wmsgOut);
-////                      sleep(1000);
-////                      alerta.Error(wMsgOut);
-//                    end;
-//                except on e:exception do
-//                  begin
-//                    alerta.Error('ERRO: '+E.Message);
-//            unisession.Synchronize();
-//                  end;
-//                end;
-//
-////                sleep(2000);
-////                limpacupom;
-////                frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
-////                frmListaGlobal.lblDescricao.Caption := 'CLIENTES';
-////                frmListaGlobal.showModal(callBackCliente);
-//              end
-//            else
-//              begin
-//                alerta.Error('ERRO.: '+resp1.Content);
-//            unisession.Synchronize();
-//              end;
           except on e:exception do
             begin
               alerta.Error('ERRO: '+e.Message);
-            unisession.Synchronize();
+              unisession.Synchronize();
             end;
           end;
         finally
@@ -1019,22 +761,7 @@ begin
           );
       end;
     compINT_CODVEN.WebFocus;
-//    timerFocoItem.Enabled := true;
-//    compINT_CODVEN.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
-//    compNomeVend.Text  := frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString;
-//    alertaM.info('Vendedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
   end;
-
-
-
-
-  {
-
-begin
-  if frmListaGlobal.ModalResult = mrOk then
-  begin
-  end;
-end;}
 end;
 
 procedure TfrmPDV.CDSTelabotaoEditarGetText(Sender: TField; var Text: string;
@@ -1139,8 +866,9 @@ end;
 
 procedure TfrmPDV.btUtilidadesClick(Sender: TObject);
 begin
-//  frmListaGlobal.wTabelaDePesquisa := 'PRODUTOS_PDV';
-//  frmListaGlobal.lblDescricao.Caption := 'PRODUTOS';
+  uniMainModule.vTotalSemDesc := totalProdutos;//strToFloatDef(compTOTALGERAL.Text,0);
+  uniMainModule.pDesc := 0;
+  uniMainModule.vDesc := 0;
   frmPDVUtilidades.showModal(callBackUtilidades);
 end;
 
@@ -1234,14 +962,9 @@ begin
           compMOV.Text := FormatFloatHci(1,JParGer.GetValue<integer>('PICEST'));
         compVALORU.Text := FormatFloatHci(JProduto.GetValue<double>('preco1'),
                            JParGer.GetValue<integer>('DECPRECO'));
-//        compVALORU.Text :=  FormatFloat('0.00',StrToFloatDef(JProduto.GetValue('preco1').Value,0));
         compTOTAL.Text := FormatFloatHci(StrToFloatDef(compMOV.Text,0) *
                           StrToFloatDef(compVALORU.Text,0),
                           JParGer.GetValue<integer>('DECPRECO'));
-//        compTOTAL.Text := FormatFloat('0.00',
-//                               StrToFloatDef(compMOV.Text,0) *
-//                               StrToFloatDef(compVALORU.Text,0)
-//                               );
         if (Key = VK_RETURN) then
         begin
           if not CDSTela.Active then
@@ -1252,7 +975,7 @@ begin
           CDSTela.FieldByName('descr').AsString := compDESCR.caption;
           CDSTela.FieldByName('mov').asstring := FormatFloatHci(strtofloatdef(compMOV.Text,0),JParGer.GetValue<integer>('PICEST'));;
           CDSTela.FieldByName('valoru').asstring := FormatFloatHci(strtofloatdef(compVALORU.Text,0),JParGer.GetValue<integer>('DECPRECO'));
-          CDSTela.FieldByName('total').asstring := FormatFloatHci(strtofloatdef(compTOTAL.Text,0),JParGer.GetValue<integer>('DECPRECO'));;
+          CDSTela.FieldByName('total').asstring := FormatFloatHci(strtofloatdef(compTOTAL.Text,0),2);;
           CDSTela.FieldByName('ativo').AsString := 'T';
           CDSTela.Post;
 
@@ -1586,7 +1309,6 @@ begin
   end;
 
   if (vvCaixa = '') or (vvCaixa = '0') then
-//  if (uniMainModule.vvcaixa = '') or (uniMainModule.vvcaixa = '0') then
   begin
     alerta.Error('Para realizar uma venda é necessário abrir o caixa.');
     exit;
@@ -1602,7 +1324,7 @@ begin
   begin
     frmSelecionaPagamentoF.showmodal(callBackFatura);
     frmSelecionaPagamentoF.totalGeral := strtofloatDef(compTOTALGERAL.Text,0);
-
+//    frmSelecionaPagamentoF.compVALORPAGO := strtofloatDef(compTOTALGERAL.Text,0);
     frmSelecionaPagamentoF.compVALORPAGO.SetFocus;
   end
   else

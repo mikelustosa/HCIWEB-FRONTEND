@@ -14,7 +14,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
     Align = alTop
     TabOrder = 0
     TabStop = False
-    ExplicitWidth = 1437
     object lblDescricao: TUniLabel
       AlignWithMargins = True
       Left = 46
@@ -64,7 +63,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
       Align = alBottom
       TabOrder = 3
       LayoutConfig.Cls = 'painel-sem-borda'
-      ExplicitWidth = 934
     end
     object btnFechar: TUniSFBitBtn
       AlignWithMargins = True
@@ -86,7 +84,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
       FAIcon.Size = fs_16
       FAIcon.Color = fc_grey
       ButtonStyles = bs_transparent
-      ExplicitLeft = 1408
     end
   end
   object imgFundo: TUniImage
@@ -96,8 +93,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
     Height = 898
     Hint = ''
     Align = alClient
-    ExplicitWidth = 1437
-    ExplicitHeight = 791
   end
   object scrFundo: TUniScrollBox
     Left = 0
@@ -107,10 +102,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
     Hint = ''
     Align = alClient
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 48
-    ExplicitWidth = 1437
-    ExplicitHeight = 791
     object pgcTela: TUniPageControl
       AlignWithMargins = True
       Left = 3
@@ -122,13 +113,9 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 1429
-      ExplicitHeight = 783
       object UniTabSheet1: TUniTabSheet
         Hint = ''
         Caption = 'Listagem'
-        ExplicitWidth = 1421
-        ExplicitHeight = 755
         object gridTela: TUniDBGrid
           Left = 0
           Top = 71
@@ -194,7 +181,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           Align = alTop
           TabOrder = 1
           LayoutConfig.Cls = 'painel-sem-borda'
-          ExplicitWidth = 1421
           object UniContainerPanel22: TUniContainerPanel
             AlignWithMargins = True
             Left = 0
@@ -367,10 +353,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
         Hint = ''
         TabVisible = False
         Caption = 'tabRegistro'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object cpMenuRodape: TUniContainerPanel
           Left = 0
           Top = 822
@@ -381,8 +363,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           Align = alBottom
           TabOrder = 0
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          ExplicitTop = 715
-          ExplicitWidth = 1421
           object btnSalvar: TUniSFBitBtn
             AlignWithMargins = True
             Left = 1469
@@ -405,7 +385,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 1296
           end
           object btnCancelar: TUniSFBitBtn
             AlignWithMargins = True
@@ -429,7 +408,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
             FAIcon.Color = fc_white
             FAIcon.Style = regular
             ButtonStyles = bs_danger
-            ExplicitLeft = 1166
           end
           object compATIVO: TUniFSToggle
             AlignWithMargins = True
@@ -465,7 +443,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           TabOrder = 1
           TabStop = False
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          ExplicitWidth = 1401
           object compTitulo: TUniLabel
             AlignWithMargins = True
             Left = 10
@@ -489,16 +466,12 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           Width = 1594
           Height = 790
           Hint = ''
-          ActivePage = tab0
+          ActivePage = tab1
           Align = alClient
           TabOrder = 2
-          ExplicitWidth = 1421
-          ExplicitHeight = 683
           object tab0: TUniTabSheet
             Hint = ''
             Caption = '1 - Dados cadastrais'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn1: TUniPanel
               Left = 0
               Top = 0
@@ -508,8 +481,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox1: TUniScrollBox
                 Left = 20
                 Top = 59
@@ -2485,8 +2456,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           object tab1: TUniTabSheet
             Hint = ''
             Caption = '2 - Dados adicionais'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn2: TUniPanel
               Left = 0
               Top = 0
@@ -2496,8 +2465,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox2: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -2511,8 +2478,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                     'beforeInit=function window.beforeInit(sender, config)'#13#10'{'#13#10'   sen' +
                     'der.cls="slide-in-left";'#13#10'}')
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
                 ScrollHeight = 750
                 ScrollWidth = 1305
                 object UniPanel36: TUniPanel
@@ -3077,7 +3042,7 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                   TabOrder = 12
                   Caption = ''
                   Color = 16249327
-                  object compDescrReg: TUniEdit
+                  object compDescr: TUniEdit
                     Left = 1
                     Top = 28
                     Width = 398
@@ -3694,8 +3659,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           object tab2: TUniTabSheet
             Hint = ''
             Caption = '3 - Fatura'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn3: TUniPanel
               Left = 0
               Top = 0
@@ -3705,8 +3668,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox3: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -3716,8 +3677,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
                 ScrollHeight = 110
                 ScrollWidth = 1313
                 object UniPanel62: TUniPanel
@@ -3907,8 +3866,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
           object tab3: TUniTabSheet
             Hint = ''
             Caption = '4 - Coment'#225'rios'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn4: TUniPanel
               Left = 0
               Top = 0
@@ -3918,8 +3875,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox4: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -3929,16 +3884,12 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
               end
             end
           end
           object tab4: TUniTabSheet
             Hint = ''
             Caption = '5 - Contatos'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn5: TUniPanel
               Left = 0
               Top = 0
@@ -3948,8 +3899,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox5: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -3959,16 +3908,12 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
               end
             end
           end
           object tab5: TUniTabSheet
             Hint = ''
             Caption = '6 - Outros'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn6: TUniPanel
               Left = 0
               Top = 0
@@ -3978,8 +3923,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox6: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -3989,16 +3932,12 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
               end
             end
           end
           object tab6: TUniTabSheet
             Hint = ''
             Caption = '7 - For'#231'a de Venda'
-            ExplicitWidth = 1413
-            ExplicitHeight = 655
             object pn7: TUniPanel
               Left = 0
               Top = 0
@@ -4008,8 +3947,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
               Align = alClient
               TabOrder = 0
               Caption = ''
-              ExplicitWidth = 1413
-              ExplicitHeight = 655
               object sBox7: TUniScrollBox
                 Left = 1
                 Top = 1
@@ -4019,8 +3956,6 @@ object fraOperacaoEstoque: TfraOperacaoEstoque
                 Align = alClient
                 Color = 16249327
                 TabOrder = 1
-                ExplicitWidth = 1411
-                ExplicitHeight = 653
                 ScrollHeight = 87
                 ScrollWidth = 265
                 object UniPanel66: TUniPanel

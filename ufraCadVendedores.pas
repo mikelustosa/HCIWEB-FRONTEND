@@ -165,7 +165,7 @@ procedure TfraCadVendedores.callBackGerentes(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compGERENTERESPON.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compGERENTERESPON.text     := frmListaGlobal.CDSTela.FieldByName('codVend').AsString;
     compNOMEGERENTERESPON.Text  := frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString;
     alertaM.info('Gerente selecionado selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
   end;
@@ -176,7 +176,7 @@ procedure TfraCadVendedores.callBackEmpresas(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compEMPRESA.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compEMPRESA.text     := frmListaGlobal.CDSTela.FieldByName('codEmp').AsString;// idClassificacao;
     compNOMEMP.Text  := frmListaGlobal.CDSTela.FieldByName('nomEmp').AsString;//frmListaClassificacoes.nome;
     alertaM.info('Empresa selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('nomEmp').AsString + '</b>');
   end;
@@ -290,7 +290,10 @@ begin
 //    jsonBody.AddPair('VENDEDORSELLENTTATIVO', '');//, compVENDEDORSELLENTTATIVO.text);
 //    jsonBody.AddPair('METAVENDEDORSELLENTT', '');//, compMETAVENDEDORSELLENTT.text);
 //    jsonBody.AddPair('COMISSAOVENDEDORSELLENTT', '');//, compCOMISSAOVENDEDORSELLENTT.text);
-    jsonBody.AddPair('ATIVO', ativo);
+    if compATIVO.Toggled then
+      jsonBody.AddPair('ATIVO', 'S')
+    else
+      jsonBody.AddPair('ATIVO', 'N');
 
     if alterando then
     begin

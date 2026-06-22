@@ -480,7 +480,7 @@ object fraFecharCaixa: TfraFecharCaixa
         end
       end
       object UniPanel19: TUniPanel
-        Left = 724
+        Left = 879
         Top = 0
         Width = 167
         Height = 65
@@ -512,6 +512,93 @@ object fraFecharCaixa: TfraFecharCaixa
           FAIcon.Color = fc_grey
           FAIcon.Style = regular
           ButtonStyles = bs_default
+        end
+      end
+      object UniContainerPanel22: TUniContainerPanel
+        AlignWithMargins = True
+        Left = 724
+        Top = 0
+        Width = 150
+        Height = 65
+        Hint = ''
+        Margins.Left = 0
+        Margins.Top = 0
+        Margins.Right = 5
+        Margins.Bottom = 0
+        ParentColor = False
+        Color = clWhite
+        Align = alLeft
+        TabOrder = 7
+        LayoutConfig.Cls = 'painel-sem-borda'
+        object UniSFLabel1: TUniSFLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 5
+          Width = 48
+          Height = 16
+          Hint = ''
+          Margins.Top = 5
+          Margins.Bottom = 5
+          Caption = 'STATUS'
+          Align = alTop
+          ParentFont = False
+          Font.Height = -13
+          Font.Style = [fsBold]
+          TabOrder = 1
+          StyleLabel.Model = lm_none
+          StyleLabel.Theme = lt_primary
+          FAIcon.Icon = fa_none
+          FAIcon.Size = fs_16
+          FAIcon.Color = fc_white
+        end
+        object UniContainerPanel23: TUniContainerPanel
+          AlignWithMargins = True
+          Left = 3
+          Top = 26
+          Width = 142
+          Height = 34
+          Hint = ''
+          Margins.Top = 0
+          Margins.Right = 5
+          Margins.Bottom = 5
+          ParentColor = False
+          Color = clWhite
+          Align = alClient
+          TabOrder = 2
+          LayoutConfig.Cls = 'painel-com-borda-m'
+          object UniSFLabel2: TUniSFLabel
+            Left = 197
+            Top = 36
+            Width = 33
+            Height = 23
+            Cursor = crHandPoint
+            Hint = ''
+            AutoSize = False
+            Caption = ''
+            TabOrder = 1
+            LayoutConfig.Cls = 'avatar40'
+            StyleLabel.Model = lm_none
+            StyleLabel.Theme = lt_primary
+            FAIcon.Icon = fa_search
+            FAIcon.Size = fs_16
+            FAIcon.Color = fc_grey
+          end
+          object cbStatus: TUniSFComboBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 8
+            Width = 136
+            Hint = ''
+            Text = 'Todos'
+            TabOrder = 2
+            Items.Strings = (
+              'Todos'
+              'Aberto'
+              'Fechado')
+            Groups = <>
+            Options.Placeholders = 'Select Some Options'
+            Options.noResults = 'No Results Found'
+          end
         end
       end
     end
@@ -1635,9 +1722,9 @@ object fraFecharCaixa: TfraFecharCaixa
                 TabOrder = 1
                 ClientEvents.UniEvents.Strings = (
                   
-                    'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                    '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                    'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+                    'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                    'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                    '});'#13#10'}')
               end
               object UniContainerPanel15: TUniContainerPanel
                 Left = 1
@@ -1700,9 +1787,9 @@ object fraFecharCaixa: TfraFecharCaixa
                 TabOrder = 1
                 ClientEvents.UniEvents.Strings = (
                   
-                    'afterCreate=function afterCreate(sender)'#13#10'{   '#13#10'  $("#" + sender' +
-                    '.id + "-inputEl").mask('#39'A'#39', {'#13#10'  translation: {'#13#10'    A: { patter' +
-                    'n: /^[0-9\s]+$/g, recursive: true },'#13#10'  },'#13#10'});  '#13#10'  '#13#10'}')
+                    'afterCreate=function afterCreate(sender)'#13#10'{'#13#10'    $("#" + sender.' +
+                    'id + "-inputEl").mask('#39'#.##0,00'#39', {'#13#10'        reverse: true'#13#10'    ' +
+                    '});'#13#10'}')
               end
               object UniContainerPanel16: TUniContainerPanel
                 Left = 1

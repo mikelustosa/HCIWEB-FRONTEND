@@ -97,7 +97,7 @@ type
     AggregateField1: TAggregateField;
     AggregateField2: TAggregateField;
     UniPanel1: TUniPanel;
-    compdescrclf: TUniEdit;
+    compDESCRCLF: TUniEdit;
     UniContainerPanel2: TUniContainerPanel;
     UniPanel2: TUniPanel;
     compdAlt: TUniEdit;
@@ -245,7 +245,7 @@ type
     UniLabel35: TUniLabel;
     UniSFBitBtn4: TUniSFBitBtn;
     UniPanel48: TUniPanel;
-    compDescrReg: TUniEdit;
+    compDescr: TUniEdit;
     UniContainerPanel45: TUniContainerPanel;
     UniPanel49: TUniPanel;
     UniPanel50: TUniPanel;
@@ -379,9 +379,9 @@ procedure TfraCadClientes.callBackRegioes(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCodReg.text     := frmListaGlobal.CDSTela.FieldByName('idCodReg').AsString;
-    compDescrReg.Text  := frmListaGlobal.CDSTela.FieldByName('descrReg').AsString;
-    alertaM.info('Região selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrReg').AsString + '</b>');
+    compCodReg.text     := frmListaGlobal.CDSTela.FieldByName('CodReg').AsString;
+    compDescr.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
+    alertaM.info('Região selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
 end;
 
@@ -390,7 +390,7 @@ procedure TfraCadClientes.callBackVendedores(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCodVend.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCodVend.text     := frmListaGlobal.CDSTela.FieldByName('codVend').AsString;
     compNomeVend.Text  := frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString;
     alertaM.info('Vendedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
   end;
@@ -401,7 +401,7 @@ procedure TfraCadClientes.callBackClassificacoes(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compclassif.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compclassif.text     := frmListaGlobal.CDSTela.FieldByName('codClf').AsString;// idClassificacao;
     compdescrclf.Text  := frmListaGlobal.CDSTela.FieldByName('descrClf').AsString;//frmListaClassificacoes.nome;
     alertaM.info('Classificação selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrClf').AsString + '</b>');
   end;
@@ -412,7 +412,7 @@ procedure TfraCadClientes.callBackAtividades(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compativ.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;// idClassificacao;
+    compativ.text     := frmListaGlobal.CDSTela.FieldByName('codAtv').AsString;// idClassificacao;
     compdescrat.Text  := frmListaGlobal.CDSTela.FieldByName('descrAt').AsString;//frmListaClassificacoes.nome;
     alertaM.info('Atividade selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrAt').AsString + '</b>');
   end;
@@ -513,7 +513,7 @@ begin
     jsonBody.AddPair('codCli', compcodCli.Text);
     jsonBody.AddPair('nome', compnome.Text);
     jsonBody.AddPair('nomeF', compnomeF.Text);
-    jsonBody.AddPair('classif', '');
+    jsonBody.AddPair('classif', compclassif.Text);
 
     jsonBody.AddPair('endereco', compendereco.Text);
     jsonBody.AddPair('numero', compnumero.Text);

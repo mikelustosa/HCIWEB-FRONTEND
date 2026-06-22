@@ -50,7 +50,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
             Align = alClient
             TabOrder = 1
             ScrollHeight = 301
-            ScrollWidth = 1042
+            ScrollWidth = 869
             object UniPanel19: TUniPanel
               Left = 10
               Top = 3
@@ -145,6 +145,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn3Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -178,6 +179,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn4Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -211,6 +213,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn5Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -380,6 +383,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn10Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -393,6 +397,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
               Width = 167
               Height = 70
               Hint = 't1w150h0;'
+              Visible = False
               TabOrder = 10
               Caption = ''
               Color = 16249327
@@ -413,6 +418,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn11Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -446,6 +452,7 @@ object frmPDVUtilidades: TfrmPDVUtilidades
                 TabOrder = 1
                 Scale = bbsSmall
                 LayoutConfig.Cls = 'botaoSemBorda'
+                OnClick = UniSFBitBtn12Click
                 FAIcon.Icon = fa_check_circle
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -479,10 +486,22 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       object tsReceberContaCliente: TUniTabSheet
         Hint = ''
         Caption = 'tsReceberContaCliente'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 1151
-        ExplicitHeight = 714
+      end
+      object tsSangria: TUniTabSheet
+        Hint = ''
+        Caption = 'tsSangria'
+      end
+      object tsGerenciamentoCupons: TUniTabSheet
+        Hint = ''
+        Caption = 'tsGerenciamentoCupons'
+      end
+      object tsDescontoPdv: TUniTabSheet
+        Hint = ''
+        Caption = 'tsDescontoPdv'
+      end
+      object TsfraConfiguracoesNfceF: TUniTabSheet
+        Hint = ''
+        Caption = 'TsfraConfiguracoesNfceF'
       end
     end
   end
@@ -519,7 +538,6 @@ object frmPDVUtilidades: TfrmPDVUtilidades
       FAIcon.Color = fc_white
       FAIcon.Style = regular
       ButtonStyles = bs_danger
-      ExplicitLeft = 898
     end
   end
   object alerta: TUniSFSweetAlert

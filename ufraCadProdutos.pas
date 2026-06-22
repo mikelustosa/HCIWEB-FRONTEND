@@ -611,7 +611,7 @@ procedure TfraCadProdutos.callBackClassificacoes(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCODNUM.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCODNUM.text     := frmListaGlobal.CDSTela.FieldByName('codClf').AsString;
     compDESCRCLF.Text  := frmListaGlobal.CDSTela.FieldByName('descrclf').AsString;
     alertaM.info('Classificação selecionada: <b>' + frmListaGlobal.CDSTela.FieldByName('descrclf').AsString + '</b>');
   end;
@@ -622,7 +622,7 @@ procedure TfraCadProdutos.callBackCfopNfce(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compNFCE_CODCFOP.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compNFCE_CODCFOP.text     := frmListaGlobal.CDSTela.FieldByName('codCfop').AsString;
     compDESCRNFCE_CODCFOP.Text  := frmListaGlobal.CDSTela.FieldByName('natureza').AsString;
     alertaM.info('CFOP Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('natureza').AsString + '</b>');
   end;
@@ -633,7 +633,7 @@ procedure TfraCadProdutos.callBackCfopEntrada(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCFOPENTRADA.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCFOPENTRADA.text     := frmListaGlobal.CDSTela.FieldByName('codCfop').AsString;
     compDESCRCFOPENTRADA.Text  := frmListaGlobal.CDSTela.FieldByName('natureza').AsString;
     alertaM.info('CFOP Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('natureza').AsString + '</b>');
   end;
@@ -644,7 +644,7 @@ procedure TfraCadProdutos.callBackCfopSaida(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCFOPSAIDA.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCFOPSAIDA.text     := frmListaGlobal.CDSTela.FieldByName('codCfop').AsString;
     compDESCRCFOPSAIDA.Text  := frmListaGlobal.CDSTela.FieldByName('natureza').AsString;
     alertaM.info('CFOP Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('natureza').AsString + '</b>');
   end;
@@ -655,7 +655,7 @@ procedure TfraCadProdutos.callBackStIpiVenda(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTIPIV.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTIPIV.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTIPIV.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -666,7 +666,7 @@ procedure TfraCadProdutos.callBackStIpiCompra(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTIPIC.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTIPIC.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTIPIC.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -677,7 +677,7 @@ procedure TfraCadProdutos.callBackStPisCompra(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTPISC.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTPISC.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTPISC.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -688,7 +688,7 @@ procedure TfraCadProdutos.callBackStPisVenda(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTPISV.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTPISV.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTPISV.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -699,7 +699,7 @@ procedure TfraCadProdutos.callBackStCofinsCompra(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTCOFINSC.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTCOFINSC.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTCOFINSC.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -710,7 +710,7 @@ procedure TfraCadProdutos.callBackStCofinsVenda(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compSTCOFINSV.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compSTCOFINSV.text     := frmListaGlobal.CDSTela.FieldByName('codSit').AsString;
     compDESCRSTCOFINSV.Text  := frmListaGlobal.CDSTela.FieldByName('descr').AsString;
     alertaM.info('Selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('descr').AsString + '</b>');
   end;
@@ -721,7 +721,7 @@ procedure TfraCadProdutos.callBackClientes3(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCODCLI3.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCODCLI3.text     := frmListaGlobal.CDSTela.FieldByName('codCli').AsString;
     compNOMECLI3.Text  := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
     alertaM.info('Fornecedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
   end;
@@ -732,7 +732,7 @@ procedure TfraCadProdutos.callBackClientes2(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCODCLI2.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCODCLI2.text     := frmListaGlobal.CDSTela.FieldByName('codCli').AsString;
     compNOMECLI2.Text  := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
     alertaM.info('Fornecedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
   end;
@@ -743,7 +743,7 @@ procedure TfraCadProdutos.callBackClientes1(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compCODCLI1.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compCODCLI1.text     := frmListaGlobal.CDSTela.FieldByName('codCli').AsString;
     compNOMECLI1.Text  := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
     alertaM.info('Fornecedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
   end;
@@ -777,7 +777,7 @@ procedure TfraCadProdutos.callBackGrupos(Sender: TComponent;
 begin
   if frmListaGlobal.ModalResult = mrOk then
   begin
-    compNGrupo.text     := frmListaGlobal.CDSTela.FieldByName('id').AsString;
+    compNGrupo.text     := frmListaGlobal.CDSTela.FieldByName('codGru').AsString;
     compNOMEGRU.Text  := frmListaGlobal.CDSTela.FieldByName('nomeGru').AsString;
     alertaM.info('Grupo selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeGru').AsString + '</b>');
   end;
@@ -852,22 +852,22 @@ begin
   pgcTela.ActivePageIndex := 0;
   //Verifica se o valor é numérico
 //  ehNumero := TryStrToInt(pDado, i);
-  ehNumero := TryStrToInt(stringreplace(pDado,'.','',[rfreplaceall]), i);
+//  ehNumero := TryStrToInt(stringreplace(pDado,'.','',[rfreplaceall]), i);
 
   //Aqui sim: usamos IRequest até o Get
   req := TRequest.New.BaseURL(baseurlCadastros)
                    .resource(getProduto)
                    .AddParam('nomeBanco', uniMainModule.nomebanco);
   req.AddParam('empresa',vvcodemp);
-  if pDado <> '' then
-  begin
-    if ehNumero then
-    begin
+//  if pDado <> '' then
+//  begin
+//    if ehNumero then
+//    begin
       req.AddParam('id', '');//pDado);
       req.AddParam('codpro', pDado);
-    end else
-      req.AddParam('descr', pDado);
-  end;
+//    end else
+//      req.AddParam('descr', pDado);
+//  end;
 
   req.timeOut(12000);
   resp1 := req.Get; //Aqui muda de IRequest IResponse
@@ -1021,6 +1021,7 @@ begin
     jsonBody.AddPair('empenho', stringreplace(compEMPENHO.Text,',','.',[rfreplaceall]));
     jsonBody.AddPair('compra', stringreplace(compCOMPRA.Text,',','.',[rfreplaceall]));
     jsonBody.AddPair('saldo', stringreplace(compSALDO.Text,',','.',[rfreplaceall]));
+    jsonBody.AddPair('empresa', vvcodemp);
 
     jsonBody.AddPair('ativo', ativo);
 
@@ -1189,21 +1190,21 @@ end;
 
 procedure TfraCadProdutos.UniSFBitBtn22Click(Sender: TObject);
 begin
-  frmListaGlobal.wTabelaDePesquisa := 'CFOPSAIDA';
+  frmListaGlobal.wTabelaDePesquisa := 'CFOP';
   frmListaGlobal.lblDescricao.Caption := 'CFOP SAÍDA';
   frmListaGlobal.showModal(callBackCfopSaida);
 end;
 
 procedure TfraCadProdutos.UniSFBitBtn23Click(Sender: TObject);
 begin
-  frmListaGlobal.wTabelaDePesquisa := 'CFOPENTRADA';
+  frmListaGlobal.wTabelaDePesquisa := 'CFOP';
   frmListaGlobal.lblDescricao.Caption := 'CFOP ENTRADA';
   frmListaGlobal.showModal(callBackCfopEntrada);
 end;
 
 procedure TfraCadProdutos.UniSFBitBtn24Click(Sender: TObject);
 begin
-  frmListaGlobal.wTabelaDePesquisa := 'CFOPNFCE';
+  frmListaGlobal.wTabelaDePesquisa := 'CFOP';
   frmListaGlobal.lblDescricao.Caption := 'CFOP NFC-e';
   frmListaGlobal.showModal(callBackCfopNfce);
 end;

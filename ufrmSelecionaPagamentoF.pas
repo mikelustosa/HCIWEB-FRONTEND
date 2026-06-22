@@ -95,10 +95,9 @@ procedure TfrmSelecionaPagamentoF.UniFormReady(Sender: TObject);
 begin
   limpaCookiesEditRecursivo(self);
 //  rg1.Start;
-  compTOTALGERAL.Text := FormatFloatHci(totalGeral,
-                         JParGer.GetValue<integer>('DECPRECO'));
+  compTOTALGERAL.Text := FormatFloatHci(totalGeral,2);
 //  compTOTALGERAL.Text := FloatToStrF(totalGeral, ffFixed, 10, 2);
-//  compVALORPAGO.Text := floattostrF(0, ffFixed, 10, 2);
+//  compVALORPAGO.Text := floattostr(totalGeral);
 //  compTROCO.Text := floattostrF(0, ffFixed, 10, 2);
   compTIPOPAGAMENTO.ItemIndex := 0;
   faturar := false;
@@ -183,7 +182,6 @@ begin
     jTmp.AddPair('tipoPagamento', copy(compTIPOPAGAMENTO.Text,1,2));
     aTmp.AddElement(jTmp);
 
-    //
     frmPDV.JParcelasCaixa := aTmp;
 
     faturar := true;

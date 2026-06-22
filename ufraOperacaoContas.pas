@@ -375,9 +375,6 @@ begin
   if frmBaixaConta.ModalResult = mrOk then
   begin
     wValor := frmBaixaConta.compVALORREAL.Text;
-//    compCODCLI.text     := frmListaGlobal.CDSTela.FieldByName('codCli').AsString;
-//    compNOMECLI.Text  := frmListaGlobal.CDSTela.FieldByName('nome').AsString;
-//    alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
     alerta.QuestionBasic('Prosseguir?',
     procedure(const ButtonClicked: TAButton)
     begin
@@ -402,14 +399,8 @@ begin
 
           if resp1.StatusCode = 200 then
           begin
-//            var jResp: TJSONObject;
-//            jResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
-
             alertaM.Success('Conta baixada com sucesso.');
-//            alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nome').AsString + '</b>');
-//            alerta.Success('Conta baixada com sucesso.');
             frmBaixaConta.Close;
-//            FreeAndNil(jResp);
             unisession.Synchronize();
             btnVoltar.Click;
             btnPesquisar.Click;
@@ -419,7 +410,6 @@ begin
             alerta.Error(resp1.Content);
           end;
         finally
-//          FreeAndNil(jBody);
         end;
       end;
     end);
