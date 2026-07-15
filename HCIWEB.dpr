@@ -1,4 +1,4 @@
-//{$define UNIGUI_VCL} // Comment out this line to turn this project into an ISAPI module
+{$define UNIGUI_VCL} // Comment out this line to turn this project into an ISAPI module
 
 {$ifndef UNIGUI_VCL}
 library
@@ -62,7 +62,8 @@ uses
   ufraGerenciamentoCupons in 'ufraGerenciamentoCupons.pas' {fraGerenciamentoCupons: TUniFrame},
   uFraDescontoPdv in 'uFraDescontoPdv.pas' {FraDescontoPdv: TUniFrame},
   ufraConfiguracoesNfceF in 'ufraConfiguracoesNfceF.pas' {fraConfiguracoesNfceF: TUniFrame},
-  ufraParamGerais in 'ufraParamGerais.pas' {fraParamGerais: TUniFrame};
+  ufraParamGerais in 'ufraParamGerais.pas' {fraParamGerais: TUniFrame},
+  ufrmRelCaixaConta in 'ufrmRelCaixaConta.pas' {FrmRelCaixaConta: TUniForm};
 
 {$R *.res}
 

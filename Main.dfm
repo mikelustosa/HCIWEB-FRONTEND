@@ -2797,6 +2797,39 @@ object frmPrincipal: TfrmPrincipal
     object FazerlogoffPrivado: TUniMenuItem
       Caption = 'Relat'#243'rios'
       OnClick = FazerlogoffPrivadoClick
+      object CaixaContas1: TUniMenuItem
+        Caption = 'Caixa/Contas'
+        object CPagarReceber1: TUniMenuItem
+          Caption = 'C. Pagar/Receber'
+          OnClick = CPagarReceber1Click
+        end
+        object ContasCliente1: TUniMenuItem
+          Caption = 'Contas/Cliente'
+          object Caixaporcliente2: TUniMenuItem
+            Caption = 'Caixa por cliente'
+            OnClick = Caixaporcliente2Click
+          end
+          object ABCClienteFornecedor2: TUniMenuItem
+            Caption = 'ABC Cliente/Fornecedor'
+            OnClick = ABCClienteFornecedor2Click
+          end
+        end
+        object CaixaPerodo1: TUniMenuItem
+          Caption = 'Caixa/Per'#237'odo'
+          OnClick = CaixaPerodo1Click
+        end
+        object CaixaCCusto1: TUniMenuItem
+          Caption = 'Caixa/C.Custo'
+          OnClick = CaixaCCusto1Click
+        end
+        object Notasfiscais1: TUniMenuItem
+          Caption = 'Notas fiscais'
+          object GerencialNFCE1: TUniMenuItem
+            Caption = 'Gerencial NFCE'
+            OnClick = GerencialNFCE1Click
+          end
+        end
+      end
     end
     object Grficos1: TUniMenuItem
       Caption = 'Gr'#225'ficos'
@@ -2879,5 +2912,17 @@ object frmPrincipal: TfrmPrincipal
     Language = alEnglish
     Left = 464
     Top = 104
+  end
+  object alertaM: TUniSFiGrowl
+    Spacing = 4
+    AlertSize = as_Regular
+    FAIcon.Icon = fa_none
+    FAIcon.Size = fs_32
+    FAIcon.Color = fc_white
+    iType = it_info
+    AnimationEnable = True
+    PlacementX = px_left
+    Left = 477
+    Top = 507
   end
 end

@@ -21,8 +21,6 @@ object frmBaixaConta: TfrmBaixaConta
     Align = alBottom
     TabOrder = 0
     LayoutConfig.Cls = 'body_grdnt_rounded'
-    ExplicitTop = 234
-    ExplicitWidth = 562
     object UniSFBitBtn27: TUniSFBitBtn
       AlignWithMargins = True
       Left = 5
@@ -80,8 +78,6 @@ object frmBaixaConta: TfrmBaixaConta
     Hint = ''
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 562
-    ExplicitHeight = 234
     object PN1: TUniPanel
       Left = 0
       Top = 0
@@ -91,8 +87,6 @@ object frmBaixaConta: TfrmBaixaConta
       Align = alClient
       TabOrder = 0
       Caption = ''
-      ExplicitWidth = 560
-      ExplicitHeight = 232
       object UniScrollBox2: TUniScrollBox
         Left = 1
         Top = 1
@@ -101,10 +95,6 @@ object frmBaixaConta: TfrmBaixaConta
         Hint = ''
         Align = alClient
         TabOrder = 1
-        ExplicitLeft = 2
-        ExplicitTop = 0
-        ExplicitWidth = 641
-        ExplicitHeight = 238
         ScrollHeight = 73
         ScrollWidth = 350
         object UniPanel1: TUniPanel
@@ -146,7 +136,6 @@ object frmBaixaConta: TfrmBaixaConta
               Font.Height = -13
               Font.Name = 'Segoe UI Light'
               TabOrder = 1
-              ExplicitWidth = 56
             end
           end
           object compDATAREAL: TUniDateTimePicker
@@ -160,8 +149,6 @@ object frmBaixaConta: TfrmBaixaConta
             TimeFormat = 'HH:mm:ss'
             Align = alClient
             TabOrder = 2
-            ExplicitLeft = 2
-            ExplicitTop = 29
           end
         end
         object UniPanel2: TUniPanel
@@ -218,7 +205,6 @@ object frmBaixaConta: TfrmBaixaConta
               Font.Height = -13
               Font.Name = 'Segoe UI Light'
               TabOrder = 1
-              ExplicitWidth = 58
             end
           end
         end

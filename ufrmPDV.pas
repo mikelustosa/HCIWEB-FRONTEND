@@ -746,7 +746,7 @@ begin
   begin
     compNomeVend.Text     := frmListaGlobal.CDSTela.FieldByName('NOMEVEND').AsString;
     compINT_CODVEN.Text     := frmListaGlobal.CDSTela.FieldByName('CODVEND').AsString;
-    alertaM.info('Cliente selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
+    alertaM.info('Vendedor selecionado: <b>' + frmListaGlobal.CDSTela.FieldByName('nomeVend').AsString + '</b>');
     //pupula um json com os dados do cliente
     FreeAndNil(JVendedor);
     JVendedor := TJSONObject.Create;

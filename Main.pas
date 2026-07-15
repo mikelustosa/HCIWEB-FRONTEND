@@ -9,7 +9,7 @@ uses
   uniTimer, uniImageList, Vcl.Menus, uniMainMenu, uniButton, uniBitBtn,
   UniSFButton, UniSFBitBtn, uniTreeView, uniTreeMenu, uniPanel, uniHTMLFrame,
   uniPageControl, URGLayoutUnigui, UniSFSweetAlert, Vcl.Imaging.pngimage,
-  uniImage;
+  uniImage, UniSFiGrowl;
 
 type
   TfrmPrincipal = class(TUniForm)
@@ -94,6 +94,16 @@ type
     Contas1: TUniMenuItem;
     Contas2: TUniMenuItem;
     Parmetrosgerais1: TUniMenuItem;
+    CaixaContas1: TUniMenuItem;
+    ContasCliente1: TUniMenuItem;
+    Caixaporcliente2: TUniMenuItem;
+    ABCClienteFornecedor2: TUniMenuItem;
+    CPagarReceber1: TUniMenuItem;
+    CaixaPerodo1: TUniMenuItem;
+    CaixaCCusto1: TUniMenuItem;
+    alertaM: TUniSFiGrowl;
+    Notasfiscais1: TUniMenuItem;
+    GerencialNFCE1: TUniMenuItem;
     procedure exibeDashboardTimer(Sender: TObject);
     procedure btnMenuPrincipalClick(Sender: TObject);
     procedure UniFormMouseEnter(Sender: TObject);
@@ -129,6 +139,14 @@ type
     procedure Contas2Click(Sender: TObject);
     procedure Configuraes1Click(Sender: TObject);
     procedure Parmetrosgerais1Click(Sender: TObject);
+    procedure Anlise1Click(Sender: TObject);
+    procedure ABCClienteFornecedor1Click(Sender: TObject);
+    procedure Caixaporcliente2Click(Sender: TObject);
+    procedure ABCClienteFornecedor2Click(Sender: TObject);
+    procedure CPagarReceber1Click(Sender: TObject);
+    procedure CaixaPerodo1Click(Sender: TObject);
+    procedure CaixaCCusto1Click(Sender: TObject);
+    procedure GerencialNFCE1Click(Sender: TObject);
   private
     procedure exibeIconesPrivado;
     procedure ocultaIconesPrivado;
@@ -157,16 +175,31 @@ uses
   ufraCadCfop, ufraCadIcmsInterno, ufraCadProdutos, ufraCadGrade,
   ufraCadGrade2, ufrmPDV, ufraTrocaCodCli, ufraCnpjConfig, uFraOperacaoEstoque,
   ufrmAbrirCaixa, ufraOperacaoContas, uConstantes, ufraConfiguracoesNfceF,
-  ufraParamGerais;
+  ufraParamGerais, ufrmRelCaixaConta;
 
 function frmPrincipal: TfrmPrincipal;
 begin
   Result := TfrmPrincipal(UniMainModule.GetFormInstance(TfrmPrincipal));
 end;
 
+procedure TfrmPrincipal.ABCClienteFornecedor1Click(Sender: TObject);
+begin
+  alerta.Warning('Em manutenção.');
+end;
+
+procedure TfrmPrincipal.ABCClienteFornecedor2Click(Sender: TObject);
+begin
+  alertaM.Info('Em manutenção.');
+end;
+
 procedure TfrmPrincipal.Abrircaixa1Click(Sender: TObject);
 begin
   frmAbrirCaixa.showModal();
+end;
+
+procedure TfrmPrincipal.Anlise1Click(Sender: TObject);
+begin
+  alerta.Warning('Em manutenção.');
 end;
 
 procedure TfrmPrincipal.Atividades1Click(Sender: TObject);
@@ -206,7 +239,7 @@ end;
 
 procedure TfrmPrincipal.FazerlogoffPrivadoClick(Sender: TObject);
 begin
-  uniApplication.Restart;
+//  uniApplication.Restart;
 end;
 
 procedure TfrmPrincipal.ocultaIconesPrivado;
@@ -341,6 +374,12 @@ begin
     FecharAbaAtualComSeguranca(frmPrincipal.pagePrincipal);
 end;
 
+procedure TfrmPrincipal.GerencialNFCE1Click(Sender: TObject);
+begin
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 1;
+  FrmRelCaixaConta.showModal();
+end;
+
 procedure TfrmPrincipal.Grade11Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadGrade),'Grade 1', true, -1, true);
@@ -364,6 +403,22 @@ end;
 procedure TfrmPrincipal.ICMSinternoSubs1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraCadIcmsInterno),'ICMS Interno', true, -1, true);
+end;
+
+procedure TfrmPrincipal.CaixaCCusto1Click(Sender: TObject);
+begin
+  alertaM.Info('Em manutenção.');
+end;
+
+procedure TfrmPrincipal.CaixaPerodo1Click(Sender: TObject);
+begin
+  alertaM.Info('Em manutenção.');
+end;
+
+procedure TfrmPrincipal.Caixaporcliente2Click(Sender: TObject);
+begin
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 0;
+  FrmRelCaixaConta.showModal();
 end;
 
 procedure TfrmPrincipal.CartesPIXTEF1Click(Sender: TObject);
@@ -425,6 +480,12 @@ end;
 procedure TfrmPrincipal.Contas2Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfraOperacaoContas),'Movimentação de contas', true, -1, true);
+end;
+
+procedure TfrmPrincipal.CPagarReceber1Click(Sender: TObject);
+begin
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 2;
+  FrmRelCaixaConta.showModal();
 end;
 
 procedure TfrmPrincipal.Departamentos1Click(Sender: TObject);

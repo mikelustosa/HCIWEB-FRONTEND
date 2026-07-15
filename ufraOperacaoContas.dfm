@@ -112,7 +112,7 @@ object fraOperacaoContas: TfraOperacaoContas
       Width = 1279
       Height = 721
       Hint = ''
-      ActivePage = tsDetalhe
+      ActivePage = tsListagem
       TabBarVisible = False
       Align = alClient
       TabOrder = 0
@@ -508,7 +508,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
               end
-              object UniDateTimePicker1: TUniDateTimePicker
+              object compDiaDespPIni: TUniDateTimePicker
                 Left = 0
                 Top = 0
                 Width = 135
@@ -553,7 +553,7 @@ object fraOperacaoContas: TfraOperacaoContas
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
               end
-              object compDATA2: TUniDateTimePicker
+              object compDiaDespPFin: TUniDateTimePicker
                 Left = 0
                 Top = 0
                 Width = 135
@@ -1205,10 +1205,6 @@ object fraOperacaoContas: TfraOperacaoContas
         Hint = ''
         TabVisible = False
         Caption = 'tabDetalhe'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 256
-        ExplicitHeight = 128
         object cpMenuRodape: TUniContainerPanel
           Left = 0
           Top = 653
@@ -1430,14 +1426,14 @@ object fraOperacaoContas: TfraOperacaoContas
               TabOrder = 0
               Caption = ''
               object scrDetalhe: TUniScrollBox
-                Left = 23
-                Top = 3
+                Left = 21
+                Top = 7
                 Width = 1050
                 Height = 505
                 Hint = ''
                 Color = 16249327
                 TabOrder = 1
-                ScrollHeight = 463
+                ScrollHeight = 420
                 ScrollWidth = 1097
                 object UniPanel6: TUniPanel
                   Left = 339
@@ -1493,31 +1489,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     TabOrder = 2
                   end
                 end
-                object UniPanel5: TUniPanel
-                  Left = 510
-                  Top = 86
-                  Width = 500
-                  Height = 37
-                  Hint = 't1w500h0;'
-                  TabOrder = 6
-                  Caption = ''
-                  Color = 16249327
-                  object UniEdit1: TUniEdit
-                    Left = 1
-                    Top = 1
-                    Width = 498
-                    Height = 35
-                    Hint = ''
-                    CharCase = ecUpperCase
-                    MaxLength = 150
-                    BorderStyle = ubsNone
-                    Text = ''
-                    ParentFont = False
-                    Font.Height = -16
-                    Align = alClient
-                    TabOrder = 1
-                  end
-                end
                 object UniPanel7: TUniPanel
                   Left = 674
                   Top = 34
@@ -1542,16 +1513,6 @@ object fraOperacaoContas: TfraOperacaoContas
                     Align = alClient
                     TabOrder = 1
                   end
-                end
-                object UniPanel26: TUniPanel
-                  Left = 18
-                  Top = 121
-                  Width = 1075
-                  Height = 2
-                  Hint = 't2w2075h2;'
-                  TabOrder = 27
-                  Caption = ''
-                  Color = 16249327
                 end
                 object UniPanel3: TUniPanel
                   Left = 3
@@ -1663,11 +1624,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel9: TUniPanel
                   Left = 171
-                  Top = 129
+                  Top = 86
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 8
+                  TabOrder = 7
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel7: TUniContainerPanel
@@ -1725,11 +1686,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel10: TUniPanel
                   Left = 3
-                  Top = 129
+                  Top = 86
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 7
+                  TabOrder = 6
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel8: TUniContainerPanel
@@ -1787,11 +1748,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel2: TUniPanel
                   Left = 339
-                  Top = 129
+                  Top = 86
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 9
+                  TabOrder = 8
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel9: TUniContainerPanel
@@ -1844,11 +1805,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel8: TUniPanel
                   Left = 510
-                  Top = 129
+                  Top = 86
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 10
+                  TabOrder = 9
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel10: TUniContainerPanel
@@ -1901,11 +1862,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel11: TUniPanel
                   Left = 681
-                  Top = 129
+                  Top = 86
                   Width = 157
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 11
+                  TabOrder = 10
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel11: TUniContainerPanel
@@ -1958,11 +1919,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel12: TUniPanel
                   Left = 852
-                  Top = 129
+                  Top = 86
                   Width = 158
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 12
+                  TabOrder = 11
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel13: TUniContainerPanel
@@ -2015,21 +1976,21 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel13: TUniPanel
                   Left = -39
-                  Top = 205
+                  Top = 163
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 13
+                  TabOrder = 12
                   Caption = ''
                   Color = 16249327
                 end
                 object UniPanel42: TUniPanel
                   Left = 171
-                  Top = 213
+                  Top = 170
                   Width = 325
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 15
+                  TabOrder = 14
                   Caption = ''
                   Color = 16249327
                   object compDESCRPR: TUniEdit
@@ -2067,11 +2028,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel41: TUniPanel
                   Left = 3
-                  Top = 213
+                  Top = 170
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 14
+                  TabOrder = 13
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODPR: TUniEdit
@@ -2148,11 +2109,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel14: TUniPanel
                   Left = 510
-                  Top = 213
+                  Top = 170
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 16
+                  TabOrder = 15
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODCC: TUniEdit
@@ -2229,17 +2190,17 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel15: TUniPanel
                   Left = 681
-                  Top = 213
+                  Top = 170
                   Width = 217
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 17
+                  TabOrder = 16
                   Caption = ''
                   Color = 16249327
                   object compDESCR: TUniEdit
                     Left = 1
                     Top = 28
-                    Width = 144
+                    Width = 215
                     Height = 41
                     Hint = ''
                     CharCase = ecUpperCase
@@ -2248,6 +2209,7 @@ object fraOperacaoContas: TfraOperacaoContas
                     Text = ''
                     ParentFont = False
                     Font.Height = -16
+                    Align = alClient
                     TabOrder = 1
                     ReadOnly = True
                   end
@@ -2270,11 +2232,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel16: TUniPanel
                   Left = 681
-                  Top = 309
+                  Top = 266
                   Width = 331
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 23
+                  TabOrder = 22
                   Caption = ''
                   Color = 16249327
                   object compNOMECLI: TUniEdit
@@ -2312,11 +2274,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel17: TUniPanel
                   Left = 510
-                  Top = 309
+                  Top = 266
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 22
+                  TabOrder = 21
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODCLI: TUniEdit
@@ -2393,11 +2355,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel18: TUniPanel
                   Left = 171
-                  Top = 309
+                  Top = 266
                   Width = 325
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 21
+                  TabOrder = 20
                   Caption = ''
                   Color = 16249327
                   object compNOME: TUniEdit
@@ -2435,11 +2397,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel19: TUniPanel
                   Left = 3
-                  Top = 309
+                  Top = 266
                   Width = 158
                   Height = 70
                   Hint = 't1w100h0;'
-                  TabOrder = 20
+                  TabOrder = 19
                   Caption = 'UniPanel4'
                   Color = clWhite
                   object compCODBAN: TUniEdit
@@ -2516,31 +2478,31 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel20: TUniPanel
                   Left = -39
-                  Top = 289
+                  Top = 247
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 19
+                  TabOrder = 18
                   Caption = ''
                   Color = 16249327
                 end
                 object UniPanel21: TUniPanel
                   Left = -36
-                  Top = 385
+                  Top = 343
                   Width = 1075
                   Height = 2
                   Hint = 't2w2075h2;'
-                  TabOrder = 24
+                  TabOrder = 23
                   Caption = ''
                   Color = 16249327
                 end
                 object UniPanel23: TUniPanel
                   Left = 3
-                  Top = 393
+                  Top = 350
                   Width = 493
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 25
+                  TabOrder = 24
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel21: TUniContainerPanel
@@ -2593,11 +2555,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel22: TUniPanel
                   Left = 510
-                  Top = 393
+                  Top = 350
                   Width = 502
                   Height = 70
                   Hint = 't1w500h0;'
-                  TabOrder = 26
+                  TabOrder = 25
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel20: TUniContainerPanel
@@ -2650,11 +2612,11 @@ object fraOperacaoContas: TfraOperacaoContas
                 end
                 object UniPanel24: TUniPanel
                   Left = 904
-                  Top = 213
+                  Top = 170
                   Width = 106
                   Height = 70
                   Hint = 't1w300h0;'
-                  TabOrder = 18
+                  TabOrder = 17
                   Caption = ''
                   Color = 16249327
                   object UniContainerPanel29: TUniContainerPanel
@@ -3386,6 +3348,7 @@ object fraOperacaoContas: TfraOperacaoContas
           Width = 1271
           Height = 40
           Hint = ''
+          Visible = False
           ParentColor = False
           Align = alBottom
           TabOrder = 3

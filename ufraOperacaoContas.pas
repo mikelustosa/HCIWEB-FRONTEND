@@ -86,10 +86,10 @@ type
     UniContainerPanel23: TUniContainerPanel;
     UniSFLabel1: TUniSFLabel;
     compVALORNUM2: TUniEdit;
-    UniDateTimePicker1: TUniDateTimePicker;
+    compDiaDespPIni: TUniDateTimePicker;
     UniContainerPanel24: TUniContainerPanel;
     UniSFLabel2: TUniSFLabel;
-    compDATA2: TUniDateTimePicker;
+    compDiaDespPFin: TUniDateTimePicker;
     UniContainerPanel26: TUniContainerPanel;
     UniSFLabel18: TUniSFLabel;
     UniContainerPanel64: TUniContainerPanel;
@@ -113,11 +113,8 @@ type
     UniContainerPanel6: TUniContainerPanel;
     UniLabel6: TUniLabel;
     compDREF: TUniDateTimePicker;
-    UniPanel5: TUniPanel;
-    UniEdit1: TUniEdit;
     UniPanel7: TUniPanel;
     UniEdit2: TUniEdit;
-    UniPanel26: TUniPanel;
     UniPanel3: TUniPanel;
     UniContainerPanel4: TUniContainerPanel;
     UniLabel4: TUniLabel;
@@ -666,6 +663,8 @@ var
 wjRet: TJSONObject;
 begin
   wjRet := nil;
+
+  DefinirTodasAbasNaPrimeiraPagina(self);
   try
     wjRet := TJSONObject.Create;
     LimparUniEditsDoFrame(self);
@@ -765,6 +764,8 @@ begin
   scrDetalhe.Align := alClient;
   scrObservacoes.Align := alClient;
   scrRemessaBancaria.Align := alClient;
+  compDiaDespPIni.DateTime := date - 15;
+  compDiaDespPFin.DateTime := date;
 end;
 
 procedure TfraOperacaoContas.btnPesquisarClick(Sender: TObject);
@@ -782,7 +783,9 @@ begin
       jsonBody.AddPair('nomCli',trim(compTEXTOPESQUISAR.Text))
     else
       jsonBody.AddPair('nomCli','');
-    jsonBody.AddPair('diaDespP','');
+//    jsonBody.AddPair('diaDespP','29/05/2026');
+    jsonBody.AddPair('diaDespPIni',datetostr(compDiaDespPIni.DateTime));
+    jsonBody.AddPair('diaDespPFin',datetostr(compDiaDespPFin.DateTime));
     jsonBody.AddPair('valorP','');
     jsonBody.AddPair('numDoc','');
 
@@ -791,7 +794,7 @@ begin
              .resource(getMovContas)
              .AddParam('nomeBanco', uniMainModule.nomebanco)
              .AddBody(jsonBody)
-             .timeOut(12000)
+             .timeOut(120000)
              .Get;
 
       jsonResp := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;

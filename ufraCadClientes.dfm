@@ -397,7 +397,7 @@ object fraCadClientes: TfraCadClientes
           Width = 1421
           Height = 683
           Hint = ''
-          ActivePage = tab1
+          ActivePage = tab0
           Align = alClient
           TabOrder = 2
           object tab0: TUniTabSheet

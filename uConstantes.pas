@@ -182,6 +182,9 @@ uses
 
     //Impressões
     const getRecibo = 'getRecibo';
+    const getRelCaixaPorCliente = 'getRelCaixaPorCliente';
+    const getRelGerNFCE = 'getRelGerNFCE';
+    const getRelPagRec = 'getRelPagRec';
 
 
   {$endregion 'Resources Cadastros e Login'}
