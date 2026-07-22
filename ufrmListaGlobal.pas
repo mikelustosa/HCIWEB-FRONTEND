@@ -101,7 +101,8 @@ begin
       weGrid.Columns[3].FieldName := 'ativo';
     end
   //VENDEDORERS
-  else if (weTabelaPesquisa = 'VENDEDORES')
+  else if (weTabelaPesquisa = 'VENDEDOR')
+    or (weTabelaPesquisa = 'VENDEDORES')
     or (weTabelaPesquisa = 'VENDEDORES_PDV')
     or (weTabelaPesquisa = 'VENDEDORES_PDV_CONFIGURACOES')then
     begin
@@ -396,7 +397,8 @@ begin
             .Get;
   end
   //VENDEDORES
-  else if (wTabelaDePesquisa = 'VENDEDORES')
+  else if (wTabelaDePesquisa = 'VENDEDOR')
+  or (wTabelaDePesquisa = 'VENDEDORES')
   or (wTabelaDePesquisa = 'VENDEDORESPDV')
   or (wTabelaDePesquisa = 'VENDEDORES_PDV_CONFIGURACOES') then
   begin
@@ -663,7 +665,8 @@ begin
         atualizaNomeColunaGrid(gridTela,'ATIVIDADES');
       end
       //VENDEDORES
-      else if (wTabelaDePesquisa.ToUpper = 'VENDEDORES')
+      else if (wTabelaDePesquisa.ToUpper = 'VENDEDOR')
+      or (wTabelaDePesquisa.ToUpper = 'VENDEDORES')
       or (wTabelaDePesquisa.ToUpper = 'VENDEDORESPDV')
       or (wTabelaDePesquisa.ToUpper = 'VENDEDORES_PDV_CONFIGURACOES') then
       begin

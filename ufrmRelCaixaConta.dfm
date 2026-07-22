@@ -369,6 +369,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                 TabOrder = 3
                 Scale = bbsSmall
                 IconAlign = iaTop
+                OnClick = btnMoedaClick
                 FAIcon.Icon = fa_search
                 FAIcon.Size = fs_16
                 FAIcon.Color = fc_grey
@@ -436,7 +437,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object comppfj: TUniSFComboBox
+              object compCONSOLIDADO_1: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 90
@@ -444,8 +445,8 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                 Text = ''
                 TabOrder = 2
                 Items.Strings = (
-                  'Sim'
-                  'N'#227'o')
+                  'N'#227'o'
+                  'Sim')
                 Groups = <>
                 Options.Placeholders = 'Selecione'
                 Options.noResults = 'No Results Found'
@@ -914,7 +915,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object UniSFComboBox4: TUniSFComboBox
+              object compORDENA_1: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 90
@@ -946,7 +947,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn1: TUniSFBitBtn
+          object btnImprimir_0: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -963,7 +964,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn1Click
+            OnClick = btnImprimir_0Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -1252,7 +1253,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn7: TUniSFBitBtn
+          object btnImprimir_1: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -1269,7 +1270,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn7Click
+            OnClick = btnImprimir_1Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -1475,7 +1476,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBIMPRIMIRORDEM: TUniSFComboBox
+              object compCBIMPRIMIRORDEM_2: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 410
@@ -1532,7 +1533,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBTIPODERELATORIO: TUniSFComboBox
+              object compCBTIPODERELATORIO_2: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 410
@@ -1603,7 +1604,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcFin: TUniEdit
+              object compCodCcFin_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -1686,7 +1687,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcIni: TUniEdit
+              object compCodCcIni_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -1769,7 +1770,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCliPagRec: TUniEdit
+              object compCodCliPagRec_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 88
@@ -1862,7 +1863,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODVEN: TUniEdit
+              object compCODVEN_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 88
@@ -2028,7 +2029,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODBANINI: TUniEdit
+              object compCODBANINI_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -2111,7 +2112,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODBANFIN: TUniEdit
+              object compCODBANFIN_2: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -2201,7 +2202,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCONSOLIDADO: TUniSFComboBox
+              object compCONSOLIDADO_2: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 118
@@ -2318,7 +2319,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBRESUMIDO: TUniSFComboBox
+              object compCBRESUMIDO_2: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 118
@@ -2357,7 +2358,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn2: TUniSFBitBtn
+          object btnImprimir_2: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -2374,7 +2375,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn2Click
+            OnClick = btnImprimir_2Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -2460,6 +2461,8 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                 TimeFormat = 'HH:mm:ss'
                 Align = alClient
                 TabOrder = 2
+                ExplicitLeft = 6
+                ExplicitTop = 27
               end
             end
             object UniPanel49: TUniPanel
@@ -2593,7 +2596,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODCLI3: TUniEdit
+              object compCODCLI_3: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -2676,7 +2679,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBDEBCRED: TUniSFComboBox
+              object compCBDEBCRED_3: TUniSFComboBox
                 Left = 8
                 Top = 36
                 Width = 185
@@ -2723,20 +2726,21 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   AlignWithMargins = True
                   Left = 10
                   Top = 3
-                  Width = 68
+                  Width = 33
                   Height = 17
                   Hint = ''
                   Margins.Left = 10
-                  Caption = 'Banco inicial'
+                  Caption = 'Banco'
                   Align = alTop
                   ParentFont = False
                   Font.Color = clBlack
                   Font.Height = -13
                   Font.Name = 'Segoe UI Light'
                   TabOrder = 1
+                  ExplicitWidth = 68
                 end
               end
-              object compCODBAN3: TUniEdit
+              object compCODBAN_3: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -2870,7 +2874,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn12: TUniSFBitBtn
+          object btnImprimir_3: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -2887,7 +2891,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn12Click
+            OnClick = btnImprimir_3Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -3093,7 +3097,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBTIPODERELATORIOABC: TUniSFComboBox
+              object compCBTIPODERELATORIOABC_4: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 410
@@ -3149,7 +3153,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBCONSOLIDADOABC: TUniSFComboBox
+              object compCBCONSOLIDADO_4: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 193
@@ -3208,7 +3212,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODCLA: TUniEdit
+              object compCODCLA_4: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 197
@@ -3235,7 +3239,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn14: TUniSFBitBtn
+          object btnImprimir_4: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -3252,7 +3256,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn14Click
+            OnClick = btnImprimir_4Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
@@ -3330,13 +3334,15 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
               object compDTINI_5: TUniDateTimePicker
                 Left = 1
                 Top = 28
-                Width = 157
+                Width = 197
                 Height = 41
                 Hint = ''
                 DateTime = 46127.000000000000000000
                 DateFormat = 'dd/MM/yyyy'
                 TimeFormat = 'HH:mm:ss'
+                Align = alClient
                 TabOrder = 2
+                ExplicitWidth = 157
               end
             end
             object UniPanel67: TUniPanel
@@ -3386,13 +3392,15 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
               object compDTFIN_5: TUniDateTimePicker
                 Left = 1
                 Top = 28
-                Width = 152
+                Width = 197
                 Height = 41
                 Hint = ''
                 DateTime = 46127.000000000000000000
                 DateFormat = 'dd/MM/yyyy'
                 TimeFormat = 'HH:mm:ss'
+                Align = alClient
                 TabOrder = 2
+                ExplicitWidth = 152
               end
             end
             object UniPanel68: TUniPanel
@@ -3456,7 +3464,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCBTIPODERELATORIO_4: TUniSFComboBox
+              object compCBTIPODERELATORIO_5: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 410
@@ -3515,7 +3523,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcIni_4: TUniEdit
+              object compCodCcIni_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -3598,7 +3606,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcFin_4: TUniEdit
+              object compCodCcFin_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -3691,7 +3699,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcIni_5: TUniEdit
+              object compCodCcIgnorarIni_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -3774,7 +3782,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCodCcFin_5: TUniEdit
+              object compCodCcIgnorarFin_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -3864,7 +3872,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compDATA: TUniSFComboBox
+              object compDATA_5: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 193
@@ -3920,7 +3928,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCONSOLIDADO_4: TUniSFComboBox
+              object compCONSOLIDADO_5: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 193
@@ -3979,7 +3987,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODPR_4: TUniEdit
+              object compCODPR_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -4062,7 +4070,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODCLI_4: TUniEdit
+              object compCODCLI_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -4145,7 +4153,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compMOEDA_4: TUniEdit
+              object compMOEDA_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -4228,7 +4236,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compCODBAN_4: TUniEdit
+              object compCODBAN_5: TUniEdit
                 Left = 1
                 Top = 28
                 Width = 157
@@ -4338,7 +4346,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compORDENACAO: TUniSFComboBox
+              object compORDENACAO_5: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 193
@@ -4400,7 +4408,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
                   TabOrder = 1
                 end
               end
-              object compORDENACAOASCDESC: TUniSFComboBox
+              object compORDENACAOASCDESC_5: TUniSFComboBox
                 Left = 3
                 Top = 36
                 Width = 193
@@ -4427,7 +4435,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
           Align = alBottom
           TabOrder = 1
           LayoutConfig.Cls = 'body_grdnt_rounded'
-          object UniSFBitBtn24: TUniSFBitBtn
+          object btnImprimir_5: TUniSFBitBtn
             AlignWithMargins = True
             Left = 313
             Top = 5
@@ -4444,7 +4452,7 @@ object FrmRelCaixaConta: TFrmRelCaixaConta
             TabOrder = 1
             Scale = bbsSmall
             LayoutConfig.Cls = 'botaoSemBorda'
-            OnClick = UniSFBitBtn24Click
+            OnClick = btnImprimir_5Click
             FAIcon.Icon = fa_arrow_alt_circle_left
             FAIcon.Size = fs_16
             FAIcon.Color = fc_white
