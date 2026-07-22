@@ -185,6 +185,9 @@ uses
     const getRelCaixaPorCliente = 'getRelCaixaPorCliente';
     const getRelGerNFCE = 'getRelGerNFCE';
     const getRelPagRec = 'getRelPagRec';
+    const getCaixaPeriodo = 'getCaixaPeriodo';
+    const getContaAbcCliFor = 'getContaAbcCliFor';
+    const getCaixaCcusto = 'getCaixaCcusto';
 
 
   {$endregion 'Resources Cadastros e Login'}

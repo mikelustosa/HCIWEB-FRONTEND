@@ -594,8 +594,6 @@ begin
                     .Timeout(12000)
                     .Post;
 //-----------------------------------------------------------------
-
-//            sleep(2000);
             //gera,envia e exibe nfce
             if resp1.StatusCode = 200 then
             begin
@@ -617,6 +615,7 @@ begin
                   if wMsgOut.Trim = '' then
                     begin
                       try
+                     alerta.Error(wUrlPdfCupom);
 //                        limpacupom;
 //                        frmListaGlobal.wTabelaDePesquisa := 'CLIENTES_PDV';
 //                        frmListaGlobal.lblDescricao.Caption := 'CLIENTES';

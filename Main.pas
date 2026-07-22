@@ -189,7 +189,8 @@ end;
 
 procedure TfrmPrincipal.ABCClienteFornecedor2Click(Sender: TObject);
 begin
-  alertaM.Info('Em manutenção.');
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 4;
+  FrmRelCaixaConta.showModal();
 end;
 
 procedure TfrmPrincipal.Abrircaixa1Click(Sender: TObject);
@@ -407,12 +408,14 @@ end;
 
 procedure TfrmPrincipal.CaixaCCusto1Click(Sender: TObject);
 begin
-  alertaM.Info('Em manutenção.');
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 5;
+  FrmRelCaixaConta.showModal();
 end;
 
 procedure TfrmPrincipal.CaixaPerodo1Click(Sender: TObject);
 begin
-  alertaM.Info('Em manutenção.');
+  FrmRelCaixaConta.UniPageControl1.ActivePageIndex := 3;
+  FrmRelCaixaConta.showModal();
 end;
 
 procedure TfrmPrincipal.Caixaporcliente2Click(Sender: TObject);

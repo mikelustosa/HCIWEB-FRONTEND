@@ -77,8 +77,6 @@ type
     UniContainerPanel12: TUniContainerPanel;
     UniLabel10: TUniLabel;
     UniSFComboBox4: TUniSFComboBox;
-    cpMenuRodape: TUniContainerPanel;
-    btnCancelar: TUniSFBitBtn;
     alertaM: TUniSFiGrowl;
     UniContainerPanel13: TUniContainerPanel;
     UniSFBitBtn1: TUniSFBitBtn;
@@ -178,6 +176,150 @@ type
     UniPanel46: TUniPanel;
     UniContainerPanel22: TUniContainerPanel;
     UniSFBitBtn2: TUniSFBitBtn;
+    UniTabSheet2: TUniTabSheet;
+    UniPanel47: TUniPanel;
+    UniScrollBox5: TUniScrollBox;
+    UniPanel48: TUniPanel;
+    UniContainerPanel35: TUniContainerPanel;
+    UniLabel30: TUniLabel;
+    compDTINI_3: TUniDateTimePicker;
+    UniPanel49: TUniPanel;
+    UniContainerPanel36: TUniContainerPanel;
+    UniLabel32: TUniLabel;
+    compDTFIN_3: TUniDateTimePicker;
+    UniPanel50: TUniPanel;
+    UniPanel51: TUniPanel;
+    UniPanel54: TUniPanel;
+    UniPanel57: TUniPanel;
+    UniContainerPanel41: TUniContainerPanel;
+    UniLabel37: TUniLabel;
+    compCODCLI3: TUniEdit;
+    UniSFBitBtn13: TUniSFBitBtn;
+    UniPanel60: TUniPanel;
+    UniContainerPanel43: TUniContainerPanel;
+    UniLabel39: TUniLabel;
+    UniPanel61: TUniPanel;
+    UniContainerPanel44: TUniContainerPanel;
+    UniLabel40: TUniLabel;
+    compCODBAN3: TUniEdit;
+    UniSFBitBtn16: TUniSFBitBtn;
+    UniPanel52: TUniPanel;
+    UniContainerPanel37: TUniContainerPanel;
+    UniLabel33: TUniLabel;
+    UniEdit1: TUniEdit;
+    UniSFBitBtn11: TUniSFBitBtn;
+    UniContainerPanel38: TUniContainerPanel;
+    UniSFBitBtn12: TUniSFBitBtn;
+    compCBDEBCRED: TUniSFComboBox;
+    UniTabSheet3: TUniTabSheet;
+    UniPanel53: TUniPanel;
+    UniScrollBox6: TUniScrollBox;
+    UniPanel55: TUniPanel;
+    UniContainerPanel39: TUniContainerPanel;
+    UniLabel34: TUniLabel;
+    compDTINI_4: TUniDateTimePicker;
+    UniPanel56: TUniPanel;
+    UniContainerPanel40: TUniContainerPanel;
+    UniLabel35: TUniLabel;
+    compDTFIN_4: TUniDateTimePicker;
+    UniPanel58: TUniPanel;
+    UniPanel59: TUniPanel;
+    UniPanel62: TUniPanel;
+    UniContainerPanel42: TUniContainerPanel;
+    UniLabel36: TUniLabel;
+    compCBTIPODERELATORIOABC: TUniSFComboBox;
+    UniPanel63: TUniPanel;
+    UniContainerPanel45: TUniContainerPanel;
+    UniLabel38: TUniLabel;
+    compCBCONSOLIDADOABC: TUniSFComboBox;
+    UniPanel64: TUniPanel;
+    UniContainerPanel46: TUniContainerPanel;
+    UniLabel41: TUniLabel;
+    compCODCLA: TUniEdit;
+    UniContainerPanel47: TUniContainerPanel;
+    UniSFBitBtn14: TUniSFBitBtn;
+    UniTabSheet4: TUniTabSheet;
+    UniPanel65: TUniPanel;
+    UniScrollBox7: TUniScrollBox;
+    UniPanel66: TUniPanel;
+    UniContainerPanel48: TUniContainerPanel;
+    UniLabel42: TUniLabel;
+    compDTINI_5: TUniDateTimePicker;
+    UniPanel67: TUniPanel;
+    UniContainerPanel49: TUniContainerPanel;
+    UniLabel43: TUniLabel;
+    compDTFIN_5: TUniDateTimePicker;
+    UniPanel68: TUniPanel;
+    UniPanel69: TUniPanel;
+    UniPanel70: TUniPanel;
+    UniContainerPanel50: TUniContainerPanel;
+    UniLabel44: TUniLabel;
+    compCBTIPODERELATORIO_4: TUniSFComboBox;
+    UniPanel73: TUniPanel;
+    UniContainerPanel53: TUniContainerPanel;
+    UniLabel47: TUniLabel;
+    compCodCcIni_4: TUniEdit;
+    UniSFBitBtn15: TUniSFBitBtn;
+    UniPanel74: TUniPanel;
+    UniContainerPanel54: TUniContainerPanel;
+    UniLabel48: TUniLabel;
+    compCodCcFin_4: TUniEdit;
+    UniSFBitBtn17: TUniSFBitBtn;
+    UniPanel75: TUniPanel;
+    UniPanel76: TUniPanel;
+    UniContainerPanel55: TUniContainerPanel;
+    UniLabel49: TUniLabel;
+    compCodCcIni_5: TUniEdit;
+    UniSFBitBtn18: TUniSFBitBtn;
+    UniPanel77: TUniPanel;
+    UniContainerPanel56: TUniContainerPanel;
+    UniLabel50: TUniLabel;
+    compCodCcFin_5: TUniEdit;
+    UniSFBitBtn19: TUniSFBitBtn;
+    UniPanel78: TUniPanel;
+    UniPanel79: TUniPanel;
+    UniContainerPanel57: TUniContainerPanel;
+    UniLabel51: TUniLabel;
+    compDATA: TUniSFComboBox;
+    UniPanel80: TUniPanel;
+    UniContainerPanel58: TUniContainerPanel;
+    UniLabel52: TUniLabel;
+    compCONSOLIDADO_4: TUniSFComboBox;
+    UniPanel81: TUniPanel;
+    UniContainerPanel59: TUniContainerPanel;
+    UniLabel53: TUniLabel;
+    compCODPR_4: TUniEdit;
+    UniSFBitBtn20: TUniSFBitBtn;
+    UniPanel82: TUniPanel;
+    UniContainerPanel60: TUniContainerPanel;
+    UniLabel54: TUniLabel;
+    compCODCLI_4: TUniEdit;
+    UniSFBitBtn21: TUniSFBitBtn;
+    UniPanel83: TUniPanel;
+    UniContainerPanel61: TUniContainerPanel;
+    UniLabel55: TUniLabel;
+    compMOEDA_4: TUniEdit;
+    UniSFBitBtn22: TUniSFBitBtn;
+    UniPanel71: TUniPanel;
+    UniContainerPanel51: TUniContainerPanel;
+    UniLabel45: TUniLabel;
+    compCODBAN_4: TUniEdit;
+    UniSFBitBtn23: TUniSFBitBtn;
+    UniPanel72: TUniPanel;
+    UniPanel84: TUniPanel;
+    UniPanel85: TUniPanel;
+    UniPanel86: TUniPanel;
+    UniContainerPanel52: TUniContainerPanel;
+    UniLabel46: TUniLabel;
+    compORDENACAO: TUniSFComboBox;
+    UniPanel87: TUniPanel;
+    UniContainerPanel62: TUniContainerPanel;
+    UniLabel56: TUniLabel;
+    compORDENACAOASCDESC: TUniSFComboBox;
+    UniContainerPanel63: TUniContainerPanel;
+    UniSFBitBtn24: TUniSFBitBtn;
+    cpMenuRodape: TUniContainerPanel;
+    btnCancelar: TUniSFBitBtn;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnCliClick(Sender: TObject);
     procedure btnBancoClick(Sender: TObject);
@@ -194,6 +336,20 @@ type
     procedure UniSFBitBtn5Click(Sender: TObject);
     procedure UniSFBitBtn6Click(Sender: TObject);
     procedure UniSFBitBtn8Click(Sender: TObject);
+    procedure UniSFBitBtn12Click(Sender: TObject);
+    procedure UniSFBitBtn11Click(Sender: TObject);
+    procedure UniSFBitBtn13Click(Sender: TObject);
+    procedure UniSFBitBtn16Click(Sender: TObject);
+    procedure UniSFBitBtn14Click(Sender: TObject);
+    procedure UniSFBitBtn23Click(Sender: TObject);
+    procedure UniSFBitBtn22Click(Sender: TObject);
+    procedure UniSFBitBtn21Click(Sender: TObject);
+    procedure UniSFBitBtn20Click(Sender: TObject);
+    procedure UniSFBitBtn19Click(Sender: TObject);
+    procedure UniSFBitBtn18Click(Sender: TObject);
+    procedure UniSFBitBtn17Click(Sender: TObject);
+    procedure UniSFBitBtn15Click(Sender: TObject);
+    procedure UniSFBitBtn24Click(Sender: TObject);
   private
     { Private declarations }
     procedure callBackCliente(Sender: TComponent;
@@ -256,6 +412,33 @@ begin
     compCBTIPODERELATORIO.ItemIndex := 0;
     compCONSOLIDADO.ItemIndex := 1;
     compCBRESUMIDO.ItemIndex := 0;
+  end
+  //caixa por período
+  else if UniPageControl1.ActivePageIndex = 3 then
+  begin
+    compDTINI_3.DateTime := date - 15;
+    compDTFIN_3.DateTime := date;
+    compCBDEBCRED.ItemIndex := 0;
+  end
+  //ABC cliente/fornecedor
+  else if UniPageControl1.ActivePageIndex = 4 then
+  begin
+    compDTINI_4.DateTime := date - 15;
+    compDTFIN_4.DateTime := date;
+    compCBTIPODERELATORIOABC.ItemIndex := 0;
+    compCBCONSOLIDADOABC.ItemIndex := 0;
+    compCODCLA.Text := 'CL';
+  end
+  //caixa por centro de custo
+  else if UniPageControl1.ActivePageIndex = 5 then
+  begin
+    compDTINI_5.DateTime := date - 15;
+    compDTFIN_5.DateTime := date;
+    compCBTIPODERELATORIO_4.ItemIndex := 0;
+    compDATA.ItemIndex := 0;
+    compCONSOLIDADO_4.ItemIndex := 0;
+    compORDENACAO.ItemIndex := 1;
+    compORDENACAOASCDESC.ItemIndex := 0;
   end;
 
 end;
@@ -263,6 +446,178 @@ end;
 procedure TFrmRelCaixaConta.UniSFBitBtn10Click(Sender: TObject);
 begin
   alertam.Warning('Em manutenção');
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn11Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn12Click(Sender: TObject);
+var
+  resp1       :IResponse;
+  jsonBody    :TJSONObject;
+  wJsonResult: TJSONObject;
+begin
+  resp1 := nil;
+  wJsonResult := nil;
+  try
+    jsonBody := TJSONObject.Create;
+    try
+      jsonBody.AddPair('empresa', vvcodemp);
+      jsonBody.AddPair('codCli', compCODCLI3.Text);
+      //crédito
+      if compCBDEBCRED.ItemIndex = 1 then
+        jsonBody.AddPair('debCred', 'C')
+      //débito
+      else if compCBDEBCRED.ItemIndex = 2 then
+        jsonBody.AddPair('debCred', 'D')
+      else
+        jsonBody.AddPair('debCred', '');
+      jsonBody.AddPair('codBan', compCODBAN3.Text);
+      jsonBody.AddPair('dtIni', datetostr(compDTINI_3.DateTime));
+      jsonBody.AddPair('dtFin', datetostr(compDTFIN_3.DateTime));
+
+      resp1 := TRequest
+              .New
+              .BaseURL(baseurlImpressao)
+              .Resource(getCaixaPeriodo)
+              .AddParam('nomeBanco', uniMainModule.nomebanco)
+              .AddBody(jsonBody.ToString)
+              .Timeout(120000)
+              .Get;
+
+      var wResult : TJSONObject;
+      wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      if resp1.StatusCode = 200 then
+      begin
+        alertam.Success('Relatório gerado com sucesso.');
+
+//        var wResult : TJSONObject;
+//        wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue('local').Value;
+
+        UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
+  //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
+  //      novaAba(TFrame(TFraImpressao),'PDF',true,'');
+  //      NovaAba(TFrame(TFraImpressao),'PDF', true, -1, true);
+
+  //      btnVoltar.Click;
+  //      btnPesquisar.Click;
+      end
+      else
+      begin
+        alertam.Warning(wResult.GetValue('Erro').Value);
+      end;
+    finally
+      jsonBody.Free;
+    end;
+  except on e:exception do
+    begin
+      alertam.Error('ERRO: '+ e.Message);
+    end;
+  end;
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn13Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn14Click(Sender: TObject);
+var
+  resp1       :IResponse;
+  jsonBody    :TJSONObject;
+  wJsonResult: TJSONObject;
+begin
+  resp1 := nil;
+  wJsonResult := nil;
+  try
+    jsonBody := TJSONObject.Create;
+    try
+      jsonBody.AddPair('empresa', vvcodemp);
+      jsonBody.AddPair('consolidado', compCBCONSOLIDADOABC.ItemIndex.ToString);
+      jsonBody.AddPair('tipoDeRelatorio', compCBTIPODERELATORIOABC.ItemIndex.ToString);
+      jsonBody.AddPair('codCla', compCODCLA.Text);
+      jsonBody.AddPair('dtIni', datetostr(compDTINI_4.DateTime));
+      jsonBody.AddPair('dtFin', datetostr(compDTFIN_4.DateTime));
+
+      resp1 := TRequest
+              .New
+              .BaseURL(baseurlImpressao)
+              .Resource(getContaAbcCliFor)
+              .AddParam('nomeBanco', uniMainModule.nomebanco)
+              .AddBody(jsonBody.ToString)
+              .Timeout(120000)
+              .Get;
+
+      var wResult : TJSONObject;
+      wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      if resp1.StatusCode = 200 then
+      begin
+        alertam.Success('Relatório gerado com sucesso.');
+
+//        var wResult : TJSONObject;
+//        wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue('local').Value;
+
+        UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
+  //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
+  //      novaAba(TFrame(TFraImpressao),'PDF',true,'');
+  //      NovaAba(TFrame(TFraImpressao),'PDF', true, -1, true);
+
+  //      btnVoltar.Click;
+  //      btnPesquisar.Click;
+      end
+      else
+      begin
+        alertam.Warning(wResult.GetValue('Erro').Value);
+      end;
+    finally
+      jsonBody.Free;
+    end;
+  except on e:exception do
+    begin
+      alertam.Error('ERRO: '+ e.Message);
+    end;
+  end;
+end;
+
+
+procedure TFrmRelCaixaConta.UniSFBitBtn15Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn16Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn17Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn18Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn19Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
 end;
 
 procedure TFrmRelCaixaConta.UniSFBitBtn1Click(Sender: TObject);
@@ -302,8 +657,8 @@ begin
         var wResult : TJSONObject;
         wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
 
-        //wpastaTmpPdf é temporário. só deve vir  a url
-        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue('local').Value;
 
         UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
   //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
@@ -327,6 +682,99 @@ begin
   end;
 end;
 
+procedure TFrmRelCaixaConta.UniSFBitBtn20Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn21Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn22Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn23Click(Sender: TObject);
+begin
+  alertam.Warning('Em manutenção');
+end;
+
+procedure TFrmRelCaixaConta.UniSFBitBtn24Click(Sender: TObject);
+var
+  resp1       :IResponse;
+  jsonBody    :TJSONObject;
+  wJsonResult: TJSONObject;
+begin
+  resp1 := nil;
+  wJsonResult := nil;
+  try
+    jsonBody := TJSONObject.Create;
+    try
+      jsonBody.AddPair('empresa', vvcodemp);
+      jsonBody.AddPair('tipoDeRelatorio', compCBTIPODERELATORIO_4.ItemIndex.ToString);
+      jsonBody.AddPair('consolidado', compCONSOLIDADO_4.ItemIndex.ToString);
+      jsonBody.AddPair('codCcustoIni', compCodCcIni_4.Text);
+      jsonBody.AddPair('codCcustoFin', compCodCcFin_4.Text);
+      jsonBody.AddPair('codCcustoIgnorarIni', compCodCcIni_5.Text);
+      jsonBody.AddPair('codCcustoIgnorarFin', compCodCcFin_5.Text);
+      jsonBody.AddPair('data', compDATA.ItemIndex.ToString);
+      jsonBody.AddPair('codPr', compCODPR_4.Text);
+      jsonBody.AddPair('codCli', compCODCLI_4.Text);
+      jsonBody.AddPair('codBan', compCODBAN_4.Text);
+      jsonBody.AddPair('ordenacaoAscDesc', compORDENACAOASCDESC.ItemIndex.ToString);
+      jsonBody.AddPair('ordenacao', compORDENACAO.ItemIndex.ToString);
+      jsonBody.AddPair('dtIni', datetostr(compDTINI_5.DateTime));
+      jsonBody.AddPair('dtFin', datetostr(compDTFIN_5.DateTime));
+
+      resp1 := TRequest
+              .New
+              .BaseURL(baseurlImpressao)
+              .Resource(getCaixaCcusto)
+              .AddParam('nomeBanco', uniMainModule.nomebanco)
+              .AddBody(jsonBody.ToString)
+              .Timeout(120000)
+              .Get;
+
+      var wResult : TJSONObject;
+      wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+      if resp1.StatusCode = 200 then
+      begin
+        alertam.Success('Relatório gerado com sucesso.');
+
+//        var wResult : TJSONObject;
+//        wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
+
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue<string>('local');
+
+        UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
+  //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
+  //      novaAba(TFrame(TFraImpressao),'PDF',true,'');
+  //      NovaAba(TFrame(TFraImpressao),'PDF', true, -1, true);
+
+  //      btnVoltar.Click;
+  //      btnPesquisar.Click;
+      end
+      else
+      begin
+        alertam.Warning(wResult.GetValue('Erro').Value);
+      end;
+    finally
+      jsonBody.Free;
+    end;
+  except on e:exception do
+    begin
+      alertam.Error('ERRO: '+ e.Message);
+    end;
+  end;
+end;
+
 procedure TFrmRelCaixaConta.UniSFBitBtn2Click(Sender: TObject);
 var
   resp1       :IResponse;
@@ -336,21 +784,6 @@ begin
   resp1 := nil;
   wJsonResult := nil;
   try
-{
-    "": " 2",
-    "": "0",
-    "": "0",
-    "dtIni": "01/01/2024",
-    "dtFin": "31/01/2026",
-    "": " ",
-    "": " ",
-    "": " ",
-    "": " ",
-    "": " ",
-    "": " ",
-    "": " ",
-    "": "0"
-}
     jsonBody := TJSONObject.Create;
     try
       jsonBody.AddPair('empresa', vvcodemp);
@@ -385,8 +818,8 @@ begin
 //        var wResult : TJSONObject;
 //        wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
 
-        //wpastaTmpPdf é temporário. só deve vir  a url
-        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue('local').Value;
 
         UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
   //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
@@ -480,8 +913,8 @@ begin
 //        var wResult : TJSONObject;
 //        wResult := TJSONObject.ParseJSONValue(resp1.Content) as TJSONObject;
 
-        //wpastaTmpPdf é temporário. só deve vir  a url
-        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+//        wUrlRelatorioTmpPdf := 'C:\ProjetoHciApi\TMP' + wResult.GetValue('nomeArquivo').Value;
+        wUrlRelatorioTmpPdf := wResult.GetValue('local').Value;
 
         UniSession.AddJS( 'window.open(' + QuotedStr(wUrlRelatorioTmpPdf) + ', ''_blank'');');
   //      wUrlRelatorioTmpPdf := dm.wPastaTmpPdf + wResult.GetValue('nomeArquivo').Value;
